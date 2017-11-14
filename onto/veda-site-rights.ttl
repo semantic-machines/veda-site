@@ -1,0 +1,38 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix v-fs: <http://semantic-machines.com/veda/veda-search/> .
+@prefix v-s: <http://semantic-machines.com/veda/veda-schema/> .
+@prefix v-ui: <http://semantic-machines.com/veda/veda-ui/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix d: <http://semantic-machines.com/veda/veda-data/> .
+@prefix site: <http://semantic-machines.com/veda-site/> .
+
+<http://semantic-machines.com/veda/veda-site-rights>
+  rdf:type owl:Ontology ;
+  rdfs:label "Veda site. Rights"@en ;
+  rdfs:label "Сайт Veda. Права"@ru ;
+#  owl:versionInfo "1.3" ;
+  v-s:loadPriority 10 ;
+.
+
+### RIGHTS ###
+
+site:SiteAdmin
+  rdf:type v-s:Group ;
+  rdfs:label "Группа администраторов сайта"@ru ;
+  rdfs:label "Site admin group"@en ;
+.
+
+site:SiteAdminPermission
+  rdf:type v-s:PermissionStatement ;
+  rdfs:label "Полномочия группы администраторов сайта"@ru ;
+  rdfs:label "Site admin group permissions"@en ;
+  v-s:permissionSubject site:SiteAdmin ;
+  v-s:permissionObject site:Page, site:Section, site:Article, site:Category, site:Comment ;
+  v-s:permissionObject site:Page_group, site:Section_group, site:Article_group, site:Category_group ;
+  v-s:canCreate "true"^^xsd:boolean ;
+  v-s:canRead "true"^^xsd:boolean ;
+  v-s:canUpdate "true"^^xsd:boolean ;
+  v-s:canDelete "true"^^xsd:boolean ;
+.
