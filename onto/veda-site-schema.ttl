@@ -23,13 +23,7 @@ site:Page
   rdfs:subClassOf owl:Thing ;
   rdfs:label "Страница"@ru ;
   rdfs:label "Page"@en ;
-.
-
-site:Section
-  rdf:type owl:Class ;
-  rdfs:subClassOf owl:Thing ;
-  rdfs:label "Раздел"@ru ;
-  rdfs:label "Section"@en ;
+  v-ui:hasTemplate site:PageTemplate ;
 .
 
 site:Article
@@ -55,11 +49,11 @@ site:Category
 
 ### PROPERTIES ###
 
-site:hasSection
+site:hasPage
   rdf:type owl:ObjectProperty ;
-  rdfs:domain site:Article ;
-  rdfs:label "Section"@en ;
-  rdfs:label "Раздел"@ru ;
+  rdfs:domain site:Page ;
+  rdfs:label "Page"@en ;
+  rdfs:label "Страница"@ru ;
   rdfs:range site:Section ;
 .
 
@@ -73,7 +67,7 @@ site:hasCategory
 
 site:hasArticle
   rdf:type owl:ObjectProperty ;
-  rdfs:domain site:Section ;
+  rdfs:domain site:Page ;
   rdfs:label "article"@en ;
   rdfs:label "статья"@ru ;
   rdfs:range site:Article ;
@@ -93,4 +87,17 @@ site:summary
   rdfs:label "Summary"@en ;
   rdfs:label "Резюме"@ru ;
   rdfs:range xsd:string ;
+.
+
+### TEMPLATES ###
+
+site:PageTemplate
+  rdf:type v-ui:ClassTemplate ;
+  rdfs:label "Шаблон страницы по умолчанию"@ru ;
+  rdfs:label "Default page template"@en ;
+  v-ui:template """
+<div class="page container sheet">
+  <div about="@" property="rdfs:comment"></div>
+</div>
+  """ ;
 .

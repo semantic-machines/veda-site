@@ -1,0 +1,94 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix v-fs: <http://semantic-machines.com/veda/veda-search/> .
+@prefix v-s: <http://semantic-machines.com/veda/veda-schema/> .
+@prefix v-ui: <http://semantic-machines.com/veda/veda-ui/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix d: <http://semantic-machines.com/veda/veda-data/> .
+@prefix site: <http://semantic-machines.com/veda-site/> .
+
+<http://semantic-machines.com/veda/veda-site-layout>
+  rdf:type owl:Ontology ;
+  rdfs:label "Veda site. Layout"@en ;
+  rdfs:label "Сайт Veda. Макет"@ru ;
+#  owl:versionInfo "1.3" ;
+  v-s:loadPriority 10 ;
+.
+
+### LAYOUT ###
+
+site:Layout
+  rdf:type rdfs:Resource ;
+  rdfs:label "Макет сайта"@ru ;
+  rdfs:label "Site layout"@en ;
+  v-ui:hasCustomTemplate site:LayoutTemplate  ;
+.
+
+### LAYOUT TEMPLATE ####
+
+site:LayoutTemplate
+  rdf:type v-ui:ClassTemplate ;
+  rdfs:label "Шаблон макета сайта"@ru ;
+  rdfs:label "Site layout template"@en ;
+  v-ui:template """
+<div class="page">
+  <nav role="navigation" class="navbar navbar-veda">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="btn btn-info navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+          <span class="glyphicon glyphicon-menu-hamburger"></span>
+        </button>
+        <a class="navbar-brand" href="#/site:Main" class="pull-left" style="display: inline-block;"><img src="/img/veda-logo.png"></a>
+        <a class="navbar-brand" href="#/site:Main" class="pull-left" about="site:Slogan" property="rdfs:label"></a>
+      </div>
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li about="v-fs:FulltextSearch"><a href="#/@"><span class="fa fa-search"></span></a></li>
+          <li id="user-info" class="hidden"></li>
+          <li about="v-ui:AvailableLanguage" data-template="v-ui:LanguageSwitchTemplate"></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li about="site:Product"><a href="#/@" property="rdfs:label"></a></li>
+          <li about="site:Services"><a href="#/@" property="rdfs:label"></a></li>
+          <li about="site:About"><a href="#/@" property="rdfs:label"></a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div id="main"></div>
+
+  <nav id="copyright" class="navbar-fixed-bottom container clearfix">
+    <div class="pull-left">
+      <span><span property="v-s:appBuildVersion"></span> <span property="v-s:appBuildDate"></span></span>&nbsp;
+    </div>
+    <div class="pull-right text-muted" about="v-s:vedaInfo">
+      <a href="http://www.semantic-machines.com">
+        © <span about="v-l:SemanticMachines" property="rdfs:label"></span>.
+      </a>
+      <span about="v-l:License" property="rdfs:label"></span>
+      <a alt="GNU General Public License version 3 official text" href="http://www.gnu.org/licenses/gpl.html">
+        GPLv3.
+      </a>
+    </div>
+  </nav>
+</div>
+<script>
+  // Render user
+  var userInfo = $("#user-info", template);
+  var userInfoTmpl = new veda.IndividualModel("v-ui:IconPersonTemplate");
+  userInfo.empty();
+  veda.user.present(userInfo, userInfoTmpl);
+  //# sourceURL=v-l:MainPageTemplate
+</script>
+  """ ;
+.
+
+### STRINGS ###
+
+site:Slogan
+  rdf:type rdfs:Resource ;
+  rdfs:label "Автоматизация деловых процессов"@ru ;
+  rdfs:label "Business process automation"@en ;
+.

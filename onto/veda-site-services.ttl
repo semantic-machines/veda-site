@@ -1,0 +1,90 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix v-fs: <http://semantic-machines.com/veda/veda-search/> .
+@prefix v-s: <http://semantic-machines.com/veda/veda-schema/> .
+@prefix v-ui: <http://semantic-machines.com/veda/veda-ui/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix d: <http://semantic-machines.com/veda/veda-data/> .
+@prefix site: <http://semantic-machines.com/veda-site/> .
+
+<http://semantic-machines.com/veda/veda-site-product>
+  rdf:type owl:Ontology ;
+  rdfs:label "Veda site. Services"@en ;
+  rdfs:label "Сайт Veda. Услуги"@ru ;
+#  owl:versionInfo "1.3" ;
+  v-s:loadPriority 10 ;
+.
+
+### SERVICES PAGE ###
+
+site:Services
+  rdf:type site:Page ;
+  rdfs:label "Услуги"@ru ;
+  rdfs:label "Services"@en ;
+  v-ui:hasCustomTemplate site:ServicesTemplate ;
+  site:hasPage site:CustomDevelopment ;
+  site:hasPage site:ComplexAutomation ;
+  site:hasPage site:Implementation ;
+  site:hasPage site:Training ;
+  site:hasPage site:Support ;
+  site:hasPage site:Consulting ;
+.
+
+### SERVICES PAGE TEMPLATE ####
+
+site:ServicesTemplate
+  rdf:type v-ui:ClassTemplate ;
+  rdfs:label "Шаблон страницы услуг"@ru ;
+  rdfs:label "Services page template"@en ;
+  v-ui:template """
+<div class="page container sheet">
+  <div class="row">
+    <div class="col-md-2 col-sm-4">
+      <ul class="list-group" rel="site:hasPage">
+        <a class="list-group-item" about="@" property="rdfs:label" href="#/@"></a>
+      </ul>
+    </div>
+    <div class="col-md-10 col-sm-8">
+      Содержание
+    </div>
+  </div>
+</div>
+  """ ;
+.
+
+site:CustomDevelopment
+  rdf:type site:Page ;
+  rdfs:label "Индивидуальная разработка"@ru ;
+  rdfs:label "Custom development"@en ;
+.
+
+site:ComplexAutomation
+  rdf:type site:Page ;
+  rdfs:label "Комплексная автоматизация"@ru ;
+  rdfs:label "Complex automation"@en ;
+.
+
+site:Implementation
+  rdf:type site:Page ;
+  rdfs:label "Внедрение"@ru ;
+  rdfs:label "Implementation"@en ;
+.
+
+site:Training
+  rdf:type site:Page ;
+  rdfs:label "Обучение"@ru ;
+  rdfs:label "Training"@en ;
+.
+
+site:Support
+  rdf:type site:Page ;
+  rdfs:label "Поддержка"@ru ;
+  rdfs:label "Support"@en ;
+.
+
+site:Consulting
+  rdf:type site:Page ;
+  rdfs:label "Консультирование"@ru ;
+  rdfs:label "Consulting"@en ;
+.

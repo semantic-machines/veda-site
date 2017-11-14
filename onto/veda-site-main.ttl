@@ -1,0 +1,42 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix v-fs: <http://semantic-machines.com/veda/veda-search/> .
+@prefix v-s: <http://semantic-machines.com/veda/veda-schema/> .
+@prefix v-ui: <http://semantic-machines.com/veda/veda-ui/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix d: <http://semantic-machines.com/veda/veda-data/> .
+@prefix site: <http://semantic-machines.com/veda-site/> .
+
+<http://semantic-machines.com/veda/veda-site-main>
+  rdf:type owl:Ontology ;
+  rdfs:label "Veda site. Main page"@en ;
+  rdfs:label "Сайт Veda. Главная страница"@ru ;
+#  owl:versionInfo "1.3" ;
+  v-s:loadPriority 10 ;
+.
+
+### MAIN PAGE ###
+
+site:Main
+  rdf:type site:Page ;
+  rdfs:label "Главная страница"@ru ;
+  rdfs:label "Main page"@en ;
+  v-ui:hasCustomTemplate site:MainTemplate ;
+  site:hasPage site:Product ;
+  site:hasPage site:Services ;
+  site:hasPage site:About ;
+.
+
+### MAIN PAGE TEMPLATE ####
+
+site:MainTemplate
+  rdf:type v-ui:ClassTemplate ;
+  rdfs:label "Шаблон главной страницы"@ru ;
+  rdfs:label "Main page template"@en ;
+  v-ui:template """
+<div class="page container sheet">
+  Главная страница!
+</div>
+  """ ;
+.
