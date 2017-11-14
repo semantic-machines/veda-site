@@ -6,62 +6,56 @@
 @prefix v-ui: <http://semantic-machines.com/veda/veda-ui/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix d: <http://semantic-machines.com/veda/veda-data/> .
-@prefix td: <http://semantic-machines.com/veda/test-data/> .
 
-<http://semantic-machines.com/veda/veda-schema-Site>
+@prefix site: <http://semantic-machines.com/veda-site/> .
+
+<http://semantic-machines.com/veda/veda-site>
   rdf:type owl:Ontology ;
-  rdfs:label "Veda system ontology. Site"@en ;
-  rdfs:label "Онтология системы Veda. Сайт"@ru ;
+  rdfs:label "Veda site ontology"@en ;
+  rdfs:label "Онтология сайта Veda"@ru ;
 #  owl:versionInfo "1.3" ;
   v-s:loadPriority 10 ;
 .
 
 ### CLASSES ####
 
-v-s:RegistrationRequest
+site:RegistrationRequest
   rdf:type owl:Class ;
   rdfs:subClassOf v-s:SystemThing ;
   rdfs:label "Registration request"@en ;
   rdfs:label "Запрос на регистрацию"@ru ;
-  v-ui:hasTemplate v-s:RegistrationRequestTemplate ;
+  v-ui:hasTemplate site:RegistrationRequestTemplate ;
 .
 
-v-s:Site
-  rdf:type owl:Class ;
-  rdfs:subClassOf owl:Thing ;
-  rdfs:label "Сайт"@ru ;
-  rdfs:label "Site"@en ;
-.
-
-v-s:Page
+site:Page
   rdf:type owl:Class ;
   rdfs:subClassOf owl:Thing ;
   rdfs:label "Страница"@ru ;
   rdfs:label "Page"@en ;
 .
 
-v-s:Section
+site:Section
   rdf:type owl:Class ;
   rdfs:subClassOf owl:Thing ;
   rdfs:label "Раздел"@ru ;
   rdfs:label "Section"@en ;
 .
 
-v-s:Article
+site:Article
   rdf:type owl:Class ;
   rdfs:subClassOf owl:Thing ;
   rdfs:label "Статья"@ru ;
   rdfs:label "Article"@en ;
 .
 
-v-s:Comment
+site:Comment
   rdf:type owl:Class ;
   rdfs:subClassOf owl:Thing ;
   rdfs:label "Комментарий"@ru ;
   rdfs:label "Comment"@en ;
 .
 
-v-s:Category
+site:Category
   rdf:type owl:Class ;
   rdfs:subClassOf owl:Thing ;
   rdfs:label "Категория"@ru ;
@@ -70,48 +64,41 @@ v-s:Category
 
 ### PROPERTIES ###
 
-v-s:url
-  rdf:type owl:DatatypeProperty ;
-  rdfs:domain v-s:Site ;
-  rdfs:label "URL" ;
-  rdfs:range xsd:string ;
-.
-
-v-s:hasSection
+site:hasSection
   rdf:type owl:ObjectProperty ;
-  rdfs:domain v-s:Article ;
+  rdfs:domain site:Article ;
   rdfs:label "Section"@en ;
   rdfs:label "Раздел"@ru ;
-  rdfs:range v-s:Section ;
+  rdfs:range site:Section ;
 .
 
-v-s:hasCategory
+site:hasCategory
   rdf:type owl:ObjectProperty ;
-  rdfs:domain v-s:Article ;
+  rdfs:domain site:Article ;
   rdfs:label "Category"@en ;
   rdfs:label "Категория"@ru ;
-  rdfs:range v-s:Category ;
+  rdfs:range site:Category ;
 .
 
 site:hasArticle
   rdf:type owl:ObjectProperty ;
-  rdfs:domain v-s:Section ;
+  rdfs:domain site:Section ;
   rdfs:label "article"@en ;
   rdfs:label "статья"@ru ;
-  rdfs:range v-s:Article ;
+  rdfs:range site:Article ;
 .
 
-v-s:heading
+site:heading
   rdf:type owl:DatatypeProperty ;
-  rdfs:domain v-s:Article ;
+  rdfs:domain site:Article ;
   rdfs:label "Heading"@en ;
   rdfs:label "Заголовок"@ru ;
   rdfs:range xsd:string ;
 .
 
-v-s:summary
+site:summary
   rdf:type owl:DatatypeProperty ;
-  rdfs:domain v-s:Article ;
+  rdfs:domain site:Article ;
   rdfs:label "Summary"@en ;
   rdfs:label "Резюме"@ru ;
   rdfs:range xsd:string ;
@@ -119,7 +106,7 @@ v-s:summary
 
 ### TEMPLATES ###
 
-v-s:RegistrationRequestTemplate
+site:RegistrationRequestTemplate
   rdf:type v-ui:ClassTemplate ;
   rdfs:label "Registration request template" ;
   rdfs:label "Шаблон запроса на регистрацию"@ru ;
@@ -149,19 +136,19 @@ v-s:RegistrationRequestTemplate
 
 ### SECURITY ###
 
-v-s:SiteAdmin
+site:SiteAdmin
   rdf:type v-s:Group ;
   rdfs:label "Группа администраторов сайта"@ru ;
   rdfs:label "Site admin group"@en ;
 .
 
-v-s:SiteAdminPermission
+site:SiteAdminPermission
   rdf:type v-s:PermissionStatement ;
   rdfs:label "Полномочия группы администраторов сайта"@ru ;
   rdfs:label "Site admin group permissions"@en ;
-  v-s:permissionSubject v-s:SiteAdmin ;
-  v-s:permissionObject v-s:Page, v-s:Section, v-s:Article, v-s:Category, v-s:Comment ;
-  v-s:permissionObject v-s:Page_group, v-s:Section_group, v-s:Article_group, v-s:Category_group ;
+  v-s:permissionSubject site:SiteAdmin ;
+  v-s:permissionObject site:Page, site:Section, site:Article, site:Category, site:Comment ;
+  v-s:permissionObject site:Page_group, site:Section_group, site:Article_group, site:Category_group ;
   v-s:canCreate "true"^^xsd:boolean ;
   v-s:canRead "true"^^xsd:boolean ;
   v-s:canUpdate "true"^^xsd:boolean ;
