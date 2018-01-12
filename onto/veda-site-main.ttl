@@ -10,33 +10,43 @@
 
 <http://semantic-machines.com/veda/veda-site-main>
   rdf:type owl:Ontology ;
-  rdfs:label "Veda site. Main page"@en ;
   rdfs:label "Сайт Veda. Главная страница"@ru ;
+  rdfs:label "Veda site. Main page"@en ;
 #  owl:versionInfo "1.3" ;
   v-s:loadPriority 10 ;
 .
 
-### MAIN PAGE ###
+### MAIN ###
 
 site:Main
   rdf:type site:Page ;
   rdfs:label "Главная страница"@ru ;
   rdfs:label "Main page"@en ;
   v-ui:hasCustomTemplate site:MainTemplate ;
-  site:hasPage site:Product ;
+  site:hasPage site:Platform ;
+  site:hasPage site:Solutions ;
   site:hasPage site:Services ;
   site:hasPage site:About ;
+  site:hasPage site:VedaOnline ;
 .
 
-### MAIN PAGE TEMPLATE ####
+### MAIN TEMPLATE ####
 
 site:MainTemplate
   rdf:type v-ui:ClassTemplate ;
   rdfs:label "Шаблон главной страницы"@ru ;
   rdfs:label "Main page template"@en ;
   v-ui:template """
-<div class="page container sheet">
-  Главная страница!
+<div>
+  <div about="site:Platform" template="site:PlatformMainTemplate"></div>
+  <br>
+  <div about="site:Solutions" template="site:SolutionsMainTemplate"></div>
+  <br>
+  <div about="site:Services" template="site:ServicesMainTemplate"></div>
+  <br>
+  <div about="site:About" template="site:AboutMainTemplate"></div>
+  <br>
+  <div about="site:VedaOnline" template="site:VedaOnlineMainTemplate"></div>
 </div>
   """ ;
 .

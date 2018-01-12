@@ -10,8 +10,8 @@
 
 <http://semantic-machines.com/veda/veda-site-rights>
   rdf:type owl:Ontology ;
-  rdfs:label "Veda site. Rights"@en ;
   rdfs:label "Сайт Veda. Права"@ru ;
+  rdfs:label "Veda site. Rights"@en ;
 #  owl:versionInfo "1.3" ;
   v-s:loadPriority 10 ;
 .

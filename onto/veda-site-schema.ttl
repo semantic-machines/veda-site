@@ -10,8 +10,8 @@
 
 <http://semantic-machines.com/veda/veda-site-schema>
   rdf:type owl:Ontology ;
-  rdfs:label "Veda site. Schema"@en ;
   rdfs:label "Сайт Veda. Схема"@ru ;
+  rdfs:label "Veda site. Schema"@en ;
 #  owl:versionInfo "1.3" ;
   v-s:loadPriority 10 ;
 .
@@ -52,40 +52,40 @@ site:Category
 site:hasPage
   rdf:type owl:ObjectProperty ;
   rdfs:domain site:Page ;
-  rdfs:label "Page"@en ;
   rdfs:label "Страница"@ru ;
-  rdfs:range site:Section ;
+  rdfs:label "Page"@en ;
+  rdfs:range site:Page ;
 .
 
 site:hasCategory
   rdf:type owl:ObjectProperty ;
   rdfs:domain site:Article ;
-  rdfs:label "Category"@en ;
   rdfs:label "Категория"@ru ;
+  rdfs:label "Category"@en ;
   rdfs:range site:Category ;
 .
 
 site:hasArticle
   rdf:type owl:ObjectProperty ;
   rdfs:domain site:Page ;
-  rdfs:label "article"@en ;
   rdfs:label "статья"@ru ;
+  rdfs:label "article"@en ;
   rdfs:range site:Article ;
 .
 
 site:heading
   rdf:type owl:DatatypeProperty ;
   rdfs:domain site:Article ;
-  rdfs:label "Heading"@en ;
   rdfs:label "Заголовок"@ru ;
+  rdfs:label "Heading"@en ;
   rdfs:range xsd:string ;
 .
 
 site:summary
   rdf:type owl:DatatypeProperty ;
   rdfs:domain site:Article ;
-  rdfs:label "Summary"@en ;
   rdfs:label "Резюме"@ru ;
+  rdfs:label "Summary"@en ;
   rdfs:range xsd:string ;
 .
 
@@ -96,8 +96,10 @@ site:PageTemplate
   rdfs:label "Шаблон страницы по умолчанию"@ru ;
   rdfs:label "Default page template"@en ;
   v-ui:template """
-<div class="page container sheet">
-  <div about="@" property="rdfs:comment"></div>
+<div class="container">
+  <div class="sheet">
+    <div about="@" property="rdfs:comment"></div>
+  </div>
 </div>
   """ ;
 .

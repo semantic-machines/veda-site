@@ -8,31 +8,29 @@
 @prefix d: <http://semantic-machines.com/veda/veda-data/> .
 @prefix site: <http://semantic-machines.com/veda-site/> .
 
-<http://semantic-machines.com/veda/veda-site-product>
+<http://semantic-machines.com/veda/veda-site-veda-online>
   rdf:type owl:Ontology ;
-  rdfs:label "Сайт Veda. О компании"@ru ;
-  rdfs:label "Veda site. About"@en ;
+  rdfs:label "Сайт Veda. Veda онлайн"@ru ;
+  rdfs:label "Veda site. Veda online"@en ;
 #  owl:versionInfo "1.3" ;
   v-s:loadPriority 10 ;
 .
 
-### ABOUT ###
+### VEDA ONLINE ###
 
-site:About
+site:VedaOnline
   rdf:type site:Page ;
-  rdfs:label "О компании"@ru ;
-  rdfs:label "About us"@en ;
-  v-ui:hasCustomTemplate site:AboutTemplate ;
-  site:hasPage site:Customers ;
-  site:hasPage site:Partners ;
+  rdfs:label "Veda онлайн"@ru ;
+  rdfs:label "Veda online"@en ;
+  v-ui:hasCustomTemplate site:VedaOnlineTemplate ;
 .
 
-### ABOUT TEMPLATES ####
+### VEDA ONLINE TEMPLATES ####
 
-site:AboutMainTemplate
+site:VedaOnlineMainTemplate
   rdf:type v-ui:ClassTemplate ;
-  rdfs:label "Шаблон страницы о компании"@ru ;
-  rdfs:label "About page template"@en ;
+  rdfs:label "Шаблон страницы Veda онлайн"@ru ;
+  rdfs:label "Veda online page template"@en ;
   v-ui:template """
 <div class="container">
   <div class="sheet">
@@ -42,10 +40,10 @@ site:AboutMainTemplate
   """ ;
 .
 
-site:AboutTemplate
+site:VedaOnlineTemplate
   rdf:type v-ui:ClassTemplate ;
-  rdfs:label "Шаблон страницы о компании"@ru ;
-  rdfs:label "About page template"@en ;
+  rdfs:label "Шаблон страницы Veda онлайн"@ru ;
+  rdfs:label "Veda online page template"@en ;
   v-ui:template """
 <div class="container">
   <div class="sheet">
@@ -53,17 +51,4 @@ site:AboutTemplate
   </div>
 </div>
   """ ;
-.
-
-
-site:Customers
-  rdf:type site:Page ;
-  rdfs:label "Клиенты"@ru ;
-  rdfs:label "Customers"@en ;
-.
-
-site:Partners
-  rdf:type site:Page ;
-  rdfs:label "Партнерам"@ru ;
-  rdfs:label "Partnership"@en ;
 .

@@ -10,13 +10,13 @@
 
 <http://semantic-machines.com/veda/veda-site-product>
   rdf:type owl:Ontology ;
-  rdfs:label "Veda site. Services"@en ;
   rdfs:label "Сайт Veda. Услуги"@ru ;
+  rdfs:label "Veda site. Services"@en ;
 #  owl:versionInfo "1.3" ;
   v-s:loadPriority 10 ;
 .
 
-### SERVICES PAGE ###
+### SERVICES ###
 
 site:Services
   rdf:type site:Page ;
@@ -31,23 +31,29 @@ site:Services
   site:hasPage site:Consulting ;
 .
 
-### SERVICES PAGE TEMPLATE ####
+### SERVICES TEMPLATES ####
+
+site:ServicesMainTemplate
+  rdf:type v-ui:ClassTemplate ;
+  rdfs:label "Шаблон страницы услуг"@ru ;
+  rdfs:label "Services page template"@en ;
+  v-ui:template """
+<div class="container">
+  <div class="sheet">
+    <h1 about="@" property="rdfs:label"></h1>
+  </div>
+</div>
+  """ ;
+.
 
 site:ServicesTemplate
   rdf:type v-ui:ClassTemplate ;
   rdfs:label "Шаблон страницы услуг"@ru ;
   rdfs:label "Services page template"@en ;
   v-ui:template """
-<div class="page container sheet">
-  <div class="row">
-    <div class="col-md-2 col-sm-4">
-      <ul class="list-group" rel="site:hasPage">
-        <a class="list-group-item" about="@" property="rdfs:label" href="#/@"></a>
-      </ul>
-    </div>
-    <div class="col-md-10 col-sm-8">
-      Содержание
-    </div>
+<div class="container">
+  <div class="sheet">
+    <h1 about="@" property="rdfs:label"></h1>
   </div>
 </div>
   """ ;

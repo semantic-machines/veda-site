@@ -1,0 +1,76 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix v-fs: <http://semantic-machines.com/veda/veda-search/> .
+@prefix v-s: <http://semantic-machines.com/veda/veda-schema/> .
+@prefix v-ui: <http://semantic-machines.com/veda/veda-ui/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix d: <http://semantic-machines.com/veda/veda-data/> .
+@prefix site: <http://semantic-machines.com/veda-site/> .
+
+<http://semantic-machines.com/veda/veda-site-platform>
+  rdf:type owl:Ontology ;
+  rdfs:label "Сайт Veda. Платформа"@ru ;
+  rdfs:label "Veda site. Platform"@en ;
+#  owl:versionInfo "1.3" ;
+  v-s:loadPriority 10 ;
+.
+
+### PLATFORM ###
+
+site:Platform
+  rdf:type site:Page ;
+  rdfs:label "Платформа"@ru ;
+  rdfs:label "Platform"@en ;
+  v-ui:hasCustomTemplate site:PlatformTemplate ;
+  site:hasPage site:Advantages ;
+  site:hasPage site:Documentation ;
+.
+
+### PLATFORM TEMPLATES ####
+
+site:PlatformMainTemplate
+  rdf:type v-ui:ClassTemplate ;
+  rdfs:label "Шаблон страницы продукта"@ru ;
+  rdfs:label "Product page template"@en ;
+  v-ui:template """
+<div class="container">
+  <div class="sheet">
+    <h1><span about="site:PlatformSlogan" property="rdfs:label"></span><br><small about="site:PlatformSlogan" property="rdfs:comment"></small></h1>
+  </div>
+</div>
+  """ ;
+.
+
+site:PlatformTemplate
+  rdf:type v-ui:ClassTemplate ;
+  rdfs:label "Шаблон страницы продукта"@ru ;
+  rdfs:label "Product page template"@en ;
+  v-ui:template """
+<div class="container">
+  <div class="sheet">
+    <h1><span about="site:PlatformSlogan" property="rdfs:label"></span><br><small about="site:PlatformSlogan" property="rdfs:comment"></small></h1>
+  </div>
+</div>
+  """ ;
+.
+
+site:PlatformSlogan
+  rdf:type rdfs:Resource ;
+  rdfs:label "Платформа Veda"@ru ;
+  rdfs:label "Platform Veda"@en ;
+  rdfs:comment "Автоматизация деловых процессов организации"@ru ;
+  rdfs:comment "Business process automation"@en ;
+.
+
+site:Advantages
+  rdf:type site:Page ;
+  rdfs:label "Преимущества"@ru ;
+  rdfs:label "Advantages"@en ;
+.
+
+site:Documentation
+  rdf:type site:Page ;
+  rdfs:label "Документация"@ru ;
+  rdfs:label "Documentation"@en ;
+.
