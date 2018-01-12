@@ -55,7 +55,6 @@ site:AboutTemplate
   """ ;
 .
 
-
 site:Customers
   rdf:type site:Page ;
   rdfs:label "Клиенты"@ru ;

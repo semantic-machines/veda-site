@@ -51,11 +51,7 @@ site:ServicesTemplate
   rdfs:label "Шаблон страницы услуг"@ru ;
   rdfs:label "Services page template"@en ;
   v-ui:template """
-<div class="container">
-  <div class="sheet">
-    <h1 about="@" property="rdfs:label"></h1>
-  </div>
-</div>
+<div about="@" data-template="site:SliderTemplate"></div>
   """ ;
 .
 
@@ -63,34 +59,46 @@ site:CustomDevelopment
   rdf:type site:Page ;
   rdfs:label "Индивидуальная разработка"@ru ;
   rdfs:label "Custom development"@en ;
+  v-s:shortLabel "Индивидуальная разработка"@ru ;
+  v-s:shortLabel "Custom development"@en ;
 .
 
 site:ComplexAutomation
   rdf:type site:Page ;
   rdfs:label "Комплексная автоматизация"@ru ;
   rdfs:label "Complex automation"@en ;
+  v-s:shortLabel "Комплексная автоматизация"@ru ;
+  v-s:shortLabel "Complex automation"@en ;
 .
 
 site:Implementation
   rdf:type site:Page ;
   rdfs:label "Внедрение"@ru ;
   rdfs:label "Implementation"@en ;
+  v-s:shortLabel "Внедрение"@ru ;
+  v-s:shortLabel "Implementation"@en ;
 .
 
 site:Training
   rdf:type site:Page ;
   rdfs:label "Обучение"@ru ;
   rdfs:label "Training"@en ;
+  v-s:shortLabel "Обучение"@ru ;
+  v-s:shortLabel "Training"@en ;
 .
 
 site:Support
   rdf:type site:Page ;
   rdfs:label "Поддержка"@ru ;
   rdfs:label "Support"@en ;
+  v-s:shortLabel "Поддержка"@ru ;
+  v-s:shortLabel "Support"@en ;
 .
 
 site:Consulting
   rdf:type site:Page ;
   rdfs:label "Консультирование"@ru ;
   rdfs:label "Consulting"@en ;
+  v-s:shortLabel "Консультирование"@ru ;
+  v-s:shortLabel "Consulting"@en ;
 .

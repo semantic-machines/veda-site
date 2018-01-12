@@ -23,6 +23,12 @@ site:Solutions
   rdfs:label "Решения"@ru ;
   rdfs:label "Solutions"@en ;
   v-ui:hasCustomTemplate site:SolutionsTemplate ;
+  site:hasPage site:CustomDevelopment ;
+  site:hasPage site:ComplexAutomation ;
+  site:hasPage site:Implementation ;
+  site:hasPage site:Training ;
+  site:hasPage site:Support ;
+  site:hasPage site:Consulting ;
 .
 
 ### SOLUTIONS TEMPLATES ####
@@ -45,10 +51,6 @@ site:SolutionsTemplate
   rdfs:label "Шаблон страницы решений"@ru ;
   rdfs:label "Soultions page template"@en ;
   v-ui:template """
-<div class="container">
-  <div class="sheet">
-    <h1 about="@" property="rdfs:label"></h1>
-  </div>
-</div>
+<div about="@" data-template="site:SliderTemplate"></div>
   """ ;
 .

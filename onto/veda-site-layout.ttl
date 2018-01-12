@@ -16,6 +16,14 @@
   v-s:loadPriority 10 ;
 .
 
+### STRINGS ###
+
+site:Slogan
+  rdf:type rdfs:Resource ;
+  rdfs:label "Автоматизация деловых процессов"@ru ;
+  rdfs:label "Business process automation"@en ;
+.
+
 ### LAYOUT ###
 
 site:Layout
@@ -33,7 +41,7 @@ site:LayoutTemplate
   rdfs:label "Site layout template"@en ;
   v-ui:template """
 <div class="page">
-  <nav role="navigation" class="navbar navbar-veda">
+  <nav role="navigation" class="navbar navbar-default navbar-veda">
     <div class="container">
       <div class="navbar-header">
         <button type="button" class="btn btn-info navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
@@ -48,7 +56,7 @@ site:LayoutTemplate
           <li id="user-info" class="hidden"></li>
           <li about="v-ui:AvailableLanguage" data-template="v-ui:LanguageSwitchTemplate"></li>
         </ul>
-        <ul class="nav navbar-nav navbar-right" about="site:Main" rel="site:hasPage">
+        <ul class="nav navbar-nav navbar-right nav-pages" about="site:Main" rel="site:hasPage">
           <li about="@"><a about="@" href="#/@" property="rdfs:label"></a></li>
         </ul>
       </div>
@@ -78,15 +86,130 @@ site:LayoutTemplate
   var userInfoTmpl = new veda.IndividualModel("v-ui:IconPersonTemplate");
   userInfo.empty();
   veda.user.present(userInfo, userInfoTmpl);
-  //# sourceURL=v-l:MainPageTemplate
+
+  // Mark active item
+  markActive(location.hash);
+  riot.route(markActive);
+
+  function markActive(hash) {
+    var page = hash.slice(2);
+    $(".nav-pages", template).children().removeClass("active");
+    $(".nav-pages", template).children("[resource='" + page + "']").addClass("active");
+  }
+
+//# sourceURL=v-l:MainPageTemplate
 </script>
   """ ;
 .
 
-### STRINGS ###
+### COMMON TEMPLATES ####
 
-site:Slogan
-  rdf:type rdfs:Resource ;
-  rdfs:label "Автоматизация деловых процессов"@ru ;
-  rdfs:label "Business process automation"@en ;
+site:SliderTemplate
+  rdf:type v-ui:ClassTemplate ;
+  rdfs:label "Шаблон страницы продукта"@ru ;
+  rdfs:label "Product page template"@en ;
+  v-ui:template """
+<div>
+  <div id="page-slider" class="carousel slide" data-ride="carousel" data-interval="false" style="margin-top:-15px">
+    <!-- Indicators -->
+    <ol class="carousel-indicators" about="@" rel="site:hasPage">
+      <li data-target="#page-slider" about="@" property="v-s:shortLabel"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox" about="@" rel="site:hasPage">
+      <div class="item">
+        <div about="@" rel="v-s:hasImage" data-template="v-ui:ImageSimpleTemplateWithoutBorder"></div>
+        <div class="carousel-caption container-fluid" style="position: absolute; top: 0px; left: 0px; right:0px; border:none; background-color: transparent">
+          <div class="container" style="border:none; background-color: transparent">
+            <h1 property="rdfs:label"></h1>
+            <p property="rdfs:comment"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Controls -->
+    <a class="left carousel-control" href="#page-slider" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#page-slider" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+  <br>
+  <div id="page-container"></div>
+</div>
+<script>
+  $(".carousel-indicators > li", template).each(function (index) {
+    var $this = $(this);
+    $this.attr("data-slide-to", index);
+    if (index === (individual.slideTo || 0) ) {
+      $this.addClass("active");
+    }
+  });
+  $(".carousel-inner > .item", template).each(function (index) {
+    $(this).attr("data-index", index);
+  });
+  var slider = $("#page-slider", template);
+  slider.on("slide.bs.carousel", showSlide);
+  $("body").css({
+    "overflow-y": "scroll",
+    "overflow-x": "hidden"
+  });
+  template.one("remove", function () {
+    $("body").css({
+      "overflow-y": "auto",
+      "overflow-x": "auto"
+    });
+  });
+  showSlide();
+
+  function showSlide(e) {
+    var uri, aspect, slide,
+        cntr = $("#page-container", template).empty().hide();
+    slide = e ? $(e.relatedTarget) : $("#page-slider .item", template).eq(individual.slideTo || 0).addClass("active");
+    individual.slideTo = slide.data("index");
+    uri = slide.attr("resource");
+    aspect = new veda.IndividualModel(uri);
+    aspect.present(cntr);
+    setTimeout(function () {
+      if (e) {
+        cntr.show( "slide", {direction: e.direction === "right" ? "left" : "right"}, 600);
+      } else {
+        cntr.show();
+      }
+    }, 0);
+  }
+  //# sourceURL=m-l:WelcomeAspectTemplate
+</script>
+  """ ;
+.
+
+site:ArticleTemplate1
+  rdf:type v-ui:ClassTemplate ;
+  rdfs:label "Шаблон статьи 1"@ru ;
+  rdfs:label "Article template 1"@en ;
+  v-ui:template """
+<div class="container">
+  <div class="sheet">
+    <div class="row">
+      <div class="col-md-8">
+        <h2>
+          <span property="site:heading"></span>
+          <br>
+          <span property="site:summary"></span>
+        </h2>
+        <p class="lead" property="site:content"></p>
+      </div>
+      <div class="col-md-4">
+        <div rel="v-s:hasImage" data-template="v-ui:ModalImageTemplate"></div>
+      </div>
+    </div>
+  </div>
+  <br>
+</div>
+<script>
+  //# sourceURL=m-l:WelcomeAspectTemplate
+</script>
+  """ ;
 .

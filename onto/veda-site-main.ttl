@@ -38,15 +38,15 @@ site:MainTemplate
   rdfs:label "Main page template"@en ;
   v-ui:template """
 <div>
-  <div about="site:Platform" template="site:PlatformMainTemplate"></div>
+  <div about="site:Platform" data-template="site:PlatformMainTemplate"></div>
   <br>
-  <div about="site:Solutions" template="site:SolutionsMainTemplate"></div>
+  <div about="site:Solutions" data-template="site:SolutionsMainTemplate"></div>
   <br>
-  <div about="site:Services" template="site:ServicesMainTemplate"></div>
+  <div about="site:Services" data-template="site:ServicesMainTemplate"></div>
   <br>
-  <div about="site:About" template="site:AboutMainTemplate"></div>
+  <div about="site:About" data-template="site:AboutMainTemplate"></div>
   <br>
-  <div about="site:VedaOnline" template="site:VedaOnlineMainTemplate"></div>
+  <div about="site:VedaOnline" data-template="site:VedaOnlineMainTemplate"></div>
 </div>
   """ ;
 .

@@ -31,6 +31,7 @@ site:Article
   rdfs:subClassOf owl:Thing ;
   rdfs:label "Статья"@ru ;
   rdfs:label "Article"@en ;
+  v-ui:hasTemplate site:ArticleTemplate1 ;
 .
 
 site:Comment
@@ -89,6 +90,14 @@ site:summary
   rdfs:range xsd:string ;
 .
 
+site:content
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain site:Article ;
+  rdfs:label "Содержание"@ru ;
+  rdfs:label "Content"@en ;
+  rdfs:range xsd:string ;
+.
+
 ### TEMPLATES ###
 
 site:PageTemplate
@@ -96,10 +105,6 @@ site:PageTemplate
   rdfs:label "Шаблон страницы по умолчанию"@ru ;
   rdfs:label "Default page template"@en ;
   v-ui:template """
-<div class="container">
-  <div class="sheet">
-    <div about="@" property="rdfs:comment"></div>
-  </div>
-</div>
+<div rel="site:hasArticle"></div>
   """ ;
 .
