@@ -45,8 +45,8 @@ site:PlatformMainTemplate
 
 site:PlatformTemplate
   rdf:type v-ui:ClassTemplate ;
-  rdfs:label "Шаблон страницы продукта"@ru ;
-  rdfs:label "Product page template"@en ;
+  rdfs:label "Шаблон страницы платформы"@ru ;
+  rdfs:label "Platform page template"@en ;
   v-ui:template """
 <div about="@" data-template="site:SliderTemplate"></div>
   """ ;
@@ -69,6 +69,7 @@ site:Advantages
   v-s:hasImage site:ImageCosmos ;
   site:hasArticle site:AdvantagesArticle1 ;
   site:hasArticle site:AdvantagesArticle2 ;
+  site:hasArticle site:AdvantagesArticle3 ;
 .
 
 site:Features
@@ -78,6 +79,9 @@ site:Features
   v-s:shortLabel "Возможности"@ru ;
   v-s:shortLabel "Features"@en ;
   v-s:hasImage site:ImageCosmos ;
+  site:hasArticle site:FeaturesArticle1 ;
+  site:hasArticle site:FeaturesArticle2 ;
+  site:hasArticle site:FeaturesArticle3 ;
 .
 
 site:Documentation
@@ -99,6 +103,8 @@ site:ImageCosmos
 
 ### ARTICLES ###
 
+### ADVANTAGES ###
+
 site:AdvantagesArticle1
   rdf:type site:Article ;
   rdfs:label "Статья. Преимущества 1"@ru ;
@@ -117,10 +123,10 @@ site:AdvantagesArticle1
 * High development speed. Ontology changes are processed on the fly.
 * Versatile data visualization methods.
   """@en ;
-  v-s:hasImage site:ImageHydra ;
+  v-s:hasImage site:AdvantagesArticleImage1 ;
 .
 
-site:ImageHydra
+site:AdvantagesArticleImage1
   rdf:type v-s:File ;
   v-s:fileUri "hydra.png" ;
   v-s:fileName "hydra.png" ;
@@ -141,10 +147,137 @@ site:AdvantagesArticle2
 * «Thin» stateless server.
 * Full featured stateful single page application in browser.
   """@en ;
-  v-s:hasImage site:ArticleImage2 ;
+  v-s:hasImage site:AdvantagesArticleImage2 ;
+  v-ui:hasCustomTemplate site:ArticleTemplate2 ;
 .
 
-site:ArticleImage2
+site:AdvantagesArticleImage2
+  rdf:type v-s:File ;
+  v-s:fileUri "thin-server.png" ;
+  v-s:fileName "thin-server.png" ;
+  v-s:filePath "/site" ;
+.
+
+site:AdvantagesArticle3
+  rdf:type site:Article ;
+  site:heading "Высокая производительность и масштабируемость"@ru ;
+  site:heading "High performance & scalability"@en ;
+  site:content """
+* На 2000 активных пользователей работает 1 виртуальный сервер, 4 ядра, 32 Gb RAM (из них используется 15-20%).
+* Количество пользователей работающих одновременно – 400 человек.
+  """@ru ;
+  site:content """
+* 1 virtual server for 2000 active users, 4 cores, 32 Gb RAM (15-20% used).
+* 400 simultaneous users.
+  """@en ;
+  v-s:hasImage site:AdvantagesArticleImage3 ;
+.
+
+site:AdvantagesArticleImage3
+  rdf:type v-s:File ;
+  v-s:fileUri "scalability.png" ;
+  v-s:fileName "scalability.png" ;
+  v-s:filePath "/site" ;
+.
+
+
+### FEATURES ###
+
+site:FeaturesArticle1
+  rdf:type site:Article ;
+  rdfs:label "Статья. Возможности 1"@ru ;
+  rdfs:label "Article. Features 1"@en ;
+  site:heading "Управление хранилищем данных"@ru ;
+  site:heading "Data storage management"@en ;
+  site:content """
+* Проектирование, редактирование, удаление и создание классов, свойств и шаблонов объектов с использованием словарей OWL и RDF/S.
+* Создание (заполнение и сохранение), редактирование, удаление объектов на основе разработанных классов, свойств и шаблонов.
+* Управление структурой и содержанием нормативно-справочной информации.
+* Хранение версий объектов.
+* Обеспечение взаимных связей различных объектов.
+* Поиск, сортировка объектов на основе фрагмента текста, на основе точных справочных значений.
+* Журналирование изменений объектов.
+* Формирование печатных форм объектов и статистических отчетов на основе предварительно сформированных шаблонов.
+* Импорт / экспорт данных в различных форматах.
+  """@ru ;
+  site:content """
+* Object classes, properties and templates are defined using OWL & RDF/S vocabularies.
+* Objects are stored according to defined classes, properties and templates.
+* Objects versions management support.
+* Mutual object links.
+* Fulltext and fine attributive search support.
+* Object mutations logging.
+* Print forms and statistical reports.
+* Data import / export in various formats.
+  """@en ;
+  v-s:hasImage site:FeturesArticleImage1 ;
+.
+
+site:FeturesArticleImage1
+  rdf:type v-s:File ;
+  v-s:fileUri "hydra.png" ;
+  v-s:fileName "hydra.png" ;
+  v-s:filePath "/site" ;
+.
+
+site:FeaturesArticle2
+  rdf:type site:Article ;
+  rdfs:label "Статья. Возможности 2"@ru ;
+  rdfs:label "Article. Features 2"@en ;
+  site:heading "Управление процессами документооборота"@ru ;
+  site:heading "Workflow processes management"@en ;
+  site:content """
+* Разработка шаблонов автоматизированных деловых процессов с помощью встроенного редактора.
+* Запуск, редактирование, прерывание процессов обработки документов.
+* Визуализация и журналирование хода выполнения процессов.
+* Обеспечение взаимодействия участников деловых процессов — автоматическое формирование задач, обработка ответов.
+* Поиск, сортировка задач.
+  """@ru ;
+  site:content """
+* Разработка шаблонов автоматизированных деловых процессов с помощью встроенного редактора.
+* Запуск, редактирование, прерывание процессов обработки документов.
+* Визуализация и журналирование хода выполнения процессов.
+* Обеспечение взаимодействия участников деловых процессов — автоматическое формирование задач, обработка ответов.
+* Поиск, сортировка задач.
+  """@en ;
+  v-s:hasImage site:FeturesArticleImage2 ;
+.
+
+site:FeturesArticleImage2
+  rdf:type v-s:File ;
+  v-s:fileUri "hydra.png" ;
+  v-s:fileName "hydra.png" ;
+  v-s:filePath "/site" ;
+.
+
+site:FeaturesArticle3
+  rdf:type site:Article ;
+  rdfs:label "Статья. Возможности 3"@ru ;
+  rdfs:label "Article. Features 3"@en ;
+  site:heading "Общие функции"@ru ;
+  site:heading "Common functions"@en ;
+  site:content """
+* Современный web-интерфейс с полноценной поддержкой мобильных устройств (смартфоны, планшеты).
+* Аутентификация и авторизация субъектов доступа.
+* Интгерация с MS Active Directory для обеспечения прозрачного входа в систему с доменной учетной записью (ntlm аутентификация).
+* Управление правами доступа ко всем видам объектов платформы: классам, шаблонам, документам, справочникам, задачам.
+* Делегирование полномочий  - назначение «заместителя» с автоматической передачей прав доступа.
+* Интеграция с системами кадрового учета (SAP, 1C) для отражения в системе организационной структуры предприятия.
+* Интеграция с почтовой службой для автоматических уведомлений предусмотренных деловыми процессами, автоматического ввода документов в систему.
+  """@ru ;
+  site:content """
+* Современный web-интерфейс с полноценной поддержкой мобильных устройств (смартфоны, планшеты).
+* Аутентификация и авторизация субъектов доступа.
+* Интгерация с MS Active Directory для обеспечения прозрачного входа в систему с доменной учетной записью (ntlm аутентификация).
+* Управление правами доступа ко всем видам объектов платформы: классам, шаблонам, документам, справочникам, задачам.
+* Делегирование полномочий  - назначение «заместителя» с автоматической передачей прав доступа.
+* Интеграция с системами кадрового учета (SAP, 1C) для отражения в системе организационной структуры предприятия.
+* Интеграция с почтовой службой для автоматических уведомлений предусмотренных деловыми процессами, автоматического ввода документов в систему.
+  """@en ;
+  v-s:hasImage site:FeturesArticleImage3 ;
+.
+
+site:FeturesArticleImage3
   rdf:type v-s:File ;
   v-s:fileUri "hydra.png" ;
   v-s:fileName "hydra.png" ;

@@ -180,7 +180,7 @@ site:SliderTemplate
       }
     }, 0);
   }
-  //# sourceURL=m-l:WelcomeAspectTemplate
+  //# sourceURL=site:SliderTemplate
 </script>
   """ ;
 .
@@ -209,7 +209,36 @@ site:ArticleTemplate1
   <br>
 </div>
 <script>
-  //# sourceURL=m-l:WelcomeAspectTemplate
+  //# sourceURL=site:ArticleTemplate1
+</script>
+  """ ;
+.
+
+site:ArticleTemplate2
+  rdf:type v-ui:ClassTemplate ;
+  rdfs:label "Шаблон статьи 2"@ru ;
+  rdfs:label "Article template 2"@en ;
+  v-ui:template """
+<div class="container">
+  <div class="sheet">
+    <div class="row">
+      <div class="col-md-4">
+        <div rel="v-s:hasImage" data-template="v-ui:ModalImageTemplate"></div>
+      </div>
+      <div class="col-md-8">
+        <h2>
+          <span property="site:heading"></span>
+          <br>
+          <span property="site:summary"></span>
+        </h2>
+        <p class="lead" property="site:content"></p>
+      </div>
+    </div>
+  </div>
+  <br>
+</div>
+<script>
+  //# sourceURL=site:ArticleTemplate1
 </script>
   """ ;
 .
