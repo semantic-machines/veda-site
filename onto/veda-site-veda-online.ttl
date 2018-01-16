@@ -22,7 +22,7 @@ site:VedaOnline
   rdf:type site:Page ;
   rdfs:label "Veda онлайн"@ru ;
   rdfs:label "Veda online"@en ;
-  v-ui:hasCustomTemplate site:VedaOnlineTemplate ;
+  v-ui:hasTemplate site:VedaOnlineTemplate ;
 .
 
 ### VEDA ONLINE TEMPLATES ####

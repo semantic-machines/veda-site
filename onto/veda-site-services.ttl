@@ -22,7 +22,7 @@ site:Services
   rdf:type site:Page ;
   rdfs:label "Услуги"@ru ;
   rdfs:label "Services"@en ;
-  v-ui:hasCustomTemplate site:ServicesTemplate ;
+  v-ui:hasTemplate site:ServicesTemplate ;
   site:hasPage site:CustomDevelopment ;
   site:hasPage site:ComplexAutomation ;
   site:hasPage site:Implementation ;

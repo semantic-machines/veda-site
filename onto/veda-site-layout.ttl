@@ -30,7 +30,7 @@ site:Layout
   rdf:type rdfs:Resource ;
   rdfs:label "Макет сайта"@ru ;
   rdfs:label "Site layout"@en ;
-  v-ui:hasCustomTemplate site:LayoutTemplate  ;
+  v-ui:hasTemplate site:LayoutTemplate  ;
 .
 
 ### LAYOUT TEMPLATE ####

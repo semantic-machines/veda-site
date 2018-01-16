@@ -22,7 +22,7 @@ site:Main
   rdf:type site:Page ;
   rdfs:label "Главная страница"@ru ;
   rdfs:label "Main page"@en ;
-  v-ui:hasCustomTemplate site:MainTemplate ;
+  v-ui:hasTemplate site:MainTemplate ;
   site:hasPage site:Platform ;
   site:hasPage site:Solutions ;
   site:hasPage site:Services ;

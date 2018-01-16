@@ -22,7 +22,7 @@ site:About
   rdf:type site:Page ;
   rdfs:label "О компании"@ru ;
   rdfs:label "About us"@en ;
-  v-ui:hasCustomTemplate site:AboutTemplate ;
+  v-ui:hasTemplate site:AboutTemplate ;
   site:hasPage site:Customers ;
   site:hasPage site:Partners ;
 .

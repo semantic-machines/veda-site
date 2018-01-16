@@ -22,7 +22,7 @@ site:Solutions
   rdf:type site:Page ;
   rdfs:label "Решения"@ru ;
   rdfs:label "Solutions"@en ;
-  v-ui:hasCustomTemplate site:SolutionsTemplate ;
+  v-ui:hasTemplate site:SolutionsTemplate ;
   site:hasPage site:CustomDevelopment ;
   site:hasPage site:ComplexAutomation ;
   site:hasPage site:Implementation ;

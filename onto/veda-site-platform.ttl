@@ -22,7 +22,7 @@ site:Platform
   rdf:type site:Page ;
   rdfs:label "Платформа"@ru ;
   rdfs:label "Platform"@en ;
-  v-ui:hasCustomTemplate site:PlatformTemplate ;
+  v-ui:hasTemplate site:PlatformTemplate ;
   site:hasPage site:Advantages ;
   site:hasPage site:Features ;
   site:hasPage site:Documentation ;
@@ -148,7 +148,7 @@ site:AdvantagesArticle2
 * Full featured stateful single page application in browser.
   """@en ;
   v-s:hasImage site:AdvantagesArticleImage2 ;
-  v-ui:hasCustomTemplate site:ArticleTemplate2 ;
+  v-ui:hasTemplate site:ArticleTemplate2 ;
 .
 
 site:AdvantagesArticleImage2
