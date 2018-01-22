@@ -39,13 +39,9 @@ site:MainTemplate
   v-ui:template """
 <div>
   <div about="site:Platform" data-template="site:PlatformMainTemplate"></div>
-  <br>
   <div about="site:Solutions" data-template="site:SolutionsMainTemplate"></div>
-  <br>
   <div about="site:Services" data-template="site:ServicesMainTemplate"></div>
-  <br>
   <div about="site:About" data-template="site:AboutMainTemplate"></div>
-  <br>
   <div about="site:VedaOnline" data-template="site:VedaOnlineMainTemplate"></div>
 </div>
   """ ;

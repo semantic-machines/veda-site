@@ -34,8 +34,8 @@ site:AboutMainTemplate
   rdfs:label "Шаблон страницы о компании"@ru ;
   rdfs:label "About page template"@en ;
   v-ui:template """
-<div class="container">
-  <div class="sheet">
+<div class="container-fluid bg-peter-river">
+  <div class="container">
     <h1 about="@" property="rdfs:label"></h1>
   </div>
 </div>

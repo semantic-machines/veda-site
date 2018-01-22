@@ -23,6 +23,7 @@ site:Platform
   rdfs:label "Платформа"@ru ;
   rdfs:label "Platform"@en ;
   v-ui:hasTemplate site:PlatformTemplate ;
+  v-s:hasImage site:ImageHydraContract ;
   site:hasPage site:Advantages ;
   site:hasPage site:Features ;
   site:hasPage site:Documentation ;
@@ -30,14 +31,45 @@ site:Platform
 
 ### PLATFORM TEMPLATES ####
 
+site:More
+  rdf:type rdfs:Resource ;
+  rdfs:label "Подробнее"@ru ;
+  rdfs:label "More"@en ;
+.
+
 site:PlatformMainTemplate
   rdf:type v-ui:ClassTemplate ;
   rdfs:label "Шаблон страницы продукта"@ru ;
   rdfs:label "Product page template"@en ;
   v-ui:template """
-<div class="container">
-  <div class="sheet">
-    <h1><span about="site:PlatformSlogan" property="rdfs:label"></span><br><small about="site:PlatformSlogan" property="rdfs:comment"></small></h1>
+<div class="container-fluid bg-white" style="background: linear-gradient(white, rgba(236, 240, 241,1.0));">
+  <div class="container">
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="row">
+      <div class="col-md-5">
+        <div about="@" rel="v-s:hasImage" data-template="v-ui:ImageSimpleTemplateWithoutBorder"></div>
+        </div>
+      <div class="col-md-7">
+        <h1 about="site:PlatformSlogan" style="line-height: 1; color: #333;">
+          <span>
+            <span property="rdfs:label"></span>
+            <br>
+            <small property="rdfs:comment" style="color: #333;"></small>
+          </span>
+        </h1>
+        <br>
+        <a href="#/@" class="btn btn-lg btn-primary">
+          <span about="site:More" property="rdfs:label"></span>
+        </a>
+      </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
   </div>
 </div>
   """ ;
@@ -56,8 +88,25 @@ site:PlatformSlogan
   rdf:type rdfs:Resource ;
   rdfs:label "Платформа Veda"@ru ;
   rdfs:label "Platform Veda"@en ;
-  rdfs:comment "Автоматизация деловых процессов организации"@ru ;
-  rdfs:comment "Business process automation"@en ;
+  rdfs:comment """
+
+Современная платформа
+
+с открытым исходным текстом.
+
+
+Позволяет быстро и легко создавать решения
+
+для автоматизации деловых процессов предприятия."""@ru ;
+  rdfs:comment """
+
+Modern open-source platform.
+
+
+Allows rapid solutions development
+
+for enterprize business-process automation.
+  """@en ;
 .
 
 site:Advantages
@@ -66,7 +115,7 @@ site:Advantages
   rdfs:label "Advantages"@en ;
   v-s:shortLabel "Преимущества"@ru ;
   v-s:shortLabel "Advantages"@en ;
-  v-s:hasImage site:ImageCosmos ;
+  v-s:hasImage site:ImageLamp ;
   site:hasArticle site:AdvantagesArticle1 ;
   site:hasArticle site:AdvantagesArticle2 ;
   site:hasArticle site:AdvantagesArticle3 ;
@@ -78,7 +127,7 @@ site:Features
   rdfs:label "Features"@en ;
   v-s:shortLabel "Возможности"@ru ;
   v-s:shortLabel "Features"@en ;
-  v-s:hasImage site:ImageCosmos ;
+  v-s:hasImage site:ImageLamp ;
   site:hasArticle site:FeaturesArticle1 ;
   site:hasArticle site:FeaturesArticle2 ;
   site:hasArticle site:FeaturesArticle3 ;
@@ -90,13 +139,27 @@ site:Documentation
   rdfs:label "Documentation"@en ;
   v-s:shortLabel "Документация"@ru ;
   v-s:shortLabel "Documentation"@en ;
-  v-s:hasImage site:ImageCosmos ;
+  v-s:hasImage site:ImageLamp ;
 .
 
 site:ImageCosmos
   rdf:type v-s:File ;
   v-s:fileUri "cosmos.jpg" ;
   v-s:fileName "cosmos.jpg" ;
+  v-s:filePath "/site" ;
+.
+
+site:ImageLamp
+  rdf:type v-s:File ;
+  v-s:fileUri "lamp.jpg" ;
+  v-s:fileName "lamp.jpg" ;
+  v-s:filePath "/site" ;
+.
+
+site:ImageHydraContract
+  rdf:type v-s:File ;
+  v-s:fileUri "hydra-contract.png" ;
+  v-s:fileName "hydra-contract.png" ;
   v-s:filePath "/site" ;
 .
 
@@ -234,11 +297,10 @@ site:FeaturesArticle2
 * Поиск, сортировка задач.
   """@ru ;
   site:content """
-* Разработка шаблонов автоматизированных деловых процессов с помощью встроенного редактора.
-* Запуск, редактирование, прерывание процессов обработки документов.
-* Визуализация и журналирование хода выполнения процессов.
-* Обеспечение взаимодействия участников деловых процессов — автоматическое формирование задач, обработка ответов.
-* Поиск, сортировка задач.
+* Worflows are designed with embedded editor.
+* Worflows visualization and management (start, stop, change) are available for end-users.
+* Automatic worflow  task management - tasks assignment, decisions processing.
+* Tasks can be searched, sorted, delegated.
   """@en ;
   v-s:hasImage site:FeturesArticleImage2 ;
 .
@@ -266,13 +328,13 @@ site:FeaturesArticle3
 * Интеграция с почтовой службой для автоматических уведомлений предусмотренных деловыми процессами, автоматического ввода документов в систему.
   """@ru ;
   site:content """
-* Современный web-интерфейс с полноценной поддержкой мобильных устройств (смартфоны, планшеты).
-* Аутентификация и авторизация субъектов доступа.
-* Интгерация с MS Active Directory для обеспечения прозрачного входа в систему с доменной учетной записью (ntlm аутентификация).
-* Управление правами доступа ко всем видам объектов платформы: классам, шаблонам, документам, справочникам, задачам.
-* Делегирование полномочий  - назначение «заместителя» с автоматической передачей прав доступа.
-* Интеграция с системами кадрового учета (SAP, 1C) для отражения в системе организационной структуры предприятия.
-* Интеграция с почтовой службой для автоматических уведомлений предусмотренных деловыми процессами, автоматического ввода документов в систему.
+* Modern web-interface that fit mobile devices.
+* Users authentication and authorization.
+* MS Active directory integration for single sign-on authentication.
+* Access to every system object type of is authorized: classes, properties, user objects, dicitionaries, tasks etc.
+* Rights delegation - assignment of a deputy with automatic authorization.
+* Integration with ERP systems for master data adoption.
+* Integration with mail service for workflow initiated notifications and automated object creation from e-mail.
   """@en ;
   v-s:hasImage site:FeturesArticleImage3 ;
 .
