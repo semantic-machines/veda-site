@@ -38,7 +38,7 @@ site:ServicesMainTemplate
   rdfs:label "Шаблон страницы услуг"@ru ;
   rdfs:label "Services page template"@en ;
   v-ui:template """
-<div class="container-fluid bg-white">
+<div class="container-fluid bg-emerald">
   <div class="container">
     <h1 about="@" property="rdfs:label"></h1>
   </div>

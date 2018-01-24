@@ -42,7 +42,8 @@ site:PlatformMainTemplate
   rdfs:label "Шаблон страницы продукта"@ru ;
   rdfs:label "Product page template"@en ;
   v-ui:template """
-<div class="container-fluid bg-white" style="background: linear-gradient(white, rgba(236, 240, 241,1.0));">
+<!--div class="container-fluid bg-white" style="background: linear-gradient(white, rgba(236, 240, 241,1.0));"-->
+<div class="container-fluid bg-peter-river" style="background-image: url(/files/site:ImageSky1);">
   <div class="container">
     <br>
     <br>
@@ -51,9 +52,9 @@ site:PlatformMainTemplate
     <div class="row">
       <div class="col-md-5">
         <div about="@" rel="v-s:hasImage" data-template="v-ui:ImageSimpleTemplateWithoutBorder"></div>
-        </div>
+      </div>
       <div class="col-md-7">
-        <h1 about="site:PlatformSlogan" style="line-height: 1; color: #333;">
+        <h1 about="site:PlatformSlogan" style="line-height: 1; color: #333; text-shadow: 0px 1px 2px black;">
           <span>
             <span property="rdfs:label"></span>
             <br>
@@ -61,7 +62,7 @@ site:PlatformMainTemplate
           </span>
         </h1>
         <br>
-        <a href="#/@" class="btn btn-lg btn-primary">
+        <a href="#/@" class="btn btn-lg btn-success">
           <span about="site:More" property="rdfs:label"></span>
         </a>
       </div>
@@ -103,7 +104,7 @@ site:PlatformSlogan
 Modern open-source platform.
 
 
-Allows rapid solutions development
+Allows rapid development of solutions
 
 for enterprize business-process automation.
   """@en ;
@@ -146,6 +147,20 @@ site:ImageCosmos
   rdf:type v-s:File ;
   v-s:fileUri "cosmos.jpg" ;
   v-s:fileName "cosmos.jpg" ;
+  v-s:filePath "/site" ;
+.
+
+site:ImageSky1
+  rdf:type v-s:File ;
+  v-s:fileUri "sky1.jpeg" ;
+  v-s:fileName "sky1.jpeg" ;
+  v-s:filePath "/site" ;
+.
+
+site:ImageSky2
+  rdf:type v-s:File ;
+  v-s:fileUri "sky2.jpeg" ;
+  v-s:fileName "sky2.jpeg" ;
   v-s:filePath "/site" ;
 .
 
