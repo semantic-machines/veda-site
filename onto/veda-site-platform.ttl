@@ -96,7 +96,7 @@ site:PlatformSlogan
 с открытым исходным текстом.
 
 
-Позволяет быстро и легко создавать решения
+Позволяет быстро и легко создавать приложения
 
 для автоматизации деловых процессов предприятия."""@ru ;
   rdfs:comment """
@@ -104,7 +104,7 @@ site:PlatformSlogan
 Modern open-source platform.
 
 
-Allows rapid development of solutions
+Allows rapid development of applications
 
 for enterprize business-process automation.
   """@en ;
