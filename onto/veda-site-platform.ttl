@@ -42,8 +42,7 @@ site:PlatformMainTemplate
   rdfs:label "Шаблон страницы продукта"@ru ;
   rdfs:label "Product page template"@en ;
   v-ui:template """
-<!--div class="container-fluid bg-white" style="background: linear-gradient(white, rgba(236, 240, 241,1.0));"-->
-<div class="container-fluid bg-peter-river" style="background-image: url(/files/site:ImageSky1);">
+<div class="container-fluid bg-peter-river">
   <div class="container">
     <br>
     <br>
@@ -54,11 +53,11 @@ site:PlatformMainTemplate
         <div about="@" rel="v-s:hasImage" data-template="v-ui:ImageSimpleTemplateWithoutBorder"></div>
       </div>
       <div class="col-md-7">
-        <h1 about="site:PlatformSlogan" style="line-height: 1; color: #333; text-shadow: 0px 1px 2px black;">
+        <h1 about="site:PlatformSlogan" style="line-height: 1;">
           <span>
             <span property="rdfs:label"></span>
             <br>
-            <small property="rdfs:comment" style="color: #333;"></small>
+            <small property="rdfs:comment"></small>
           </span>
         </h1>
         <br>
@@ -173,8 +172,8 @@ site:ImageLamp
 
 site:ImageHydraContract
   rdf:type v-s:File ;
-  v-s:fileUri "hydra-contract.png" ;
-  v-s:fileName "hydra-contract.png" ;
+  v-s:fileUri "hydra-contract.svg" ;
+  v-s:fileName "hydra-contract.svg" ;
   v-s:filePath "/site" ;
 .
 
@@ -206,8 +205,8 @@ site:AdvantagesArticle1
 
 site:AdvantagesArticleImage1
   rdf:type v-s:File ;
-  v-s:fileUri "hydra.png" ;
-  v-s:fileName "hydra.png" ;
+  v-s:fileUri "hydra.svg" ;
+  v-s:fileName "hydra.svg" ;
   v-s:filePath "/site" ;
 .
 
@@ -231,8 +230,8 @@ site:AdvantagesArticle2
 
 site:AdvantagesArticleImage2
   rdf:type v-s:File ;
-  v-s:fileUri "thin-server.png" ;
-  v-s:fileName "thin-server.png" ;
+  v-s:fileUri "thin-server.svg" ;
+  v-s:fileName "thin-server.svg" ;
   v-s:filePath "/site" ;
 .
 
@@ -253,8 +252,8 @@ site:AdvantagesArticle3
 
 site:AdvantagesArticleImage3
   rdf:type v-s:File ;
-  v-s:fileUri "scalability.png" ;
-  v-s:fileName "scalability.png" ;
+  v-s:fileUri "scalability.svg" ;
+  v-s:fileName "scalability.svg" ;
   v-s:filePath "/site" ;
 .
 
@@ -293,8 +292,8 @@ site:FeaturesArticle1
 
 site:FeturesArticleImage1
   rdf:type v-s:File ;
-  v-s:fileUri "hydra.png" ;
-  v-s:fileName "hydra.png" ;
+  v-s:fileUri "hydra.svg" ;
+  v-s:fileName "hydra.svg" ;
   v-s:filePath "/site" ;
 .
 
@@ -302,8 +301,8 @@ site:FeaturesArticle2
   rdf:type site:Article ;
   rdfs:label "Статья. Возможности 2"@ru ;
   rdfs:label "Article. Features 2"@en ;
-  site:heading "Управление процессами документооборота"@ru ;
-  site:heading "Workflow processes management"@en ;
+  site:heading "Управление деловыми процессами"@ru ;
+  site:heading "Business processes management"@en ;
   site:content """
 * Разработка шаблонов автоматизированных деловых процессов с помощью встроенного редактора.
 * Запуск, редактирование, прерывание процессов обработки документов.
@@ -322,8 +321,8 @@ site:FeaturesArticle2
 
 site:FeturesArticleImage2
   rdf:type v-s:File ;
-  v-s:fileUri "hydra.png" ;
-  v-s:fileName "hydra.png" ;
+  v-s:fileUri "hydra.svg" ;
+  v-s:fileName "hydra.svg" ;
   v-s:filePath "/site" ;
 .
 
@@ -356,7 +355,7 @@ site:FeaturesArticle3
 
 site:FeturesArticleImage3
   rdf:type v-s:File ;
-  v-s:fileUri "hydra.png" ;
-  v-s:fileName "hydra.png" ;
+  v-s:fileUri "hydra.svg" ;
+  v-s:fileName "hydra.svg" ;
   v-s:filePath "/site" ;
 .

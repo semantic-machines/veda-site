@@ -23,13 +23,21 @@ site:Applications
   rdfs:label "Приложения"@ru ;
   rdfs:label "Applications"@en ;
   v-ui:hasTemplate site:ApplicationsTemplate ;
-  v-s:hasImage site:ImageAspectsSVG ;
-  site:hasPage site:CustomDevelopment ;
-  site:hasPage site:ComplexAutomation ;
-  site:hasPage site:Implementation ;
-  site:hasPage site:Training ;
-  site:hasPage site:Support ;
-  site:hasPage site:Consulting ;
+  v-s:hasImage site:ImageAspects ;
+  site:hasPage site:ApplicationsContractors ;
+  site:hasPage site:ApplicationsContracts ;
+  site:hasPage site:ApplicationsAccountingDocs ;
+  site:hasPage site:ApplicationsMeetings ;
+  site:hasPage site:ApplicationsAudits ;
+  site:hasPage site:ApplicationsInnovations ;
+  site:hasPage site:ApplicationsInternalServices ;
+  site:hasPage site:ApplicationsClaims ;
+  site:hasPage site:ApplicationsDocflow;
+  site:hasPage site:ApplicationsSecurity;
+  site:hasPage site:ApplicationsTechnicalDocs;
+  site:hasPage site:ApplicationsHR;
+  site:hasPage site:ApplicationsITSM;
+  site:hasPage site:ApplicationsProjects;
 .
 
 ### APPLICATIONS TEMPLATES ####
@@ -43,7 +51,7 @@ site:ApplicationsMainTemplate
   <div class="container">
     <br>
     <br>
-    <h1 about="site:ApplicationsSlogan1" style="line-height: 1; color: #333;">
+    <h1 about="site:ApplicationsMainSlogan1" style="line-height: 1; color: #333;">
       <span>
         <span property="rdfs:label"></span>
         <br>
@@ -55,7 +63,7 @@ site:ApplicationsMainTemplate
         <div about="@" rel="v-s:hasImage" data-template="v-ui:ImageSimpleTemplateWithoutBorder"></div>
       </div>
     </div>
-    <h1 about="site:ApplicationsSlogan2" style="line-height: 1; color: #333;">
+    <h1 about="site:ApplicationsMainSlogan2" style="line-height: 1; color: #333;">
       <small property="rdfs:comment" style="color: #333;"></small>
     </h1>
     <a href="#/@" class="btn btn-lg btn-primary">
@@ -75,13 +83,82 @@ site:ApplicationsTemplate
   rdfs:label "Шаблон страницы приложений"@ru ;
   rdfs:label "Applications page template"@en ;
   v-ui:template """
-<div about="@" data-template="site:SliderTemplate"></div>
+<div>
+  <div class="bg-orange">
+    <div class="container">
+      <br>
+      <br>
+      <h1 style="line-height: 1; color: #333; text-shadow: 0px 1px 2px black;">
+        <span about="site:ApplicationsSlogan1" property="rdfs:label"></span>
+        <br>
+        <small about="site:ApplicationsSlogan1" property="rdfs:comment"></small>
+      </h1>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+    </div>
+  </div>
+  <br>
+  <br>
+  <br>
+  <div class="container">
+    <div class="row" about="@" rel="site:hasPage" data-template="site:ApplicationCardTemplate"></div>
+  </div>
+</div>
+  """ ;
+.
+
+
+site:ApplicationCardTemplate
+  rdf:type v-ui:ClassTemplate ;
+  rdfs:label "Шаблон карточки приложения"@ru ;
+  rdfs:label "Application card template"@en ;
+  v-ui:template """
+<div class="col-md-4">
+  <div class="panel panel-default">
+    <div class="panel-header">
+    </div>
+    <div class="panel-body" style="height:250px">
+      <h3 about="@" property="rdfs:label"></h3>
+      <p about="@" property="rdfs:comment"></p>
+      <div about="@" rel="v-s:hasImage">
+        <img src="/files/@" width="100%">
+      </div>
+    </div>
+    <div class="panel-footer clearfix">
+      <a href="#/@" class="btn btn-primary pull-right">
+        <span about="site:More" property="rdfs:label"></span>
+      </a>
+    </div>
+  </div>
+</div>
   """ ;
 .
 
 ### INDIVIDUALS ###
 
 site:ApplicationsSlogan1
+  rdf:type rdfs:Resource ;
+  rdfs:label "Приложения"@ru ;
+  rdfs:label "Applications"@en ;
+  rdfs:comment """
+Выбирайте, что нравится,
+
+а мы сделаем, чтобы вам подошло!
+  """@ru ;
+  rdfs:comment """
+Choose what you like,
+
+we will make it fit!
+  """@en ;
+.
+
+site:ApplicationsMainSlogan1
   rdf:type rdfs:Resource ;
   rdfs:label "Приложения"@ru ;
   rdfs:label "Applications"@en ;
@@ -122,13 +199,15 @@ considering his/her position in enterprise.
   """@en ;
 .
 
-site:ApplicationsSlogan2
+site:ApplicationsMainSlogan2
   rdf:type rdfs:Resource ;
   rdfs:label "Приложения"@ru ;
   rdfs:label "Applications"@en ;
   rdfs:comment """
 
-Приложения на основе платформы Veda уже включают в себя набор объектов и процессов,
+Приложения на основе платформы Veda уже включают в себя
+
+набор самых востребованных объектов и процессов,
 
 что сокращает трудоемкость и сроки внедрения информационной системы.
 
@@ -163,14 +242,48 @@ to the actual tasks "on the fly."
 
 site:ImageAspects
   rdf:type v-s:File ;
-  v-s:fileUri "aspects.png" ;
-  v-s:fileName "aspects.png" ;
-  v-s:filePath "/site" ;
-.
-
-site:ImageAspectsSVG
-  rdf:type v-s:File ;
   v-s:fileUri "aspects.svg" ;
   v-s:fileName "aspects.svg" ;
   v-s:filePath "/site" ;
+.
+
+site:ApplicationsContractors
+  rdf:type site:Page ;
+  v-s:hasImage site:ImageContractors ;
+  rdfs:label "Контрагенты"@ru ;
+  rdfs:label "Contractors"@en ;
+  rdfs:comment "Всегда актуальная база клиентов и поставщиков у вас под рукой!"@ru ;
+  rdfs:comment "Всегда актуальная база клиентов и поставщиков у вас под рукой!"@en ;
+.
+
+site:ImageContractors
+  rdf:type v-s:File ;
+  v-s:fileUri "contractors.png" ;
+  v-s:fileName "contractors.png" ;
+  v-s:filePath "/site" ;
+.
+
+site:ApplicationsContracts
+  rdf:type site:Page ;
+  v-s:hasImage site:ImageContracts ;
+  rdfs:label "Контракты"@ru ;
+  rdfs:label "Contracts"@en ;
+  rdfs:comment "Контракты под контролем!"@ru ;
+  rdfs:comment "Контракты под контролем!"@en ;
+.
+
+site:ImageContracts
+  rdf:type v-s:File ;
+  v-s:fileUri "contracts.jpg" ;
+  v-s:fileName "contracts.jpg" ;
+  v-s:filePath "/site" ;
+.
+
+site:ApplicationsAccountingDocs
+  rdf:type site:Page ;
+  v-s:hasImage site:ImageAspects ;
+  rdfs:label "Первичные документы"@ru ;
+  rdfs:label "Invoices"@en ;
+  rdfs:comment "Контракты под контролем!"@ru ;
+  rdfs:comment "Контракты под контролем!"@en ;
 .
