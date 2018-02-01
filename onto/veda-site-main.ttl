@@ -24,7 +24,7 @@ site:Main
   rdfs:label "Main page"@en ;
   v-ui:hasTemplate site:MainTemplate ;
   site:hasPage site:Platform ;
-  site:hasPage site:Solutions ;
+  site:hasPage site:Applications ;
   site:hasPage site:Services ;
   site:hasPage site:About ;
   site:hasPage site:VedaOnline ;
@@ -39,7 +39,7 @@ site:MainTemplate
   v-ui:template """
 <div>
   <div about="site:Platform" data-template="site:PlatformMainTemplate"></div>
-  <div about="site:Solutions" data-template="site:SolutionsMainTemplate"></div>
+  <div about="site:Applications" data-template="site:ApplicationsMainTemplate"></div>
   <div about="site:Services" data-template="site:ServicesMainTemplate"></div>
   <div about="site:About" data-template="site:AboutMainTemplate"></div>
   <div about="site:VedaOnline" data-template="site:VedaOnlineMainTemplate"></div>

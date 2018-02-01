@@ -1,0 +1,289 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix v-fs: <http://semantic-machines.com/veda/veda-search/> .
+@prefix v-s: <http://semantic-machines.com/veda/veda-schema/> .
+@prefix v-ui: <http://semantic-machines.com/veda/veda-ui/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix d: <http://semantic-machines.com/veda/veda-data/> .
+@prefix site: <http://semantic-machines.com/veda-site/> .
+
+<http://semantic-machines.com/veda/veda-site-applications>
+  rdf:type owl:Ontology ;
+  rdfs:label "Сайт Veda. Приложения"@ru ;
+  rdfs:label "Veda site. Applications"@en ;
+#  owl:versionInfo "1.3" ;
+  v-s:loadPriority 10 ;
+.
+
+### APPLICATIONS ###
+
+site:Applications
+  rdf:type site:Page ;
+  rdfs:label "Приложения"@ru ;
+  rdfs:label "Applications"@en ;
+  v-ui:hasTemplate site:ApplicationsTemplate ;
+  v-s:hasImage site:ImageAspects ;
+  site:hasPage site:ApplicationsContractors ;
+  site:hasPage site:ApplicationsContracts ;
+  site:hasPage site:ApplicationsAccountingDocs ;
+  site:hasPage site:ApplicationsMeetings ;
+  site:hasPage site:ApplicationsAudits ;
+  site:hasPage site:ApplicationsInnovations ;
+  site:hasPage site:ApplicationsInternalServices ;
+  site:hasPage site:ApplicationsClaims ;
+  site:hasPage site:ApplicationsDocflow;
+  site:hasPage site:ApplicationsSecurity;
+  site:hasPage site:ApplicationsTechnicalDocs;
+  site:hasPage site:ApplicationsHR;
+  site:hasPage site:ApplicationsITSM;
+  site:hasPage site:ApplicationsProjects;
+.
+
+### APPLICATIONS TEMPLATES ####
+
+site:ApplicationsMainTemplate
+  rdf:type v-ui:ClassTemplate ;
+  rdfs:label "Шаблон страницы приложений"@ru ;
+  rdfs:label "Applications page template"@en ;
+  v-ui:template """
+<div class="container-fluid bg-white">
+  <div class="container">
+    <br>
+    <br>
+    <h1 about="site:ApplicationsMainSlogan1" style="line-height: 1; color: #333;">
+      <span>
+        <span property="rdfs:label"></span>
+        <br>
+        <small property="rdfs:comment" style="color: #333;"></small>
+      </span>
+    </h1>
+    <div class="row">
+      <div class="col-md-10">
+        <div about="@" rel="v-s:hasImage" data-template="v-ui:ImageSimpleTemplateWithoutBorder"></div>
+      </div>
+    </div>
+    <h1 about="site:ApplicationsMainSlogan2" style="line-height: 1; color: #333;">
+      <small property="rdfs:comment" style="color: #333;"></small>
+    </h1>
+    <a href="#/@" class="btn btn-lg btn-primary">
+      <span about="site:More" property="rdfs:label"></span>
+    </a>
+    <br>
+    <br>
+    <br>
+    <br>
+  </div>
+</div>
+  """ ;
+.
+
+site:ApplicationsTemplate
+  rdf:type v-ui:ClassTemplate ;
+  rdfs:label "Шаблон страницы приложений"@ru ;
+  rdfs:label "Applications page template"@en ;
+  v-ui:template """
+<div>
+  <div class="bg-orange">
+    <div class="container">
+      <br>
+      <br>
+      <h1 style="line-height: 1; color: #333; text-shadow: 0px 1px 2px black;">
+        <span about="site:ApplicationsSlogan1" property="rdfs:label"></span>
+        <br>
+        <small about="site:ApplicationsSlogan1" property="rdfs:comment"></small>
+      </h1>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+    </div>
+  </div>
+  <br>
+  <br>
+  <br>
+  <div class="container">
+    <div class="row" about="@" rel="site:hasPage" data-template="site:ApplicationCardTemplate"></div>
+  </div>
+</div>
+  """ ;
+.
+
+
+site:ApplicationCardTemplate
+  rdf:type v-ui:ClassTemplate ;
+  rdfs:label "Шаблон карточки приложения"@ru ;
+  rdfs:label "Application card template"@en ;
+  v-ui:template """
+<div class="col-md-4">
+  <div class="panel panel-default">
+    <div class="panel-header">
+    </div>
+    <div class="panel-body" style="height:250px">
+      <h3 about="@" property="rdfs:label"></h3>
+      <p about="@" property="rdfs:comment"></p>
+      <div about="@" rel="v-s:hasImage">
+        <img src="/files/@" width="100%">
+      </div>
+    </div>
+    <div class="panel-footer clearfix">
+      <a href="#/@" class="btn btn-primary pull-right">
+        <span about="site:More" property="rdfs:label"></span>
+      </a>
+    </div>
+  </div>
+</div>
+  """ ;
+.
+
+### INDIVIDUALS ###
+
+site:ApplicationsSlogan1
+  rdf:type rdfs:Resource ;
+  rdfs:label "Приложения"@ru ;
+  rdfs:label "Applications"@en ;
+  rdfs:comment """
+Выбирайте, что нравится,
+
+а мы сделаем, чтобы вам подошло!
+  """@ru ;
+  rdfs:comment """
+Choose what you like,
+
+we will make it fit!
+  """@en ;
+.
+
+site:ApplicationsMainSlogan1
+  rdf:type rdfs:Resource ;
+  rdfs:label "Приложения"@ru ;
+  rdfs:label "Applications"@en ;
+  rdfs:comment """
+
+На платформе Veda разработан ряд приложений для решения задач вашего предприятия.
+
+Любой сотрудник может играть определенную роль в каждом из них.
+
+
+Совокупность ролей в каждом из доступных приложений формирует для пользователя
+
+его персональный интерфейс, который мы называем аспект.
+
+
+Аспект — это картина бизнеса в информационной системе с точки зрения пользователя
+
+с учетом его позиции в структуре предприятия.
+
+  """@ru ;
+  rdfs:comment """
+
+Using Veda platform we implemented a set of applications
+
+solving important tasks for your business.
+
+Any employee can play specific role in any of them.
+
+
+The sum of user's roles in deployed applications
+
+forms personal interface we call an aspect.
+
+
+Aspect — is a reflection of business in information system from user's perspective
+
+considering his/her position in enterprise.
+  """@en ;
+.
+
+site:ApplicationsMainSlogan2
+  rdf:type rdfs:Resource ;
+  rdfs:label "Приложения"@ru ;
+  rdfs:label "Applications"@en ;
+  rdfs:comment """
+
+Приложения на основе платформы Veda уже включают в себя
+
+набор самых востребованных объектов и процессов,
+
+что сокращает трудоемкость и сроки внедрения информационной системы.
+
+
+Некоторые приложения мы предлагаем в нескольких вариантах
+
+с различной степенью проработки в зависимости от потребностей предприятия.
+
+
+Составляющие приложений можно изменять и адаптировать
+
+под актуальные задачи предприятия «на лету».
+
+  """@ru ;
+  rdfs:comment """
+
+Applications on Veda platform include a set of objects and processes.
+
+This significantly reduces labor costs & saves time for deployment.
+
+
+Some applications are offered in several variants
+
+with varying details level depending on the business needs.
+
+
+The components of the applications can be changed and adapted
+
+to the actual tasks "on the fly."
+  """@en ;
+.
+
+site:ImageAspects
+  rdf:type v-s:File ;
+  v-s:fileUri "aspects.svg" ;
+  v-s:fileName "aspects.svg" ;
+  v-s:filePath "/site" ;
+.
+
+site:ApplicationsContractors
+  rdf:type site:Page ;
+  v-s:hasImage site:ImageContractors ;
+  rdfs:label "Контрагенты"@ru ;
+  rdfs:label "Contractors"@en ;
+  rdfs:comment "Всегда актуальная база клиентов и поставщиков у вас под рукой!"@ru ;
+  rdfs:comment "Всегда актуальная база клиентов и поставщиков у вас под рукой!"@en ;
+.
+
+site:ImageContractors
+  rdf:type v-s:File ;
+  v-s:fileUri "contractors.png" ;
+  v-s:fileName "contractors.png" ;
+  v-s:filePath "/site" ;
+.
+
+site:ApplicationsContracts
+  rdf:type site:Page ;
+  v-s:hasImage site:ImageContracts ;
+  rdfs:label "Контракты"@ru ;
+  rdfs:label "Contracts"@en ;
+  rdfs:comment "Контракты под контролем!"@ru ;
+  rdfs:comment "Контракты под контролем!"@en ;
+.
+
+site:ImageContracts
+  rdf:type v-s:File ;
+  v-s:fileUri "contracts.jpg" ;
+  v-s:fileName "contracts.jpg" ;
+  v-s:filePath "/site" ;
+.
+
+site:ApplicationsAccountingDocs
+  rdf:type site:Page ;
+  v-s:hasImage site:ImageAspects ;
+  rdfs:label "Первичные документы"@ru ;
+  rdfs:label "Invoices"@en ;
+  rdfs:comment "Контракты под контролем!"@ru ;
+  rdfs:comment "Контракты под контролем!"@en ;
+.
