@@ -117,7 +117,7 @@ site:SliderTemplate
     </ol>
     <div class="carousel-inner" role="listbox" about="@" rel="site:hasPage">
       <div class="item">
-        <div about="@" rel="v-s:hasImage" data-template="v-ui:ImageSimpleTemplateWithoutBorder"></div>
+        <div about="@" rel="v-s:hasImage" data-template="v-ui:ImageTemplate"></div>
         <div class="carousel-caption container-fluid" style="position: absolute; top: 0px; left: 0px; right:0px; border:none; background-color: transparent">
           <div class="container" style="border:none; background-color: transparent">
             <h1 property="rdfs:label"></h1>

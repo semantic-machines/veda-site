@@ -60,7 +60,7 @@ site:ApplicationsMainTemplate
     </h1>
     <div class="row">
       <div class="col-md-10">
-        <div about="@" rel="v-s:hasImage" data-template="v-ui:ImageSimpleTemplateWithoutBorder"></div>
+        <div about="@" rel="v-s:hasImage" data-template="v-ui:ImageTemplate"></div>
       </div>
     </div>
     <h1 about="site:ApplicationsMainSlogan2" style="line-height: 1; color: #333;">
@@ -126,9 +126,7 @@ site:ApplicationCardTemplate
     <div class="panel-body" style="height:250px">
       <h3 about="@" property="rdfs:label"></h3>
       <p about="@" property="rdfs:comment"></p>
-      <div about="@" rel="v-s:hasImage">
-        <img src="/files/@" width="100%">
-      </div>
+      <div about="@" rel="v-s:hasImage" data-template="v-ui:ImageTemplate"></div>
     </div>
     <div class="panel-footer clearfix">
       <a href="#/@" class="btn btn-primary pull-right">
