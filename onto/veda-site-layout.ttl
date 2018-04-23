@@ -71,9 +71,9 @@ site:LayoutTemplate
     </div>
     <div class="pull-right text-muted" about="v-s:vedaInfo">
       <a href="http://www.semantic-machines.com">
-        © <span about="v-l:SemanticMachines" property="rdfs:label"></span>.
+        © <span about="v-s:SemanticMachines" property="rdfs:label"></span>.
       </a>
-      <span about="v-l:License" property="rdfs:label"></span>
+      <span about="v-s:License" property="rdfs:label"></span>
       <a alt="GNU General Public License version 3 official text" href="http://www.gnu.org/licenses/gpl.html">
         GPLv3.
       </a>
@@ -97,7 +97,7 @@ site:LayoutTemplate
   setTimeout(function () {
     markActive(location.hash);
   }, 100);
-//# sourceURL=v-l:MainPageTemplate
+//# sourceURL=v-s:MainPageTemplate
 </script>
   """ ;
 .
