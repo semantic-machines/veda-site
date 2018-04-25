@@ -75,6 +75,18 @@ site:PlatformMainTemplate
   """ ;
 .
 
+site:PlatformMainArticle
+  rdf:type site:Article ;
+  rdfs:label "Статья о платформе для главной страницы"@ru ;
+  rdfs:label "Platform article for main page"@en ;
+  site:heading "# Платформа Veda";
+  site:summary
+"""## Современная платформа с открытым исходным текстом.
+## Позволяет быстро и легко создавать приложения для автоматизации деловых процессов предприятия.
+""";
+  site:content "";
+.
+
 site:PlatformTemplate
   rdf:type v-ui:ClassTemplate ;
   rdfs:label "Шаблон страницы платформы"@ru ;

@@ -40,6 +40,26 @@ site:LayoutTemplate
   rdfs:label "Шаблон макета сайта"@ru ;
   rdfs:label "Site layout template"@en ;
   v-ui:template """
+<script>
+  // Markdown
+  var target = $("#main", template).get(0);
+  var observer = new MutationObserver(function(mutations) {
+    mutations.forEach(processMutation);
+  });
+  var config = { childList: true };
+  observer.observe(target, config);
+  template.one("remove", function () {
+    observer.disconnect();
+  });
+  function processMutation(mutation) {
+    var addedNode = $( mutation.addedNodes.item(0) );
+    var toMarkup = addedNode.find(".markdown");
+    toMarkup.each(function () {
+      var text = this.innerText || this.textContent;
+      this.innerHTML = marked(text);
+    });
+  }
+</script>
 <div class="page">
   <nav role="navigation" class="navbar navbar-default navbar-veda navbar-fixed" style="margin-bottom:0;">
     <div class="container">
@@ -97,7 +117,8 @@ site:LayoutTemplate
   setTimeout(function () {
     markActive(location.hash);
   }, 100);
-//# sourceURL=v-s:MainPageTemplate
+
+//# sourceURL=site:LayoutTemplate
 </script>
   """ ;
 .
