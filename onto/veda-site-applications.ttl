@@ -248,10 +248,206 @@ site:ImageAspects
 site:ApplicationsContractors
   rdf:type site:Page ;
   v-s:hasImage site:ImageContractors ;
+  v-ui:hasTemplate site:ApplicationsContractorsTemplate ;
   rdfs:label "Контрагенты"@ru ;
   rdfs:label "Contractors"@en ;
+  site:hasPage site:ApplicationsContractorsForSlider ;
+  site:hasPage site:ApplicationsContractsForSlider ;
+  site:hasPage site:ApplicationsAccountingDocsForSlider ;
   rdfs:comment "Всегда актуальная база клиентов и поставщиков у вас под рукой!"@ru ;
   rdfs:comment "Всегда актуальная база клиентов и поставщиков у вас под рукой!"@en ;
+.
+
+site:ApplicationsContractorsForSlider
+  rdf:type site:Page ;
+  v-s:hasImage site:ImageContractors ;
+  rdfs:label "Всегда актуальная база клиентов и поставщиков у вас под рукой!"@ru ;
+  rdfs:label "Всегда актуальная база клиентов и поставщиков у вас под рукой!"@en ;
+  v-s:shortLabel "Контрагенты"@ru ;
+  v-s:shortLabel "Contractors"@en ;
+  site:hasArticle site:ApplicationsContractorsArticle1 ;
+  site:hasArticle site:ApplicationsContractorsArticle2 ;
+  site:hasArticle site:ApplicationsContractorsArticle3 ;
+  site:hasArticle site:ApplicationsContractorsArticle4 ;
+.
+
+### ARTICLES CONTRACTORS###
+
+site:ApplicationsContractorsArticle1
+  rdf:type site:Article ;
+  rdfs:label "Статья. Преимущества 1"@ru ;
+  rdfs:label "Article. Advantages 1"@en ;
+  site:heading "Широкие возможности настройки"@ru ;
+  site:heading "High customization capabilities"@en ;
+  site:content """
+Приложение предназначено для централизации работы и детального анализа данных по каждому отдельному контрагенту,
+проведения формализованной процедуры проверки соответствия поставщиков внутренним требованиям организации.
+
+Включает в себя автоматизацию полного цикла работы с контрагентами.
+  """@ru ;
+  site:content """
+Приложение предназначено для централизации работы и детального анализа данных по каждому отдельному контрагенту,
+проведения формализованной процедуры проверки соответствия поставщиков внутренним требованиям организации.
+
+Включает в себя автоматизацию полного цикла работы с контрагентами.
+  """@en ;
+.
+
+site:ApplicationsContractorsArticle2
+  rdf:type site:Article ;
+  rdfs:label "Статья. Преимущества 2"@ru ;
+  rdfs:label "Article. Advantages 2"@en ;
+  site:heading "Решение позволит:"@ru ;
+  site:heading "Решение позволит:"@en ;
+  site:content """
+- Упорядочить и структурировать информацию о контрагентах в соответствии с заданными параметрами
+
+- Проводить формализованные процедуры проверки соответствия поставщиков внутренним требованиям организации
+
+- Оперативно вносить изменения данных контрагентов
+
+- Составлять заявки на создание контрагента
+
+- Вносить изменения данных контрагента в процессе работы
+
+- Формировать полное досье контрагента
+
+- Автоматически вычислять категорию контрагента в соответствии с заданными правилами
+
+- Проводить процедуры проверки и согласования контрагента  на соответствие внутренним требованиям организации
+
+  """@ru ;
+  site:content """
+- Упорядочить и структурировать информацию о контрагентах в соответствии с заданными параметрами
+
+- Проводить формализованные процедуры проверки соответствия поставщиков внутренним требованиям организации
+
+- Оперативно вносить изменения данных контрагентов
+
+- Составлять заявки на создание контрагента
+
+- Вносить изменения данных контрагента в процессе работы
+
+- Формировать полное досье контрагента
+
+- Автоматически вычислять категорию контрагента в соответствии с заданными правилами
+
+- Проводить процедуры проверки и согласования контрагента  на соответствие внутренним требованиям организации
+  """@en ;
+.
+
+site:ApplicationsContractorsArticle3
+  rdf:type site:Article ;
+  rdfs:label "Статья. Преимущества 3"@ru ;
+  rdfs:label "Article. Advantages 3"@en ;
+  site:heading "Ключевые возможности:"@ru ;
+  site:heading "Ключевые возможности:"@en ;
+  site:content """
+- Организация
+- Обособленное подразделение
+- Досье
+- Заявка на создание/изменение контрагента
+- Запрос на согласование контрагента
+- Единый лист оценки + Заключения внутренних служб и специалистов
+- Справочник «Организационная структура»
+- Справочник «Организационно-правовая форма»
+- Справочник «Виды деятельности по ОКВЭД»
+- Справочник «Тип взаимодействия» (виды деятельности по ОКВЭД)
+- Справочник «Вид платежа»
+- Справочник «Вид поставки»
+- Справочник «Валюта»
+- Справочник «Тема заявки»
+- Печатные формы
+  """@ru ;
+  site:content """
+- Организация
+- Обособленное подразделение
+- Досье
+- Заявка на создание/изменение контрагента
+- Запрос на согласование контрагента
+- Единый лист оценки + Заключения внутренних служб и специалистов
+- Справочник «Организационная структура»
+- Справочник «Организационно-правовая форма»
+- Справочник «Виды деятельности по ОКВЭД»
+- Справочник «Тип взаимодействия» (виды деятельности по ОКВЭД)
+- Справочник «Вид платежа»
+- Справочник «Вид поставки»
+- Справочник «Валюта»
+- Справочник «Тема заявки»
+- Печатные формы
+  """@en ;
+  site:content1 """
+- Регистрация
+- Автоматическое вычисление категории
+- Проверка
+- Согласование
+- Поручение
+- Готовые маршруты
+  """@ru ;
+  site:content1 """
+- Регистрация
+- Автоматическое вычисление категории
+- Проверка
+- Согласование
+- Поручение
+- Готовые маршруты
+  """@en ;
+  v-ui:hasTemplate site:ApplicationsContractorsArticle3Template ;
+.
+
+site:ApplicationsContractorsArticle4
+  rdf:type site:Article ;
+  rdfs:label "Статья. Преимущества 4"@ru ;
+  rdfs:label "Article. Advantages 4"@en ;
+  site:heading "Дополнительные опции:"@ru ;
+  site:heading "Дополнительные опции:"@en ;
+  site:content """
+Решение связано со всеми решениями на основе платформы Veda.
+
+Уведомления по e-mail
+Мобильное приложение
+Интеграция с 1С и SAP
+  """@ru ;
+  site:content """
+Решение связано со всеми решениями на основе платформы Veda.
+
+Уведомления по e-mail
+Мобильное приложение
+Интеграция с 1С и SAP
+  """@en ;
+.
+
+site:ApplicationsContractsForSlider
+  rdf:type site:Page ;
+  v-s:hasImage site:ImageContracts ;
+  rdfs:label "Контракты под контролем!"@ru ;
+  rdfs:label "Контракты под контролем!"@en ;
+  v-s:shortLabel "Контракты"@ru ;
+  v-s:shortLabel "Contracts"@en ;
+  site:hasArticle site:ApplicationsContractsArticle1 ;
+  site:hasArticle site:ApplicationsContractsArticle2 ;
+  site:hasArticle site:ApplicationsContractsArticle3 ;
+.
+
+site:ApplicationsAccountingDocsForSlider
+  rdf:type site:Page ;
+  v-s:hasImage site:ImageAspects ;
+  rdfs:label "Контракты под контролем!"@ru ;
+  rdfs:label "Контракты под контролем!"@en ;
+  v-s:shortLabel "Первичные документы"@ru ;
+  v-s:shortLabel "Invoices"@en ;
+  site:hasArticle site:ApplicationsAccountingDocsArticle1 ;
+  site:hasArticle site:ApplicationsAccountingDocsArticle2 ;
+  site:hasArticle site:ApplicationsAccountingDocsArticle3 ;
+.
+
+site:ApplicationsContractorsTemplate
+  rdf:type v-ui:ClassTemplate ;
+  rdfs:label "Шаблон страницы Контракты"@ru ;
+  rdfs:label "Contracts page template"@en ;
+  v-ui:template """
+<div about="@" data-template="site:SliderTemplate"></div>
+  """ ;
 .
 
 site:ImageContractors

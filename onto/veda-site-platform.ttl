@@ -201,16 +201,16 @@ site:AdvantagesArticle1
   site:heading "Широкие возможности настройки"@ru ;
   site:heading "High customization capabilities"@en ;
   site:content """
-* Используется методология Semantic Web.
-* Онтологии предметных областей настраиваются, а не программируются!
-* Высокая скорость разработки, изменения онтологии загружаются «на лету».
-* Различные способы визуализации данных.
+- Используется методология Semantic Web.
+- Онтологии предметных областей настраиваются, а не программируются!
+- Высокая скорость разработки, изменения онтологии загружаются «на лету».
+- Различные способы визуализации данных.
   """@ru ;
   site:content """
-* Semantic Web methodology used for data & schema.
-* Domain ontologies are described, not hard coded!
-* High development speed. Ontology changes are processed on the fly.
-* Versatile data visualization methods.
+- Semantic Web methodology used for data & schema.
+- Domain ontologies are described, not hard coded!
+- High development speed. Ontology changes are processed on the fly.
+- Versatile data visualization methods.
   """@en ;
   v-s:hasImage site:AdvantagesArticleImage1 ;
 .
@@ -227,14 +227,14 @@ site:AdvantagesArticle2
   site:heading "Простая, но мощная архитектура"@ru ;
   site:heading "Simple yet powerful design"@en ;
   site:content """
-* Двухзвенная архитектура.
-* «Тонкий» сервер (stateless).
-* Полноценное одностраничное web-приложение в браузере (stateful).
+- Двухзвенная архитектура.
+- «Тонкий» сервер (stateless).
+- Полноценное одностраничное web-приложение в браузере (stateful).
   """@ru ;
   site:content """
-* Two-tier design.
-* «Thin» stateless server.
-* Full featured stateful single page application in browser.
+- Two-tier design.
+- «Thin» stateless server.
+- Full featured stateful single page application in browser.
   """@en ;
   v-s:hasImage site:AdvantagesArticleImage2 ;
   v-ui:hasTemplate site:ArticleTemplate2 ;
@@ -252,12 +252,12 @@ site:AdvantagesArticle3
   site:heading "Высокая производительность и масштабируемость"@ru ;
   site:heading "High performance & scalability"@en ;
   site:content """
-* На 2000 активных пользователей работает 1 виртуальный сервер, 4 ядра, 32 Gb RAM (из них используется 15-20%).
-* Количество пользователей работающих одновременно – 400 человек.
+- На 2000 активных пользователей работает 1 виртуальный сервер, 4 ядра, 32 Gb RAM (из них используется 15-20%).
+- Количество пользователей работающих одновременно – 400 человек.
   """@ru ;
   site:content """
-* 1 virtual server for 2000 active users, 4 cores, 32 Gb RAM (15-20% used).
-* 400 simultaneous users.
+- 1 virtual server for 2000 active users, 4 cores, 32 Gb RAM (15-20% used).
+- 400 simultaneous users.
   """@en ;
   v-s:hasImage site:AdvantagesArticleImage3 ;
 .
@@ -279,25 +279,25 @@ site:FeaturesArticle1
   site:heading "Управление хранилищем данных"@ru ;
   site:heading "Data storage management"@en ;
   site:content """
-* Проектирование, редактирование, удаление и создание классов, свойств и шаблонов объектов с использованием словарей OWL и RDF/S.
-* Создание (заполнение и сохранение), редактирование, удаление объектов на основе разработанных классов, свойств и шаблонов.
-* Управление структурой и содержанием нормативно-справочной информации.
-* Хранение версий объектов.
-* Обеспечение взаимных связей различных объектов.
-* Поиск, сортировка объектов на основе фрагмента текста, на основе точных справочных значений.
-* Журналирование изменений объектов.
-* Формирование печатных форм объектов и статистических отчетов на основе предварительно сформированных шаблонов.
-* Импорт / экспорт данных в различных форматах.
+- Проектирование, редактирование, удаление и создание классов, свойств и шаблонов объектов с использованием словарей OWL и RDF/S.
+- Создание (заполнение и сохранение), редактирование, удаление объектов на основе разработанных классов, свойств и шаблонов.
+- Управление структурой и содержанием нормативно-справочной информации.
+- Хранение версий объектов.
+- Обеспечение взаимных связей различных объектов.
+- Поиск, сортировка объектов на основе фрагмента текста, на основе точных справочных значений.
+- Журналирование изменений объектов.
+- Формирование печатных форм объектов и статистических отчетов на основе предварительно сформированных шаблонов.
+- Импорт / экспорт данных в различных форматах.
   """@ru ;
   site:content """
-* Object classes, properties and templates are defined using OWL & RDF/S vocabularies.
-* Objects are stored according to defined classes, properties and templates.
-* Objects versions management support.
-* Mutual object links.
-* Fulltext and fine attributive search support.
-* Object mutations logging.
-* Print forms and statistical reports.
-* Data import / export in various formats.
+- Object classes, properties and templates are defined using OWL & RDF/S vocabularies.
+- Objects are stored according to defined classes, properties and templates.
+- Objects versions management support.
+- Mutual object links.
+- Fulltext and fine attributive search support.
+- Object mutations logging.
+- Print forms and statistical reports.
+- Data import / export in various formats.
   """@en ;
   v-s:hasImage site:FeturesArticleImage1 ;
 .
@@ -316,17 +316,17 @@ site:FeaturesArticle2
   site:heading "Управление деловыми процессами"@ru ;
   site:heading "Business processes management"@en ;
   site:content """
-* Разработка шаблонов автоматизированных деловых процессов с помощью встроенного редактора.
-* Запуск, редактирование, прерывание процессов обработки документов.
-* Визуализация и журналирование хода выполнения процессов.
-* Обеспечение взаимодействия участников деловых процессов — автоматическое формирование задач, обработка ответов.
-* Поиск, сортировка задач.
+- Разработка шаблонов автоматизированных деловых процессов с помощью встроенного редактора.
+- Запуск, редактирование, прерывание процессов обработки документов.
+- Визуализация и журналирование хода выполнения процессов.
+- Обеспечение взаимодействия участников деловых процессов — автоматическое формирование задач, обработка ответов.
+- Поиск, сортировка задач.
   """@ru ;
   site:content """
-* Worflows are designed with embedded editor.
-* Worflows visualization and management (start, stop, change) are available for end-users.
-* Automatic worflow  task management - tasks assignment, decisions processing.
-* Tasks can be searched, sorted, delegated.
+- Worflows are designed with embedded editor.
+- Worflows visualization and management (start, stop, change) are available for end-users.
+- Automatic worflow  task management - tasks assignment, decisions processing.
+- Tasks can be searched, sorted, delegated.
   """@en ;
   v-s:hasImage site:FeturesArticleImage2 ;
 .
@@ -345,22 +345,22 @@ site:FeaturesArticle3
   site:heading "Общие функции"@ru ;
   site:heading "Common functions"@en ;
   site:content """
-* Современный web-интерфейс с полноценной поддержкой мобильных устройств (смартфоны, планшеты).
-* Аутентификация и авторизация субъектов доступа.
-* Интгерация с MS Active Directory для обеспечения прозрачного входа в систему с доменной учетной записью (ntlm аутентификация).
-* Управление правами доступа ко всем видам объектов платформы: классам, шаблонам, документам, справочникам, задачам.
-* Делегирование полномочий  - назначение «заместителя» с автоматической передачей прав доступа.
-* Интеграция с системами кадрового учета (SAP, 1C) для отражения в системе организационной структуры предприятия.
-* Интеграция с почтовой службой для автоматических уведомлений предусмотренных деловыми процессами, автоматического ввода документов в систему.
+- Современный web-интерфейс с полноценной поддержкой мобильных устройств (смартфоны, планшеты).
+- Аутентификация и авторизация субъектов доступа.
+- Интгерация с MS Active Directory для обеспечения прозрачного входа в систему с доменной учетной записью (ntlm аутентификация).
+- Управление правами доступа ко всем видам объектов платформы: классам, шаблонам, документам, справочникам, задачам.
+- Делегирование полномочий  - назначение «заместителя» с автоматической передачей прав доступа.
+- Интеграция с системами кадрового учета (SAP, 1C) для отражения в системе организационной структуры предприятия.
+- Интеграция с почтовой службой для автоматических уведомлений предусмотренных деловыми процессами, автоматического ввода документов в систему.
   """@ru ;
   site:content """
-* Modern web-interface that fit mobile devices.
-* Users authentication and authorization.
-* MS Active directory integration for single sign-on authentication.
-* Access to every system object type of is authorized: classes, properties, user objects, dicitionaries, tasks etc.
-* Rights delegation - assignment of a deputy with automatic authorization.
-* Integration with ERP systems for master data adoption.
-* Integration with mail service for workflow initiated notifications and automated object creation from e-mail.
+- Modern web-interface that fit mobile devices.
+- Users authentication and authorization.
+- MS Active directory integration for single sign-on authentication.
+- Access to every system object type of is authorized: classes, properties, user objects, dicitionaries, tasks etc.
+- Rights delegation - assignment of a deputy with automatic authorization.
+- Integration with ERP systems for master data adoption.
+- Integration with mail service for workflow initiated notifications and automated object creation from e-mail.
   """@en ;
   v-s:hasImage site:FeturesArticleImage3 ;
 .

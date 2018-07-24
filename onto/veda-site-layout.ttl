@@ -267,3 +267,61 @@ site:ArticleTemplate2
 </script>
   """ ;
 .
+
+site:ApplicationsContractorsArticle3Template
+  rdf:type v-ui:ClassTemplate ;
+  rdfs:label "Шаблон статьи 2"@ru ;
+  rdfs:label "Article template 2"@en ;
+  v-ui:template """
+<div class="container">
+  <div class="sheet">
+    <h2>
+      <span property="site:heading"></span>
+    </h2>
+    <br>
+    <div class="row">
+      <div class="col-md-3">
+        <span> Единообразный учет контрагентов </span>
+      </div>
+      <div class="col-md-3">
+        <span> Исключение дублирования </span>
+      </div>
+      <div class="col-md-3">
+        <span> Актуальная информация </span>
+      </div>
+      <div class="col-md-3">
+        <span> Выполнение требований закона </span>
+      </div>
+    </div>
+  </div>
+  <br>
+</div>
+<div class="container">
+  <div class="sheet">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <span class="lead"> Бизнес-объекты: </span>//это надо переделать
+          </div>
+          <div class="panel-body">
+            <p class="lead" property="site:content"></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <span class="lead"> Бизнес-процессы: </span> //это надо переделать(1)
+          </div>
+          <div class="panel-body">
+            <p class="lead" property="site:content1"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+  """ ;
+.
