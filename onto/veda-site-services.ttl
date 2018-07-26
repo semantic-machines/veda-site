@@ -40,7 +40,23 @@ site:ServicesMainTemplate
   v-ui:template """
 <div class="container-fluid bg-nephritis">
   <div class="container">
-    <h1 about="@" property="rdfs:label"></h1>
+    <br>
+    <br>
+    <br>
+    <h1 about="site:ServicesSloganMainTemplate" style="line-height: 1;">
+      <span>
+        <span property="rdfs:label"></span>
+        <br>
+        <small property="rdfs:comment"></small>
+      </span>
+    </h1>
+    <br>
+    <a href="#/@" class="btn btn-lg btn-primary">
+      <span about="site:More" property="rdfs:label"></span>
+    </a>
+    <br>
+    <br>
+    <br>
   </div>
 </div>
   """ ;
@@ -51,8 +67,283 @@ site:ServicesTemplate
   rdfs:label "Шаблон страницы услуг"@ru ;
   rdfs:label "Services page template"@en ;
   v-ui:template """
-<div about="@" data-template="site:SliderTemplate"></div>
+<div>
+  <div class="bg-orange">
+    <div class="container">
+      <br>
+      <br>
+      <h1 style="line-height: 1; color: #333; text-shadow: 0px 1px 2px black;">
+        <span about="site:ServicesSloganTemplate" property="rdfs:label"></span>
+        <br>
+        <small about="site:ServicesSloganTemplate" property="rdfs:comment"></small>
+      </h1>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+    </div>
+  </div>
+  <br>
+  <br>
+  <br>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="panel panel-default">
+          <div class="panel-header">
+          </div>
+          <div class="panel-body">
+            <h1 about="site:ServicesSloganTemplate1" style="line-height: 1; color: #333;">
+              <span>
+                <small property="rdfs:comment" style="color: #333;"></small>
+              </span>
+            </h1>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="panel panel-default">
+          <div class="panel-header">
+          </div>
+          <div class="panel-body" style="height:250px">
+            <h3 about="site:Consulting" property="rdfs:label"></h3>
+            <p about="site:Consulting" property="rdfs:comment"></p>
+            <div about="site:Consulting" rel="v-s:hasImage" data-template="v-ui:ImageTemplate"></div>
+          </div>
+          <div class="panel-footer clearfix">
+            <a href="#/site:Consulting" class="btn btn-primary pull-right">
+              <span about="site:More" property="rdfs:label"></span>
+            </a>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-header">
+          </div>
+          <div class="panel-body" style="height:250px">
+            <h3 about="site:ServicesVnedr" property="rdfs:label"></h3>
+            <p about="site:ServicesVnedr" property="rdfs:comment"></p>
+            <div about="site:ServicesVnedr" rel="v-s:hasImage" data-template="v-ui:ImageTemplate"></div>
+          </div>
+          <div class="panel-footer clearfix">
+            <a href="#/@" class="btn btn-primary pull-right">
+              <span about="site:More" property="rdfs:label"></span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="panel panel-default">
+          <div class="panel-header">
+          </div>
+          <div class="panel-body" style="height:250px">
+            <h3 about="site:ServicesRealiz" property="rdfs:label"></h3>
+            <p about="site:ServicesRealiz" property="rdfs:comment"></p>
+            <div about="site:ServicesRealiz" rel="v-s:hasImage" data-template="v-ui:ImageTemplate"></div>
+          </div>
+          <div class="panel-footer clearfix">
+            <a href="#/@" class="btn btn-primary pull-right">
+              <span about="site:More" property="rdfs:label"></span>
+            </a>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-header">
+          </div>
+          <div class="panel-body" style="height:250px">
+            <h3 about="site:ServicesSopr" property="rdfs:label"></h3>
+            <p about="site:ServicesSopr" property="rdfs:comment"></p>
+            <div about="site:ServicesSopr" rel="v-s:hasImage" data-template="v-ui:ImageTemplate"></div>
+          </div>
+          <div class="panel-footer clearfix">
+            <a href="#/@" class="btn btn-primary pull-right">
+              <span about="site:More" property="rdfs:label"></span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div class="panel panel-default">
+          <div class="panel-header">
+          </div>
+          <div class="panel-body">
+            <h3 about="site:ServicesIndividual" property="rdfs:label"></h3>
+            <p about="site:ServicesIndividual" property="rdfs:comment"></p>
+            <div about="site:ServicesIndividual" rel="v-s:hasImage" data-template="v-ui:ImageTemplate"></div>
+            <a href="#/@" class="btn btn-primary pull-right">
+              <span about="site:More" property="rdfs:label"></span>
+            </a>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-header">
+          </div>
+          <div class="panel-body">
+            <h3 about="site:ServicesExample" property="rdfs:label"></h3>
+            <p about="site:ServicesExample" property="rdfs:comment"></p>
+            <div about="site:ServicesExample" rel="v-s:hasImage" data-template="v-ui:ImageTemplate"></div>
+            <a href="#/@" class="btn btn-primary pull-right">
+              <span about="site:More" property="rdfs:label"></span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
   """ ;
+.
+
+site:ServicesIndividual
+  rdf:type rdfs:Resource ;
+  rdfs:label "Индивидуальная разработка"@ru ;
+  rdfs:label "Индивидуальная разработка"@en ;
+  rdfs:comment """
+Вы можете заказать индивидуальную разработку.
+  """@ru ;
+  rdfs:comment """
+Вы можете заказать индивидуальную разработку.
+  """@en ;
+.
+
+site:ServicesExample
+  rdf:type rdfs:Resource ;
+  rdfs:label "Готовые решения"@ru ;
+  rdfs:label "Готовые решения"@en ;
+  rdfs:comment """
+Или купить готовые решения.
+  """@ru ;
+  rdfs:comment """
+Или купить готовые решения.
+  """@en ;
+.
+
+site:ServicesCons
+  rdf:type rdfs:Resource ;
+  rdfs:label "Консультирование"@ru ;
+  rdfs:label "Консультирование"@en ;
+  rdfs:comment """
+Текст
+  """@ru ;
+  rdfs:comment """
+Текст
+  """@en ;
+.
+
+site:ServicesRealiz
+  rdf:type rdfs:Resource ;
+  rdfs:label "Реализация"@ru ;
+  rdfs:label "Реализация"@en ;
+  rdfs:comment """
+Текст
+  """@ru ;
+  rdfs:comment """
+Текст
+  """@en ;
+.
+
+site:ServicesVnedr
+  rdf:type rdfs:Resource ;
+  rdfs:label "Внедрение"@ru ;
+  rdfs:label "Внедрение"@en ;
+  rdfs:comment """
+Текст
+  """@ru ;
+  rdfs:comment """
+Текст
+  """@en ;
+.
+
+site:ServicesSopr
+  rdf:type rdfs:Resource ;
+  rdfs:label "Сопровождение"@ru ;
+  rdfs:label "Сопровождение"@en ;
+  rdfs:comment """
+Текст
+  """@ru ;
+  rdfs:comment """
+Текст
+  """@en ;
+.
+
+site:ServicesSloganMainTemplate
+  rdf:type rdfs:Resource ;
+  rdfs:label "Услуги"@ru ;
+  rdfs:label "Услуги"@en ;
+  rdfs:comment """
+  
+Главная цель любого бизнеса - увеличение прибыли, которая обеспечивает
+
+бесперибойным функционированием предприятия.
+
+
+Создаваемые нами продукты - это ИТ-инструмент бизнеса.
+
+И мы делаем их надёжными и управлемыми.
+  """@ru ;
+  rdfs:comment """
+  
+Главная цель любого бизнеса - увеличение прибыли, которая обеспечивает
+
+бесперибойным функционированием предприятия.
+
+
+Создаваемые нами продукты - это ИТ-инструмент бизнеса.
+
+И мы делаем их надёжными и управлемыми.
+  """@en ;
+.
+
+site:ServicesSloganTemplate
+  rdf:type rdfs:Resource ;
+  rdfs:label "Услуги"@ru ;
+  rdfs:label "Услуги"@en ;
+  rdfs:comment """
+Мы оказываем спектр услуг по разработке, внедрению, и сопровождению информационных систем на платформе Veda.  
+  """@ru ;
+  rdfs:comment """
+Мы оказываем спектр услуг по разработке, внедрению, и сопровождению информационных систем на платформе Veda.  
+  """@en ;
+.
+
+site:ServicesSloganTemplate1
+  rdf:type rdfs:Resource ;
+  rdfs:label "Услуги"@ru ;
+  rdfs:label "Услуги"@en ;
+  rdfs:comment """
+Мы предлагаем два формата сотрудничества:
+
+1. Индивидуальная разработка
+2. Готовые решения
+
+Мы гарантируем:
+
+- грамотное консультирование;
+- прозрачность процессов разработки и внедрения;
+- соблюдение сроков проектов;
+- поддержку внедренных продуктов для их успешного использования в достижении поставленных вами целей.
+
+
+Мы оказываем спектр услуг:
+  """@ru ;
+  rdfs:comment """
+Мы предлагаем два формата сотрудничества:
+
+1. Индивидуальная разработка
+2. Готовые решения
+
+Мы гарантируем:
+
+- грамотное консультирование;
+- прозрачность процессов разработки и внедрения;
+- соблюдение сроков проектов;
+- поддержку внедренных продуктов для их успешного использования в достижении поставленных вами целей.
+
+Мы оказываем спектр услуг:
+  """@en ;
 .
 
 site:CustomDevelopment
@@ -102,6 +393,59 @@ site:Consulting
   rdfs:label "Consulting"@en ;
   v-s:shortLabel "Консультирование"@ru ;
   v-s:shortLabel "Consulting"@en ;
+  v-s:hasImage site:ImageForest ;
+  v-ui:hasTemplate site:ServicesConsultingTemplate ;
+  site:hasPage site:ServicesConsultingForSlider
+.
+
+site:ServicesConsultingForSlider
+  rdf:type site:Page ;
+  v-s:hasImage site:ImageForest ;
+  rdfs:label "Консультирование"@ru ;
+  rdfs:label "Consulting"@en ;
+  rdfs:comment "Независимо от масштабов и сложности проектов внедрения требуется ясное понимание целей и задач предприятия."@ru ;
+  rdfs:comment "Независимо от масштабов и сложности проектов внедрения требуется ясное понимание целей и задач предприятия."@en ;
+  site:hasArticle site:ServicesConsultingArticle1 ;
+  site:hasArticle site:ServicesConsultingArticle2 ;
+  site:hasArticle site:ServicesConsultingArticle3 ;
+  site:hasArticle site:ServicesConsultingArticle4 ;
+.
+
+site:ServicesConsultingArticle1
+  rdf:type site:Article ;
+  rdfs:label "Статья. Преимущества 1"@ru ;
+  rdfs:label "Article. Advantages 1"@en ;
+  site:heading "Решение позволит:"@ru ;
+  site:heading "Решение позволит:"@en ;
+  site:content """
+Поэтому в рамках консультирования мы предоставляем комплекс услуг:
+
+обследование деловых процессов, документооборота и регламентирующих документов на предприятии;
+составление рекомендаций по оптимизации существующих процессов;
+изучение IT-архитектуры предприятия;
+определение функциональных и технических требований к информационной системе, составление технического задания;
+планирование и бюджетирование проекта разработки и внедрения;
+составление проектной документации.
+  """@ru ;
+  site:content """
+Поэтому в рамках консультирования мы предоставляем комплекс услуг:
+
+обследование деловых процессов, документооборота и регламентирующих документов на предприятии;
+составление рекомендаций по оптимизации существующих процессов;
+изучение IT-архитектуры предприятия;
+определение функциональных и технических требований к информационной системе, составление технического задания;
+планирование и бюджетирование проекта разработки и внедрения;
+составление проектной документации.
+  """@en ;
+.
+
+site:ServicesConsultingTemplate
+  rdf:type v-ui:ClassTemplate ;
+  rdfs:label "Шаблон страницы Контракты"@ru ;
+  rdfs:label "Contracts page template"@en ;
+  v-ui:template """
+<div about="@" data-template="site:SliderTemplate2"></div>
+  """ ;
 .
 
 site:ImageForest
