@@ -268,6 +268,53 @@ site:ArticleTemplate2
   """ ;
 .
 
+site:SliderTemplate2
+  rdf:type v-ui:ClassTemplate ;
+  rdfs:label "Шаблон страницы продукта"@ru ;
+  rdfs:label "Product page template"@en ;
+  v-ui:template """
+<div>
+  <div id="page-slider" class="carousel slide" data-ride="carousel" data-interval="false" style="margin-top:-15px">
+    <div class="carousel-inner" role="listbox" about="@" rel="site:hasPage">
+      <div class="item">
+        <div about="@" rel="v-s:hasImage" data-template="v-ui:ImageTemplate"></div>
+        <div class="carousel-caption container-fluid" style="position: absolute; top: 0px; left: 0px; right:0px; border:none; background-color: transparent">
+          <div class="container" style="border:none; background-color: transparent">
+            <h1 property="rdfs:label"></h1>
+            <p property="rdfs:comment"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div id="page-container"></div>
+</div>
+<script>
+  setTimeout(function () {
+    showSlide();
+
+    function showSlide(e) {
+      var uri, aspect, slide,
+          cntr = $("#page-container", template).empty().hide();
+      slide = e ? $(e.relatedTarget) : $("#page-slider .item", template).eq(individual.slideTo || 0).addClass("active");
+      individual.slideTo = slide.data("index");
+      uri = slide.attr("resource");
+      aspect = new veda.IndividualModel(uri);
+      aspect.present(cntr);
+      setTimeout(function () {
+        if (e) {
+          cntr.show( "slide", {direction: e.direction === "right" ? "left" : "right"}, 600);
+        } else {
+          cntr.show();
+        }
+      }, 100);
+    }
+  }, 100);
+</script>
+  """ ;
+.
+
 site:ApplicationsContractorsArticle3Template
   rdf:type v-ui:ClassTemplate ;
   rdfs:label "Шаблон статьи 2"@ru ;
@@ -275,36 +322,13 @@ site:ApplicationsContractorsArticle3Template
   v-ui:template """
 <div class="container">
   <div class="sheet">
-    <h2>
-      <span property="site:heading"></span>
-    </h2>
-    <br>
-    <div class="row">
-      <div class="col-md-3">
-        <span> Единообразный учет контрагентов </span>
-      </div>
-      <div class="col-md-3">
-        <span> Исключение дублирования </span>
-      </div>
-      <div class="col-md-3">
-        <span> Актуальная информация </span>
-      </div>
-      <div class="col-md-3">
-        <span> Выполнение требований закона </span>
-      </div>
-    </div>
-  </div>
-  <br>
-</div>
-<div class="container">
-  <div class="sheet">
     <div class="row">
       <div class="col-md-6">
         <div class="panel panel-default">
           <div class="panel-heading">
-            <span class="lead"> Бизнес-объекты: </span>//это надо переделать
+            <p class="lead" property="site:tableHeaderLeft"></p>
           </div>
-          <div class="panel-body">
+          <div class="panel-body bg-info">
             <p class="lead" property="site:content"></p>
           </div>
         </div>
@@ -312,9 +336,9 @@ site:ApplicationsContractorsArticle3Template
       <div class="col-md-6">
         <div class="panel panel-default">
           <div class="panel-heading">
-            <span class="lead"> Бизнес-процессы: </span> //это надо переделать(1)
+            <p class="lead" property="site:tableHeaderRight"></p>
           </div>
-          <div class="panel-body">
+          <div class="panel-body bg-info">
             <p class="lead" property="site:content1"></p>
           </div>
         </div>

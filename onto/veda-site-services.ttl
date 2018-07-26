@@ -57,6 +57,7 @@ site:ServicesTemplate
 
 site:CustomDevelopment
   rdf:type site:Page ;
+  v-s:hasImage site:ImageForest ;
   rdfs:label "Индивидуальная разработка"@ru ;
   rdfs:label "Custom development"@en ;
   v-s:shortLabel "Индивидуальная разработка"@ru ;
@@ -101,4 +102,11 @@ site:Consulting
   rdfs:label "Consulting"@en ;
   v-s:shortLabel "Консультирование"@ru ;
   v-s:shortLabel "Consulting"@en ;
+.
+
+site:ImageForest
+  rdf:type v-s:File ;
+  v-s:fileUri "forest.png" ;
+  v-s:fileName "forest.png" ;
+  v-s:filePath "/site" ;
 .

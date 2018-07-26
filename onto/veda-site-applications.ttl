@@ -252,8 +252,6 @@ site:ApplicationsContractors
   rdfs:label "Контрагенты"@ru ;
   rdfs:label "Contractors"@en ;
   site:hasPage site:ApplicationsContractorsForSlider ;
-  site:hasPage site:ApplicationsContractsForSlider ;
-  site:hasPage site:ApplicationsAccountingDocsForSlider ;
   rdfs:comment "Всегда актуальная база клиентов и поставщиков у вас под рукой!"@ru ;
   rdfs:comment "Всегда актуальная база клиентов и поставщиков у вас под рукой!"@en ;
 .
@@ -269,18 +267,19 @@ site:ApplicationsContractorsForSlider
   site:hasArticle site:ApplicationsContractorsArticle2 ;
   site:hasArticle site:ApplicationsContractorsArticle3 ;
   site:hasArticle site:ApplicationsContractorsArticle4 ;
+  site:hasArticle site:ApplicationsContractorsArticle5 ;
 .
 
-### ARTICLES CONTRACTORS###
+### ARTICLES CONTRACTORS ###
 
 site:ApplicationsContractorsArticle1
   rdf:type site:Article ;
   rdfs:label "Статья. Преимущества 1"@ru ;
   rdfs:label "Article. Advantages 1"@en ;
-  site:heading "Широкие возможности настройки"@ru ;
-  site:heading "High customization capabilities"@en ;
+  site:heading "Решение предназначено: "@ru ;
+  site:heading "Решение предназначено: "@en ;
   site:content """
-Приложение предназначено для централизации работы и детального анализа данных по каждому отдельному контрагенту,
+Для централизации работы и детального анализа данных по каждому отдельному контрагенту,
 проведения формализованной процедуры проверки соответствия поставщиков внутренним требованиям организации.
 
 Включает в себя автоматизацию полного цикла работы с контрагентами.
@@ -343,6 +342,53 @@ site:ApplicationsContractorsArticle3
   site:heading "Ключевые возможности:"@ru ;
   site:heading "Ключевые возможности:"@en ;
   site:content """
+
+Здесь будет markdown, а пока просто кусок кода
+
+<div class="row">
+  <div class="col-md-3">
+    <span> Единообразный <br> учет контрагентов </span>
+  </div>
+  <div class="col-md-3">
+    <span> Исключение <br> дублирования </span>
+  </div>
+  <div class="col-md-3">
+    <span> Актуальная <br> информация </span>
+  </div>
+  <div class="col-md-3">
+    <span> Выполнение <br> требований закона </span>
+  </div>
+</div>
+  """@ru ;
+  site:content """
+<div class="row">
+  <div class="col-md-3">
+    <span> Единообразный <br> учет контрагентов </span>
+  </div>
+  <div class="col-md-3">
+    <span> Исключение <br> дублирования </span>
+  </div>
+  <div class="col-md-3">
+    <span> Актуальная <br> информация </span>
+  </div>
+  <div class="col-md-3">
+    <span> Выполнение <br> требований закона </span>
+  </div>
+</div>
+  """@en ;
+.
+
+site:ApplicationsContractorsArticle4
+  rdf:type site:Article ;
+  rdfs:label "Статья. Преимущества 4"@ru ;
+  rdfs:label "Article. Advantages 4"@en ;
+  site:heading "Ключевые возможности:"@ru ;
+  site:heading "Ключевые возможности:"@en ;
+  site:tableHeaderLeft "Бизнес-объекты:"@ru ;
+  site:tableHeaderLeft "Бизнес-объекты:"@en ;
+  site:tableHeaderRight "Бизнес-процессы:"@ru ;
+  site:tableHeaderRight "Бизнес-процессы:"@en ;
+  site:content """
 - Организация
 - Обособленное подразделение
 - Досье
@@ -395,10 +441,10 @@ site:ApplicationsContractorsArticle3
   v-ui:hasTemplate site:ApplicationsContractorsArticle3Template ;
 .
 
-site:ApplicationsContractorsArticle4
+site:ApplicationsContractorsArticle5
   rdf:type site:Article ;
-  rdfs:label "Статья. Преимущества 4"@ru ;
-  rdfs:label "Article. Advantages 4"@en ;
+  rdfs:label "Статья. Преимущества 5"@ru ;
+  rdfs:label "Article. Advantages 5"@en ;
   site:heading "Дополнительные опции:"@ru ;
   site:heading "Дополнительные опции:"@en ;
   site:content """
@@ -417,36 +463,14 @@ site:ApplicationsContractorsArticle4
   """@en ;
 .
 
-site:ApplicationsContractsForSlider
-  rdf:type site:Page ;
-  v-s:hasImage site:ImageContracts ;
-  rdfs:label "Контракты под контролем!"@ru ;
-  rdfs:label "Контракты под контролем!"@en ;
-  v-s:shortLabel "Контракты"@ru ;
-  v-s:shortLabel "Contracts"@en ;
-  site:hasArticle site:ApplicationsContractsArticle1 ;
-  site:hasArticle site:ApplicationsContractsArticle2 ;
-  site:hasArticle site:ApplicationsContractsArticle3 ;
-.
-
-site:ApplicationsAccountingDocsForSlider
-  rdf:type site:Page ;
-  v-s:hasImage site:ImageAspects ;
-  rdfs:label "Контракты под контролем!"@ru ;
-  rdfs:label "Контракты под контролем!"@en ;
-  v-s:shortLabel "Первичные документы"@ru ;
-  v-s:shortLabel "Invoices"@en ;
-  site:hasArticle site:ApplicationsAccountingDocsArticle1 ;
-  site:hasArticle site:ApplicationsAccountingDocsArticle2 ;
-  site:hasArticle site:ApplicationsAccountingDocsArticle3 ;
-.
+#########################################
 
 site:ApplicationsContractorsTemplate
   rdf:type v-ui:ClassTemplate ;
   rdfs:label "Шаблон страницы Контракты"@ru ;
   rdfs:label "Contracts page template"@en ;
   v-ui:template """
-<div about="@" data-template="site:SliderTemplate"></div>
+<div about="@" data-template="site:SliderTemplate2"></div>
   """ ;
 .
 
@@ -475,9 +499,175 @@ site:ImageContracts
 
 site:ApplicationsAccountingDocs
   rdf:type site:Page ;
-  v-s:hasImage site:ImageAspects ;
+  v-s:hasImage site:ImageForest ;
+  v-ui:hasTemplate site:ApplicationsAccountingDocsTemplate ;
+  site:hasPage site:ApplicationsAccountingDocsForSlider ;
   rdfs:label "Первичные документы"@ru ;
   rdfs:label "Invoices"@en ;
-  rdfs:comment "Контракты под контролем!"@ru ;
-  rdfs:comment "Контракты под контролем!"@en ;
+  rdfs:comment "Оперативная обработка и хранение."@ru ;
+  rdfs:comment "Оперативная обработка и хранение."@en ;
 .
+
+site:ApplicationsAccountingDocsForSlider
+  rdf:type site:Page ;
+  v-s:hasImage site:ImageForest ;
+  rdfs:label "Оперативная обработка и хранение."@ru ;
+  rdfs:label "Оперативная обработка и хранение."@en ;
+  rdfs:comment "Решение предназначено для обеспечения оперативной обработки и хранения первичной документации."@ru ;
+  rdfs:comment "Решение предназначено для обеспечения оперативной обработки и хранения первичной документации."@en ;
+  v-s:shortLabel "Первичные документы"@ru ;
+  v-s:shortLabel "Invoices"@en ;
+  site:hasArticle site:ApplicationsAccountingDocsArticle1 ;
+  site:hasArticle site:ApplicationsAccountingDocsArticle2 ;
+  site:hasArticle site:ApplicationsAccountingDocsArticle3 ;
+  site:hasArticle site:ApplicationsAccountingDocsArticle4 ;
+.
+
+site:ApplicationsAccountingDocsTemplate
+  rdf:type v-ui:ClassTemplate ;
+  rdfs:label "Шаблон страницы Первичные документы"@ru ;
+  rdfs:label "Invoices page template"@en ;
+  v-ui:template """
+<div about="@" data-template="site:SliderTemplate2"></div>
+  """ ;
+.
+
+### ARTICLES AccountingDocs ###
+
+site:ApplicationsAccountingDocsArticle1
+  rdf:type site:Article ;
+  rdfs:label "Статья. Преимущества 1"@ru ;
+  rdfs:label "Article. Advantages 1"@en ;
+  site:heading "Решение позволит:"@ru ;
+  site:heading "Решение позволит:"@en ;
+  site:content """
+- Обеспечить единую работу с электронными (формализованными и неформализованными) и бумажными первичными учетными документами.
+
+- Быстро заносить документы в единое хранилище из учетных систем, со сканеров.
+
+- Организовать эффективный обмен первичными учетными документами с контрагентами, оперативное проведение сверок.
+
+- Организовать быструю подготовку к налоговым и аудиторским проверкам путем выгрузки документов в бумажном или электронном виде.
+
+- Управлять хранением документов (права доступа, сроки…).
+  """@ru ;
+  site:content """
+- Обеспечить единую работу с электронными (формализованными и неформализованными) и бумажными первичными учетными документами.
+
+- Быстро заносить документы в единое хранилище из учетных систем, со сканеров.
+
+- Организовать эффективный обмен первичными учетными документами с контрагентами, оперативное проведение сверок.
+
+- Организовать быструю подготовку к налоговым и аудиторским проверкам путем выгрузки документов в бумажном или электронном виде.
+
+- Управлять хранением документов (права доступа, сроки…).
+  """@en ;
+.
+
+site:ApplicationsAccountingDocsArticle2
+  rdf:type site:Article ;
+  rdfs:label "Статья. Преимущества 2"@ru ;
+  rdfs:label "Article. Advantages 2"@en ;
+  site:heading "Ключевые возможности:"@ru ;
+  site:heading "Ключевые возможности:"@en ;
+  site:content """
+
+Здесь будет markdown, а пока просто кусок кода
+
+<div class="row">
+  <div class="col-md-4">
+    <span> Единое хранилище </span>
+  </div>
+  <div class="col-md-4">
+    <span> Оперативный обмен </span>
+  </div>
+  <div class="col-md-4">
+    <span> Подготовка к проверкам </span>
+  </div>
+</div>
+  """@ru ;
+  site:content """
+Здесь будет markdown, а пока просто кусок кода
+
+<div class="row">
+  <div class="col-md-4">
+    <span> Единое хранилище </span>
+  </div>
+  <div class="col-md-4">
+    <span> Оперативный обмен </span>
+  </div>
+  <div class="col-md-4">
+    <span> Подготовка к проверкам </span>
+  </div>
+</div>
+  """@en ;
+.
+
+site:ApplicationsAccountingDocsArticle3
+  rdf:type site:Article ;
+  rdfs:label "Статья. Преимущества 3"@ru ;
+  rdfs:label "Article. Advantages 3"@en ;
+  site:heading "Бизнес-объекты:"@ru ;
+  site:heading "Бизнес-объекты:"@en ;
+  site:tableHeaderLeft "Бизнес-объекты:"@ru ;
+  site:tableHeaderLeft "Бизнес-объекты:"@en ;
+  site:tableHeaderRight "Бизнес-процессы:"@ru ;
+  site:tableHeaderRight "Бизнес-процессы:"@en ;
+  site:content """
+- Первичный документ
+- Внутренний бухгалтерский документ
+- Справочник «Вид документа»
+- Справочник «Организационная структура»
+- Справочник «Вид бюджета»
+- Печатные формы (Справка о подтверждающих документах)
+  """@ru ;
+  site:content """
+- Первичный документ
+- Внутренний бухгалтерский документ
+- Справочник «Вид документа»
+- Справочник «Организационная структура»
+- Справочник «Вид бюджета»
+- Печатные формы (Справка о подтверждающих документах)
+  """@en ;
+  site:content1 """
+- Подписание
+- Утверждение
+- Рассмотрение
+- Готовые маршруты
+  """@ru ;
+  site:content1 """
+- Подписание
+- Утверждение
+- Рассмотрение
+- Готовые маршруты
+  """@en ;
+  v-ui:hasTemplate site:ApplicationsContractorsArticle3Template ;
+.
+
+site:ApplicationsAccountingDocsArticle4
+  rdf:type site:Article ;
+  rdfs:label "Статья. Преимущества 4"@ru ;
+  rdfs:label "Article. Advantages 4"@en ;
+  site:heading "Дополнительные опции:"@ru ;
+  site:heading "Дополнительные опции:"@en ;
+  site:content """
+Решение связано со всеми решениями на основе платформы Veda.
+
+Уведомления по e-mail
+Мобильное приложение
+Интеграция с 1С и SAP
+Формирование новых первичных документов на основе уже созданных
+Создание связанных первичных документов
+  """@ru ;
+  site:content """
+Решение связано со всеми решениями на основе платформы Veda.
+
+Уведомления по e-mail
+Мобильное приложение
+Интеграция с 1С и SAP
+Формирование новых первичных документов на основе уже созданных
+Создание связанных первичных документов
+  """@en ;
+.
+
+###############################
