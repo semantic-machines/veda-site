@@ -46,7 +46,7 @@ site:LayoutTemplate
   var observer = new MutationObserver(function(mutations) {
     mutations.forEach(processMutation);
   });
-  var config = { childList: true };
+  var config = { childList: true, subtree: true };
   observer.observe(target, config);
   template.one("remove", function () {
     observer.disconnect();
@@ -224,7 +224,7 @@ site:ArticleTemplate1
           <br>
           <span property="site:summary"></span>
         </h2>
-        <p class="lead" property="site:content"></p>
+        <div class="markdown" property="site:content"></div>
       </div>
       <div class="col-md-4">
         <div rel="v-s:hasImage" data-template="v-ui:ModalImageTemplate"></div>
@@ -256,7 +256,7 @@ site:ArticleTemplate2
           <br>
           <span property="site:summary"></span>
         </h2>
-        <p class="lead" property="site:content"></p>
+        <div class="markdown" property="site:content"></div>
       </div>
     </div>
   </div>
