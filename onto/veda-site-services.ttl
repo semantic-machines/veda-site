@@ -97,71 +97,22 @@ site:ServicesTemplate
           <div class="panel-header">
           </div>
           <div class="panel-body">
-            <h1 about="site:ServicesSloganTemplate1" style="line-height: 1; color: #333;">
-              <span>
-                <small property="rdfs:comment" style="color: #333;"></small>
-              </span>
-            </h1>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="panel panel-default">
-          <div class="panel-header">
-          </div>
-          <div class="panel-body" style="height:250px">
-            <h3 about="site:Consulting" property="rdfs:label"></h3>
-            <p about="site:Consulting" property="rdfs:comment"></p>
-            <div about="site:Consulting" rel="v-s:hasImage" data-template="v-ui:ImageTemplate"></div>
-          </div>
-          <div class="panel-footer clearfix">
-            <a href="#/site:Consulting" class="btn btn-primary pull-right">
-              <span about="site:More" property="rdfs:label"></span>
-            </a>
-          </div>
-        </div>
-        <div class="panel panel-default">
-          <div class="panel-header">
-          </div>
-          <div class="panel-body" style="height:250px">
-            <h3 about="site:ServicesVnedr" property="rdfs:label"></h3>
-            <p about="site:ServicesVnedr" property="rdfs:comment"></p>
-            <div about="site:ServicesVnedr" rel="v-s:hasImage" data-template="v-ui:ImageTemplate"></div>
-          </div>
-          <div class="panel-footer clearfix">
-            <a href="#/@" class="btn btn-primary pull-right">
-              <span about="site:More" property="rdfs:label"></span>
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="panel panel-default">
-          <div class="panel-header">
-          </div>
-          <div class="panel-body" style="height:250px">
-            <h3 about="site:ServicesRealiz" property="rdfs:label"></h3>
-            <p about="site:ServicesRealiz" property="rdfs:comment"></p>
-            <div about="site:ServicesRealiz" rel="v-s:hasImage" data-template="v-ui:ImageTemplate"></div>
-          </div>
-          <div class="panel-footer clearfix">
-            <a href="#/@" class="btn btn-primary pull-right">
-              <span about="site:More" property="rdfs:label"></span>
-            </a>
-          </div>
-        </div>
-        <div class="panel panel-default">
-          <div class="panel-header">
-          </div>
-          <div class="panel-body" style="height:250px">
-            <h3 about="site:ServicesSopr" property="rdfs:label"></h3>
-            <p about="site:ServicesSopr" property="rdfs:comment"></p>
-            <div about="site:ServicesSopr" rel="v-s:hasImage" data-template="v-ui:ImageTemplate"></div>
-          </div>
-          <div class="panel-footer clearfix">
-            <a href="#/@" class="btn btn-primary pull-right">
-              <span about="site:More" property="rdfs:label"></span>
-            </a>
+            <div class="row">
+              <div class="col-md-6">
+                <h1 about="site:ServicesSloganTemplate1" style="line-height: 1; color: #333;">
+                  <span>
+                    <small property="rdfs:comment" style="color: #333;"></small>
+                  </span>
+                </h1>
+              </div>
+              <div class="col-md-6">
+                <h1 about="site:ServicesSloganTemplate1" style="line-height: 1; color: #333;">
+                  <span>
+                    <small property="rdfs:comment1" style="color: #333;"></small>
+                  </span>
+                </h1>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -186,6 +137,66 @@ site:ServicesTemplate
             <p about="site:ServicesExample" property="rdfs:comment"></p>
             <div about="site:ServicesExample" rel="v-s:hasImage" data-template="v-ui:ImageTemplate"></div>
             <a href="#/@" class="btn btn-primary pull-right">
+              <span about="site:More" property="rdfs:label"></span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="panel panel-default">
+          <div class="panel-header">
+          </div>
+          <div class="panel-body" style="height:250px">
+            <h3 about="site:Consulting" property="rdfs:label"></h3>
+            <p about="site:Consulting" property="rdfs:comment"></p>
+            <div about="site:Consulting" rel="v-s:hasImage" data-template="v-ui:ImageTemplate"></div>
+          </div>
+          <div class="panel-footer clearfix">
+            <a href="#/site:Consulting" class="btn btn-primary pull-right">
+              <span about="site:More" property="rdfs:label"></span>
+            </a>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-header">
+          </div>
+          <div class="panel-body" style="height:250px">
+            <h3 about="site:Implementation" property="rdfs:label"></h3>
+            <p about="site:Implementation" property="rdfs:comment"></p>
+            <div about="site:Implementation" rel="v-s:hasImage" data-template="v-ui:ImageTemplate"></div>
+          </div>
+          <div class="panel-footer clearfix">
+            <a href="#/site:Implementation" class="btn btn-primary pull-right">
+              <span about="site:More" property="rdfs:label"></span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="panel panel-default">
+          <div class="panel-header">
+          </div>
+          <div class="panel-body" style="height:250px">
+            <h3 about="site:Realization" property="rdfs:label"></h3>
+            <p about="site:Realization" property="rdfs:comment"></p>
+            <div about="site:Realization" rel="v-s:hasImage" data-template="v-ui:ImageTemplate"></div>
+          </div>
+          <div class="panel-footer clearfix">
+            <a href="#/site:Realization" class="btn btn-primary pull-right">
+              <span about="site:More" property="rdfs:label"></span>
+            </a>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-header">
+          </div>
+          <div class="panel-body" style="height:250px">
+            <h3 about="site:Accompanying" property="rdfs:label"></h3>
+            <p about="site:Accompanying" property="rdfs:comment"></p>
+            <div about="site:Accompanying" rel="v-s:hasImage" data-template="v-ui:ImageTemplate"></div>
+          </div>
+          <div class="panel-footer clearfix">
+            <a href="#/site:Accompanying" class="btn btn-primary pull-right">
               <span about="site:More" property="rdfs:label"></span>
             </a>
           </div>
@@ -221,79 +232,31 @@ site:ServicesExample
   """@en ;
 .
 
-site:ServicesCons
-  rdf:type rdfs:Resource ;
-  rdfs:label "Консультирование"@ru ;
-  rdfs:label "Консультирование"@en ;
-  rdfs:comment """
-Текст
-  """@ru ;
-  rdfs:comment """
-Текст
-  """@en ;
-.
-
-site:ServicesRealiz
-  rdf:type rdfs:Resource ;
-  rdfs:label "Реализация"@ru ;
-  rdfs:label "Реализация"@en ;
-  rdfs:comment """
-Текст
-  """@ru ;
-  rdfs:comment """
-Текст
-  """@en ;
-.
-
-site:ServicesVnedr
-  rdf:type rdfs:Resource ;
-  rdfs:label "Внедрение"@ru ;
-  rdfs:label "Внедрение"@en ;
-  rdfs:comment """
-Текст
-  """@ru ;
-  rdfs:comment """
-Текст
-  """@en ;
-.
-
-site:ServicesSopr
-  rdf:type rdfs:Resource ;
-  rdfs:label "Сопровождение"@ru ;
-  rdfs:label "Сопровождение"@en ;
-  rdfs:comment """
-Текст
-  """@ru ;
-  rdfs:comment """
-Текст
-  """@en ;
-.
-
 site:ServicesSloganMainTemplate
   rdf:type rdfs:Resource ;
   rdfs:label "Услуги"@ru ;
   rdfs:label "Услуги"@en ;
   rdfs:comment """
-  
-Главная цель любого бизнеса - увеличение прибыли, которая обеспечивает
 
-бесперибойным функционированием предприятия.
+Главная цель любого бизнеса — увеличение прибыли, которая обеспечивается
+
+бесперебойным функционированием предприятия.
 
 
-Создаваемые нами продукты - это ИТ-инструмент бизнеса.
+Создаваемые нами продукты - это ИТ-инструменты бизнеса.
 
-И мы делаем их надёжными и управлемыми.
+И мы делаем их надежными и управляемыми.
   """@ru ;
   rdfs:comment """
-  
-Главная цель любого бизнеса - увеличение прибыли, которая обеспечивает
 
-бесперибойным функционированием предприятия.
+Главная цель любого бизнеса — увеличение прибыли, которая обеспечивается
+
+бесперебойным функционированием предприятия.
 
 
-Создаваемые нами продукты - это ИТ-инструмент бизнеса.
+Создаваемые нами продукты - это ИТ-инструменты бизнеса.
 
-И мы делаем их надёжными и управлемыми.
+И мы делаем их надежными и управляемыми.
   """@en ;
 .
 
@@ -317,32 +280,41 @@ site:ServicesSloganTemplate1
 Мы предлагаем два формата сотрудничества:
 
 1. Индивидуальная разработка
+
 2. Готовые решения
 
-Мы гарантируем:
-
-- грамотное консультирование;
-- прозрачность процессов разработки и внедрения;
-- соблюдение сроков проектов;
-- поддержку внедренных продуктов для их успешного использования в достижении поставленных вами целей.
-
-
-Мы оказываем спектр услуг:
   """@ru ;
   rdfs:comment """
 Мы предлагаем два формата сотрудничества:
 
 1. Индивидуальная разработка
+
 2. Готовые решения
 
+  """@en ;
+  rdfs:comment1 """
 Мы гарантируем:
 
 - грамотное консультирование;
+
 - прозрачность процессов разработки и внедрения;
+
 - соблюдение сроков проектов;
+
 - поддержку внедренных продуктов для их успешного использования в достижении поставленных вами целей.
 
-Мы оказываем спектр услуг:
+  """@ru ;
+  rdfs:comment1 """
+Мы гарантируем:
+
+- грамотное консультирование;
+
+- прозрачность процессов разработки и внедрения;
+
+- соблюдение сроков проектов;
+
+- поддержку внедренных продуктов для их успешного использования в достижении поставленных вами целей.
+
   """@en ;
 .
 
@@ -385,6 +357,22 @@ site:Support
   rdfs:label "Support"@en ;
   v-s:shortLabel "Поддержка"@ru ;
   v-s:shortLabel "Support"@en ;
+.
+
+site:Realization
+  rdf:type site:Page ;
+  rdfs:label "Реализация"@ru ;
+  rdfs:label "Realization"@en ;
+  v-s:shortLabel "Реализация"@ru ;
+  v-s:shortLabel "Realization"@en ;
+.
+
+site:Accompanying
+  rdf:type site:Page ;
+  rdfs:label "Cопровождение"@ru ;
+  rdfs:label "Accompanying"@en ;
+  v-s:shortLabel "Cопровождение"@ru ;
+  v-s:shortLabel "Accompanying"@en ;
 .
 
 site:Consulting

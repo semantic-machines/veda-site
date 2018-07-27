@@ -268,6 +268,29 @@ site:ArticleTemplate2
   """ ;
 .
 
+site:ArticleTemplate3
+  rdf:type v-ui:ClassTemplate ;
+  rdfs:label "Шаблон статьи 3"@ru ;
+  rdfs:label "Article template 3"@en ;
+  v-ui:template """
+<div class="container">
+  <div class="sheet">
+    <h2>
+      <span property="site:heading"></span>
+      <br>
+      <span property="site:summary"></span>
+    </h2>
+    <p class="lead" property="site:content"></p>
+    <br>
+  </div>
+</div>
+<br>
+<script>
+  //# sourceURL=site:ArticleTemplate1
+</script>
+  """ ;
+.
+
 site:SliderTemplate2
   rdf:type v-ui:ClassTemplate ;
   rdfs:label "Шаблон страницы продукта"@ru ;

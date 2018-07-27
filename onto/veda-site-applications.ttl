@@ -259,10 +259,10 @@ site:ApplicationsContractors
 site:ApplicationsContractorsForSlider
   rdf:type site:Page ;
   v-s:hasImage site:ImageContractors ;
-  rdfs:label "Всегда актуальная база клиентов и поставщиков у вас под рукой!"@ru ;
-  rdfs:label "Всегда актуальная база клиентов и поставщиков у вас под рукой!"@en ;
-  v-s:shortLabel "Контрагенты"@ru ;
-  v-s:shortLabel "Contractors"@en ;
+  rdfs:label "Контрагенты"@ru ;
+  rdfs:label "Contractors"@en ;
+  rdfs:comment "Всегда актуальная база клиентов и поставщиков у вас под рукой!"@ru ;
+  rdfs:comment "Всегда актуальная база клиентов и поставщиков у вас под рукой!"@en ;
   site:hasArticle site:ApplicationsContractorsArticle1 ;
   site:hasArticle site:ApplicationsContractorsArticle2 ;
   site:hasArticle site:ApplicationsContractorsArticle3 ;
@@ -290,6 +290,7 @@ site:ApplicationsContractorsArticle1
 
 Включает в себя автоматизацию полного цикла работы с контрагентами.
   """@en ;
+  v-ui:hasTemplate site:ArticleTemplate3 ;
 .
 
 site:ApplicationsContractorsArticle2
