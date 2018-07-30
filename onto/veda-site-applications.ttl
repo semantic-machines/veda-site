@@ -113,7 +113,6 @@ site:ApplicationsTemplate
   """ ;
 .
 
-
 site:ApplicationCardTemplate
   rdf:type v-ui:ClassTemplate ;
   rdfs:label "Шаблон карточки приложения"@ru ;
@@ -124,6 +123,30 @@ site:ApplicationCardTemplate
     <div class="panel-header">
     </div>
     <div class="panel-body" style="height:250px">
+      <h3 about="@" property="rdfs:label"></h3>
+      <p about="@" property="rdfs:comment"></p>
+      <div about="@" rel="v-s:hasImage" data-template="v-ui:ImageTemplate"></div>
+    </div>
+    <div class="panel-footer clearfix">
+      <a href="#/@" class="btn btn-primary pull-right">
+        <span about="site:More" property="rdfs:label"></span>
+      </a>
+    </div>
+  </div>
+</div>
+  """ ;
+.
+
+site:ApplicationFluidTemplate
+  rdf:type v-ui:ClassTemplate ;
+  rdfs:label "Шаблон карточки приложения"@ru ;
+  rdfs:label "Application card template"@en ;
+  v-ui:template """
+<div class="col-md-12">
+  <div class="panel panel-default">
+    <div class="panel-header">
+    </div>
+    <div class="panel-body">
       <h3 about="@" property="rdfs:label"></h3>
       <p about="@" property="rdfs:comment"></p>
       <div about="@" rel="v-s:hasImage" data-template="v-ui:ImageTemplate"></div>
@@ -344,39 +367,19 @@ site:ApplicationsContractorsArticle3
   site:heading "Ключевые возможности:"@en ;
   site:content """
 
-Здесь будет markdown, а пока просто кусок кода
+| Единообразный<br>учет контрагентов | Исключение<br>дублирования | Актуальная<br>информация | Выполнение<br>требований закона |
+|:-------------:|:------------------:|:------:||:------:|
+| ![alt text](/files/site:ImageContractsLogo) | ![alt text](/files/site:ImageCopyLogo) | ![alt text](/files/site:ImageActualLogo) | ![alt text](/files/site:ImageLawLogo) |
 
-<div class="row">
-  <div class="col-md-3">
-    <span> Единообразный <br> учет контрагентов </span>
-  </div>
-  <div class="col-md-3">
-    <span> Исключение <br> дублирования </span>
-  </div>
-  <div class="col-md-3">
-    <span> Актуальная <br> информация </span>
-  </div>
-  <div class="col-md-3">
-    <span> Выполнение <br> требований закона </span>
-  </div>
-</div>
   """@ru ;
   site:content """
-<div class="row">
-  <div class="col-md-3">
-    <span> Единообразный <br> учет контрагентов </span>
-  </div>
-  <div class="col-md-3">
-    <span> Исключение <br> дублирования </span>
-  </div>
-  <div class="col-md-3">
-    <span> Актуальная <br> информация </span>
-  </div>
-  <div class="col-md-3">
-    <span> Выполнение <br> требований закона </span>
-  </div>
-</div>
+  
+| Единообразный<br>учет контрагентов | Исключение<br>дублирования | Актуальная<br>информация | Выполнение<br>требований закона |
+|:-------------:|:------------------:|:------:||:------:|
+| ![alt text](/files/site:ImageContractsLogo) | ![alt text](/files/site:ImageCopyLogo) | ![alt text](/files/site:ImageActualLogo) | ![alt text](/files/site:ImageLawLogo) |
+
   """@en ;
+  v-ui:hasTemplate site:ArticleTemplate3 ;
 .
 
 site:ApplicationsContractorsArticle4
@@ -390,56 +393,74 @@ site:ApplicationsContractorsArticle4
   site:tableHeaderRight "Бизнес-процессы:"@ru ;
   site:tableHeaderRight "Бизнес-процессы:"@en ;
   site:content """
+Документы:
 - Организация
 - Обособленное подразделение
 - Досье
 - Заявка на создание/изменение контрагента
 - Запрос на согласование контрагента
 - Единый лист оценки + Заключения внутренних служб и специалистов
-- Справочник «Организационная структура»
-- Справочник «Организационно-правовая форма»
-- Справочник «Виды деятельности по ОКВЭД»
-- Справочник «Тип взаимодействия» (виды деятельности по ОКВЭД)
-- Справочник «Вид платежа»
-- Справочник «Вид поставки»
-- Справочник «Валюта»
-- Справочник «Тема заявки»
-- Печатные формы
   """@ru ;
   site:content """
+Документы:
 - Организация
 - Обособленное подразделение
 - Досье
 - Заявка на создание/изменение контрагента
 - Запрос на согласование контрагента
 - Единый лист оценки + Заключения внутренних служб и специалистов
-- Справочник «Организационная структура»
-- Справочник «Организационно-правовая форма»
-- Справочник «Виды деятельности по ОКВЭД»
-- Справочник «Тип взаимодействия» (виды деятельности по ОКВЭД)
-- Справочник «Вид платежа»
-- Справочник «Вид поставки»
-- Справочник «Валюта»
-- Справочник «Тема заявки»
-- Печатные формы
   """@en ;
   site:content1 """
-- Регистрация
-- Автоматическое вычисление категории
-- Проверка
-- Согласование
-- Поручение
-- Готовые маршруты
+Справочники:
+- «Организационная структура»
+- «Организационно-правовая форма»
+- «Виды деятельности по ОКВЭД»
+- «Тип взаимодействия» (виды деятельности по ОКВЭД)
+- «Вид платежа»
+- «Вид поставки»
+- «Валюта»
+- «Тема заявки»
   """@ru ;
   site:content1 """
-- Регистрация
-- Автоматическое вычисление категории
-- Проверка
-- Согласование
-- Поручение
-- Готовые маршруты
+Справочники:
+- «Организационная структура»
+- «Организационно-правовая форма»
+- «Виды деятельности по ОКВЭД»
+- «Тип взаимодействия» (виды деятельности по ОКВЭД)
+- «Вид платежа»
+- «Вид поставки»
+- «Валюта»
+- «Тема заявки»
   """@en ;
-  v-ui:hasTemplate site:ApplicationsContractorsArticle3Template ;
+  site:content2 """
+Печатная форма:
+  """@ru ;
+  site:content2 """
+Печатная форма:
+  """@en ;
+  site:content3 """
+Отчёты:
+  """@ru ;
+  site:content3 """
+Отчёты:
+  """@en ;
+  site:content4 """
+- Проверка на уникальность
+- Автоматическое вычисление категории
+- Вычисление итоговой оценки
+- Автоматизированные маршруты
+- Свободный маршрут
+- Частные задачи
+  """@ru ;
+  site:content4 """
+- Проверка на уникальность
+- Автоматическое вычисление категории
+- Вычисление итоговой оценки
+- Автоматизированные маршруты
+- Свободный маршрут
+- Частные задачи
+  """@en ;
+  v-ui:hasTemplate site:ApplicationsContractorsArticle4Template ;
 .
 
 site:ApplicationsContractorsArticle5
@@ -495,6 +516,34 @@ site:ImageContracts
   rdf:type v-s:File ;
   v-s:fileUri "contracts.jpg" ;
   v-s:fileName "contracts.jpg" ;
+  v-s:filePath "/site" ;
+.
+
+site:ImageContractsLogo
+  rdf:type v-s:File ;
+  v-s:fileUri "contr.png" ;
+  v-s:fileName "contr.png" ;
+  v-s:filePath "/site" ;
+.
+
+site:ImageCopyLogo
+  rdf:type v-s:File ;
+  v-s:fileUri "copy.png" ;
+  v-s:fileName "copy.png" ;
+  v-s:filePath "/site" ;
+.
+
+site:ImageActualLogo
+  rdf:type v-s:File ;
+  v-s:fileUri "actual.png" ;
+  v-s:fileName "actual.png" ;
+  v-s:filePath "/site" ;
+.
+
+site:ImageLawLogo
+  rdf:type v-s:File ;
+  v-s:fileUri "law.png" ;
+  v-s:fileName "law.png" ;
   v-s:filePath "/site" ;
 .
 

@@ -280,7 +280,7 @@ site:ArticleTemplate3
       <br>
       <span property="site:summary"></span>
     </h2>
-    <p class="lead" property="site:content"></p>
+    <div class="markdown" property="site:content"></div>
     <br>
   </div>
 </div>
@@ -363,6 +363,66 @@ site:ApplicationsContractorsArticle3Template
           </div>
           <div class="panel-body bg-info">
             <p class="lead" property="site:content1"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+  """ ;
+.
+
+site:ApplicationsContractorsArticle4Template
+  rdf:type v-ui:ClassTemplate ;
+  rdfs:label "Шаблон статьи 2"@ru ;
+  rdfs:label "Article template 2"@en ;
+  v-ui:template """
+<div class="container">
+  <div class="sheet">
+    <div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <p class="lead" property="site:tableHeaderLeft"></p>
+        </div>
+        <div class="panel-body bg-info">
+        
+          <div class="row">
+            <div class="col-md-6">
+              <p class="lead" property="site:content"></p>
+            </div>
+            <div class="col-md-6">
+              <p class="lead" property="site:content1"></p>
+            </div>
+            <div class="col-md-6">
+              <p class="lead" property="site:content2"></p>
+            </div>
+            <div class="col-md-6">
+              <p class="lead" property="site:content3"></p>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <p class="lead" property="site:tableHeaderRight"></p>
+          </div>
+          <div class="panel-body bg-info">
+            <p class="lead" property="site:content4"></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            
+          </div>
+          <div class="panel-body bg-info">
+            
           </div>
         </div>
       </div>
