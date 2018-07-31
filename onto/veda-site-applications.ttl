@@ -290,7 +290,6 @@ site:ApplicationsContractorsForSlider
   site:hasArticle site:ApplicationsContractorsArticle2 ;
   site:hasArticle site:ApplicationsContractorsArticle3 ;
   site:hasArticle site:ApplicationsContractorsArticle4 ;
-  site:hasArticle site:ApplicationsContractorsArticle5 ;
 .
 
 ### ARTICLES CONTRACTORS ###
@@ -299,27 +298,50 @@ site:ApplicationsContractorsArticle1
   rdf:type site:Article ;
   rdfs:label "Статья. Преимущества 1"@ru ;
   rdfs:label "Article. Advantages 1"@en ;
-  site:heading "Решение предназначено: "@ru ;
-  site:heading "Решение предназначено: "@en ;
+  site:heading " "@ru ;
+  site:heading " "@en ;
   site:content """
-Для централизации работы и детального анализа данных по каждому отдельному контрагенту,
+Решение предназначено для централизации работы и детального анализа данных по каждому отдельному контрагенту,
 проведения формализованной процедуры проверки соответствия поставщиков внутренним требованиям организации.
 
 Включает в себя автоматизацию полного цикла работы с контрагентами.
   """@ru ;
   site:content """
-Приложение предназначено для централизации работы и детального анализа данных по каждому отдельному контрагенту,
+Решение предназначено для централизации работы и детального анализа данных по каждому отдельному контрагенту,
 проведения формализованной процедуры проверки соответствия поставщиков внутренним требованиям организации.
 
 Включает в себя автоматизацию полного цикла работы с контрагентами.
   """@en ;
-  v-ui:hasTemplate site:ArticleTemplate3 ;
+  v-ui:hasTemplate site:ArticleTemplate4 ;
 .
 
 site:ApplicationsContractorsArticle2
   rdf:type site:Article ;
   rdfs:label "Статья. Преимущества 2"@ru ;
   rdfs:label "Article. Advantages 2"@en ;
+  site:heading "Ключевые возможности:"@ru ;
+  site:heading "Ключевые возможности:"@en ;
+  site:content """
+
+| Единообразный<br>учет контрагентов | Исключение<br>дублирования | Актуальная<br>информация | Выполнение<br>требований закона |
+|:-------------:|:------------------:|:------:||:------:|
+| ![alt text](/files/site:ImageContractsLogo) | ![alt text](/files/site:ImageCopyLogo) | ![alt text](/files/site:ImageActualLogo) | ![alt text](/files/site:ImageLawLogo) |
+
+  """@ru ;
+  site:content """
+  
+| Единообразный<br>учет контрагентов | Исключение<br>дублирования | Актуальная<br>информация | Выполнение<br>требований закона |
+|:-------------:|:------------------:|:------:||:------:|
+| ![alt text](/files/site:ImageContractsLogo) | ![alt text](/files/site:ImageCopyLogo) | ![alt text](/files/site:ImageActualLogo) | ![alt text](/files/site:ImageLawLogo) |
+
+  """@en ;
+  v-ui:hasTemplate site:ArticleTemplate3 ;
+.
+
+site:ApplicationsContractorsArticle3
+  rdf:type site:Article ;
+  rdfs:label "Статья. Преимущества 3"@ru ;
+  rdfs:label "Article. Advantages 3"@en ;
   site:heading "Решение позволит:"@ru ;
   site:heading "Решение позволит:"@en ;
   site:content """
@@ -359,28 +381,6 @@ site:ApplicationsContractorsArticle2
   """@en ;
 .
 
-site:ApplicationsContractorsArticle3
-  rdf:type site:Article ;
-  rdfs:label "Статья. Преимущества 3"@ru ;
-  rdfs:label "Article. Advantages 3"@en ;
-  site:heading "Ключевые возможности:"@ru ;
-  site:heading "Ключевые возможности:"@en ;
-  site:content """
-
-| Единообразный<br>учет контрагентов | Исключение<br>дублирования | Актуальная<br>информация | Выполнение<br>требований закона |
-|:-------------:|:------------------:|:------:||:------:|
-| ![alt text](/files/site:ImageContractsLogo) | ![alt text](/files/site:ImageCopyLogo) | ![alt text](/files/site:ImageActualLogo) | ![alt text](/files/site:ImageLawLogo) |
-
-  """@ru ;
-  site:content """
-  
-| Единообразный<br>учет контрагентов | Исключение<br>дублирования | Актуальная<br>информация | Выполнение<br>требований закона |
-|:-------------:|:------------------:|:------:||:------:|
-| ![alt text](/files/site:ImageContractsLogo) | ![alt text](/files/site:ImageCopyLogo) | ![alt text](/files/site:ImageActualLogo) | ![alt text](/files/site:ImageLawLogo) |
-
-  """@en ;
-  v-ui:hasTemplate site:ArticleTemplate3 ;
-.
 
 site:ApplicationsContractorsArticle4
   rdf:type site:Article ;
@@ -392,6 +392,8 @@ site:ApplicationsContractorsArticle4
   site:tableHeaderLeft "Бизнес-объекты:"@en ;
   site:tableHeaderRight "Бизнес-процессы:"@ru ;
   site:tableHeaderRight "Бизнес-процессы:"@en ;
+  site:tableHeader "Дополнительные опции:"@ru ;
+  site:tableHeader "Дополнительные опции:"@en ;
   site:content """
 Документы:
 - Организация
@@ -459,30 +461,18 @@ site:ApplicationsContractorsArticle4
 - Автоматизированные маршруты
 - Свободный маршрут
 - Частные задачи
+  """@en ;
+  site:content5 """
+- Уведомления по e-mail
+- Мобильное приложение
+- Интеграция с 1С и SAP
+  """@ru ;
+  site:content5 """
+- Уведомления по e-mail
+- Мобильное приложение
+- Интеграция с 1С и SAP
   """@en ;
   v-ui:hasTemplate site:ApplicationsContractorsArticle4Template ;
-.
-
-site:ApplicationsContractorsArticle5
-  rdf:type site:Article ;
-  rdfs:label "Статья. Преимущества 5"@ru ;
-  rdfs:label "Article. Advantages 5"@en ;
-  site:heading "Дополнительные опции:"@ru ;
-  site:heading "Дополнительные опции:"@en ;
-  site:content """
-Решение связано со всеми решениями на основе платформы Veda.
-
-Уведомления по e-mail
-Мобильное приложение
-Интеграция с 1С и SAP
-  """@ru ;
-  site:content """
-Решение связано со всеми решениями на основе платформы Veda.
-
-Уведомления по e-mail
-Мобильное приложение
-Интеграция с 1С и SAP
-  """@en ;
 .
 
 #########################################
@@ -720,4 +710,174 @@ site:ApplicationsAccountingDocsArticle4
   """@en ;
 .
 
-###############################
+############ Meetings ###################
+
+site:ApplicationsMeetings
+  rdf:type site:Page ;
+  v-s:hasImage site:ImageForest ;
+  v-ui:hasTemplate site:ApplicationsMeetingsTemplate ;
+  site:hasPage site:ApplicationsMeetingsForSlider ;
+  rdfs:label "Встречи"@ru ;
+  rdfs:label "Meetings"@en ;
+  rdfs:comment "От слов — к делу!"@ru ;
+  rdfs:comment "От слов — к делу!"@en ;
+.
+
+site:ApplicationsMeetingsForSlider
+  rdf:type site:Page ;
+  v-s:hasImage site:ImageForest ;
+  rdfs:label "Встречи"@ru ;
+  rdfs:label "Meetings"@en ;
+  rdfs:comment "От слов — к делу!"@ru ;
+  rdfs:comment "От слов — к делу!"@en ;
+  v-s:shortLabel "Встречи"@ru ;
+  v-s:shortLabel "Meetings"@en ;
+  site:hasArticle site:ApplicationsMeetingsArticle1 ;
+  site:hasArticle site:ApplicationsMeetingsArticle2 ;
+  site:hasArticle site:ApplicationsMeetingsArticle3 ;
+  site:hasArticle site:ApplicationsMeetingsArticle4 ;
+.
+
+site:ApplicationsMeetingsTemplate
+  rdf:type v-ui:ClassTemplate ;
+  rdfs:label "Шаблон страницы Встречи"@ru ;
+  rdfs:label "Meetings page template"@en ;
+  v-ui:template """
+<div about="@" data-template="site:SliderTemplate2"></div>
+  """ ;
+.
+
+### ARTICLES Meetings ###
+
+site:ApplicationsMeetingsArticle1
+  rdf:type site:Article ;
+  rdfs:label "Статья. Преимущества 1"@ru ;
+  rdfs:label "Article. Advantages 1"@en ;
+  site:heading "Приложение предназначено:"@ru ;
+  site:heading "Приложение предназначено:"@en ;
+  site:content """
+Приложение предназначено для автоматизации планирования и проведения различных встреч 
+(совещаний, заседаний, рабочих встреч...), контроля  выполнения планов реализации.
+  """@ru ;
+  site:content """
+Приложение предназначено для автоматизации планирования и проведения различных встреч 
+(совещаний, заседаний, рабочих встреч...), контроля  выполнения планов реализации.
+  """@en ;
+  v-ui:hasTemplate site:ArticleTemplate4 ;
+.
+
+site:ApplicationsMeetingsArticle2
+  rdf:type site:Article ;
+  rdfs:label "Статья. Преимущества 1"@ru ;
+  rdfs:label "Article. Advantages 1"@en ;
+  site:heading "Приложение позволит:"@ru ;
+  site:heading "Приложение позволит:"@en ;
+  site:content """
+Планировать предстоящие рабочие встречи: проводить подготовку и согласование повестки, 
+определять состав приглашенных, время и место, своевременно оповещать всех заинтересованных лиц, 
+в том числе сотрудников внешних организаций (путем рассылки электронных писем с приглашением).
+
+Вести протоколы встреч, фиксировать принятые решения
+Формировать план мероприятий по итогам встреч, назначать ответственных, контролировать выполнение
+Контролировать время сотрудников, перечень обсуждаемых вопросов
+  """@ru ;
+  site:content """
+Планировать предстоящие рабочие встречи: проводить подготовку и согласование повестки, 
+определять состав приглашенных, время и место, своевременно оповещать всех заинтересованных лиц, 
+в том числе сотрудников внешних организаций (путем рассылки электронных писем с приглашением).
+
+Вести протоколы встреч, фиксировать принятые решения
+Формировать план мероприятий по итогам встреч, назначать ответственных, контролировать выполнение
+Контролировать время сотрудников, перечень обсуждаемых вопросов
+  """@en ;
+.
+
+site:ApplicationsMeetingsArticle3
+  rdf:type site:Article ;
+  rdfs:label "Статья. Преимущества 3"@ru ;
+  rdfs:label "Article. Advantages 3"@en ;
+  site:heading "Ключевые возможности:"@ru ;
+  site:heading "Ключевые возможности:"@en ;
+  site:content """
+
+| Планирование<br>встреч | Приглашение<br>участников | Ведение<br>протоколов | План<br>мероприятий | Назначение<br>ответственных | Контроль<br>выполнения |
+|:-------------:|:------------------:|:------:|:------:|:------:|:------:|
+|  |  |  |  |  |  |
+
+  """@ru ;
+  site:content """
+  
+| Планирование встреч | Приглашение участников | Ведение протоколов | План мероприятий | Назначение ответственных | Контроль выполнения |
+|:-------------:|:------------------:|:------:|:------:|:------:|:------:|
+|  |  |  |  |  |  |
+
+  """@en ;
+  v-ui:hasTemplate site:ArticleTemplate3 ;
+.
+
+site:ApplicationsMeetingsArticle4
+  rdf:type site:Article ;
+  rdfs:label "Статья. Преимущества 4"@ru ;
+  rdfs:label "Article. Advantages 4"@en ;
+  site:tableHeaderLeft "Бизнес-объекты:"@ru ;
+  site:tableHeaderLeft "Бизнес-объекты:"@en ;
+  site:tableHeaderRight "Бизнес-процессы:"@ru ;
+  site:tableHeaderRight "Бизнес-процессы:"@en ;
+  site:tableHeader "Дополнительные опции:"@ru ;
+  site:tableHeader "Дополнительные опции:"@en ;
+  site:content """
+Документы:
+- Протокол встречи
+- Мероприятие встречи
+  """@ru ;
+  site:content """
+Документы:
+- Протокол встречи
+- Мероприятие встречи
+  """@en ;
+  site:content1 """
+Справочники:
+- «Классификатор встреч»
+- «Организационная структура»
+- «Уровень приоритета»
+- «Срок»
+  """@ru ;
+  site:content1 """
+ССправочники:
+- «Классификатор встреч»
+- «Организационная структура»
+- «Уровень приоритета»
+- «Срок»
+  """@en ;
+  site:content2 """
+Печатная форма:
+  """@ru ;
+  site:content2 """
+Печатная форма:
+  """@en ;
+  site:content3 """
+Отчёты:
+  """@ru ;
+  site:content3 """
+Отчёты:
+  """@en ;
+  site:content4 """
+- Автоматизированные маршруты
+- Свободный маршрут
+- Частные задачи
+  """@ru ;
+  site:content4 """
+- Автоматизированные маршруты
+- Свободный маршрут
+- Частные задачи
+  """@en ;
+  site:content5 """
+- Формирование новых встреч на основе уже созданных
+- Создание связанных встреч
+  """@ru ;
+  site:content5 """
+- Формирование новых встреч на основе уже созданных
+- Создание связанных встреч
+  """@en ;
+  v-ui:hasTemplate site:ApplicationsContractorsArticle4Template ;
+.

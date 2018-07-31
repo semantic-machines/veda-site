@@ -291,6 +291,24 @@ site:ArticleTemplate3
   """ ;
 .
 
+site:ArticleTemplate4
+  rdf:type v-ui:ClassTemplate ;
+  rdfs:label "Шаблон статьи 4"@ru ;
+  rdfs:label "Article template 4"@en ;
+  v-ui:template """
+<div class="container">
+  <div class="sheet">
+    <p class="lead" property="site:content"></p>
+    <br>
+  </div>
+</div>
+<br>
+<script>
+  //# sourceURL=site:ArticleTemplate1
+</script>
+  """ ;
+.
+
 site:SliderTemplate2
   rdf:type v-ui:ClassTemplate ;
   rdfs:label "Шаблон страницы продукта"@ru ;
@@ -301,10 +319,13 @@ site:SliderTemplate2
     <div class="carousel-inner" role="listbox" about="@" rel="site:hasPage">
       <div class="item">
         <div about="@" rel="v-s:hasImage" data-template="v-ui:ImageTemplate"></div>
-        <div class="carousel-caption container-fluid" style="position: absolute; top: 0px; left: 0px; right:0px; border:none; background-color: transparent">
+        <div class="container-fluid" style="position: absolute; top: 0px; left: 0px; right:0px; border:none; background-color: transparent">
           <div class="container" style="border:none; background-color: transparent">
-            <h1 property="rdfs:label"></h1>
-            <p property="rdfs:comment"></p>
+            <h1 style="line-height: 1; color: #ffffff; text-shadow: 0px 1px 2px black;">
+              <span property="rdfs:label"></span>
+              <br>
+              <small style="color: #ffffff;" property="rdfs:comment"></small>
+            </h1>
           </div>
         </div>
       </div>
@@ -419,10 +440,10 @@ site:ApplicationsContractorsArticle4Template
       <div class="col-md-6">
         <div class="panel panel-default">
           <div class="panel-heading">
-            
+            <p class="lead" property="site:tableHeader"></p>
           </div>
           <div class="panel-body bg-info">
-            
+            <p class="lead" property="site:content5"></p>
           </div>
         </div>
       </div>
