@@ -764,8 +764,6 @@ site:ApplicationsMeetingsTemplate
     </div>
   </div>
   <br>
-  <br>
-  <br>
   <div class="container">
     <div class="row" about="@" rel="site:hasPage"></div>
   </div>
@@ -870,7 +868,7 @@ site:ApplicationsMeetingsArticle4
 • «Срок»
   """@ru ;
   site:content1 """
-ССправочники:
+Справочники:
 • «Классификатор встреч»
 • «Организационная структура»
 • «Уровень приоритета»
@@ -907,4 +905,228 @@ site:ApplicationsMeetingsArticle4
 • Создание связанных встреч
   """@en ;
   v-ui:hasTemplate site:ApplicationsContractorsArticle4Template ;
+.
+
+################## Audits ##########################
+
+site:ApplicationsAudits
+  rdf:type site:Page ;
+  v-s:hasImage site:ImageForest ;
+  v-ui:hasTemplate site:ApplicationsAuditsTemplate ;
+  site:hasPage site:ApplicationsAuditsForSlider ;
+  rdfs:label "Аудиты безопасности"@ru ;
+  rdfs:label "Аудиты безопасности"@en ;
+  rdfs:comment "Безопасность на первом месте! / Работайте безопасно!"@ru ;
+  rdfs:comment "Безопасность на первом месте! / Работайте безопасно!"@en ;
+.
+
+site:ApplicationsAuditsForSlider
+  rdf:type site:Page ;
+  v-s:hasImage site:ImageForest ;
+  rdfs:label "Аудиты безопасности"@ru ;
+  rdfs:label "Аудиты безопасности"@en ;
+  rdfs:comment "Безопасность на первом месте! / Работайте безопасно!"@ru ;
+  rdfs:comment "Безопасность на первом месте! / Работайте безопасно!"@en ;
+  v-s:shortLabel "Встречи"@ru ;
+  v-s:shortLabel "Meetings"@en ;
+  site:hasArticle site:ApplicationsAuditsArticle1 ;
+  site:hasArticle site:ApplicationsAuditsArticle2 ;
+  site:hasArticle site:ApplicationsAuditsArticle3 ;
+  site:hasArticle site:ApplicationsAuditsArticle4 ;
+.
+
+site:ApplicationsAuditsTemplate
+  rdf:type v-ui:ClassTemplate ;
+  rdfs:label "Шаблон страницы встречи"@ru ;
+  rdfs:label "Meetings page template"@en ;
+  v-ui:template """
+<div class="bg-white">
+  <div class="bg-emerald">
+    <div class="container">
+      <br>
+      <br>
+      <h1 style="line-height: 1; color: #333; text-shadow: 0px 1px 2px black;">
+        <span about="site:ApplicationsAuditsForSlider" property="rdfs:label"></span>
+        <br>
+        <small about="site:ApplicationsAuditsForSlider" property="rdfs:comment"></small>
+      </h1>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+    </div>
+  </div>
+  <br>
+  <div class="container">
+    <div class="row" about="@" rel="site:hasPage"></div>
+  </div>
+</div>
+  """ ;
+.
+
+### ARTICLES Meetings ###
+
+site:ApplicationsAuditsArticle1
+  rdf:type site:Article ;
+  rdfs:label "Статья. Преимущества 1"@ru ;
+  rdfs:label "Article. Advantages 1"@en ;
+  site:heading "Приложение предназначено:"@ru ;
+  site:heading "Приложение предназначено:"@en ;
+  site:content """
+Приложение предназначено для автоматизации планирования и проведения аудитов, 
+контроля  выполнения планов реализации.
+  """@ru ;
+  site:content """
+Приложение предназначено для автоматизации планирования и проведения аудитов, 
+контроля  выполнения планов реализации.
+  """@en ;
+  v-ui:hasTemplate site:ArticleTemplate4 ;
+.
+
+site:ApplicationsAuditsArticle2
+  rdf:type site:Article ;
+  rdfs:label "Статья. Преимущества 1"@ru ;
+  rdfs:label "Article. Advantages 1"@en ;
+  site:heading "Приложение позволит:"@ru ;
+  site:heading "Приложение позволит:"@en ;
+  site:content """
+• Планировать проведение предстоящих аудитов
+• Планировать мероприятия по устранению выявленных в ходе аудитов недостатков, в том числе в отношении подрядчиков
+• Назначать ответственных за выполнение мероприятий
+• Контролировать выполнение мероприятий
+• Оценивать устранение недостатков
+• Повысить безопасность работы
+  """@ru ;
+  site:content """
+• Планировать проведение предстоящих аудитов
+• Планировать мероприятия по устранению выявленных в ходе аудитов недостатков, в том числе в отношении подрядчиков
+• Назначать ответственных за выполнение мероприятий
+• Контролировать выполнение мероприятий
+• Оценивать устранение недостатков
+• Повысить безопасность работы
+  """@en ;
+  v-ui:hasTemplate site:ArticleTemplate5 ;
+.
+
+site:ApplicationsAuditsArticle3
+  rdf:type site:Article ;
+  rdfs:label "Статья. Преимущества 3"@ru ;
+  rdfs:label "Article. Advantages 3"@en ;
+  site:heading "Ключевые возможности:"@ru ;
+  site:heading "Ключевые возможности:"@en ;
+  site:content """
+  """@ru ;
+  site:content """
+  """@en ;
+  v-ui:hasTemplate site:ApplicationsAuditsAdvantageTemplate ;
+.
+
+site:ApplicationsAuditsArticle4
+  rdf:type site:Article ;
+  rdfs:label "Статья. Преимущества 4"@ru ;
+  rdfs:label "Article. Advantages 4"@en ;
+  site:tableHeaderLeft "Бизнес-объекты:"@ru ;
+  site:tableHeaderLeft "Бизнес-объекты:"@en ;
+  site:tableHeaderRight "Бизнес-процессы:"@ru ;
+  site:tableHeaderRight "Бизнес-процессы:"@en ;
+  site:tableHeader "Дополнительные опции:"@ru ;
+  site:tableHeader "Дополнительные опции:"@en ;
+  site:content """
+Документы:
+• Аудит безопасности
+• Мероприятие аудита безопасности
+• Оценка аудита
+• Годовая программа аудитов
+  """@ru ;
+  site:content """
+Документы:
+• Аудит безопасности
+• Мероприятие аудита безопасности
+• Оценка аудита
+• Годовая программа аудитов
+  """@en ;
+  site:content1 """
+Справочники:
+• «Отрасли экономической деятельности»
+• «Перечень проверяемых параметров»
+• «Организационная структура»
+• «Виды аудита»
+  """@ru ;
+  site:content1 """
+Справочники:
+• «Отрасли экономической деятельности»
+• «Перечень проверяемых параметров»
+• «Организационная структура»
+• «Виды аудита»
+  """@en ;
+  site:content2 """
+Печатная форма:
+  """@ru ;
+  site:content2 """
+Печатная форма:
+  """@en ;
+  site:content3 """
+Отчёты:
+• По сотрудникам
+• По просроченным мероприятиям
+  """@ru ;
+  site:content3 """
+Отчёты:
+• По сотрудникам
+• По просроченным мероприятиям
+  """@en ;
+  site:content4 """
+• Автоматизированные маршруты
+• Частные задачи
+  """@ru ;
+  site:content4 """
+• Автоматизированные маршруты
+• Частные задачи
+  """@en ;
+  site:content5 """
+• Статус выполнения мероприятий
+• Приложение «Аудиты безопасности» связано с приложением «Претензии»
+  """@ru ;
+  site:content5 """
+• Статус выполнения мероприятий
+• Приложение «Аудиты безопасности» связано с приложением «Претензии»
+  """@en ;
+  v-ui:hasTemplate site:ApplicationsContractorsArticle4Template ;
+.
+
+site:ApplicationsAuditsAdvantageTemplate
+  rdf:type v-ui:ClassTemplate ;
+  rdfs:label "Шаблон страницы встречи"@ru ;
+  rdfs:label "Meetings page template"@en ;
+  v-ui:template """
+<div class="bg-white">
+  <div class="container">
+    <div class="sheet" style="border: none;">
+      <h2>
+        <span property="site:heading"></span>
+      </h2>
+      <br>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="col-md-6">
+            <span class="lead glyphicon glyphicon-star"> Планирование аудитов</span><br>
+            <span class="lead glyphicon glyphicon-plus"> Фиксация наблюдений согласно требованиям стандартов</span><br>
+            <span class="lead glyphicon glyphicon-pencil"> Назначение ответственных</span><br>
+            <span class="lead glyphicon glyphicon-off"> Снижение рисков</span><br>
+          </div>
+          <div class="col-md-6">
+            <span class="lead glyphicon glyphicon-asterisk"> Списки участников рабочих групп</span><br>
+            <span class="lead glyphicon glyphicon-cloud"> План мероприятий</span><br>
+            <span class="lead glyphicon glyphicon-th-large"> Контроль выполнения</span><br>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  """ ;
 .

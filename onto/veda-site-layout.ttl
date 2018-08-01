@@ -298,7 +298,9 @@ site:ArticleTemplate4
   v-ui:template """
 <div class="container">
   <div class="sheet" style="border: none;">
-    <p class="lead" property="site:content"></p>
+    <blockquote>
+      <p class="lead" property="site:content"></p>
+    </blockquote>
     <br>
   </div>
 </div>
