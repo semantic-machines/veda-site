@@ -1113,15 +1113,19 @@ site:ApplicationsAuditsAdvantageTemplate
       <div class="row">
         <div class="col-md-12">
           <div class="col-md-6">
-            <span class="lead glyphicon glyphicon-star"> Планирование аудитов</span><br>
-            <span class="lead glyphicon glyphicon-plus"> Фиксация наблюдений согласно требованиям стандартов</span><br>
-            <span class="lead glyphicon glyphicon-pencil"> Назначение ответственных</span><br>
-            <span class="lead glyphicon glyphicon-off"> Снижение рисков</span><br>
+            <p class="lead">
+              <span class="glyphicon glyphicon-star"> Планирование аудитов</span><br>
+              <span class="glyphicon glyphicon-plus"> Фиксация наблюдений согласно требованиям стандартов</span><br>
+              <span class="glyphicon glyphicon-pencil"> Назначение ответственных</span><br>
+              <span class="glyphicon glyphicon-off"> Снижение рисков</span><br>
+            </p>
           </div>
           <div class="col-md-6">
-            <span class="lead glyphicon glyphicon-asterisk"> Списки участников рабочих групп</span><br>
-            <span class="lead glyphicon glyphicon-cloud"> План мероприятий</span><br>
-            <span class="lead glyphicon glyphicon-th-large"> Контроль выполнения</span><br>
+            <p class="lead">
+              <span class="glyphicon glyphicon-asterisk"> Списки участников рабочих групп</span><br>
+              <span class="glyphicon glyphicon-cloud"> План мероприятий</span><br>
+              <span class="glyphicon glyphicon-th-large"> Контроль выполнения</span><br>
+            </p>
           </div>
         </div>
       </div>
