@@ -216,7 +216,7 @@ site:ArticleTemplate1
   rdfs:label "Article template 1"@en ;
   v-ui:template """
 <div class="container">
-  <div class="sheet">
+  <div class="sheet" style="border: none;">
     <div class="row">
       <div class="col-md-8">
         <h2>
@@ -245,7 +245,7 @@ site:ArticleTemplate2
   rdfs:label "Article template 2"@en ;
   v-ui:template """
 <div class="container">
-  <div class="sheet">
+  <div class="sheet" style="border: none;">
     <div class="row">
       <div class="col-md-4">
         <div rel="v-s:hasImage" data-template="v-ui:ModalImageTemplate"></div>
@@ -263,7 +263,7 @@ site:ArticleTemplate2
   <br>
 </div>
 <script>
-  //# sourceURL=site:ArticleTemplate1
+  //# sourceURL=site:ArticleTemplate2
 </script>
   """ ;
 .
@@ -274,7 +274,7 @@ site:ArticleTemplate3
   rdfs:label "Article template 3"@en ;
   v-ui:template """
 <div class="container">
-  <div class="sheet">
+  <div class="sheet" style="border: none;">
     <h2>
       <span property="site:heading"></span>
       <br>
@@ -286,7 +286,7 @@ site:ArticleTemplate3
 </div>
 <br>
 <script>
-  //# sourceURL=site:ArticleTemplate1
+  //# sourceURL=site:ArticleTemplate3
 </script>
   """ ;
 .
@@ -297,14 +297,37 @@ site:ArticleTemplate4
   rdfs:label "Article template 4"@en ;
   v-ui:template """
 <div class="container">
-  <div class="sheet">
+  <div class="sheet" style="border: none;">
     <p class="lead" property="site:content"></p>
     <br>
   </div>
 </div>
 <br>
 <script>
-  //# sourceURL=site:ArticleTemplate1
+  //# sourceURL=site:ArticleTemplate4
+</script>
+  """ ;
+.
+
+site:ArticleTemplate5
+  rdf:type v-ui:ClassTemplate ;
+  rdfs:label "Шаблон статьи 3"@ru ;
+  rdfs:label "Article template 3"@en ;
+  v-ui:template """
+<div class="container">
+  <div class="sheet" style="border: none;">
+    <h2>
+      <span property="site:heading"></span>
+      <br>
+      <span property="site:summary"></span>
+    </h2>
+    <p class="lead" property="site:content"></p>
+    <br>
+  </div>
+</div>
+<br>
+<script>
+  //# sourceURL=site:ArticleTemplate5
 </script>
   """ ;
 .
@@ -400,7 +423,7 @@ site:ApplicationsContractorsArticle4Template
   rdfs:label "Article template 2"@en ;
   v-ui:template """
 <div class="container">
-  <div class="sheet">
+  <div class="sheet"  style="border: none;">
     <div>
       <div class="panel panel-default">
         <div class="panel-heading">

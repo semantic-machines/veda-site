@@ -740,10 +740,36 @@ site:ApplicationsMeetingsForSlider
 
 site:ApplicationsMeetingsTemplate
   rdf:type v-ui:ClassTemplate ;
-  rdfs:label "Шаблон страницы Встречи"@ru ;
+  rdfs:label "Шаблон страницы встречи"@ru ;
   rdfs:label "Meetings page template"@en ;
   v-ui:template """
-<div about="@" data-template="site:SliderTemplate2"></div>
+<div class="bg-white">
+  <div class="bg-turquoise">
+    <div class="container">
+      <br>
+      <br>
+      <h1 style="line-height: 1; color: #333; text-shadow: 0px 1px 2px black;">
+        <span about="site:ApplicationsMeetingsForSlider" property="rdfs:label"></span>
+        <br>
+        <small about="site:ApplicationsMeetingsForSlider" property="rdfs:comment"></small>
+      </h1>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+    </div>
+  </div>
+  <br>
+  <br>
+  <br>
+  <div class="container">
+    <div class="row" about="@" rel="site:hasPage"></div>
+  </div>
+</div>
   """ ;
 .
 
@@ -790,6 +816,7 @@ site:ApplicationsMeetingsArticle2
 Формировать план мероприятий по итогам встреч, назначать ответственных, контролировать выполнение
 Контролировать время сотрудников, перечень обсуждаемых вопросов
   """@en ;
+  v-ui:hasTemplate site:ArticleTemplate5 ;
 .
 
 site:ApplicationsMeetingsArticle3
@@ -827,27 +854,27 @@ site:ApplicationsMeetingsArticle4
   site:tableHeader "Дополнительные опции:"@en ;
   site:content """
 Документы:
-- Протокол встречи
-- Мероприятие встречи
+• Протокол встречи
+• Мероприятие встречи
   """@ru ;
   site:content """
 Документы:
-- Протокол встречи
-- Мероприятие встречи
+• Протокол встречи
+• Мероприятие встречи
   """@en ;
   site:content1 """
 Справочники:
-- «Классификатор встреч»
-- «Организационная структура»
-- «Уровень приоритета»
-- «Срок»
+• «Классификатор встреч»
+• «Организационная структура»
+• «Уровень приоритета»
+• «Срок»
   """@ru ;
   site:content1 """
 ССправочники:
-- «Классификатор встреч»
-- «Организационная структура»
-- «Уровень приоритета»
-- «Срок»
+• «Классификатор встреч»
+• «Организационная структура»
+• «Уровень приоритета»
+• «Срок»
   """@en ;
   site:content2 """
 Печатная форма:
@@ -862,22 +889,22 @@ site:ApplicationsMeetingsArticle4
 Отчёты:
   """@en ;
   site:content4 """
-- Автоматизированные маршруты
-- Свободный маршрут
-- Частные задачи
+• Автоматизированные маршруты
+• Свободный маршрут
+• Частные задачи
   """@ru ;
   site:content4 """
-- Автоматизированные маршруты
-- Свободный маршрут
-- Частные задачи
+• Автоматизированные маршруты
+• Свободный маршрут
+• Частные задачи
   """@en ;
   site:content5 """
-- Формирование новых встреч на основе уже созданных
-- Создание связанных встреч
+• Формирование новых встреч на основе уже созданных
+• Создание связанных встреч
   """@ru ;
   site:content5 """
-- Формирование новых встреч на основе уже созданных
-- Создание связанных встреч
+• Формирование новых встреч на основе уже созданных
+• Создание связанных встреч
   """@en ;
   v-ui:hasTemplate site:ApplicationsContractorsArticle4Template ;
 .
