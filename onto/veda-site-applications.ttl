@@ -493,15 +493,6 @@ site:ImageContractors
   v-s:filePath "/site" ;
 .
 
-site:ApplicationsContracts
-  rdf:type site:Page ;
-  v-s:hasImage site:ImageContracts ;
-  rdfs:label "Контракты"@ru ;
-  rdfs:label "Contracts"@en ;
-  rdfs:comment "Контракты под контролем!"@ru ;
-  rdfs:comment "Контракты под контролем!"@en ;
-.
-
 site:ImageContracts
   rdf:type v-s:File ;
   v-s:fileUri "contracts.jpg" ;
@@ -927,8 +918,6 @@ site:ApplicationsAuditsForSlider
   rdfs:label "Аудиты безопасности"@en ;
   rdfs:comment "Безопасность на первом месте! / Работайте безопасно!"@ru ;
   rdfs:comment "Безопасность на первом месте! / Работайте безопасно!"@en ;
-  v-s:shortLabel "Встречи"@ru ;
-  v-s:shortLabel "Meetings"@en ;
   site:hasArticle site:ApplicationsAuditsArticle1 ;
   site:hasArticle site:ApplicationsAuditsArticle2 ;
   site:hasArticle site:ApplicationsAuditsArticle3 ;
@@ -1133,4 +1122,109 @@ site:ApplicationsAuditsAdvantageTemplate
   </div>
 </div>
   """ ;
+.
+
+################## Contracts ##########################
+
+site:ApplicationsContracts
+  rdf:type site:Page ;
+  v-ui:hasTemplate site:ApplicationsContractsTemplate ;
+  site:hasPage site:ApplicationsContractsForSlider ;
+  v-s:hasImage site:ImageContracts ;
+  rdfs:label "Контракты"@ru ;
+  rdfs:label "Contracts"@en ;
+  rdfs:comment "Контракты под контролем!"@ru ;
+  rdfs:comment "Контракты под контролем!"@en ;
+.
+
+site:ApplicationsContractsForSlider
+  rdf:type site:Page ;
+  v-s:hasImage site:ImageForest ;
+  rdfs:label "Контракты"@ru ;
+  rdfs:label "Contracts"@en ;
+  rdfs:comment "Контракты под контролем!"@ru ;
+  rdfs:comment "Контракты под контролем!"@en ;
+  site:hasArticle site:ApplicationsContractsArticle1 ;
+  site:hasArticle site:ApplicationsContractsArticle2 ;
+.
+
+site:ApplicationsContractsTemplate
+  rdf:type v-ui:ClassTemplate ;
+  rdfs:label "Шаблон страницы встречи"@ru ;
+  rdfs:label "Meetings page template"@en ;
+  v-ui:template """
+<div class="bg-white">
+  <div class="bg-peter-river">
+    <div class="container">
+      <br>
+      <br>
+      <h1 style="line-height: 1; color: #333; text-shadow: 0px 1px 2px black;">
+        <span about="site:ApplicationsContractsForSlider" property="rdfs:label"></span>
+        <br>
+        <small about="site:ApplicationsContractsForSlider" property="rdfs:comment"></small>
+      </h1>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+    </div>
+  </div>
+  <br>
+  <div class="container">
+    <div class="row" about="@" rel="site:hasPage"></div>
+  </div>
+</div>
+  """ ;
+.
+
+### ARTICLES Contracts ###
+
+site:ApplicationsContractsArticle1
+  rdf:type site:Article ;
+  rdfs:label "Статья. Преимущества 1"@ru ;
+  rdfs:label "Article. Advantages 1"@en ;
+  site:heading "Приложение предназначено:"@ru ;
+  site:heading "Приложение предназначено:"@en ;
+  site:content """
+Приложение предназначено для обеспечения контроля и прозрачности договорных процессов, 
+централизации работы по каждому отдельному контракту и связанными с ним документами.
+Включает в себя  автоматизацию полного цикла договорной работы.
+  """@ru ;
+  site:content """
+Приложение предназначено для обеспечения контроля и прозрачности договорных процессов, 
+централизации работы по каждому отдельному контракту и связанными с ним документами.
+Включает в себя  автоматизацию полного цикла договорной работы.
+  """@en ;
+  v-ui:hasTemplate site:ArticleTemplate4 ;
+.
+
+site:ApplicationsContractsArticle2
+  rdf:type site:Article ;
+  rdfs:label "Статья. Преимущества 1"@ru ;
+  rdfs:label "Article. Advantages 1"@en ;
+  site:heading "Приложение позволит:"@ru ;
+  site:heading "Приложение позволит:"@en ;
+  site:content """
+• Обеспечить совместную работу и распределение ответственности между специалистами разных профилей - 
+внутренними заказчиками, специалистами по закупкам, сопровождению, юристами и бухгалтерами.
+• Проводить предварительную работу по подготовке контракта путем оформления и оценки контрагента (при необходимости), 
+оформления заявки на контракт, проводить процедуру выбора поставщика.
+• Оформлять, согласовывать, подписывать, регистрировать контракт и дополнительные соглашения к нему, 
+формировать паспорт сделки, вести учет и маршрутизацию поступающей первичной документации по контракту.
+• Вести курс валют.
+  """@ru ;
+  site:content """
+• Обеспечить совместную работу и распределение ответственности между специалистами разных профилей - 
+внутренними заказчиками, специалистами по закупкам, сопровождению, юристами и бухгалтерами.
+• Проводить предварительную работу по подготовке контракта путем оформления и оценки контрагента (при необходимости), 
+оформления заявки на контракт, проводить процедуру выбора поставщика.
+• Оформлять, согласовывать, подписывать, регистрировать контракт и дополнительные соглашения к нему, 
+формировать паспорт сделки, вести учет и маршрутизацию поступающей первичной документации по контракту.
+• Вести курс валют.
+  """@en ;
+  v-ui:hasTemplate site:ArticleTemplate5 ;
 .
