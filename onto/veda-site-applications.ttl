@@ -324,14 +324,14 @@ site:ApplicationsContractorsArticle2
   site:content """
 
 | Единообразный<br>учет контрагентов | Исключение<br>дублирования | Актуальная<br>информация | Выполнение<br>требований закона |
-|:-------------:|:------------------:|:------:||:------:|
+|:-------------:|:------------------:|:------:|:------:|
 | ![alt text](/files/site:ImageContractsLogo) | ![alt text](/files/site:ImageCopyLogo) | ![alt text](/files/site:ImageActualLogo) | ![alt text](/files/site:ImageLawLogo) |
 
   """@ru ;
   site:content """
   
 | Единообразный<br>учет контрагентов | Исключение<br>дублирования | Актуальная<br>информация | Выполнение<br>требований закона |
-|:-------------:|:------------------:|:------:||:------:|
+|:-------------:|:------------------:|:------:|:------:|
 | ![alt text](/files/site:ImageContractsLogo) | ![alt text](/files/site:ImageCopyLogo) | ![alt text](/files/site:ImageActualLogo) | ![alt text](/files/site:ImageLawLogo) |
 
   """@en ;
