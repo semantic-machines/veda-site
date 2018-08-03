@@ -52,7 +52,7 @@ site:AboutTemplate
     <h1 about="@" property="rdfs:label"></h1>
   </div>
 </div-->
-<div class="container-fluid">
+<div class="container-fluid" style="background-color: #fff;">
   <div class="row">
 
     <div class="col-md-2 sidebar" style="border-right:none; background-color: transparent;">
@@ -82,7 +82,7 @@ site:AboutTemplate
       <div class="container-sheet">
         
           <div class="col-md-10">
-            <div class="panel panel-default">
+            <div class="panel panel-default" style="border: none;">
               <div class="panel-header">
               </div>
               <div class="panel-body" style="height:250px">
@@ -91,7 +91,7 @@ site:AboutTemplate
               </div>
             </div>
             
-            <div class="panel panel-default">
+            <div class="panel panel-default" style="border: none;">
               <div class="panel-header">
               </div>
               <div class="panel-body">
@@ -101,14 +101,14 @@ site:AboutTemplate
                   проведения формализованной процедуры проверки соответствия поставщиков внутренним требованиям организации.
                 </span>
               </div>
-              <div class="panel-footer clearfix">
+              <div class="panel-footer clearfix" style="border-top: none;">
                 <a href="#/site:ApplicationsContractors" class="pull-right">
                   <span about="site:More" property="rdfs:label"></span>
                 </a>
               </div>
             </div>
             
-            <div class="panel panel-default">
+            <div class="panel panel-default" style="border: none;">
               <div class="panel-header">
               </div>
               <div class="panel-body">
@@ -118,15 +118,18 @@ site:AboutTemplate
                   централизации работы по каждому отдельному контракту и связанными с ним документами.
                   Включает в себя  автоматизацию полного цикла договорной работы.
                 </span>
+                <a href="#/site:ApplicationsContracts" class="pull-right">
+                  <span class="lead" about="site:More" property="rdfs:label"></span>
+                </a>
               </div>
-              <div class="panel-footer clearfix">
+              <!--div class="panel-footer clearfix">
                 <a href="#/site:ApplicationsContracts" class="pull-right">
                   <span about="site:More" property="rdfs:label"></span>
                 </a>
-              </div>
+              </div-->
             </div>
             
-            <div class="panel panel-default">
+            <div class="panel panel-default" style="border: none;">
               <div class="panel-header">
               </div>
               <div class="panel-body">
@@ -134,16 +137,19 @@ site:AboutTemplate
                 <span class="lead">
                   Приложение предназначено для обеспечения оперативной обработки и хранения первичной документации.
                 </span>
-              </div>
-              <div class="panel-footer clearfix">
                 <a href="#/site:ApplicationsAccountingDocs" class="pull-right">
                   <span about="site:More" property="rdfs:label"></span>
                 </a>
               </div>
+              <!--div class="panel-footer clearfix">
+                <a href="#/site:ApplicationsAccountingDocs" class="pull-right">
+                  <span about="site:More" property="rdfs:label"></span>
+                </a>
+              </div-->
             </div>
             
             <div id="111">
-              <div class="panel panel-default">
+              <div class="panel panel-default" style="border: none;">
                 <div class="panel-header">
                 </div>
                 <div class="panel-body">
@@ -152,16 +158,19 @@ site:AboutTemplate
                     Приложение предназначено для автоматизации планирования и проведения различных встреч (совещаний, заседаний, рабочих встреч...),
                     контроля  выполнения планов реализации.
                   </span>
-                </div>
-                <div class="panel-footer clearfix">
                   <a href="#/site:ApplicationsMeetings" class="pull-right">
                     <span about="site:More" property="rdfs:label"></span>
                   </a>
                 </div>
+                <!--div class="panel-footer clearfix">
+                  <a href="#/site:ApplicationsMeetings" class="pull-right">
+                    <span about="site:More" property="rdfs:label"></span>
+                  </a>
+                </div-->
               </div>
             </div>
             
-            <div class="panel panel-default">
+            <div class="panel panel-default" style="border: none;">
               <div class="panel-header">
               </div>
               <div class="panel-body">
@@ -169,12 +178,15 @@ site:AboutTemplate
                 <span class="lead">
                   Приложение предназначено для автоматизации планирования и проведения аудитов, контроля  выполнения планов реализации.
                 </span>
-              </div>
-              <div class="panel-footer clearfix">
                 <a href="#/site:ApplicationsAudits" class="pull-right">
                   <span about="site:More" property="rdfs:label"></span>
                 </a>
               </div>
+              <!--div class="panel-footer clearfix">
+                <a href="#/site:ApplicationsAudits" class="pull-right">
+                  <span about="site:More" property="rdfs:label"></span>
+                </a>
+              </div-->
             </div>
             
           </div>
