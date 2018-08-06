@@ -56,33 +56,33 @@ site:AboutTemplate
   <div class="row">
 
     <div class="col-md-2 sidebar" style="border-right:none; background-color: transparent;">
-      
+
       <ul class="section-nav lead">
-        
+
         <li>
           <a href="#111" role="tab"><span about="site:ApplicationsContractors" property="rdfs:label"></span></a>
         </li>
-        
+
         <li about="@" property="rdfs:label"></li>
         <li about="site:ApplicationsContracts" property="rdfs:label"></li>
         <li about="site:ApplicationsAccountingDocs" property="rdfs:label"></li>
-        
+
         <li>
           <a href="#111" role="tab"><span about="site:ApplicationsMeetings" property="rdfs:label"></span></a>
         </li>
-        
+
         <li about="site:ApplicationsAudits" property="rdfs:label"></li>
       </ul>
-      
+
     </div>
     <div class="col-md-10 col-md-offset-2 main">
       <br>
       <br>
       <br>
       <div class="container-sheet">
-        
+
           <div class="col-md-10">
-            <div class="panel panel-default" style="border: none;">
+            <div class="panel bg-turquoise" style="border: none;">
               <div class="panel-header">
               </div>
               <div class="panel-body" style="height:250px">
@@ -90,16 +90,25 @@ site:AboutTemplate
                 <p about="@" property="rdfs:comment"></p>
               </div>
             </div>
-            
+
             <div class="panel panel-default" style="border: none;">
               <div class="panel-header">
               </div>
               <div class="panel-body">
-                <h3 about="site:ApplicationsContractors" property="rdfs:label"></h3>
-                <span class="lead">
-                  Приложение предназначено для централизации работы и детального анализа данных по каждому отдельному контрагенту, 
-                  проведения формализованной процедуры проверки соответствия поставщиков внутренним требованиям организации.
-                </span>
+                <div class="row">
+                  <div class="col-md-10">
+                    <h3 about="site:ApplicationsContractors" property="rdfs:label"></h3>
+                    <span class="lead">
+                      Приложение предназначено для централизации работы и детального анализа данных по каждому отдельному контрагенту,
+                      проведения формализованной процедуры проверки соответствия поставщиков внутренним требованиям организации.
+                    </span>
+                  </div>
+                  <div class="col-md-2">
+                    <div><br>
+                      <img src="/files/site:ImageContractsLogo">
+                    </div>
+                  </div>
+                </div>
               </div>
               <div class="panel-footer clearfix" style="border-top: none;">
                 <a href="#/site:ApplicationsContractors" class="pull-right">
@@ -107,17 +116,26 @@ site:AboutTemplate
                 </a>
               </div>
             </div>
-            
+
             <div class="panel panel-default" style="border: none;">
               <div class="panel-header">
               </div>
               <div class="panel-body">
-                <h3 about="site:ApplicationsContracts" property="rdfs:label"></h3>
-                <span class="lead">
-                  Приложение предназначено для обеспечения контроля и прозрачности договорных процессов, 
-                  централизации работы по каждому отдельному контракту и связанными с ним документами.
-                  Включает в себя  автоматизацию полного цикла договорной работы.
-                </span>
+                <div class="row">
+                  <div class="col-md-2">
+                    <div><br>
+                      <img src="/files/site:ImageCopyLogo">
+                    </div>
+                  </div>
+                  <div class="col-md-10">
+                    <h3 about="site:ApplicationsContracts" property="rdfs:label"></h3>
+                    <span class="lead">
+                      Приложение предназначено для обеспечения контроля и прозрачности договорных процессов,
+                      централизации работы по каждому отдельному контракту и связанными с ним документами.
+                      Включает в себя  автоматизацию полного цикла договорной работы.
+                    </span>
+                  </div>
+                </div>
                 <a href="#/site:ApplicationsContracts" class="pull-right">
                   <span class="lead" about="site:More" property="rdfs:label"></span>
                 </a>
@@ -128,7 +146,7 @@ site:AboutTemplate
                 </a>
               </div-->
             </div>
-            
+
             <div class="panel panel-default" style="border: none;">
               <div class="panel-header">
               </div>
@@ -147,7 +165,7 @@ site:AboutTemplate
                 </a>
               </div-->
             </div>
-            
+
             <div id="111">
               <div class="panel panel-default" style="border: none;">
                 <div class="panel-header">
@@ -169,7 +187,7 @@ site:AboutTemplate
                 </div-->
               </div>
             </div>
-            
+
             <div class="panel panel-default" style="border: none;">
               <div class="panel-header">
               </div>
@@ -188,9 +206,9 @@ site:AboutTemplate
                 </a>
               </div-->
             </div>
-            
+
           </div>
-      
+
       </div>
     </div>
 
