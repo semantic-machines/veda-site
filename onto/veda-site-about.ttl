@@ -82,7 +82,7 @@ site:AboutTemplate
       <div class="container-sheet">
 
           <div class="col-md-10">
-            <div class="panel bg-turquoise" style="border: none;">
+            <div class="panel bg-turquoise" style="border: none; background-image: url('/files/site:ImageGexagon');">
               <div class="panel-header">
               </div>
               <div class="panel-body" style="height:250px">
@@ -104,8 +104,8 @@ site:AboutTemplate
                     </span>
                   </div>
                   <div class="col-md-2">
-                    <div><br>
-                      <img src="/files/site:ImageContractsLogo">
+                    <div style="border: none; background-image: url('/files/site:ImageGexagon2'); height:150px; background-size: cover;"><br>
+                      
                     </div>
                   </div>
                 </div>
@@ -147,7 +147,7 @@ site:AboutTemplate
               </div-->
             </div>
 
-            <div class="panel panel-default" style="border: none;">
+            <div class="panel panel-default" style="border: none; background-image: url('/files/site:ImageGold'); background-size: cover; height:250px;">
               <div class="panel-header">
               </div>
               <div class="panel-body">
@@ -240,6 +240,34 @@ site:AboutSidebarTemplate
   </div>
 </div>
   """ ;
+.
+
+site:ImageGexagon
+  rdf:type v-s:File ;
+  v-s:fileUri "gexagon" ;
+  v-s:fileName "gexagon" ;
+  v-s:filePath "/site" ;
+.
+
+site:ImageCosmos
+  rdf:type v-s:File ;
+  v-s:fileUri "cosmos.jpg" ;
+  v-s:fileName "cosmos.jpg" ;
+  v-s:filePath "/site" ;
+.
+
+site:ImageGold
+  rdf:type v-s:File ;
+  v-s:fileUri "gold2.jpg" ;
+  v-s:fileName "gold2.jpg" ;
+  v-s:filePath "/site" ;
+.
+
+site:ImageGexagon2
+  rdf:type v-s:File ;
+  v-s:fileUri "gexagon.png" ;
+  v-s:fileName "gexagon.png" ;
+  v-s:filePath "/site" ;
 .
 
 site:Customers
