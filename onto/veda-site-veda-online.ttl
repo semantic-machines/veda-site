@@ -45,10 +45,116 @@ site:VedaOnlineTemplate
   rdfs:label "Шаблон страницы Veda онлайн"@ru ;
   rdfs:label "Veda online page template"@en ;
   v-ui:template """
-<div class="container">
-  <div class="sheet">
-    <h1 about="@" property="rdfs:label"></h1>
+<div style="background-color: #fff;">
+  <div style="background-image: url('/files/site:ImageBackForOnline'); background-size: cover; background-position: center center; height:450px;">
+    <div class="container">
+      
+      <br>
+      <br>
+      <h1 style="line-height: 1; color: #fff; text-shadow: 0px 1px 2px black;">
+        <span about="site:ApplicationsSlogan1" property="rdfs:label"></span>
+        <br>
+        <small about="site:ApplicationsSlogan1" property="rdfs:comment" style="color: #fff;"></small>
+      </h1>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+    </div>
+  </div>
+  <br>
+  <div class="container">
+    <div>
+      <blockquote>
+        <p class="lead" about="site:ApplicationsSlogan2" property="rdfs:comment"></p>
+      </blockquote>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="panel panel-default" style="border: none; background-image: url('/files/site:ImageBackForOnline1'); background-size: cover; background-position: center center; height:250px;">
+            <a href="#/site:ApplicationsContractors" style="text-decoration: none;">
+              <div class="panel-header">
+              </div>
+              <div class="panel-body">
+                <h3 about="site:ApplicationsContractors" property="rdfs:label" style="color: #fff;"></h3>
+                <span style="color: #fff;">
+                  Приложение предназначено для централизации работы и детального анализа данных по каждому отдельному контрагенту,
+                  проведения формализованной процедуры проверки соответствия поставщиков внутренним требованиям организации.
+                </span>
+              </div>
+            </a>
+          </div>
+          <br>
+          <div class="panel panel-default" style="border: none; background-image: url('/files/site:ImageBackForOnline2'); background-size: cover; background-position: center center; height:250px;">
+            <a href="#/site:ApplicationsContracts" style="text-decoration: none;">
+              <div class="panel-header">
+              </div>
+              <div class="panel-body">
+                <h3 about="site:ApplicationsContracts" property="rdfs:label"></h3>
+                <span style="color: #000;">
+                  Приложение предназначено для обеспечения контроля и прозрачности договорных процессов,
+                  централизации работы по каждому отдельному контракту и связанными с ним документами.
+                  Включает в себя  автоматизацию полного цикла договорной работы.
+                </span>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="panel panel-default" style="border: none; background-image: url('/files/site:ImageBackForOnline2'); background-size: cover; background-position: center center; height:250px;">
+            <a href="#/site:ApplicationsAccountingDocs" style="text-decoration: none;">
+              <div class="panel-header">
+              </div>
+              <div class="panel-body">
+                <h3 about="site:ApplicationsAccountingDocs" property="rdfs:label"></h3>
+                <span style="color: #000;">
+                  Приложение предназначено для обеспечения оперативной обработки и хранения первичной документации.
+                </span>
+              </div>
+            </a>
+          </div>
+          <br>
+          <div class="panel panel-default" style="border: none; background-image: url('/files/site:ImageBackForOnline1'); background-size: cover; background-position: center center; height:250px;">
+            <a href="#/site:ApplicationsMeetings" style="text-decoration: none;">
+              <div class="panel-header">
+              </div>
+              <div class="panel-body">
+                <h3 about="site:ApplicationsMeetings" property="rdfs:label" style="color: #fff;"></h3>
+                <span style="color: #fff;">
+                  Приложение предназначено для автоматизации планирования и проведения различных встреч (совещаний, заседаний, рабочих встреч...),
+                  контроля  выполнения планов реализации.
+                </span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
   """ ;
+.
+
+site:ImageBackForOnline
+  rdf:type v-s:File ;
+  v-s:fileUri "1.jpg" ;
+  v-s:fileName "1.jpg" ;
+  v-s:filePath "/site" ;
+.
+
+site:ImageBackForOnline1
+  rdf:type v-s:File ;
+  v-s:fileUri "integration.gif" ;
+  v-s:fileName "integration.gif" ;
+  v-s:filePath "/site" ;
+.
+
+site:ImageBackForOnline2
+  rdf:type v-s:File ;
+  v-s:fileUri "factoring.gif" ;
+  v-s:fileName "factoring.gif" ;
+  v-s:filePath "/site" ;
 .
