@@ -46,9 +46,8 @@ site:VedaOnlineTemplate
   rdfs:label "Veda online page template"@en ;
   v-ui:template """
 <div style="background-color: #fff;">
-  <div style="background-image: url('/files/site:ImageBackForOnline'); background-size: cover; background-position: center center; height:450px;">
+  <div style="background-image: url('/files/site:ImageBackForOnline'); background-size: cover; background-position: center center; height:350px;">
     <div class="container">
-      
       <br>
       <br>
       <h1 style="line-height: 1; color: #fff; text-shadow: 0px 1px 2px black;">
@@ -73,7 +72,7 @@ site:VedaOnlineTemplate
         <p class="lead" about="site:ApplicationsSlogan2" property="rdfs:comment"></p>
       </blockquote>
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-4">
           <div class="panel panel-default" style="border: none; background-image: url('/files/site:ImageBackForOnline1'); background-size: cover; background-position: center center; height:250px;">
             <a href="#/site:ApplicationsContractors" style="text-decoration: none;">
               <div class="panel-header">
@@ -93,6 +92,21 @@ site:VedaOnlineTemplate
               <div class="panel-header">
               </div>
               <div class="panel-body">
+                <h3 about="site:ApplicationsMeetings" property="rdfs:label"></h3>
+                <span style="color: #000;">
+                  Приложение предназначено для автоматизации планирования и проведения различных встреч (совещаний, заседаний, рабочих встреч...),
+                  контроля  выполнения планов реализации.
+                </span>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="panel panel-default" style="border: none; background-image: url('/files/site:ImageBackForOnline2'); background-size: cover; background-position: center center; height:250px;">
+            <a href="#/site:ApplicationsAccountingDocs" style="text-decoration: none;">
+              <div class="panel-header">
+              </div>
+              <div class="panel-body">
                 <h3 about="site:ApplicationsContracts" property="rdfs:label"></h3>
                 <span style="color: #000;">
                   Приложение предназначено для обеспечения контроля и прозрачности договорных процессов,
@@ -102,30 +116,42 @@ site:VedaOnlineTemplate
               </div>
             </a>
           </div>
+          <br>
+          <div class="panel panel-default" style="border: none; background-image: url('/files/site:ImageBackForOnline1'); background-size: cover; background-position: center center; height:250px;">
+            <a href="#/site:ApplicationsAudits" style="text-decoration: none;">
+              <div class="panel-header">
+              </div>
+              <div class="panel-body">
+                <h3 about="site:ApplicationsAudits" property="rdfs:label" style="color: #fff;"></h3>
+                <span style="color: #fff;">
+                  Приложение предназначено для автоматизации планирования и проведения аудитов, контроля выполнения планов реализации.
+                </span>
+              </div>
+            </a>
+          </div>
         </div>
-        <div class="col-md-6">
-          <div class="panel panel-default" style="border: none; background-image: url('/files/site:ImageBackForOnline2'); background-size: cover; background-position: center center; height:250px;">
+        <div class="col-md-4">
+          <div class="panel panel-default" style="border: none; background-image: url('/files/site:ImageBackForOnline1'); background-size: cover; background-position: center center; height:250px;">
             <a href="#/site:ApplicationsAccountingDocs" style="text-decoration: none;">
               <div class="panel-header">
               </div>
               <div class="panel-body">
-                <h3 about="site:ApplicationsAccountingDocs" property="rdfs:label"></h3>
-                <span style="color: #000;">
+                <h3 about="site:ApplicationsAccountingDocs" property="rdfs:label" style="color: #fff;"></h3>
+                <span style="color: #fff;">
                   Приложение предназначено для обеспечения оперативной обработки и хранения первичной документации.
                 </span>
               </div>
             </a>
           </div>
           <br>
-          <div class="panel panel-default" style="border: none; background-image: url('/files/site:ImageBackForOnline1'); background-size: cover; background-position: center center; height:250px;">
-            <a href="#/site:ApplicationsMeetings" style="text-decoration: none;">
+          <div class="panel panel-default" style="border: none; background-image: url('/files/site:ImageBackForOnline2'); background-size: cover; background-position: center center; height:250px;">
+            <a href="#/site:ApplicationsAudits" style="text-decoration: none;">
               <div class="panel-header">
               </div>
               <div class="panel-body">
-                <h3 about="site:ApplicationsMeetings" property="rdfs:label" style="color: #fff;"></h3>
-                <span style="color: #fff;">
-                  Приложение предназначено для автоматизации планирования и проведения различных встреч (совещаний, заседаний, рабочих встреч...),
-                  контроля  выполнения планов реализации.
+                <h3 about="site:ApplicationsAudits" property="rdfs:label"></h3>
+                <span style="color: #000;">
+                  Пустой блок
                 </span>
               </div>
             </a>
