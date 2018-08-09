@@ -88,7 +88,7 @@ site:VedaOnlineTemplate
           </div>
           <br>
           <div class="panel panel-default" style="border: none; background-image: url('/files/site:ImageBackForOnline2'); background-size: cover; background-position: center center; height:250px;">
-            <a href="#/site:ApplicationsContracts" style="text-decoration: none;">
+            <a href="#/site:ApplicationsMeetings" style="text-decoration: none;">
               <div class="panel-header">
               </div>
               <div class="panel-body">
@@ -103,7 +103,7 @@ site:VedaOnlineTemplate
         </div>
         <div class="col-md-4">
           <div class="panel panel-default" style="border: none; background-image: url('/files/site:ImageBackForOnline2'); background-size: cover; background-position: center center; height:250px;">
-            <a href="#/site:ApplicationsAccountingDocs" style="text-decoration: none;">
+            <a href="#/site:ApplicationsContracts" style="text-decoration: none;">
               <div class="panel-header">
               </div>
               <div class="panel-body">

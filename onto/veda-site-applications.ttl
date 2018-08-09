@@ -349,21 +349,41 @@ site:ApplicationsContractorsArticle3
   rdfs:label "Article. Advantages 3"@en ;
   site:heading "Ключевые возможности:"@ru ;
   site:heading "Ключевые возможности:"@en ;
-  site:content """
+  v-ui:hasTemplate site:ApplicationsContractorsAdvantageTemplate ;
+.
 
-| Единообразный<br>учет контрагентов | Исключение<br>дублирования | Актуальная<br>информация | Выполнение<br>требований закона |
-|:-------------:|:------------------:|:------:|:------:|
-| ![alt text](/files/site:ImageContractsLogo) | ![alt text](/files/site:ImageCopyLogo) | ![alt text](/files/site:ImageActualLogo) | ![alt text](/files/site:ImageLawLogo) |
-
-  """@ru ;
-  site:content """
-
-| Единообразный<br>учет контрагентов | Исключение<br>дублирования | Актуальная<br>информация | Выполнение<br>требований закона |
-|:-------------:|:------------------:|:------:|:------:|
-| ![alt text](/files/site:ImageContractsLogo) | ![alt text](/files/site:ImageCopyLogo) | ![alt text](/files/site:ImageActualLogo) | ![alt text](/files/site:ImageLawLogo) |
-
-  """@en ;
-  v-ui:hasTemplate site:ArticleTemplate3 ;
+site:ApplicationsContractorsAdvantageTemplate
+  rdf:type v-ui:ClassTemplate ;
+  rdfs:label "Шаблон страницы встречи"@ru ;
+  rdfs:label "Meetings page template"@en ;
+  v-ui:template """
+<div class="bg-white">
+  <div class="container">
+    <div class="sheet" style="border: none;">
+      <h2>
+        <span property="site:heading"></span>
+      </h2>
+      <br>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="col-md-6">
+            <p class="lead">
+              <span class="glyphicon glyphicon-star"> Единообразный учет контрагентов</span><br>
+              <span class="glyphicon glyphicon-plus"> Исключение дублирования</span><br>
+            </p>
+          </div>
+          <div class="col-md-6">
+            <p class="lead">
+              <span class="glyphicon glyphicon-asterisk"> Актуальная информация</span><br>
+              <span class="glyphicon glyphicon-cloud"> Выполнение требований закона</span><br>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  """ ;
 .
 
 site:ApplicationsContractorsArticle4
