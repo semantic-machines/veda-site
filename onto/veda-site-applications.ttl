@@ -83,15 +83,15 @@ site:ApplicationsTemplate
   rdfs:label "Шаблон страницы приложений"@ru ;
   rdfs:label "Applications page template"@en ;
   v-ui:template """
-<div>
-  <div class="bg-orange">
+<div style="background-color: #fff;">
+  <div style="background-image: url('/files/site:ImageBackForOnline'); background-size: cover; background-position: center center; height:350px;">
     <div class="container">
       <br>
       <br>
-      <h1 style="line-height: 1; color: #333; text-shadow: 0px 1px 2px black;">
+      <h1 style="line-height: 1; color: #fff; text-shadow: 0px 1px 2px black;">
         <span about="site:ApplicationsSlogan1" property="rdfs:label"></span>
         <br>
-        <small about="site:ApplicationsSlogan1" property="rdfs:comment"></small>
+        <small about="site:ApplicationsSlogan1" property="rdfs:comment" style="color: #fff;"></small>
       </h1>
       <br>
       <br>
@@ -104,13 +104,122 @@ site:ApplicationsTemplate
     </div>
   </div>
   <br>
-  <br>
-  <br>
   <div class="container">
-    <div class="row" about="@" rel="site:hasPage" data-template="site:ApplicationCardTemplate"></div>
+    <div>
+      <blockquote>
+        <p class="lead" about="site:ApplicationsSlogan2" property="rdfs:comment"></p>
+      </blockquote>
+      <br>
+      <br>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="panel panel-default" style="border: none; background-image: url('/files/site:ImageBackForOnline1'); background-size: cover; background-position: center center; height:150px;">
+            <a href="#/site:ApplicationsContractors" style="text-decoration: none;">
+              <div class="panel-header">
+              </div>
+              <div class="panel-body">
+                <h3 about="site:ApplicationsContractors" property="rdfs:label" style="color: #fff;"></h3>
+                <span style="color: #fff;">
+                  Всегда актуальная база клиентов и поставщиков у вас под рукой!
+                </span>
+              </div>
+            </a>
+          </div>
+          <br>
+          <div class="panel panel-default" style="border: none; background-image: url('/files/site:ImageBackForOnline2'); background-size: cover; background-position: center center; height:150px;">
+            <a href="#/site:ApplicationsMeetings" style="text-decoration: none;">
+              <div class="panel-header">
+              </div>
+              <div class="panel-body">
+                <h3 about="site:ApplicationsMeetings" property="rdfs:label" style="color: #fff;"></h3>
+                <span style="color: #fff;">
+                  От слов — к делу!
+                </span>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="panel panel-default" style="border: none; background-image: url('/files/site:ImageBackForOnline2'); background-size: cover; background-position: center center; height:150px;">
+            <a href="#/site:ApplicationsContracts" style="text-decoration: none;">
+              <div class="panel-header">
+              </div>
+              <div class="panel-body">
+                <h3 about="site:ApplicationsContracts" property="rdfs:label" style="color: #fff;"></h3>
+                <span style="color: #fff;">
+                  Контракты под контролем!
+                </span>
+              </div>
+            </a>
+          </div>
+          <br>
+          <div class="panel panel-default" style="border: none; background-image: url('/files/site:ImageBackForOnline1'); background-size: cover; background-position: center center; height:150px;">
+            <a href="#/site:ApplicationsAudits" style="text-decoration: none;">
+              <div class="panel-header">
+              </div>
+              <div class="panel-body">
+                <h3 about="site:ApplicationsAudits" property="rdfs:label" style="color: #fff;"></h3>
+                <span style="color: #fff;">
+                  Работайте безопасно!
+                </span>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="panel panel-default" style="border: none; background-image: url('/files/site:ImageBackForOnline1'); background-size: cover; background-position: center center; height:150px;">
+            <a href="#/site:ApplicationsAccountingDocs" style="text-decoration: none;" >
+              <div class="panel-header">
+              </div>
+              <div class="panel-body">
+                <h3 about="site:ApplicationsAccountingDocs" property="rdfs:label" style="color: #fff;"></h3>
+                <span style="color: #fff;">
+                  Оперативная обработка и хранение.
+                </span>
+              </div>
+            </a>
+          </div>
+          <br>
+          <div class="panel panel-default" style="border: none; background-image: url('/files/site:ImageBackForOnline2'); background-size: cover; background-position: center center; height:150px;">
+            <a href="#/site:ApplicationsAudits" style="text-decoration: none;">
+              <div class="panel-header">
+              </div>
+              <div class="panel-body">
+                <h3 about="site:ApplicationsAudits" property="rdfs:label" style="color: #fff;"></h3>
+                <span style="color: #fff;">
+                  Пустой блок
+                </span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
   """ ;
+.
+
+
+site:ImageBackForOnline
+  rdf:type v-s:File ;
+  v-s:fileUri "321.png" ;
+  v-s:fileName "321.png" ;
+  v-s:filePath "/site" ;
+.
+
+site:ImageBackForOnline1
+  rdf:type v-s:File ;
+  v-s:fileUri "background.png" ;
+  v-s:fileName "background.png" ;
+  v-s:filePath "/site" ;
+.
+
+site:ImageBackForOnline2
+  rdf:type v-s:File ;
+  v-s:fileUri "background2.png" ;
+  v-s:fileName "background2.png" ;
+  v-s:filePath "/site" ;
 .
 
 site:ApplicationCardTemplate
