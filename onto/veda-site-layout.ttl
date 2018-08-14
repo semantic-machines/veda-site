@@ -393,21 +393,21 @@ site:ApplicationsContractorsArticle3Template
   <div class="sheet">
     <div class="row">
       <div class="col-md-6">
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <p class="lead" property="site:tableHeaderLeft"></p>
+        <div class="panel">
+          <div class="panel-heading" style="background-color: #34495E; opacity: 0.65;">
+            <p class="lead" property="site:tableHeaderLeft" style="color: #fff"></p>
           </div>
-          <div class="panel-body bg-info">
+          <div class="panel-body">
             <p class="lead" property="site:content"></p>
           </div>
         </div>
       </div>
       <div class="col-md-6">
-        <div class="panel panel-default">
+        <div class="panel panel-info">
           <div class="panel-heading">
             <p class="lead" property="site:tableHeaderRight"></p>
           </div>
-          <div class="panel-body bg-info">
+          <div class="panel-body">
             <p class="lead" property="site:content1"></p>
           </div>
         </div>
@@ -428,11 +428,10 @@ site:ApplicationsContractorsArticle4Template
   <div class="sheet"  style="border: none;">
     <div>
       <div class="panel panel-default">
-        <div class="panel-heading">
-          <p class="lead" property="site:tableHeaderLeft"></p>
+        <div class="panel-heading" style="border: none; background-image: url('/files/site:ImageContractorsBackground'); background-size: cover; background-position: center center;">
+          <p class="lead" property="site:tableHeaderLeft" style="color: #fff"></p>
         </div>
-        <div class="panel-body bg-info">
-        
+        <div class="panel-body">
           <div class="row">
             <div class="col-md-6">
               <p class="lead" property="site:content"></p>
@@ -447,27 +446,26 @@ site:ApplicationsContractorsArticle4Template
               <p class="lead" property="site:content3"></p>
             </div>
           </div>
-          
         </div>
       </div>
     </div>
     <div class="row">
       <div class="col-md-6">
         <div class="panel panel-default">
-          <div class="panel-heading">
-            <p class="lead" property="site:tableHeaderRight"></p>
+          <div class="panel-heading" style="border: none; background-image: url('/files/site:ImageBackForOnline2'); background-size: cover; background-position: center center;">
+            <p class="lead" property="site:tableHeaderRight" style="color: #fff"></p>
           </div>
-          <div class="panel-body bg-info">
+          <div class="panel-body">
             <p class="lead" property="site:content4"></p>
           </div>
         </div>
       </div>
       <div class="col-md-6">
         <div class="panel panel-default">
-          <div class="panel-heading">
-            <p class="lead" property="site:tableHeader"></p>
+          <div class="panel-heading" style="border: none; background-image: url('/files/site:ImageBackForOnline2'); background-size: cover; background-position: center center;">
+            <p class="lead" property="site:tableHeader" style="color: #fff"></p>
           </div>
-          <div class="panel-body bg-info">
+          <div class="panel-body">
             <p class="lead" property="site:content5"></p>
           </div>
         </div>

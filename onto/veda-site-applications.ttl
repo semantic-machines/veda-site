@@ -529,8 +529,8 @@ site:ImageContractors
 
 site:ImageContractorsBackground
   rdf:type v-s:File ;
-  v-s:fileUri "masterdata.jpg" ;
-  v-s:fileName "masterdata.jpg" ;
+  v-s:fileUri "1.png" ;
+  v-s:fileName "1.png" ;
   v-s:filePath "/site" ;
 .
 
@@ -623,6 +623,14 @@ site:ApplicationsAccountingDocsTemplate
   </div>
   <br>
   <div class="container">
+    <ol class="breadcrumb" style="background-color: #fff;">
+      <li><a href="#/site:Main" about="site:Main" property="rdfs:label"></a></li>
+      <li><a href="#/site:Applications" about="site:Applications" property="rdfs:label"></a></li>
+      <li class="active" about="@" property="rdfs:label"></li>
+    </ol>
+  </div>
+  <br>
+  <div class="container">
     <div class="row" about="@" rel="site:hasPage"></div>
   </div>
 </div>
@@ -631,8 +639,8 @@ site:ApplicationsAccountingDocsTemplate
 
 site:ImageBackgroundAccountingDocs
   rdf:type v-s:File ;
-  v-s:fileUri "development.jpg" ;
-  v-s:fileName "development.jpg" ;
+  v-s:fileUri "3.png" ;
+  v-s:fileName "3.png" ;
   v-s:filePath "/site" ;
 .
 
@@ -836,6 +844,14 @@ site:ApplicationsMeetingsTemplate
   </div>
   <br>
   <div class="container">
+    <ol class="breadcrumb" style="background-color: #fff;">
+      <li><a href="#/site:Main" about="site:Main" property="rdfs:label"></a></li>
+      <li><a href="#/site:Applications" about="site:Applications" property="rdfs:label"></a></li>
+      <li class="active" about="@" property="rdfs:label"></li>
+    </ol>
+  </div>
+  <br>
+  <div class="container">
     <div class="row" about="@" rel="site:hasPage"></div>
   </div>
 </div>
@@ -1031,13 +1047,21 @@ site:ApplicationsAuditsTemplate
   </div>
   <br>
   <div class="container">
+    <ol class="breadcrumb" style="background-color: #fff;">
+      <li><a href="#/site:Main" about="site:Main" property="rdfs:label"></a></li>
+      <li><a href="#/site:Applications" about="site:Applications" property="rdfs:label"></a></li>
+      <li class="active" about="@" property="rdfs:label"></li>
+    </ol>
+  </div>
+  <br>
+  <div class="container">
     <div class="row" about="@" rel="site:hasPage"></div>
   </div>
 </div>
   """ ;
 .
 
-### ARTICLES Meetings ###
+### ARTICLES Audits ###
 
 site:ApplicationsAuditsArticle1
   rdf:type site:Article ;
@@ -1257,6 +1281,14 @@ site:ApplicationsContractsTemplate
   </div>
   <br>
   <div class="container">
+    <ol class="breadcrumb" style="background-color: #fff;">
+      <li><a href="#/site:Main" about="site:Main" property="rdfs:label"></a></li>
+      <li><a href="#/site:Applications" about="site:Applications" property="rdfs:label"></a></li>
+      <li class="active" about="@" property="rdfs:label"></li>
+    </ol>
+  </div>
+  <br>
+  <div class="container">
     <div class="row" about="@" rel="site:hasPage"></div>
   </div>
 </div>
@@ -1265,8 +1297,8 @@ site:ApplicationsContractsTemplate
 
 site:ImageBackgroundContract
   rdf:type v-s:File ;
-  v-s:fileUri "integration.jpg" ;
-  v-s:fileName "integration.jpg" ;
+  v-s:fileUri "2.png" ;
+  v-s:fileName "2.png" ;
   v-s:filePath "/site" ;
 .
 
