@@ -702,7 +702,6 @@ site:ApplicationsAccountingDocsForSlider
   site:hasArticle site:ApplicationsAccountingDocsArticle2 ;
   site:hasArticle site:ApplicationsAccountingDocsArticle3 ;
   site:hasArticle site:ApplicationsAccountingDocsArticle4 ;
-  site:hasArticle site:ApplicationsAccountingDocsArticle5 ;
 .
 
 site:ApplicationsAccountingDocsTemplate
@@ -837,65 +836,65 @@ site:ApplicationsAccountingDocsArticle4
   rdf:type site:Article ;
   rdfs:label "Статья. Преимущества 4"@ru ;
   rdfs:label "Article. Advantages 4"@en ;
-  site:heading "Бизнес-объекты:"@ru ;
-  site:heading "Бизнес-объекты:"@en ;
   site:tableHeaderLeft "Бизнес-объекты:"@ru ;
   site:tableHeaderLeft "Бизнес-объекты:"@en ;
   site:tableHeaderRight "Бизнес-процессы:"@ru ;
   site:tableHeaderRight "Бизнес-процессы:"@en ;
+  site:tableHeader "Дополнительные опции:"@ru ;
+  site:tableHeader "Дополнительные опции:"@en ;
   site:content """
-- Первичный документ
-- Справочник «Вид документа»
-- Справочник «Организационная структура»
-- Справочник «Вид бюджета»
-- Печатные формы (Справка о подтверждающих документах)
+Документы:
+• Первичный документ
   """@ru ;
   site:content """
-- Первичный документ
-- Справочник «Вид документа»
-- Справочник «Организационная структура»
-- Справочник «Вид бюджета»
-- Печатные формы (Справка о подтверждающих документах)
+Документы:
+• Первичный документ
   """@en ;
   site:content1 """
-- Подписание
-- Утверждение
-- Рассмотрение
-- Готовые маршруты
+Справочники:
+• «Вид документа»
+• «Организационная структура»
+• «Вид бюджета»
   """@ru ;
   site:content1 """
-- Подписание
-- Утверждение
-- Рассмотрение
-- Готовые маршруты
+Справочники:
+• «Вид документа»
+• «Организационная структура»
+• «Вид бюджета»
   """@en ;
-  v-ui:hasTemplate site:ApplicationsContractorsArticle3Template ;
-.
-
-site:ApplicationsAccountingDocsArticle5
-  rdf:type site:Article ;
-  rdfs:label "Статья. Преимущества 5"@ru ;
-  rdfs:label "Article. Advantages 5"@en ;
-  site:heading "Дополнительные опции:"@ru ;
-  site:heading "Дополнительные опции:"@en ;
-  site:content """
-Решение связано со всеми решениями на основе платформы Veda.
-
-Уведомления по e-mail
-Мобильное приложение
-Интеграция с 1С и SAP
-Формирование новых первичных документов на основе уже созданных
-Создание связанных первичных документов
+  site:content2 """
+Печатная форма:
+• Справка о подтверждающих документах
   """@ru ;
-  site:content """
-Решение связано со всеми решениями на основе платформы Veda.
-
-Уведомления по e-mail
-Мобильное приложение
-Интеграция с 1С и SAP
-Формирование новых первичных документов на основе уже созданных
-Создание связанных первичных документов
+  site:content2 """
+Печатная форма:
+• Справка о подтверждающих документах
   """@en ;
+  site:content3 """
+Отчёты:
+  """@ru ;
+  site:content3 """
+Отчёты:
+  """@en ;
+  site:content4 """
+• Автоматизированные маршруты
+• Свободный маршрут
+• Частные задачи
+  """@ru ;
+  site:content4 """
+• Автоматизированные маршруты
+• Свободный маршрут
+• Частные задачи
+  """@en ;
+  site:content5 """
+• Формирование новых первичных документов на основе уже созданных.
+• ССоздание связанных первичных документов.
+  """@ru ;
+  site:content5 """
+• Формирование новых первичных документов на основе уже созданных.
+• ССоздание связанных первичных документов.
+  """@en ;
+  v-ui:hasTemplate site:ApplicationsContractorsArticle4Template ;
 .
 
 ############ Meetings ###################
@@ -1020,22 +1019,45 @@ site:ApplicationsMeetingsArticle3
   site:heading "Ключевые возможности:"@ru ;
   site:heading "Ключевые возможности:"@en ;
   site:content """
-
-| Планирование<br>встреч | Приглашение<br>участников | Ведение<br>протоколов | План<br>мероприятий | Назначение<br>ответственных | Контроль<br>выполнения |
-|:-------------:|:------------------:|:------:|:------:|:------:|:------:|
-|  |  |  |  |  |  |
-
   """@ru ;
   site:content """
-
-| Планирование встреч | Приглашение участников | Ведение протоколов | План мероприятий | Назначение ответственных | Контроль выполнения |
-|:-------------:|:------------------:|:------:|:------:|:------:|:------:|
-|  |  |  |  |  |  |
-
   """@en ;
-  v-ui:hasTemplate site:ArticleTemplate3 ;
+  v-ui:hasTemplate site:ApplicationsMeetingsAdvantageTemplate ;
 .
 
+site:ApplicationsMeetingsAdvantageTemplate
+  rdf:type v-ui:ClassTemplate ;
+  v-ui:template """
+<div class="bg-white">
+  <div class="container">
+    <div class="sheet" style="border: none;">
+      <h2>
+        <span property="site:heading"></span>
+      </h2>
+      <br>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="col-md-6">
+            <p class="lead">
+              <span class="glyphicon glyphicon-star"> Планирование встреч</span><br>
+              <span class="glyphicon glyphicon-plus"> Приглашение участников</span><br>
+              <span class="glyphicon glyphicon-plus"> Ведение протоколов</span><br>
+            </p>
+          </div>
+          <div class="col-md-6">
+            <p class="lead">
+              <span class="glyphicon glyphicon-asterisk"> План мероприятий</span><br>
+              <span class="glyphicon glyphicon-asterisk"> Назначение ответственных</span><br>
+              <span class="glyphicon glyphicon-asterisk"> Контроль выполнения</span><br>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  """ ;
+.
 site:ApplicationsMeetingsArticle4
   rdf:type site:Article ;
   rdfs:label "Статья. Преимущества 4"@ru ;
@@ -1361,6 +1383,8 @@ site:ApplicationsContractsForSlider
   rdfs:comment "Контракты под контролем!"@en ;
   site:hasArticle site:ApplicationsContractsArticle1 ;
   site:hasArticle site:ApplicationsContractsArticle2 ;
+  site:hasArticle site:ApplicationsContractsArticle3 ;
+  site:hasArticle site:ApplicationsContractsArticle4 ;
 .
 
 site:ApplicationsContractsTemplate
@@ -1457,4 +1481,137 @@ site:ApplicationsContractsArticle2
 • Вести курс валют.
   """@en ;
   v-ui:hasTemplate site:ArticleTemplate5 ;
+.
+
+site:ApplicationsContractsArticle3
+  rdf:type site:Article ;
+  rdfs:label "Статья. Преимущества 3"@ru ;
+  rdfs:label "Article. Advantages 3"@en ;
+  site:heading "Ключевые возможности:"@ru ;
+  site:heading "Ключевые возможности:"@en ;
+  site:content """
+  """@ru ;
+  site:content """
+  """@en ;
+  v-ui:hasTemplate site:ApplicationsContractsAdvantageTemplate ;
+.
+
+site:ApplicationsContractsAdvantageTemplate
+  rdf:type v-ui:ClassTemplate ;
+  v-ui:template """
+<div class="bg-white">
+  <div class="container">
+    <div class="sheet" style="border: none;">
+      <h2>
+        <span property="site:heading"></span>
+      </h2>
+      <br>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="col-md-6">
+            <p class="lead">
+              <span class="glyphicon glyphicon-star"> Контроль сроков</span><br>
+              <span class="glyphicon glyphicon-plus"> Четкие критерии заключения</span><br>
+            </p>
+          </div>
+          <div class="col-md-6">
+            <p class="lead">
+              <span class="glyphicon glyphicon-asterisk"> Регистрация</span><br>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  """ ;
+.
+
+site:ApplicationsContractsArticle4
+  rdf:type site:Article ;
+  rdfs:label "Статья. Преимущества 4"@ru ;
+  rdfs:label "Article. Advantages 4"@en ;
+  site:tableHeaderLeft "Бизнес-объекты:"@ru ;
+  site:tableHeaderLeft "Бизнес-объекты:"@en ;
+  site:tableHeaderRight "Бизнес-процессы:"@ru ;
+  site:tableHeaderRight "Бизнес-процессы:"@en ;
+  site:tableHeader "Дополнительные опции:"@ru ;
+  site:tableHeader "Дополнительные опции:"@en ;
+  site:content """
+Документы:
+• Заявка на контракта
+• Контракт
+• Дополнительное соглашение
+• Регистрационная запись
+• Паспорт сделки
+• Выбор поставщика
+  """@ru ;
+  site:content """
+Документы:
+• Заявка на контракта
+• Контракт
+• Дополнительное соглашение
+• Регистрационная запись
+• Паспорт сделки
+• Выбор поставщика
+  """@en ;
+  site:content1 """
+Справочники:
+• «Вид обязательств»
+• «Организационная структура»
+• «Категория бюджета»
+• «Группа материалов»
+• «Направление контракта»
+• «Вид деятельности»
+• «Условия платежа»
+• «Условия поставки»
+  """@ru ;
+  site:content1 """
+Справочники:
+• «Вид обязательств»
+• «Организационная структура»
+• «Категория бюджета»
+• «Группа материалов»
+• «Направление контракта»
+• «Вид деятельности»
+• «Условия платежа»
+• «Условия поставки»
+  """@en ;
+  site:content2 """
+Печатная форма:
+• Договор купли-продажи
+  """@ru ;
+  site:content2 """
+Печатная форма:
+• Договор купли-продажи
+  """@en ;
+  site:content3 """
+Отчёты:
+  """@ru ;
+  site:content3 """
+Отчёты:
+  """@en ;
+  site:content4 """
+• Автоматизированные маршруты
+• Частные задачи
+
+  """@ru ;
+  site:content4 """
+• Автоматизированные маршруты
+• Частные задачи
+
+  """@en ;
+  site:content5 """
+• Формирование нового контракта на основе уже созданного.
+• Связь с основными средствами предприятия.
+• Связь с проектной деятельностью.
+• Приложение «Контракты» связано с приложениями «Контрагенты», «Первичные документы», «Претензии».
+  """@ru ;
+  site:content5 """
+• Формирование нового контракта на основе уже созданного.
+• Связь с основными средствами предприятия.
+• Связь с проектной деятельностью.
+• Приложение «Контракты» связано с приложениями «Контрагенты», «Первичные документы», «Претензии».
+  """@en ;
+  v-ui:hasTemplate site:ApplicationsContractorsArticle4Template ;
 .
