@@ -67,7 +67,7 @@ site:ServicesTemplate
   rdfs:label "Шаблон страницы услуг"@ru ;
   rdfs:label "Services page template"@en ;
   v-ui:template """
-<div>
+<div style="background-color: #fff;">
   <div class="bg-orange">
     <div class="container">
       <br>
@@ -92,30 +92,8 @@ site:ServicesTemplate
   <br>
   <div class="container">
     <div class="row">
-      <div class="col-md-12">
-        <div class="panel panel-default">
-          <div class="panel-header">
-          </div>
-          <div class="panel-body">
-            <div class="row">
-              <div class="col-md-6">
-                <h1 about="site:ServicesSloganTemplate1" style="line-height: 1; color: #333;">
-                  <span>
-                    <small property="rdfs:comment" style="color: #333;"></small>
-                  </span>
-                </h1>
-              </div>
-              <div class="col-md-6">
-                <h1 about="site:ServicesSloganTemplate1" style="line-height: 1; color: #333;">
-                  <span>
-                    <small property="rdfs:comment1" style="color: #333;"></small>
-                  </span>
-                </h1>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <h2><span about="site:ServicesSloganTemplate1" property="rdfs:label"></span></h2>
+      <br>
       <div class="col-md-12">
         <div class="panel panel-default">
           <div class="panel-header">
@@ -142,6 +120,9 @@ site:ServicesTemplate
           </div>
         </div>
       </div>
+      <br>
+      <h2><span about="site:ServicesSloganTemplate2" property="rdfs:label"></span></h2>
+      <br>
       <div class="col-md-6">
         <div class="panel panel-default">
           <div class="panel-header">
@@ -151,11 +132,11 @@ site:ServicesTemplate
             <p about="site:Consulting" property="rdfs:comment"></p>
             <div about="site:Consulting" rel="v-s:hasImage" data-template="v-ui:ImageTemplate"></div>
           </div>
-          <div class="panel-footer clearfix">
+          <!--div class="panel-footer clearfix">
             <a href="#/site:Consulting" class="btn btn-primary pull-right">
               <span about="site:More" property="rdfs:label"></span>
             </a>
-          </div>
+          </div-->
         </div>
         <div class="panel panel-default">
           <div class="panel-header">
@@ -165,11 +146,11 @@ site:ServicesTemplate
             <p about="site:Implementation" property="rdfs:comment"></p>
             <div about="site:Implementation" rel="v-s:hasImage" data-template="v-ui:ImageTemplate"></div>
           </div>
-          <div class="panel-footer clearfix">
+          <!--div class="panel-footer clearfix">
             <a href="#/site:Implementation" class="btn btn-primary pull-right">
               <span about="site:More" property="rdfs:label"></span>
             </a>
-          </div>
+          </div-->
         </div>
       </div>
       <div class="col-md-6">
@@ -181,11 +162,11 @@ site:ServicesTemplate
             <p about="site:Realization" property="rdfs:comment"></p>
             <div about="site:Realization" rel="v-s:hasImage" data-template="v-ui:ImageTemplate"></div>
           </div>
-          <div class="panel-footer clearfix">
+          <!--div class="panel-footer clearfix">
             <a href="#/site:Realization" class="btn btn-primary pull-right">
               <span about="site:More" property="rdfs:label"></span>
             </a>
-          </div>
+          </div-->
         </div>
         <div class="panel panel-default">
           <div class="panel-header">
@@ -195,11 +176,11 @@ site:ServicesTemplate
             <p about="site:Accompanying" property="rdfs:comment"></p>
             <div about="site:Accompanying" rel="v-s:hasImage" data-template="v-ui:ImageTemplate"></div>
           </div>
-          <div class="panel-footer clearfix">
+          <!--div class="panel-footer clearfix">
             <a href="#/site:Accompanying" class="btn btn-primary pull-right">
               <span about="site:More" property="rdfs:label"></span>
             </a>
-          </div>
+          </div-->
         </div>
       </div>
     </div>
@@ -274,48 +255,14 @@ site:ServicesSloganTemplate
 
 site:ServicesSloganTemplate1
   rdf:type rdfs:Resource ;
-  rdfs:label "Услуги"@ru ;
-  rdfs:label "Услуги"@en ;
-  rdfs:comment """
-Мы предлагаем два формата сотрудничества:
+  rdfs:label "Мы предлагаем два формата сотрудничества:"@ru ;
+  rdfs:label "Мы предлагаем два формата сотрудничества:"@en ;
+.
 
-1. Индивидуальная разработка
-
-2. Готовые решения
-
-  """@ru ;
-  rdfs:comment """
-Мы предлагаем два формата сотрудничества:
-
-1. Индивидуальная разработка
-
-2. Готовые решения
-
-  """@en ;
-  rdfs:comment1 """
-Мы гарантируем:
-
-- грамотное консультирование;
-
-- прозрачность процессов разработки и внедрения;
-
-- соблюдение сроков проектов;
-
-- поддержку внедренных продуктов для их успешного использования в достижении поставленных вами целей.
-
-  """@ru ;
-  rdfs:comment1 """
-Мы гарантируем:
-
-- грамотное консультирование;
-
-- прозрачность процессов разработки и внедрения;
-
-- соблюдение сроков проектов;
-
-- поддержку внедренных продуктов для их успешного использования в достижении поставленных вами целей.
-
-  """@en ;
+site:ServicesSloganTemplate2
+  rdf:type rdfs:Resource ;
+  rdfs:label "Мы гарантируем:"@ru ;
+  rdfs:label "Мы гарантируем:"@en ;
 .
 
 site:CustomDevelopment
@@ -341,6 +288,8 @@ site:Implementation
   rdfs:label "Implementation"@en ;
   v-s:shortLabel "Внедрение"@ru ;
   v-s:shortLabel "Implementation"@en ;
+  rdfs:comment "Соблюдение сроков проектов."@ru ;
+  rdfs:comment "Соблюдение сроков проектов."@en ;
 .
 
 site:Training
@@ -365,6 +314,8 @@ site:Realization
   rdfs:label "Realization"@en ;
   v-s:shortLabel "Реализация"@ru ;
   v-s:shortLabel "Realization"@en ;
+  rdfs:comment "Прозрачность процессов разработки и внедрения."@ru ;
+  rdfs:comment "Прозрачность процессов разработки и внедрения."@en ;
 .
 
 site:Accompanying
@@ -373,6 +324,8 @@ site:Accompanying
   rdfs:label "Accompanying"@en ;
   v-s:shortLabel "Cопровождение"@ru ;
   v-s:shortLabel "Accompanying"@en ;
+  rdfs:comment "Поддержку внедренных продуктов для их успешного использования в достижении поставленных вами целей."@ru ;
+  rdfs:comment "Поддержку внедренных продуктов для их успешного использования в достижении поставленных вами целей."@en ;
 .
 
 site:Consulting
@@ -381,7 +334,8 @@ site:Consulting
   rdfs:label "Consulting"@en ;
   v-s:shortLabel "Консультирование"@ru ;
   v-s:shortLabel "Consulting"@en ;
-  v-s:hasImage site:ImageForest ;
+  rdfs:comment "Грамотное консультирование."@ru ;
+  rdfs:comment "Грамотное консультирование."@en ;
   v-ui:hasTemplate site:ServicesConsultingTemplate ;
   site:hasPage site:ServicesConsultingForSlider
 .
