@@ -68,14 +68,14 @@ site:ServicesTemplate
   rdfs:label "Services page template"@en ;
   v-ui:template """
 <div style="background-color: #fff;">
-  <div class="bg-orange">
+  <div style="border: none; background-image: url('/files/site:ImageServicesBackground'); background-size: cover; background-position: center center; height:350px;">
     <div class="container">
       <br>
       <br>
-      <h1 style="line-height: 1; color: #333; text-shadow: 0px 1px 2px black;">
+      <h1 style="line-height: 1; color: #fff; text-shadow: 0px 1px 2px black;">
         <span about="site:ServicesSloganTemplate" property="rdfs:label"></span>
         <br>
-        <small about="site:ServicesSloganTemplate" property="rdfs:comment"></small>
+        <small about="site:ServicesSloganTemplate" property="rdfs:comment" style="color: #fff"></small>
       </h1>
       <br>
       <br>
@@ -95,26 +95,26 @@ site:ServicesTemplate
       <h2><span about="site:ServicesSloganTemplate1" property="rdfs:label"></span></h2>
       <br>
       <div class="col-md-12">
-        <div class="panel panel-default">
+        <div class="panel panel-default" style="border: none; box-shadow: none;" >
           <div class="panel-header">
           </div>
           <div class="panel-body">
             <h3 about="site:ServicesIndividual" property="rdfs:label"></h3>
             <p about="site:ServicesIndividual" property="rdfs:comment"></p>
             <div about="site:ServicesIndividual" rel="v-s:hasImage" data-template="v-ui:ImageTemplate"></div>
-            <a href="#/@" class="btn btn-primary pull-right">
+            <a href="#/@" class="pull-right" style="text-decoration: none;">
               <span about="site:More" property="rdfs:label"></span>
             </a>
           </div>
         </div>
-        <div class="panel panel-default">
+        <div class="panel panel-default" style="border: none; box-shadow: none;">
           <div class="panel-header">
           </div>
           <div class="panel-body">
             <h3 about="site:ServicesExample" property="rdfs:label"></h3>
             <p about="site:ServicesExample" property="rdfs:comment"></p>
             <div about="site:ServicesExample" rel="v-s:hasImage" data-template="v-ui:ImageTemplate"></div>
-            <a href="#/@" class="btn btn-primary pull-right">
+            <a href="#/@" class="pull-right" style="text-decoration: none;">
               <span about="site:More" property="rdfs:label"></span>
             </a>
           </div>
@@ -124,12 +124,12 @@ site:ServicesTemplate
       <h2><span about="site:ServicesSloganTemplate2" property="rdfs:label"></span></h2>
       <br>
       <div class="col-md-6">
-        <div class="panel panel-default">
+        <div class="panel panel-default" style="border: none; box-shadow: none; background-image: url('/files/site:ImageServicesBackgroundForCard'); background-size: cover; background-position: center center;">
           <div class="panel-header">
           </div>
           <div class="panel-body" style="height:250px">
-            <h3 about="site:Consulting" property="rdfs:label"></h3>
-            <p about="site:Consulting" property="rdfs:comment"></p>
+            <h3 about="site:Consulting" property="rdfs:label" style="color: #fff"></h3>
+            <p about="site:Consulting" property="rdfs:comment" style="color: #fff"></p>
             <div about="site:Consulting" rel="v-s:hasImage" data-template="v-ui:ImageTemplate"></div>
           </div>
           <!--div class="panel-footer clearfix">
@@ -138,12 +138,12 @@ site:ServicesTemplate
             </a>
           </div-->
         </div>
-        <div class="panel panel-default">
+        <div class="panel panel-default" style="border: none; box-shadow: none; background-image: url('/files/site:ImageServicesBackgroundForCard1'); background-size: cover; background-position: center center;">
           <div class="panel-header">
           </div>
           <div class="panel-body" style="height:250px">
-            <h3 about="site:Implementation" property="rdfs:label"></h3>
-            <p about="site:Implementation" property="rdfs:comment"></p>
+            <h3 about="site:Implementation" property="rdfs:label" style="color: #fff"></h3>
+            <p about="site:Implementation" property="rdfs:comment" style="color: #fff"></p>
             <div about="site:Implementation" rel="v-s:hasImage" data-template="v-ui:ImageTemplate"></div>
           </div>
           <!--div class="panel-footer clearfix">
@@ -154,12 +154,12 @@ site:ServicesTemplate
         </div>
       </div>
       <div class="col-md-6">
-        <div class="panel panel-default">
+        <div class="panel panel-default" style="border: none; box-shadow: none; background-image: url('/files/site:ImageServicesBackgroundForCard1'); background-size: cover; background-position: center center;">
           <div class="panel-header">
           </div>
           <div class="panel-body" style="height:250px">
-            <h3 about="site:Realization" property="rdfs:label"></h3>
-            <p about="site:Realization" property="rdfs:comment"></p>
+            <h3 about="site:Realization" property="rdfs:label" style="color: #fff"></h3>
+            <p about="site:Realization" property="rdfs:comment" style="color: #fff"></p>
             <div about="site:Realization" rel="v-s:hasImage" data-template="v-ui:ImageTemplate"></div>
           </div>
           <!--div class="panel-footer clearfix">
@@ -168,12 +168,12 @@ site:ServicesTemplate
             </a>
           </div-->
         </div>
-        <div class="panel panel-default">
+        <div class="panel panel-default" style="border: none; box-shadow: none; background-image: url('/files/site:ImageServicesBackgroundForCard'); background-size: cover; background-position: center center;">
           <div class="panel-header">
           </div>
           <div class="panel-body" style="height:250px">
-            <h3 about="site:Accompanying" property="rdfs:label"></h3>
-            <p about="site:Accompanying" property="rdfs:comment"></p>
+            <h3 about="site:Accompanying" property="rdfs:label" style="color: #fff"></h3>
+            <p about="site:Accompanying" property="rdfs:comment" style="color: #fff"></p>
             <div about="site:Accompanying" rel="v-s:hasImage" data-template="v-ui:ImageTemplate"></div>
           </div>
           <!--div class="panel-footer clearfix">
@@ -390,9 +390,23 @@ site:ServicesConsultingTemplate
   """ ;
 .
 
-site:ImageForest
+site:ImageServicesBackground
   rdf:type v-s:File ;
-  v-s:fileUri "forest.png" ;
-  v-s:fileName "forest.png" ;
+  v-s:fileUri "5.png" ;
+  v-s:fileName "5.png" ;
+  v-s:filePath "/site" ;
+.
+
+site:ImageServicesBackgroundForCard
+  rdf:type v-s:File ;
+  v-s:fileUri "background3.png" ;
+  v-s:fileName "background3.png" ;
+  v-s:filePath "/site" ;
+.
+
+site:ImageServicesBackgroundForCard1
+  rdf:type v-s:File ;
+  v-s:fileUri "background4.png" ;
+  v-s:fileName "background4.png" ;
   v-s:filePath "/site" ;
 .
