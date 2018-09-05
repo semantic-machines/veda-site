@@ -119,7 +119,9 @@ site:ApplicationsTemplate
       <div class="row">
         <div class="col-md-6">
           <span class="lead">
-            В рамках Приложений мы предлагаем:
+            <strong>
+              В рамках Приложений мы предлагаем:
+            </strong>
           </span>
           <ul class="lead">
             <br>
@@ -134,7 +136,9 @@ site:ApplicationsTemplate
         </div>
         <div class="col-md-6">
           <span class="lead">
-            В состав Приложений входит:
+            <strong>
+              В состав Приложений входит:
+            <strong>
           </span>
           <ul class="lead">
             <br>
@@ -643,10 +647,10 @@ site:ApplicationsContractorsArticle5
   rdf:type site:Article ;
   rdfs:label "Статья. Преимущества 4"@ru ;
   rdfs:label "Article. Advantages 4"@en ;
-  site:heading "Бизнес-объекты:"@ru ;
-  site:heading "Бизнес-объекты:"@en ;
-  site:tableHeaderLeft "Модуль 'Организация':"@ru ;
-  site:tableHeaderLeft "Модуль 'Организация':"@en ;
+  site:heading "Содержание модулей:"@ru ;
+  site:heading "Содержание модулей:"@en ;
+  site:tableHeaderLeft "Бизнес-объекты:"@ru ;
+  site:tableHeaderLeft "Бизнес-объекты:"@en ;
   site:tableHeaderRight "Бизнес-процессы:"@ru ;
   site:tableHeaderRight "Бизнес-процессы:"@en ;
   site:tableHeader "Дополнительные опции:"@ru ;
@@ -780,8 +784,8 @@ site:ImageContractors
 
 site:ImageArrows
   rdf:type v-s:File ;
-  v-s:fileUri "arrow.png" ;
-  v-s:fileName "arrow.png" ;
+  v-s:fileUri "strong_arrow.png" ;
+  v-s:fileName "strong_arrow.png" ;
   v-s:filePath "/site" ;
 .
 
