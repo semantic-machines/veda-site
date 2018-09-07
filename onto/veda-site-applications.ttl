@@ -585,10 +585,11 @@ site:ApplicationsContractorsModuleTemplate
           <div class="panel panel-default" style="border: none; box-shadow: none; background-image: url('/files/site:ImageServicesBackgroundForCard'); background-size: cover; background-position: center center;">
             <div class="panel-header">
             </div>
-            <div class="panel-body" style="height:170px">
+            <div class="panel-body" style="height:220px">
               <center>
                 <h3 about="site:ApplicationsOrganization" property="rdfs:label" style="color: #fff"></h3>
-                <p about="site:ApplicationsOrganization" property="rdfs:comment" style="color: #fff"></p>
+                <hr>
+                <p about="site:ApplicationsOrganization" property="rdfs:comment" style="color: #fff; font-size: 16px"></p>
               </center>
             </div>
           </div>
@@ -597,10 +598,11 @@ site:ApplicationsContractorsModuleTemplate
           <div class="panel panel-default" style="border: none; box-shadow: none; background-image: url('/files/site:ImageServicesBackgroundForCard1'); background-size: cover; background-position: center center;">
             <div class="panel-header">
             </div>
-            <div class="panel-body" style="height:170px">
+            <div class="panel-body" style="height:220px">
               <center>
                 <h3 about="site:ApplicationsFile" property="rdfs:label" style="color: #fff"></h3>
-                <p about="site:ApplicationsFile" property="rdfs:comment" style="color: #fff"></p>
+                <hr>
+                <p about="site:ApplicationsFile" property="rdfs:comment" style="color: #fff; font-size: 16px"></p>
               </center>
             </div>
           </div>
@@ -609,10 +611,11 @@ site:ApplicationsContractorsModuleTemplate
           <div class="panel panel-default" style="border: none; box-shadow: none; background-image: url('/files/site:ImageServicesBackgroundForCard'); background-size: cover; background-position: center center;">
             <div class="panel-header">
             </div>
-            <div class="panel-body" style="height:170px">
+            <div class="panel-body" style="height:220px">
               <center>
                 <h3 about="site:ApplicationsRequest" property="rdfs:label" style="color: #fff"></h3>
-                <p about="site:ApplicationsRequest" property="rdfs:comment" style="color: #fff"></p>
+                <hr>
+                <p about="site:ApplicationsRequest" property="rdfs:comment" style="color: #fff; font-size: 16px"></p>
               </center>  
             </div>
           </div>
@@ -621,10 +624,11 @@ site:ApplicationsContractorsModuleTemplate
           <div class="panel panel-default" style="border: none; box-shadow: none; background-image: url('/files/site:ImageServicesBackgroundForCard1'); background-size: cover; background-position: center center;">
             <div class="panel-header">
             </div>
-            <div class="panel-body" style="height:170px">
+            <div class="panel-body" style="height:220px">
               <center>
                 <h3 about="site:ApplicationsZap" property="rdfs:label" style="color: #fff"></h3>
-                <p about="site:ApplicationsZap" property="rdfs:comment" style="color: #fff"></p>
+                <hr>
+                <p about="site:ApplicationsZap" property="rdfs:comment" style="color: #fff; font-size: 16px"></p>
               </center>
             </div>
           </div>
@@ -682,23 +686,23 @@ site:ApplicationsContractorsArticle5
   site:tableHeader "Дополнительные опции:"@en ;
   site:content """
 Документы:
-- Досье контрагента
-- Запрос на согласование
-- Лист оценки
 - Организация
 - Обособленное подразделение
 - Контрагент
 - Заявка на создание/изменение контрагента
+- Досье контрагента
+- Запрос на согласование
+- Лист оценки
   """@ru ;
   site:content """
 Документы:
-- Досье контрагента
-- Запрос на согласование
-- Лист оценки
 - Организация
 - Обособленное подразделение
 - Контрагент
 - Заявка на создание/изменение контрагента
+- Досье контрагента
+- Запрос на согласование
+- Лист оценки
   """@en ;
   site:content1 """
 Справочники:
