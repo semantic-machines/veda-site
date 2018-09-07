@@ -297,14 +297,12 @@ site:ArticleTemplate4
   rdfs:label "Article template 4"@en ;
   v-ui:template """
 <div class="container">
-  <div class="sheet" style="border: none;">
+  <div style="border: none;">
     <blockquote>
       <p class="lead" property="site:content"></p>
     </blockquote>
-    <br>
   </div>
 </div>
-<br>
 <script>
   //# sourceURL=site:ArticleTemplate4
 </script>
@@ -317,17 +315,15 @@ site:ArticleTemplate5
   rdfs:label "Article template 3"@en ;
   v-ui:template """
 <div class="container">
-  <div class="sheet" style="border: none;">
+  <div style="border: none;">
     <h2>
       <span property="site:heading"></span>
       <br>
       <span property="site:summary"></span>
     </h2>
     <p class="lead" property="site:content"></p>
-    <br>
   </div>
 </div>
-<br>
 <script>
   //# sourceURL=site:ArticleTemplate5
 </script>
@@ -425,7 +421,7 @@ site:ApplicationsContractorsArticle4Template
   rdfs:label "Article template 2"@en ;
   v-ui:template """
 <div class="container">
-  <div class="sheet"  style="border: none;">
+  <div style="border: none;">
     <div>
       <h2>
         <span property="site:heading"></span>
@@ -477,6 +473,5 @@ site:ApplicationsContractorsArticle4Template
     </div>
   </div>
 </div>
-<br>
   """ ;
 .

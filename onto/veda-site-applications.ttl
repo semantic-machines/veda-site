@@ -517,7 +517,7 @@ site:ApplicationsContractorsAdvantageTemplate
   v-ui:template """
 <div class="bg-white">
   <div class="container">
-    <div class="sheet" style="border: none;">
+    <div style="border: none;">
       <h2>
         <span property="site:heading"></span>
       </h2>
@@ -570,7 +570,7 @@ site:ApplicationsContractorsModuleTemplate
   v-ui:template """
 <div class="bg-white">
   <div class="container">
-    <div class="sheet" style="border: none;">
+    <div style="border: none;">
       <h2>
         <span property="site:heading"></span>
       </h2>
