@@ -124,7 +124,8 @@ site:ServicesTemplate
       <h2><span about="site:ServicesSloganTemplate2" property="rdfs:label"></span></h2>
       <br>
       <div class="col-md-6">
-        <div class="panel panel-default" style="border: none; box-shadow: none; background-image: url('/files/site:ImageServicesBackgroundForCard'); background-size: cover; background-position: center center;">
+        <!--div class="panel panel-default" style="border: none; box-shadow: none; background-image: url('/files/site:ImageServicesBackgroundForCard'); background-size: cover; background-position: center center;"-->
+        <div class="panel panel-default bg-alizarin" style="border: none; box-shadow: none;">
           <div class="panel-header">
           </div>
           <div class="panel-body" style="height:250px">
@@ -138,7 +139,8 @@ site:ServicesTemplate
             </a>
           </div-->
         </div>
-        <div class="panel panel-default" style="border: none; box-shadow: none; background-image: url('/files/site:ImageServicesBackgroundForCard1'); background-size: cover; background-position: center center;">
+        <!--div class="panel panel-default" style="border: none; box-shadow: none; background-image: url('/files/site:ImageServicesBackgroundForCard1'); background-size: cover; background-position: center center;"-->
+        <div class="panel panel-default bg-belize-hole" style="border: none; box-shadow: none;">
           <div class="panel-header">
           </div>
           <div class="panel-body" style="height:250px">
@@ -154,7 +156,8 @@ site:ServicesTemplate
         </div>
       </div>
       <div class="col-md-6">
-        <div class="panel panel-default" style="border: none; box-shadow: none; background-image: url('/files/site:ImageServicesBackgroundForCard1'); background-size: cover; background-position: center center;">
+        <!--div class="panel panel-default" style="border: none; box-shadow: none; background-image: url('/files/site:ImageServicesBackgroundForCard1'); background-size: cover; background-position: center center;"-->
+        <div class="panel panel-default bg-nephritis" style="border: none; box-shadow: none;">
           <div class="panel-header">
           </div>
           <div class="panel-body" style="height:250px">
@@ -168,7 +171,8 @@ site:ServicesTemplate
             </a>
           </div-->
         </div>
-        <div class="panel panel-default" style="border: none; box-shadow: none; background-image: url('/files/site:ImageServicesBackgroundForCard'); background-size: cover; background-position: center center;">
+        <!--div class="panel panel-default" style="border: none; box-shadow: none; background-image: url('/files/site:ImageServicesBackgroundForCard'); background-size: cover; background-position: center center;"-->
+        <div class="panel panel-default bg-carrot" style="border: none; box-shadow: none;">
           <div class="panel-header">
           </div>
           <div class="panel-body" style="height:250px">
