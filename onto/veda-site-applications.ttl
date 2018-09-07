@@ -488,24 +488,20 @@ site:ApplicationsContractorsArticle2
   site:heading "Приложение позволит:"@en ;
   site:content """
 - Упорядочить и структурировать информацию о контрагентах в соответствии с заданными параметрами
-- Проводить формализованные процедуры проверки соответствия поставщиков внутренним требованиям организации
-- Оперативно вносить изменения данных контрагентов
 - Составлять заявки на создание контрагента
 - Вносить изменения данных контрагента в процессе работы
 - Формировать полное досье контрагента
 - Автоматически вычислять категорию контрагента в соответствии с заданными правилами
-- Проводить процедуры проверки и согласования контрагента  на соответствие внутренним требованиям организации
+- Проводить формализованные процедуры проверки и согласования контрагента  на соответствие внутренним требованиям организации
 
   """@ru ;
   site:content """
 - Упорядочить и структурировать информацию о контрагентах в соответствии с заданными параметрами
-- Проводить формализованные процедуры проверки соответствия поставщиков внутренним требованиям организации
-- Оперативно вносить изменения данных контрагентов
 - Составлять заявки на создание контрагента
 - Вносить изменения данных контрагента в процессе работы
 - Формировать полное досье контрагента
 - Автоматически вычислять категорию контрагента в соответствии с заданными правилами
-- Проводить процедуры проверки и согласования контрагента  на соответствие внутренним требованиям организации
+- Проводить формализованные процедуры проверки и согласования контрагента  на соответствие внутренним требованиям организации
   """@en ;
   v-ui:hasTemplate site:ArticleTemplate5 ;
 .
@@ -547,7 +543,7 @@ site:ApplicationsContractorsAdvantageTemplate
         <div class="col-md-3">
           <center>
             <img src="/files/site:ImageArrows"><br>
-            <span class="lead"> Актуальная информация</span>
+            <span class="lead"> Актуальная<br>информация</span>
           </center>
         </div>
         <div class="col-md-3">
@@ -585,36 +581,51 @@ site:ApplicationsContractorsModuleTemplate
       </h2>
       <br>
       <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-3">
           <div class="panel panel-default" style="border: none; box-shadow: none; background-image: url('/files/site:ImageServicesBackgroundForCard'); background-size: cover; background-position: center center;">
             <div class="panel-header">
             </div>
-            <div class="panel-body" style="height:150px">
+            <div class="panel-body" style="height:170px">
               <center>
                 <h3 about="site:ApplicationsOrganization" property="rdfs:label" style="color: #fff"></h3>
+                <p about="site:ApplicationsOrganization" property="rdfs:comment" style="color: #fff"></p>
               </center>
             </div>
           </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-3">
           <div class="panel panel-default" style="border: none; box-shadow: none; background-image: url('/files/site:ImageServicesBackgroundForCard1'); background-size: cover; background-position: center center;">
             <div class="panel-header">
             </div>
-            <div class="panel-body" style="height:150px">
+            <div class="panel-body" style="height:170px">
               <center>
                 <h3 about="site:ApplicationsFile" property="rdfs:label" style="color: #fff"></h3>
+                <p about="site:ApplicationsFile" property="rdfs:comment" style="color: #fff"></p>
               </center>
             </div>
           </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-3">
           <div class="panel panel-default" style="border: none; box-shadow: none; background-image: url('/files/site:ImageServicesBackgroundForCard'); background-size: cover; background-position: center center;">
             <div class="panel-header">
             </div>
-            <div class="panel-body" style="height:150px">
+            <div class="panel-body" style="height:170px">
               <center>
                 <h3 about="site:ApplicationsRequest" property="rdfs:label" style="color: #fff"></h3>
+                <p about="site:ApplicationsRequest" property="rdfs:comment" style="color: #fff"></p>
               </center>  
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="panel panel-default" style="border: none; box-shadow: none; background-image: url('/files/site:ImageServicesBackgroundForCard1'); background-size: cover; background-position: center center;">
+            <div class="panel-header">
+            </div>
+            <div class="panel-body" style="height:170px">
+              <center>
+                <h3 about="site:ApplicationsZap" property="rdfs:label" style="color: #fff"></h3>
+                <p about="site:ApplicationsZap" property="rdfs:comment" style="color: #fff"></p>
+              </center>
             </div>
           </div>
         </div>
@@ -629,18 +640,32 @@ site:ApplicationsOrganization
   rdf:type rdfs:Resource ;
   rdfs:label "Организация"@ru ;
   rdfs:label "Организация"@en ;
+  rdfs:comment "Структурированная база данных по основным реквизитам контрагентов. *Обязательный компонент поставки системы."@ru;
+  rdfs:comment "Структурированная база данных по основным реквизитам контрагентов. *Обязательный компонент поставки системы."@en;
 .
 
 site:ApplicationsFile
   rdf:type rdfs:Resource ;
   rdfs:label "Досье"@ru ;
   rdfs:label "Досье"@en ;
+  rdfs:comment "Полная информация о контрагентах."@ru;
+  rdfs:comment "Полная информация о контрагентах."@en;
+.
+
+site:ApplicationsZap
+  rdf:type rdfs:Resource ;
+  rdfs:label "Запрос"@ru ;
+  rdfs:label "Запрос"@en ;
+  rdfs:comment "Проверка на соответствие требованиям."@ru;
+  rdfs:comment "Проверка на соответствие требованиям."@en;
 .
 
 site:ApplicationsRequest
   rdf:type rdfs:Resource ;
   rdfs:label "Заявка"@ru ;
   rdfs:label "Заявка"@en ;
+  rdfs:comment "Централизованное заведение контрагентов / внесение изменений в данные."@ru;
+  rdfs:comment "Централизованное заведение контрагентов / внесение изменений в данные."@en;
 .
 
 site:ApplicationsContractorsArticle5
@@ -657,6 +682,9 @@ site:ApplicationsContractorsArticle5
   site:tableHeader "Дополнительные опции:"@en ;
   site:content """
 Документы:
+- Досье контрагента
+- Запрос на согласование
+- Лист оценки
 - Организация
 - Обособленное подразделение
 - Контрагент
@@ -664,6 +692,9 @@ site:ApplicationsContractorsArticle5
   """@ru ;
   site:content """
 Документы:
+- Досье контрагента
+- Запрос на согласование
+- Лист оценки
 - Организация
 - Обособленное подразделение
 - Контрагент
@@ -693,9 +724,11 @@ site:ApplicationsContractorsArticle5
   """@en ;
   site:content2 """
 Печатная форма:
+- Единый лист оценки
   """@ru ;
   site:content2 """
 Печатная форма:
+- Единый лист оценки
   """@en ;
   site:content3 """
 Отчёты:
@@ -720,13 +753,9 @@ site:ApplicationsContractorsArticle5
 - Частные задачи
   """@en ;
   site:content5 """
-- Уведомления по e-mail
-- Мобильное приложение
 - Интеграция с 1С и SAP
   """@ru ;
   site:content5 """
-- Уведомления по e-mail
-- Мобильное приложение
 - Интеграция с 1С и SAP
   """@en ;
   v-ui:hasTemplate site:ApplicationsContractorsArticle4Template ;
