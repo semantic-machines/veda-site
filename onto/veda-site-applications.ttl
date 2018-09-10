@@ -985,24 +985,29 @@ site:ApplicationsAccountingDocsAdvantageTemplate
   v-ui:template """
 <div class="bg-white">
   <div class="container">
-    <div class="sheet" style="border: none;">
+    <div style="border: none;">
       <h2>
         <span property="site:heading"></span>
       </h2>
       <br>
       <div class="row">
-        <div class="col-md-12">
-          <div class="col-md-6">
-            <p class="lead">
-              <span class="glyphicon glyphicon-star"> Единое хранилище</span><br>
-              <span class="glyphicon glyphicon-plus"> Оперативный обмен</span><br>
-            </p>
-          </div>
-          <div class="col-md-6">
-            <p class="lead">
-              <span class="glyphicon glyphicon-asterisk"> Подготовка к проверкам</span><br>
-            </p>
-          </div>
+        <div class="col-md-4">
+          <center>
+            <img src="/files/site:ImageArrows"><br>
+            <span class="lead"> Единое<br>хранилище</span>
+          </center>
+        </div>
+        <div class="col-md-4">
+          <center>
+            <img src="/files/site:ImageArrows"><br>
+            <span class="lead"> Оперативный<br>обмен</span>
+          </center>
+        </div>
+        <div class="col-md-4">
+          <center>
+            <img src="/files/site:ImageArrows"><br>
+            <span class="lead"> Подготовка<br>к проверкам</span>
+          </center>
         </div>
       </div>
     </div>
@@ -1204,30 +1209,40 @@ site:ApplicationsMeetingsArticle3
 
 site:ApplicationsMeetingsAdvantageTemplate
   rdf:type v-ui:ClassTemplate ;
+  rdfs:label "Шаблон страницы встречи"@ru ;
+  rdfs:label "Meetings page template"@en ;
   v-ui:template """
 <div class="bg-white">
   <div class="container">
-    <div class="sheet" style="border: none;">
+    <div style="border: none;">
       <h2>
         <span property="site:heading"></span>
       </h2>
       <br>
       <div class="row">
-        <div class="col-md-12">
-          <div class="col-md-6">
-            <p class="lead">
-              <span class="glyphicon glyphicon-star"> Планирование встреч</span><br>
-              <span class="glyphicon glyphicon-plus"> Приглашение участников</span><br>
-              <span class="glyphicon glyphicon-plus"> Ведение протоколов</span><br>
-            </p>
-          </div>
-          <div class="col-md-6">
-            <p class="lead">
-              <span class="glyphicon glyphicon-asterisk"> План мероприятий</span><br>
-              <span class="glyphicon glyphicon-asterisk"> Назначение ответственных</span><br>
-              <span class="glyphicon glyphicon-asterisk"> Контроль выполнения</span><br>
-            </p>
-          </div>
+        <div class="col-md-4">
+          <center>
+            <img src="/files/site:ImageArrows"><br>
+            <span class="lead"> Планирование<br>встреч</span><br>
+            <img src="/files/site:ImageArrows"><br>
+            <span class="lead"> План<br>мероприятий</span>
+          </center>
+        </div>
+        <div class="col-md-4">
+          <center>
+            <img src="/files/site:ImageArrows"><br>
+            <span class="lead"> Приглашение<br>участников</span><br>
+            <img src="/files/site:ImageArrows"><br>
+            <span class="lead"> Назначение<br>ответственных</span>
+          </center>
+        </div>
+        <div class="col-md-4">
+          <center>
+            <img src="/files/site:ImageArrows"><br>
+            <span class="lead"> Ведение<br>протоколов</span><br>
+            <img src="/files/site:ImageArrows"><br>
+            <span class="lead"> Контроль<br>выполнения</span>
+          </center>
         </div>
       </div>
     </div>
@@ -1235,6 +1250,7 @@ site:ApplicationsMeetingsAdvantageTemplate
 </div>
   """ ;
 .
+
 site:ApplicationsMeetingsArticle4
   rdf:type site:Article ;
   rdfs:label "Статья. Преимущества 4"@ru ;
@@ -1506,6 +1522,70 @@ site:ApplicationsAuditsAdvantageTemplate
   v-ui:template """
 <div class="bg-white">
   <div class="container">
+    <div style="border: none;">
+      <h2>
+        <span property="site:heading"></span>
+      </h2>
+      <br>
+      <div class="row">
+        <div class="col-md-4">
+          <center>
+            <img src="/files/site:ImageArrows"><br>
+            <span class="lead"> Списки участников<br>рабочих групп</span>
+          </center>
+        </div>
+        <div class="col-md-4">
+          <center>
+            <img src="/files/site:ImageArrows"><br>
+            <span class="lead"> План<br>мероприятий</span>
+          </center>
+        </div>
+        <div class="col-md-4">
+          <center>
+            <img src="/files/site:ImageArrows"><br>
+            <span class="lead"> Контроль<br>выполнения</span>
+          </center>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-3">
+          <center>
+            <img src="/files/site:ImageArrows"><br>
+            <span class="lead"> Планирование<br>аудитов</span>
+          </center>
+        </div>
+        <div class="col-md-3">
+          <center>
+            <img src="/files/site:ImageArrows"><br>
+            <span class="lead"> Фиксация наблюдений<br>согласно требованиям стандартов</span>
+          </center>
+        </div>
+        <div class="col-md-3">
+          <center>
+            <img src="/files/site:ImageArrows"><br>
+            <span class="lead"> Назначение<br>ответственных</span>
+          </center>
+        </div>
+        <div class="col-md-3">
+          <center>
+            <img src="/files/site:ImageArrows"><br>
+            <span class="lead"> Снижение<br>рисков</span>
+          </center>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  """ ;
+.
+
+site:ApplicationsAuditsAdvantageTemplate
+  rdf:type v-ui:ClassTemplate ;
+  rdfs:label "Шаблон страницы встречи"@ru ;
+  rdfs:label "Meetings page template"@en ;
+  v-ui:template """
+<div class="bg-white">
+  <div class="container">
     <div class="sheet" style="border: none;">
       <h2>
         <span property="site:heading"></span>
@@ -1671,27 +1751,34 @@ site:ApplicationsContractsArticle3
 
 site:ApplicationsContractsAdvantageTemplate
   rdf:type v-ui:ClassTemplate ;
+  rdfs:label "Шаблон страницы встречи"@ru ;
+  rdfs:label "Meetings page template"@en ;
   v-ui:template """
 <div class="bg-white">
   <div class="container">
-    <div class="sheet" style="border: none;">
+    <div style="border: none;">
       <h2>
         <span property="site:heading"></span>
       </h2>
       <br>
       <div class="row">
-        <div class="col-md-12">
-          <div class="col-md-6">
-            <p class="lead">
-              <span class="glyphicon glyphicon-star"> Контроль сроков</span><br>
-              <span class="glyphicon glyphicon-plus"> Четкие критерии заключения</span><br>
-            </p>
-          </div>
-          <div class="col-md-6">
-            <p class="lead">
-              <span class="glyphicon glyphicon-asterisk"> Регистрация</span><br>
-            </p>
-          </div>
+        <div class="col-md-4">
+          <center>
+            <img src="/files/site:ImageArrows"><br>
+            <span class="lead"> Контроль<br>сроков</span>
+          </center>
+        </div>
+        <div class="col-md-4">
+          <center>
+            <img src="/files/site:ImageArrows"><br>
+            <span class="lead"> Четкие<br>критерии заключения</span>
+          </center>
+        </div>
+        <div class="col-md-4">
+          <center>
+            <img src="/files/site:ImageArrows"><br>
+            <span class="lead"> Регистрация</span>
+          </center>
         </div>
       </div>
     </div>
