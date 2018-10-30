@@ -42,23 +42,42 @@ site:LayoutTemplate
   v-ui:template """
 <script>
   // Markdown
-  var target = $("#main", template).get(0);
-  var observer = new MutationObserver(function(mutations) {
-    mutations.forEach(processMutation);
+  var main = $("#main", template).get(0);
+  var observer = new MutationObserver(function(mutations, observer) {
+    var lastMutation = mutations.pop();
+    processMain(lastMutation);
   });
-  var config = { childList: true, subtree: true };
-  observer.observe(target, config);
+  var mainConfig = { childList: true, subtree: true };
+  var markdownConfig = { childList: true };
+  observer.observe(main, mainConfig);
   template.one("remove", function () {
     observer.disconnect();
   });
-  function processMutation(mutation) {
-    var addedNode = $( mutation.addedNodes.item(0) );
-    var toMarkup = addedNode.find(".markdown");
-    toMarkup.each(function () {
-      var text = this.innerText || this.textContent;
+  function processMain(mutation) {
+    var target = $(mutation.target);
+    var markdown = target.find(".markdown:not(.observed)");
+    markdown.each(function () {
+      this.classList.add("observed");
+      var text = this.textContent;
       this.innerHTML = marked(text);
+      var markdownObserver = new MutationObserver(function(mutations, observer) {
+        var lastMutation = mutations.pop();
+        processMarkdown(lastMutation, observer);
+      });
+      markdownObserver.observe(this, markdownConfig);
+      $(this).one("remove", function () {
+        markdownObserver.disconnect();
+      });
     });
   }
+  function processMarkdown(mutation, observer) {
+    observer.disconnect();
+    var target = mutation.target;
+    var text = target.textContent;
+    target.innerHTML = marked(text);
+    observer.observe(target, markdownConfig);
+  }
+
 </script>
 <div class="page">
   <nav role="navigation" class="navbar navbar-default navbar-veda navbar-fixed" style="margin-bottom:0;">
