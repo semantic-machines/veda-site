@@ -609,9 +609,6 @@ site:ApplicationsContractorsModuleTemplate
             <div class="panel-body" style="height:220px">
               <center>
                 <h3 about="site:ApplicationsRequest" property="rdfs:label" style="color: #fff"></h3>
-                <hr>
-                <p about="site:ApplicationsRequest" property="rdfs:comment" style="color: #fff; font-size: 16px"></p>
-              </center>  
             </div>
           </div>
         </div>
@@ -794,6 +791,10 @@ site:ApplicationsContractorsTemplate
       <li><a href="#/site:Applications" about="site:Applications" property="rdfs:label"></a></li>
       <li class="active" about="@" property="rdfs:label"></li>
     </ol>
+    <h1>
+      <span about="site:ApplicationsContractorsForSlider" property="rdfs:label"></span>
+      <small about="site:ApplicationsContractorsForSlider" property="rdfs:comment"></small>
+    </h1>
   </div>
   <br>
   <div class="container">
