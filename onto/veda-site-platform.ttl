@@ -117,7 +117,7 @@ Modern open-source platform.
 
 Allows rapid development of applications
 
-for enterprize business-process automation.
+for enterprise business-process automation.
   """@en ;
 .
 
