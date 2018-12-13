@@ -42,7 +42,7 @@ site:LayoutTemplate
   v-ui:template """
 <script>
   // Markdown
-  var main = $("#main", template).get(0);
+  var main = document;
   var observer = new MutationObserver(function(mutations, observer) {
     var lastMutation = mutations.pop();
     processMain(lastMutation);
