@@ -23,8 +23,21 @@ site:About
   rdfs:label "О компании"@ru ;
   rdfs:label "About us"@en ;
   v-ui:hasTemplate site:AboutTemplate ;
-  site:hasPage site:Customers ;
-  site:hasPage site:Partners ;
+#  site:hasPage site:Customers ;
+#  site:hasPage site:Partners ;
+  site:hasArticle site:AboutMainArticle ;
+.
+
+site:AboutMainArticle
+  rdf:type site:Article ;
+  rdfs:label "Статья о компании для главной страницы"@ru ;
+  rdfs:label "Article about company for main page"@en ;
+  site:heading """Быстро разрабатываем приложения для вашего бизнеса!""";
+  site:summary """
+Для разработки мы используем интегрированную платформу Veda.
+На платформе уже разработан ряд готовых приложений.
+Наши клиенты успешно используют их с 2010 года.
+"""@ru ;
 .
 
 ### ABOUT TEMPLATES ####
@@ -34,9 +47,18 @@ site:AboutMainTemplate
   rdfs:label "Шаблон страницы о компании"@ru ;
   rdfs:label "About page template"@en ;
   v-ui:template """
-<div class="container-fluid bg-white">
-  <div class="container">
-    <h1 about="@" property="rdfs:label"></h1>
+<div class="container-fluid bg-peter-river">
+  <div class="container margin-xxl">
+    <div rel="site:hasArticle" data-limit="1">
+      <h1 style="line-height: 1;">
+        <span property="site:heading"></span>
+        <br>
+        <small property="site:summary"></small>
+      </h1>
+    </div>
+    <a href="#/@" class="btn btn-lg btn-success margin-xl">
+      <span about="site:More" property="rdfs:label"></span>
+    </a>
   </div>
 </div>
   """ ;
@@ -105,7 +127,7 @@ site:AboutTemplate
                   </div>
                   <div class="col-md-2">
                     <div style="border: none; background-image: url('/files/site:ImageGexagon2'); height:150px; background-size: cover;"><br>
-                      
+
                     </div>
                   </div>
                 </div>

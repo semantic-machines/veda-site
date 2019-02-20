@@ -23,10 +23,10 @@ site:Platform
   rdfs:label "Платформа"@ru ;
   rdfs:label "Platform"@en ;
   v-ui:hasTemplate site:PlatformTemplate ;
-  v-s:hasImage site:ImageHydraContract ;
   site:hasPage site:Advantages ;
   site:hasPage site:Features ;
   site:hasPage site:Documentation ;
+  site:hasArticle site:PlatformMainArticle ;
 .
 
 ### PLATFORM TEMPLATES ####
@@ -42,34 +42,27 @@ site:PlatformMainTemplate
   rdfs:label "Шаблон страницы продукта"@ru ;
   rdfs:label "Product page template"@en ;
   v-ui:template """
-<div class="container-fluid bg-peter-river">
-  <div class="container">
-    <br>
-    <br>
-    <br>
-    <br>
-    <div class="row">
-      <div class="col-md-5">
-        <div about="@" rel="v-s:hasImage" data-template="v-ui:ImageTemplate"></div>
-      </div>
-      <div class="col-md-7">
-        <h1 about="site:PlatformSlogan" style="line-height: 1;">
-          <span>
-            <span property="rdfs:label"></span>
-            <br>
-            <small property="rdfs:comment"></small>
-          </span>
-        </h1>
-        <br>
-        <a href="#/@" class="btn btn-lg btn-success">
-          <span about="site:More" property="rdfs:label"></span>
-        </a>
+<div class="container-fluid bg-white">
+  <div class="container margin-xxl">
+    <div rel="site:hasArticle" data-limit="1">
+      <div class="row">
+        <div class="col-md-5">
+          <div about="@" rel="v-s:hasImage" data-template="v-ui:ImageTemplate"></div>
+        </div>
+        <div class="col-md-7">
+          <h1>
+            <span>
+              <span property="site:heading"></span>
+              <br>
+              <small property="site:summary"></small>
+            </span>
+          </h1>
+          <a href="#/@" class="btn btn-lg btn-success margin-xl">
+            <span about="site:More" property="rdfs:label"></span>
+          </a>
+        </div>
       </div>
     </div>
-    <br>
-    <br>
-    <br>
-    <br>
   </div>
 </div>
   """ ;
@@ -79,10 +72,12 @@ site:PlatformMainArticle
   rdf:type site:Article ;
   rdfs:label "Статья о платформе для главной страницы"@ru ;
   rdfs:label "Platform article for main page"@en ;
-  site:heading "# Платформа Veda";
-  site:summary
-"""## Современная платформа с открытым исходным текстом.
-## Позволяет быстро и легко создавать приложения для автоматизации деловых процессов предприятия.
+  v-s:hasImage site:ImageHydraContract ;
+  site:heading "Платформа Veda";
+  site:summary"""
+Современная семантическая платформа с открытым исходным текстом.
+
+Позволяет быстро и легко создавать приложения для автоматизации деловых процессов предприятия.
 """;
   site:content "";
 .
@@ -94,31 +89,6 @@ site:PlatformTemplate
   v-ui:template """
 <div about="@" data-template="site:SliderTemplate"></div>
   """ ;
-.
-
-site:PlatformSlogan
-  rdf:type rdfs:Resource ;
-  rdfs:label "Платформа Veda"@ru ;
-  rdfs:label "Platform Veda"@en ;
-  rdfs:comment """
-
-Современная платформа
-
-с открытым исходным текстом.
-
-
-Позволяет быстро и легко создавать приложения
-
-для автоматизации деловых процессов предприятия."""@ru ;
-  rdfs:comment """
-
-Modern open-source platform.
-
-
-Allows rapid development of applications
-
-for enterprise business-process automation.
-  """@en ;
 .
 
 site:Advantages

@@ -23,11 +23,11 @@ site:Main
   rdfs:label "Главная страница"@ru ;
   rdfs:label "Main page"@en ;
   v-ui:hasTemplate site:MainTemplate ;
+  site:hasPage site:About ;
   site:hasPage site:Platform ;
   site:hasPage site:Applications ;
   site:hasPage site:Services ;
-  site:hasPage site:About ;
-  site:hasPage site:VedaOnline ;
+#  site:hasPage site:VedaOnline ;
 .
 
 ### MAIN TEMPLATE ####
@@ -38,11 +38,16 @@ site:MainTemplate
   rdfs:label "Main page template"@en ;
   v-ui:template """
 <div>
+  <style>
+    h1 small {
+      line-height: 1.5;
+    }
+  </style>
+  <div about="site:About" data-template="site:AboutMainTemplate"></div>
   <div about="site:Platform" data-template="site:PlatformMainTemplate"></div>
   <div about="site:Applications" data-template="site:ApplicationsMainTemplate"></div>
   <div about="site:Services" data-template="site:ServicesMainTemplate"></div>
-  <div about="site:About" data-template="site:AboutMainTemplate"></div>
-  <div about="site:VedaOnline" data-template="site:VedaOnlineMainTemplate"></div>
+  <!--div about="site:VedaOnline" data-template="site:VedaOnlineMainTemplate"></div-->
 </div>
   """ ;
 .
