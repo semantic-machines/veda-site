@@ -40,7 +40,7 @@ site:LayoutTemplate
   rdfs:label "Шаблон макета сайта"@ru ;
   rdfs:label "Site layout template"@en ;
   v-ui:template """
-<script>
+<script><!--async-->
   // Markdown
   var main = document;
   var observer = new MutationObserver(function(mutations, observer) {
@@ -119,7 +119,7 @@ site:LayoutTemplate
     </div>
   </nav>
 </div>
-<script>
+<script><!--async-->
   // Render user
   var userInfo = $("#user-info", template);
   var userInfoTmpl = new veda.IndividualModel("v-ui:IconPersonTemplate");
@@ -179,7 +179,7 @@ site:SliderTemplate
   <br>
   <div id="page-container"></div>
 </div>
-<script>
+<script><!--async-->
   setTimeout(function () {
 
     $(".carousel-indicators > li", template).each(function (index) {
@@ -252,9 +252,6 @@ site:ArticleTemplate1
   </div>
   <br>
 </div>
-<script>
-  //# sourceURL=site:ArticleTemplate1
-</script>
   """ ;
 .
 
@@ -281,9 +278,6 @@ site:ArticleTemplate2
   </div>
   <br>
 </div>
-<script>
-  //# sourceURL=site:ArticleTemplate2
-</script>
   """ ;
 .
 
@@ -304,9 +298,6 @@ site:ArticleTemplate3
   </div>
 </div>
 <br>
-<script>
-  //# sourceURL=site:ArticleTemplate3
-</script>
   """ ;
 .
 
@@ -322,9 +313,6 @@ site:ArticleTemplate4
     </blockquote>
   </div>
 </div>
-<script>
-  //# sourceURL=site:ArticleTemplate4
-</script>
   """ ;
 .
 
@@ -343,9 +331,6 @@ site:ArticleTemplate5
     <p class="lead" property="site:content"></p>
   </div>
 </div>
-<script>
-  //# sourceURL=site:ArticleTemplate5
-</script>
   """ ;
 .
 
@@ -374,7 +359,7 @@ site:SliderTemplate2
   <br>
   <div id="page-container"></div>
 </div>
-<script>
+<script><!--async-->
   setTimeout(function () {
     showSlide();
 

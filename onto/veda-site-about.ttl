@@ -8,7 +8,8 @@
 @prefix d: <http://semantic-machines.com/veda/veda-data/> .
 @prefix site: <http://semantic-machines.com/veda-site/> .
 
-<http://semantic-machines.com/veda/veda-site-product>
+
+<http://semantic-machines.com/veda/veda-site-about>
   rdf:type owl:Ontology ;
   rdfs:label "Сайт Veda. О компании"@ru ;
   rdfs:label "Veda site. About"@en ;

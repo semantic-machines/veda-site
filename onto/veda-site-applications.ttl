@@ -47,7 +47,7 @@ site:ApplicationsMainTemplate
   rdfs:label "Шаблон страницы приложений"@ru ;
   rdfs:label "Applications page template"@en ;
   v-ui:template """
-<div class="container-fluid bg-clouds">
+<div class="container-fluid">
   <div class="container">
     <br>
     <br>

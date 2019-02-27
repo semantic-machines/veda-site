@@ -27,6 +27,7 @@ site:Main
   site:hasPage site:Platform ;
   site:hasPage site:Applications ;
   site:hasPage site:Services ;
+  site:hasPage site:Contacts ;
 #  site:hasPage site:VedaOnline ;
 .
 
@@ -47,6 +48,7 @@ site:MainTemplate
   <div about="site:Platform" data-template="site:PlatformMainTemplate"></div>
   <div about="site:Applications" data-template="site:ApplicationsMainTemplate"></div>
   <div about="site:Services" data-template="site:ServicesMainTemplate"></div>
+  <div about="site:Contacts" data-template="site:ContactsMainTemplate"></div>
   <!--div about="site:VedaOnline" data-template="site:VedaOnlineMainTemplate"></div-->
 </div>
   """ ;

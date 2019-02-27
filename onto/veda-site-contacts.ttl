@@ -1,0 +1,71 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix v-fs: <http://semantic-machines.com/veda/veda-search/> .
+@prefix v-s: <http://semantic-machines.com/veda/veda-schema/> .
+@prefix v-ui: <http://semantic-machines.com/veda/veda-ui/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix d: <http://semantic-machines.com/veda/veda-data/> .
+@prefix site: <http://semantic-machines.com/veda-site/> .
+
+<http://semantic-machines.com/veda/veda-site-contacts>
+  rdf:type owl:Ontology ;
+  rdfs:label "Сайт Veda. Контакты"@ru ;
+  rdfs:label "Veda site. Contacts"@en ;
+#  owl:versionInfo "1.3" ;
+  v-s:loadPriority 10 ;
+.
+
+### CONTACTS ###
+
+site:Contacts
+  rdf:type site:Page ;
+  rdfs:label "Контакты"@ru ;
+  rdfs:label "Contacts"@en ;
+  v-ui:hasTemplate site:ContactsTemplate ;
+  site:hasArticle site:ContactsMainArticle ;
+.
+
+site:ContactsMainArticle
+  rdf:type site:Article ;
+  rdfs:label "Контакты для главной страницы"@ru ;
+  rdfs:label "Contacts for main page"@en ;
+  site:heading """Контакты""";
+  site:summary """
+167026, Республика Коми, г. Сыктывкар, пр. Бумажников, 35-133.
+
+Телефон: +7 912 965 14 01
+
+E-mail: [info@semantic-machines.com](mailto:info@semantic-machines.com)
+"""@ru ;
+.
+
+### ABOUT TEMPLATES ####
+
+site:ContactsMainTemplate
+  rdf:type v-ui:ClassTemplate ;
+  rdfs:label "Шаблон страницы о компании"@ru ;
+  rdfs:label "About page template"@en ;
+  v-ui:template """
+<div class="container-fluid">
+  <div class="container margin-xxl">
+    <div rel="site:hasArticle" data-limit="1">
+      <h1 style="line-height: 1;">
+        <span property="site:heading"></span>
+        <br>
+        <small property="site:summary" class="markdown"></small>
+      </h1>
+    </div>
+  </div>
+</div>
+  """ ;
+.
+
+site:ContactsTemplate
+  rdf:type v-ui:ClassTemplate ;
+  rdfs:label "Шаблон страницы о компании"@ru ;
+  rdfs:label "About page template"@en ;
+  v-ui:template """
+<div class="container-fluid bg-peter-river"></div>
+""";
+.
