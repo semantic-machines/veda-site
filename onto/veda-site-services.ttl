@@ -23,364 +23,27 @@ site:Services
   rdfs:label "Услуги"@ru ;
   rdfs:label "Services"@en ;
   v-ui:hasTemplate site:ServicesTemplate ;
-  site:hasPage site:CustomDevelopment ;
-  site:hasPage site:ComplexAutomation ;
-  site:hasPage site:Implementation ;
-  site:hasPage site:Training ;
-  site:hasPage site:Support ;
-  site:hasPage site:Consulting ;
+  site:hasArticle site:ServicesArticle ;
 .
 
 ### SERVICES TEMPLATES ####
-
-site:ServicesMainTemplate
-  rdf:type v-ui:ClassTemplate ;
-  rdfs:label "Шаблон страницы услуг"@ru ;
-  rdfs:label "Services page template"@en ;
-  v-ui:template """
-<div class="container-fluid bg-white">
-  <div class="container">
-    <br>
-    <br>
-    <br>
-    <h1 about="site:ServicesSloganMainTemplate" style="line-height: 1;">
-      <span>
-        <span property="rdfs:label"></span>
-        <br>
-        <small property="rdfs:comment"></small>
-      </span>
-    </h1>
-    <br>
-    <a href="#/@" class="btn btn-lg btn-primary">
-      <span about="site:More" property="rdfs:label"></span>
-    </a>
-    <br>
-    <br>
-    <br>
-  </div>
-</div>
-  """ ;
-.
 
 site:ServicesTemplate
   rdf:type v-ui:ClassTemplate ;
   rdfs:label "Шаблон страницы услуг"@ru ;
   rdfs:label "Services page template"@en ;
   v-ui:template """
-<div style="background-color: #fff;">
-  <div style="border: none; background-image: url('/files/site:ImageServicesBackground'); background-size: cover; background-position: center center; height:350px;">
-    <div class="container">
-      <br>
-      <br>
-      <h1 style="line-height: 1; color: #fff; text-shadow: 0px 1px 2px black;">
-        <span about="site:ServicesSloganTemplate" property="rdfs:label"></span>
-        <br>
-        <small about="site:ServicesSloganTemplate" property="rdfs:comment" style="color: #fff"></small>
-      </h1>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-    </div>
-  </div>
-  <br>
-  <br>
-  <br>
-  <div class="container">
-    <div class="row">
-      <h2><span about="site:ServicesSloganTemplate1" property="rdfs:label"></span></h2>
-      <br>
-      <div class="col-md-12">
-        <div class="panel panel-default" style="border: none; box-shadow: none;" >
-          <div class="panel-header">
-          </div>
-          <div class="panel-body">
-            <h3 about="site:ServicesIndividual" property="rdfs:label"></h3>
-            <p about="site:ServicesIndividual" property="rdfs:comment"></p>
-            <div about="site:ServicesIndividual" rel="v-s:hasImage" data-template="v-ui:ImageTemplate"></div>
-            <a href="#/@" class="pull-right" style="text-decoration: none;">
-              <span about="site:More" property="rdfs:label"></span>
-            </a>
-          </div>
-        </div>
-        <div class="panel panel-default" style="border: none; box-shadow: none;">
-          <div class="panel-header">
-          </div>
-          <div class="panel-body">
-            <h3 about="site:ServicesExample" property="rdfs:label"></h3>
-            <p about="site:ServicesExample" property="rdfs:comment"></p>
-            <div about="site:ServicesExample" rel="v-s:hasImage" data-template="v-ui:ImageTemplate"></div>
-            <a href="#/@" class="pull-right" style="text-decoration: none;">
-              <span about="site:More" property="rdfs:label"></span>
-            </a>
-          </div>
-        </div>
-      </div>
-      <br>
-      <h2><span about="site:ServicesSloganTemplate2" property="rdfs:label"></span></h2>
-      <br>
-      <div class="col-md-6">
-        <!--div class="panel panel-default" style="border: none; box-shadow: none; background-image: url('/files/site:ImageServicesBackgroundForCard'); background-size: cover; background-position: center center;"-->
-        <div class="panel panel-default bg-nephritis" style="border: none; box-shadow: none;">
-          <div class="panel-header">
-          </div>
-          <div class="panel-body" style="height:250px">
-            <h3 about="site:Consulting" property="rdfs:label" style="color: #fff"></h3>
-            <p about="site:Consulting" property="rdfs:comment" style="color: #fff"></p>
-            <div about="site:Consulting" rel="v-s:hasImage" data-template="v-ui:ImageTemplate"></div>
-          </div>
-          <!--div class="panel-footer clearfix">
-            <a href="#/site:Consulting" class="btn btn-primary pull-right">
-              <span about="site:More" property="rdfs:label"></span>
-            </a>
-          </div-->
-        </div>
-        <!--div class="panel panel-default" style="border: none; box-shadow: none; background-image: url('/files/site:ImageServicesBackgroundForCard1'); background-size: cover; background-position: center center;"-->
-        <div class="panel panel-default bg-carrot" style="border: none; box-shadow: none;">
-          <div class="panel-header">
-          </div>
-          <div class="panel-body" style="height:250px">
-            <h3 about="site:Implementation" property="rdfs:label" style="color: #fff"></h3>
-            <p about="site:Implementation" property="rdfs:comment" style="color: #fff"></p>
-            <div about="site:Implementation" rel="v-s:hasImage" data-template="v-ui:ImageTemplate"></div>
-          </div>
-          <!--div class="panel-footer clearfix">
-            <a href="#/site:Implementation" class="btn btn-primary pull-right">
-              <span about="site:More" property="rdfs:label"></span>
-            </a>
-          </div-->
-        </div>
-      </div>
-      <div class="col-md-6">
-        <!--div class="panel panel-default" style="border: none; box-shadow: none; background-image: url('/files/site:ImageServicesBackgroundForCard1'); background-size: cover; background-position: center center;"-->
-        <div class="panel panel-default bg-belize-hole" style="border: none; box-shadow: none;">
-          <div class="panel-header">
-          </div>
-          <div class="panel-body" style="height:250px">
-            <h3 about="site:Realization" property="rdfs:label" style="color: #fff"></h3>
-            <p about="site:Realization" property="rdfs:comment" style="color: #fff"></p>
-            <div about="site:Realization" rel="v-s:hasImage" data-template="v-ui:ImageTemplate"></div>
-          </div>
-          <!--div class="panel-footer clearfix">
-            <a href="#/site:Realization" class="btn btn-primary pull-right">
-              <span about="site:More" property="rdfs:label"></span>
-            </a>
-          </div-->
-        </div>
-        <!--div class="panel panel-default" style="border: none; box-shadow: none; background-image: url('/files/site:ImageServicesBackgroundForCard'); background-size: cover; background-position: center center;"-->
-        <div class="panel panel-default bg-alizarin" style="border: none; box-shadow: none;">
-          <div class="panel-header">
-          </div>
-          <div class="panel-body" style="height:250px">
-            <h3 about="site:Accompanying" property="rdfs:label" style="color: #fff"></h3>
-            <p about="site:Accompanying" property="rdfs:comment" style="color: #fff"></p>
-            <div about="site:Accompanying" rel="v-s:hasImage" data-template="v-ui:ImageTemplate"></div>
-          </div>
-          <!--div class="panel-footer clearfix">
-            <a href="#/site:Accompanying" class="btn btn-primary pull-right">
-              <span about="site:More" property="rdfs:label"></span>
-            </a>
-          </div-->
-        </div>
-      </div>
-    </div>
+<div about="@" rel="site:hasArticle">
+  <div class="container sheet">
+    <h1 about="@" property="site:heading" class="margin-xl page-header"></h1>
+    <p about="@" property="site:summary" class="markdown lead"></p>
+    <p about="@" property="site:content" class="markdown"></p>
   </div>
 </div>
   """ ;
 .
 
-site:ServicesIndividual
-  rdf:type rdfs:Resource ;
-  rdfs:label "Индивидуальная разработка"@ru ;
-  rdfs:label "Индивидуальная разработка"@en ;
-  rdfs:comment """
-Вы можете заказать индивидуальную разработку.
-  """@ru ;
-  rdfs:comment """
-Вы можете заказать индивидуальную разработку.
-  """@en ;
-.
-
-site:ServicesExample
-  rdf:type rdfs:Resource ;
-  rdfs:label "Готовые решения"@ru ;
-  rdfs:label "Готовые решения"@en ;
-  rdfs:comment """
-Или купить готовые решения.
-  """@ru ;
-  rdfs:comment """
-Или купить готовые решения.
-  """@en ;
-.
-
-site:ServicesSloganMainTemplate
-  rdf:type rdfs:Resource ;
-  rdfs:label "Услуги"@ru ;
-  rdfs:label "Услуги"@en ;
-  rdfs:comment """
-Мы оказываем услуги по разработке, адаптации и внедрению приложений на платформе Veda.
-Развиваем приложения в соответствии с потребностями Заказчика.
-Обеспечиваем техническое сопровождение сформированной системы.
-Обучаем и поддерживаем пользователей.
-  """@ru ;
-  rdfs:comment """
-  """@en ;
-.
-# Создаваемые нами продукты - это ИТ-инструменты бизнеса. И мы делаем их надежными и управляемыми!
-
-
-site:ServicesSloganTemplate
-  rdf:type rdfs:Resource ;
-  rdfs:label "Услуги"@ru ;
-  rdfs:label "Услуги"@en ;
-  rdfs:comment """
-Мы оказываем спектр услуг по разработке, внедрению, и сопровождению информационных систем на платформе Veda.
-  """@ru ;
-  rdfs:comment """
-Мы оказываем спектр услуг по разработке, внедрению, и сопровождению информационных систем на платформе Veda.
-  """@en ;
-.
-
-site:ServicesSloganTemplate1
-  rdf:type rdfs:Resource ;
-  rdfs:label "Мы предлагаем два формата сотрудничества:"@ru ;
-  rdfs:label "Мы предлагаем два формата сотрудничества:"@en ;
-.
-
-site:ServicesSloganTemplate2
-  rdf:type rdfs:Resource ;
-  rdfs:label "Мы гарантируем:"@ru ;
-  rdfs:label "Мы гарантируем:"@en ;
-.
-
-site:CustomDevelopment
-  rdf:type site:Page ;
-  v-s:hasImage site:ImageForest ;
-  rdfs:label "Индивидуальная разработка"@ru ;
-  rdfs:label "Custom development"@en ;
-  v-s:shortLabel "Индивидуальная разработка"@ru ;
-  v-s:shortLabel "Custom development"@en ;
-.
-
-site:ComplexAutomation
-  rdf:type site:Page ;
-  rdfs:label "Комплексная автоматизация"@ru ;
-  rdfs:label "Complex automation"@en ;
-  v-s:shortLabel "Комплексная автоматизация"@ru ;
-  v-s:shortLabel "Complex automation"@en ;
-.
-
-site:Implementation
-  rdf:type site:Page ;
-  rdfs:label "Внедрение"@ru ;
-  rdfs:label "Implementation"@en ;
-  v-s:shortLabel "Внедрение"@ru ;
-  v-s:shortLabel "Implementation"@en ;
-  rdfs:comment "Соблюдение сроков проектов."@ru ;
-  rdfs:comment "Соблюдение сроков проектов."@en ;
-.
-
-site:Training
-  rdf:type site:Page ;
-  rdfs:label "Обучение"@ru ;
-  rdfs:label "Training"@en ;
-  v-s:shortLabel "Обучение"@ru ;
-  v-s:shortLabel "Training"@en ;
-.
-
-site:Support
-  rdf:type site:Page ;
-  rdfs:label "Поддержка"@ru ;
-  rdfs:label "Support"@en ;
-  v-s:shortLabel "Поддержка"@ru ;
-  v-s:shortLabel "Support"@en ;
-.
-
-site:Realization
-  rdf:type site:Page ;
-  rdfs:label "Реализация"@ru ;
-  rdfs:label "Realization"@en ;
-  v-s:shortLabel "Реализация"@ru ;
-  v-s:shortLabel "Realization"@en ;
-  rdfs:comment "Прозрачность процессов разработки и внедрения."@ru ;
-  rdfs:comment "Прозрачность процессов разработки и внедрения."@en ;
-.
-
-site:Accompanying
-  rdf:type site:Page ;
-  rdfs:label "Cопровождение"@ru ;
-  rdfs:label "Accompanying"@en ;
-  v-s:shortLabel "Cопровождение"@ru ;
-  v-s:shortLabel "Accompanying"@en ;
-  rdfs:comment "Поддержку внедренных продуктов для их успешного использования в достижении поставленных вами целей."@ru ;
-  rdfs:comment "Поддержку внедренных продуктов для их успешного использования в достижении поставленных вами целей."@en ;
-.
-
-site:Consulting
-  rdf:type site:Page ;
-  rdfs:label "Консультирование"@ru ;
-  rdfs:label "Consulting"@en ;
-  v-s:shortLabel "Консультирование"@ru ;
-  v-s:shortLabel "Consulting"@en ;
-  rdfs:comment "Грамотное консультирование."@ru ;
-  rdfs:comment "Грамотное консультирование."@en ;
-  v-ui:hasTemplate site:ServicesConsultingTemplate ;
-  site:hasPage site:ServicesConsultingForSlider
-.
-
-site:ServicesConsultingForSlider
-  rdf:type site:Page ;
-  v-s:hasImage site:ImageForest ;
-  rdfs:label "Консультирование"@ru ;
-  rdfs:label "Consulting"@en ;
-  rdfs:comment "Независимо от масштабов и сложности проектов внедрения требуется ясное понимание целей и задач предприятия."@ru ;
-  rdfs:comment "Независимо от масштабов и сложности проектов внедрения требуется ясное понимание целей и задач предприятия."@en ;
-  site:hasArticle site:ServicesConsultingArticle1 ;
-  site:hasArticle site:ServicesConsultingArticle2 ;
-  site:hasArticle site:ServicesConsultingArticle3 ;
-  site:hasArticle site:ServicesConsultingArticle4 ;
-.
-
-site:ServicesConsultingArticle1
-  rdf:type site:Article ;
-  rdfs:label "Статья. Преимущества 1"@ru ;
-  rdfs:label "Article. Advantages 1"@en ;
-  site:heading "Решение позволит:"@ru ;
-  site:heading "Решение позволит:"@en ;
-  site:content """
-Поэтому в рамках консультирования мы предоставляем комплекс услуг:
-
-обследование деловых процессов, документооборота и регламентирующих документов на предприятии;
-составление рекомендаций по оптимизации существующих процессов;
-изучение IT-архитектуры предприятия;
-определение функциональных и технических требований к информационной системе, составление технического задания;
-планирование и бюджетирование проекта разработки и внедрения;
-составление проектной документации.
-  """@ru ;
-  site:content """
-Поэтому в рамках консультирования мы предоставляем комплекс услуг:
-
-обследование деловых процессов, документооборота и регламентирующих документов на предприятии;
-составление рекомендаций по оптимизации существующих процессов;
-изучение IT-архитектуры предприятия;
-определение функциональных и технических требований к информационной системе, составление технического задания;
-планирование и бюджетирование проекта разработки и внедрения;
-составление проектной документации.
-  """@en ;
-.
-
-site:ServicesConsultingTemplate
-  rdf:type v-ui:ClassTemplate ;
-  rdfs:label "Шаблон страницы Контракты"@ru ;
-  rdfs:label "Contracts page template"@en ;
-  v-ui:template """
-<div about="@" data-template="site:SliderTemplate2"></div>
-  """ ;
-.
+### IMAGES ###
 
 site:ImageServicesBackground
   rdf:type v-s:File ;
@@ -401,4 +64,65 @@ site:ImageServicesBackgroundForCard1
   v-s:fileUri "background4.png" ;
   v-s:fileName "background4.png" ;
   v-s:filePath "/site" ;
+.
+
+### ARTICLES ###
+
+site:ServicesArticle
+  rdf:type site:Article ;
+  rdfs:label "Статья о платформе для страницы платформы"@ru ;
+  rdfs:label "Platform article for platform page"@en ;
+  v-ui:hasTemplate site:ContactsMainTemplate ;
+  site:heading "Услуги"@ru ;
+  site:heading "Services"@en ;
+  site:summary """
+> Обследуем, разработаем, внедрим и обеспечим поддержку системы, чтобы Вы могли развивать бизнес.  
+  """@ru ;
+  site:content """
+
+### 1. Консультирование
+
+Залог успеха любого проекта — полное взаимопонимание заказчика и исполнителя.  
+Для четкой формулировки цели и задач проекта:
+
+- обследуем деловые процессы, документооборот и регламентирующие документы, берем интервью у ключевых сотрудников;
+- составляем рекомендации по оптимизации существующих процессов;
+- помогаем сформулировать функциональные и технические требования к информационной системе, составить техническое задание;
+- формируем план реализации и бюджет проекта;
+
+---
+
+### 2. Разработка
+
+В ходе разработки мы воплощаем в продукте предъявленные требования:
+
+- проектируем онтологию предметной области: классы объектов, их связи и свойства, НСИ.
+- создаем автоматизированные процессы, шаблоны документов, печатные формы, отчеты;
+- определяем роли и группы пользователей, их полномочия;
+- разрабатываем процедуры интеграции с другими информационными системами;
+- составляем эксплуатационную документацию.
+
+---
+
+### 3. Внедрение
+
+На этапе внедрения убеждаемся, что созданный продукт соответствует требованиям и ожиданиям заказчика:
+
+- развертываем и настраиваем программные компоненты информационной системы;
+- проводим приемочные испытания;
+- устраняем недостатки;
+- обучаем пользователей;
+- передаем систему в постоянную эксплуатацию.
+
+---
+
+### 4. Техническая поддержка
+
+Созданная система должна быть живой и чутко реагировать на изменяющиеся потребности бизнеса. 
+Для обеспечения бесперебойной работы системы:
+
+- предоставляем все линии технической поддержки;
+- изменяем существующие и разрабатываем новые возможности системы;
+- обучаем новых сотрудников.
+  """@ru ;
 .

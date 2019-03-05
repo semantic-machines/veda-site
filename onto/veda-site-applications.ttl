@@ -42,34 +42,6 @@ site:Applications
 
 ### APPLICATIONS TEMPLATES ####
 
-site:ApplicationsMainTemplate
-  rdf:type v-ui:ClassTemplate ;
-  rdfs:label "Шаблон страницы приложений"@ru ;
-  rdfs:label "Applications page template"@en ;
-  v-ui:template """
-<div class="container-fluid">
-  <div class="container">
-    <br>
-    <br>
-    <h1 about="site:ApplicationsMainSlogan2" style="line-height: 1; color: #333;">
-      <span>
-        <span property="rdfs:label"></span>
-        <br>
-        <small property="rdfs:comment" style="color: #333;"></small>
-      </span>
-    </h1>
-    <a href="#/@" class="btn btn-lg btn-primary">
-      <span about="site:More" property="rdfs:label"></span>
-    </a>
-    <br>
-    <br>
-    <br>
-    <br>
-  </div>
-</div>
-  """ ;
-.
-
 site:ApplicationsTemplate
   rdf:type v-ui:ClassTemplate ;
   rdfs:label "Шаблон страницы приложений"@ru ;
@@ -365,36 +337,6 @@ forms personal interface we call an aspect.
 Aspect — is a reflection of business in information system from user's perspective
 
 considering his/her position in enterprise.
-  """@en ;
-.
-
-site:ApplicationsMainSlogan2
-  rdf:type rdfs:Resource ;
-  rdfs:label "Приложения"@ru ;
-  rdfs:label "Applications"@en ;
-  rdfs:comment """
-Приложения на платформе Veda уже включают в себя набор востребованных объектов и процессов, что сокращает трудоемкость и сроки внедрения информационной системы.
-
-Некоторые приложения мы предлагаем в нескольких вариантах с различной степенью детализации предметной области, с учетом реальных потребностей вашего предприятия.
-
-Составляющие приложений можно изменять и адаптировать под актуальные задачи предприятия «на лету».
-
-  """@ru ;
-  rdfs:comment """
-
-Applications on Veda platform include a set of objects and processes.
-
-This significantly reduces labor costs & saves time for deployment.
-
-
-Some applications are offered in several variants
-
-with varying details level depending on the business needs.
-
-
-The components of the applications can be changed and adapted
-
-to the actual tasks "on the fly."
   """@en ;
 .
 

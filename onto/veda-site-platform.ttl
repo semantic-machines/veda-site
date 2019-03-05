@@ -23,166 +23,33 @@ site:Platform
   rdfs:label "Платформа"@ru ;
   rdfs:label "Platform"@en ;
   v-ui:hasTemplate site:PlatformTemplate ;
-  site:hasPage site:Advantages ;
-  site:hasPage site:Features ;
-  site:hasPage site:Documentation ;
-  site:hasArticle site:PlatformMainArticle ;
+  site:hasArticle site:PlatformArticle ;
 .
 
 ### PLATFORM TEMPLATES ####
-
-site:More
-  rdf:type rdfs:Resource ;
-  rdfs:label "Подробнее"@ru ;
-  rdfs:label "More"@en ;
-.
-
-site:PlatformMainTemplate
-  rdf:type v-ui:ClassTemplate ;
-  rdfs:label "Шаблон страницы продукта"@ru ;
-  rdfs:label "Product page template"@en ;
-  v-ui:template """
-<div class="container-fluid bg-white">
-  <div class="container margin-xxl">
-    <div rel="site:hasArticle" data-limit="1">
-      <div class="row">
-        <div class="col-md-5">
-          <div about="@" rel="v-s:hasImage" data-template="v-ui:ImageTemplate"></div>
-        </div>
-        <div class="col-md-7">
-          <h1>
-            <span>
-              <span property="site:heading"></span>
-              <br>
-              <small property="site:summary"></small>
-            </span>
-          </h1>
-          <a href="#/@" class="btn btn-lg btn-success margin-xl">
-            <span about="site:More" property="rdfs:label"></span>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-  """ ;
-.
-
-site:PlatformMainArticle
-  rdf:type site:Article ;
-  rdfs:label "Статья о платформе для главной страницы"@ru ;
-  rdfs:label "Platform article for main page"@en ;
-  v-s:hasImage site:ImageHydraContract ;
-  site:heading "Платформа Veda";
-  site:summary"""
-Современная семантическая платформа с открытым исходным текстом.
-
-Позволяет быстро и легко создавать приложения для автоматизации деловых процессов предприятия.
-""";
-  site:content "";
-.
 
 site:PlatformTemplate
   rdf:type v-ui:ClassTemplate ;
   rdfs:label "Шаблон страницы платформы"@ru ;
   rdfs:label "Platform page template"@en ;
   v-ui:template """
-<div about="@" data-template="site:SliderTemplate"></div>
+<div about="@" rel="site:hasArticle">
+  <div class="container sheet">
+    <h1 about="@" property="site:heading" class="margin-xl page-header"></h1>
+    <p about="@" property="site:summary" class="markdown lead"></p>
+    <p about="@" property="site:content" class="markdown"></p>
+  </div>
+</div>
   """ ;
 .
 
-site:Advantages
-  rdf:type site:Page ;
-  rdfs:label "Преимущества"@ru ;
-  rdfs:label "Advantages"@en ;
-  v-s:shortLabel "Преимущества"@ru ;
-  v-s:shortLabel "Advantages"@en ;
-  v-s:hasImage site:ImageLamp ;
-  site:hasArticle site:AdvantagesArticle1 ;
-  site:hasArticle site:AdvantagesArticle2 ;
-  site:hasArticle site:AdvantagesArticle3 ;
-.
-
-site:Features
-  rdf:type site:Page ;
-  rdfs:label "Возможности"@ru ;
-  rdfs:label "Features"@en ;
-  v-s:shortLabel "Возможности"@ru ;
-  v-s:shortLabel "Features"@en ;
-  v-s:hasImage site:ImageLamp ;
-  site:hasArticle site:FeaturesArticle1 ;
-  site:hasArticle site:FeaturesArticle2 ;
-  site:hasArticle site:FeaturesArticle3 ;
-.
-
-site:Documentation
-  rdf:type site:Page ;
-  rdfs:label "Документация"@ru ;
-  rdfs:label "Documentation"@en ;
-  v-s:shortLabel "Документация"@ru ;
-  v-s:shortLabel "Documentation"@en ;
-  v-s:hasImage site:ImageLamp ;
-.
-
-site:ImageCosmos
-  rdf:type v-s:File ;
-  v-s:fileUri "cosmos.jpg" ;
-  v-s:fileName "cosmos.jpg" ;
-  v-s:filePath "/site" ;
-.
-
-site:ImageSky1
-  rdf:type v-s:File ;
-  v-s:fileUri "sky1.jpeg" ;
-  v-s:fileName "sky1.jpeg" ;
-  v-s:filePath "/site" ;
-.
-
-site:ImageSky2
-  rdf:type v-s:File ;
-  v-s:fileUri "sky2.jpeg" ;
-  v-s:fileName "sky2.jpeg" ;
-  v-s:filePath "/site" ;
-.
-
-site:ImageLamp
-  rdf:type v-s:File ;
-  v-s:fileUri "lamp.jpg" ;
-  v-s:fileName "lamp.jpg" ;
-  v-s:filePath "/site" ;
-.
+### IMAGES ###
 
 site:ImageHydraContract
   rdf:type v-s:File ;
   v-s:fileUri "hydra-contract.svg" ;
   v-s:fileName "hydra-contract.svg" ;
   v-s:filePath "/site" ;
-.
-
-
-### ARTICLES ###
-
-### ADVANTAGES ###
-
-site:AdvantagesArticle1
-  rdf:type site:Article ;
-  rdfs:label "Статья. Преимущества 1"@ru ;
-  rdfs:label "Article. Advantages 1"@en ;
-  site:heading "Широкие возможности настройки"@ru ;
-  site:heading "High customization capabilities"@en ;
-  site:content """
-- Используется методология Semantic Web.
-- Онтологии предметных областей настраиваются, а не программируются!
-- Высокая скорость разработки, изменения онтологии загружаются «на лету».
-- Различные способы визуализации данных.
-  """@ru ;
-  site:content """
-- Semantic Web methodology used for data & schema.
-- Domain ontologies are described, not hard coded!
-- High development speed. Ontology changes are processed on the fly.
-- Versatile data visualization methods.
-  """@en ;
-  v-s:hasImage site:AdvantagesArticleImage1 ;
 .
 
 site:AdvantagesArticleImage1
@@ -192,44 +59,11 @@ site:AdvantagesArticleImage1
   v-s:filePath "/site" ;
 .
 
-site:AdvantagesArticle2
-  rdf:type site:Article ;
-  site:heading "Простая, но мощная архитектура"@ru ;
-  site:heading "Simple yet powerful design"@en ;
-  site:content """
-- Двухзвенная архитектура.
-- «Тонкий» сервер (stateless).
-- Полноценное одностраничное web-приложение в браузере (stateful).
-  """@ru ;
-  site:content """
-- Two-tier design.
-- «Thin» stateless server.
-- Full featured stateful single page application in browser.
-  """@en ;
-  v-s:hasImage site:AdvantagesArticleImage2 ;
-  v-ui:hasTemplate site:ArticleTemplate2 ;
-.
-
 site:AdvantagesArticleImage2
   rdf:type v-s:File ;
   v-s:fileUri "thin-server.svg" ;
   v-s:fileName "thin-server.svg" ;
   v-s:filePath "/site" ;
-.
-
-site:AdvantagesArticle3
-  rdf:type site:Article ;
-  site:heading "Высокая производительность и масштабируемость"@ru ;
-  site:heading "High performance & scalability"@en ;
-  site:content """
-- На 2000 активных пользователей работает 1 виртуальный сервер, 4 ядра, 32 Gb RAM (из них используется 15-20%).
-- Количество пользователей работающих одновременно – 400 человек.
-  """@ru ;
-  site:content """
-- 1 virtual server for 2000 active users, 4 cores, 32 Gb RAM (15-20% used).
-- 400 simultaneous users.
-  """@en ;
-  v-s:hasImage site:AdvantagesArticleImage3 ;
 .
 
 site:AdvantagesArticleImage3
@@ -239,66 +73,11 @@ site:AdvantagesArticleImage3
   v-s:filePath "/site" ;
 .
 
-
-### FEATURES ###
-
-site:FeaturesArticle1
-  rdf:type site:Article ;
-  rdfs:label "Статья. Возможности 1"@ru ;
-  rdfs:label "Article. Features 1"@en ;
-  site:heading "Управление хранилищем данных"@ru ;
-  site:heading "Data storage management"@en ;
-  site:content """
-- Проектирование, редактирование, удаление и создание классов, свойств и шаблонов объектов с использованием словарей OWL и RDF/S.
-- Создание (заполнение и сохранение), редактирование, удаление объектов на основе разработанных классов, свойств и шаблонов.
-- Управление структурой и содержанием нормативно-справочной информации.
-- Хранение версий объектов.
-- Обеспечение взаимных связей различных объектов.
-- Поиск, сортировка объектов на основе фрагмента текста, на основе точных справочных значений.
-- Журналирование изменений объектов.
-- Формирование печатных форм объектов и статистических отчетов на основе предварительно сформированных шаблонов.
-- Импорт / экспорт данных в различных форматах.
-  """@ru ;
-  site:content """
-- Object classes, properties and templates are defined using OWL & RDF/S vocabularies.
-- Objects are stored according to defined classes, properties and templates.
-- Objects versions management support.
-- Mutual object links.
-- Fulltext and fine attributive search support.
-- Object mutations logging.
-- Print forms and statistical reports.
-- Data import / export in various formats.
-  """@en ;
-  v-s:hasImage site:FeturesArticleImage1 ;
-.
-
 site:FeturesArticleImage1
   rdf:type v-s:File ;
   v-s:fileUri "hydra.svg" ;
   v-s:fileName "hydra.svg" ;
   v-s:filePath "/site" ;
-.
-
-site:FeaturesArticle2
-  rdf:type site:Article ;
-  rdfs:label "Статья. Возможности 2"@ru ;
-  rdfs:label "Article. Features 2"@en ;
-  site:heading "Управление деловыми процессами"@ru ;
-  site:heading "Business processes management"@en ;
-  site:content """
-- Разработка шаблонов автоматизированных деловых процессов с помощью встроенного редактора.
-- Запуск, редактирование, прерывание процессов обработки документов.
-- Визуализация и журналирование хода выполнения процессов.
-- Обеспечение взаимодействия участников деловых процессов — автоматическое формирование задач, обработка ответов.
-- Поиск, сортировка задач.
-  """@ru ;
-  site:content """
-- Worflows are designed with embedded editor.
-- Worflows visualization and management (start, stop, change) are available for end-users.
-- Automatic worflow  task management - tasks assignment, decisions processing.
-- Tasks can be searched, sorted, delegated.
-  """@en ;
-  v-s:hasImage site:FeturesArticleImage2 ;
 .
 
 site:FeturesArticleImage2
@@ -308,13 +87,63 @@ site:FeturesArticleImage2
   v-s:filePath "/site" ;
 .
 
-site:FeaturesArticle3
+site:FeturesArticleImage3
+  rdf:type v-s:File ;
+  v-s:fileUri "hydra.svg" ;
+  v-s:fileName "hydra.svg" ;
+  v-s:filePath "/site" ;
+.
+
+### ARTICLES ###
+
+site:PlatformArticle
   rdf:type site:Article ;
-  rdfs:label "Статья. Возможности 3"@ru ;
-  rdfs:label "Article. Features 3"@en ;
-  site:heading "Общие функции"@ru ;
-  site:heading "Common functions"@en ;
+  rdfs:label "Статья о платформе для страницы платформы"@ru ;
+  rdfs:label "Platform article for platform page"@en ;
+  site:heading "Платформа Veda"@ru ;
+  site:heading "Platform Veda"@en ;
+  site:summary """
+> Современная семантическая платформа с открытым исходным текстом.  
+> Предназначена для быстрой разработки приложений автоматизации деловых процессов предприятия.
+  """@ru ;
+  site:summary """
+> Modern semantic open source platform.  
+> Designed to develop applications for business process automation.
+  """@en ;
+
   site:content """
+## Особенности
+- Используется методология Semantic Web. Онтологии предметных областей проектируются, а не программируются!
+- Высокая скорость разработки, изменения онтологии загружаются «на лету».
+- Различные способы визуализации данных.
+- Двухзвенная архитектура: «тонкий» сервер (stateless), одностраничное web-приложение в браузере (stateful).
+- Высокая производительность и масштабируемость.
+
+---
+
+### Управление данными
+- Проектирование классов, свойств и шаблонов объектов с использованием словарей OWL и RDF/S.
+- Создание объектов на основе разработанных классов, свойств и шаблонов.
+- Управление структурой и содержанием нормативно-справочной информации.
+- Хранение версий объектов.
+- Обеспечение взаимных связей различных объектов.
+- Поиск, сортировка объектов по фрагменту текста или точному значению свойства.
+- Журналирование изменений объектов.
+- Проектирование печатных форм объектов и статистических отчетов.
+- Импорт / экспорт данных в различных форматах.
+
+---
+
+### Управление деловыми процессами
+- Разработка автоматизированных деловых процессов с помощью встроенного редактора.
+- Запуск, редактирование, прерывание процессов обработки документов.
+- Визуализация и журналирование хода выполнения процессов.
+- Обеспечение взаимодействия участников деловых процессов — автоматическое формирование задач, обработка ответов.
+- Поиск, сортировка задач.
+
+---
+
+### Общие функции
 - Современный web-интерфейс с полноценной поддержкой мобильных устройств (смартфоны, планшеты).
 - Аутентификация и авторизация субъектов доступа.
 - Интгерация с MS Active Directory для обеспечения прозрачного входа в систему с доменной учетной записью (ntlm аутентификация).
@@ -323,7 +152,39 @@ site:FeaturesArticle3
 - Интеграция с системами кадрового учета (SAP, 1C) для отражения в системе организационной структуры предприятия.
 - Интеграция с почтовой службой для автоматических уведомлений предусмотренных деловыми процессами, автоматического ввода документов в систему.
   """@ru ;
+  
   site:content """
+## Features
+- Semantic Web methodology used for data & schema description.
+- Domain ontologies are described, not hard coded!
+- High development speed. Ontology changes are processed on the fly.
+- Versatile data visualization methods.
+- Two-tier design: «thin» stateless server, full featured stateful single page application in browser.
+- High performance & scalability.
+
+---
+
+### Data management
+- Object classes, properties and templates are defined using OWL & RDF/S vocabularies.
+- Objects are stored according to defined classes, properties and templates.
+- Objects versions management support.
+- Mutual object links.
+- Fulltext and fine attributive search support.
+- Object mutations logging.
+- Print forms and statistical reports.
+- Data import / export in various formats.
+
+---
+
+### Business processes management
+- Worflows are designed with embedded editor.
+- Worflows visualization and management (start, stop, change) are available for end-users.
+- Automatic worflow  task management - tasks assignment, decisions processing.
+- Tasks can be searched, sorted, delegated.
+
+---
+
+### Common functions
 - Modern web-interface that fit mobile devices.
 - Users authentication and authorization.
 - MS Active directory integration for single sign-on authentication.
@@ -332,12 +193,5 @@ site:FeaturesArticle3
 - Integration with ERP systems for master data adoption.
 - Integration with mail service for workflow initiated notifications and automated object creation from e-mail.
   """@en ;
-  v-s:hasImage site:FeturesArticleImage3 ;
-.
-
-site:FeturesArticleImage3
-  rdf:type v-s:File ;
-  v-s:fileUri "hydra.svg" ;
-  v-s:fileName "hydra.svg" ;
-  v-s:filePath "/site" ;
+  v-s:hasImage site:AdvantagesArticleImage1 ;
 .

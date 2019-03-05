@@ -16,14 +16,14 @@
   v-s:loadPriority 10 ;
 .
 
-### MAIN ###
+### MAIN PAGE ###
 
 site:Main
   rdf:type site:Page ;
   rdfs:label "Главная страница"@ru ;
   rdfs:label "Main page"@en ;
   v-ui:hasTemplate site:MainTemplate ;
-  site:hasPage site:About ;
+#  site:hasPage site:About ;
   site:hasPage site:Platform ;
   site:hasPage site:Applications ;
   site:hasPage site:Services ;
@@ -31,7 +31,7 @@ site:Main
 #  site:hasPage site:VedaOnline ;
 .
 
-### MAIN TEMPLATE ####
+### MAIN PAGE TEMPLATE ####
 
 site:MainTemplate
   rdf:type v-ui:ClassTemplate ;
@@ -39,17 +39,190 @@ site:MainTemplate
   rdfs:label "Main page template"@en ;
   v-ui:template """
 <div>
-  <style>
-    h1 small {
-      line-height: 1.5;
-    }
-  </style>
-  <div about="site:About" data-template="site:AboutMainTemplate"></div>
-  <div about="site:Platform" data-template="site:PlatformMainTemplate"></div>
-  <div about="site:Applications" data-template="site:ApplicationsMainTemplate"></div>
-  <div about="site:Services" data-template="site:ServicesMainTemplate"></div>
-  <div about="site:Contacts" data-template="site:ContactsMainTemplate"></div>
-  <!--div about="site:VedaOnline" data-template="site:VedaOnlineMainTemplate"></div-->
+  <div about="site:AboutMainArticle"></div>
+  <div about="site:PlatformMainArticle"></div>
+  <div about="site:ApplicationsMainArticle"></div>
+  <div about="site:ServicesMainArticle"></div>
+  <div about="site:ContactsMainArticle"></div>
+  <!--div about="site:VedaOnlineMainArticle"></div-->
+</div>
+  """ ;
+.
+
+### MAIN PAGE ARTICLES & TEMPLATES ####
+
+site:AboutMainArticle
+  rdf:type site:Article ;
+  rdfs:label "Статья о компании для главной страницы"@ru ;
+  rdfs:label "Article about company for main page"@en ;
+  v-ui:hasTemplate site:AboutMainTemplate ;
+  site:heading "Быстро разрабатываем приложения для вашего бизнеса!";
+  site:summary """
+Для разработки мы используем интегрированную платформу Veda.
+
+На платформе уже разработан ряд готовых приложений.
+
+Наши клиенты успешно используют их с 2010 года.
+  """ ;
+.
+
+site:AboutMainTemplate
+  rdf:type v-ui:ClassTemplate ;
+  rdfs:label "Шаблон о компании для главной страницы"@ru ;
+  rdfs:label "About template for main page"@en ;
+  v-ui:template """
+<div class="container-fluid bg-none">
+  <div class="container margin-xxl">
+    <h1 about="@" property="site:heading"></h1>
+    <p about="@" property="site:summary" class="markdown lead margin-xxl"></p>
+  </div>
+</div>
+  """ ;
+.
+
+site:PlatformMainArticle
+  rdf:type site:Article ;
+  rdfs:label "Статья о платформе для главной страницы"@ru ;
+  rdfs:label "Platform article for main page"@en ;
+  v-ui:hasTemplate site:PlatformMainTemplate ;
+  v-s:hasImage site:ImageHydraContract ;
+  site:heading "Платформа Veda";
+  site:summary"""
+Современная семантическая платформа с открытым исходным текстом.
+
+Позволяет быстро и легко создавать приложения для автоматизации деловых процессов предприятия.
+  """;
+.
+
+site:More
+  rdf:type rdfs:Resource ;
+  rdfs:label "Подробнее"@ru ;
+  rdfs:label "More"@en ;
+.
+
+site:PlatformMainTemplate
+  rdf:type v-ui:ClassTemplate ;
+  rdfs:label "Шаблон платформы для главной страницы"@ru ;
+  rdfs:label "Platform template for main page"@en ;
+  v-ui:template """
+<div class="container-fluid bg-white">
+  <div class="container margin-xxl">
+    <div class="row">
+      <div class="col-md-5">
+        <div about="@" rel="v-s:hasImage" data-template="v-ui:ImageTemplate"></div>
+      </div>
+      <div class="col-md-7">
+        <h1 about="@" property="site:heading" class="margin-xl"></h1>
+        <p about="@" property="site:summary" class="markdown lead"></p>
+        <a href="#/site:Platform" class="btn btn-lg btn-success margin-xl">
+          <span about="v-s:More" property="rdfs:label"></span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+  """ ;
+.
+
+site:ApplicationsMainArticle
+  rdf:type site:Article ;
+  rdfs:label "Статья о приложениях для главной страницы"@ru ;
+  rdfs:label "Applications article for main page"@en ;
+  v-ui:hasTemplate site:ApplicationsMainTemplate ;
+  site:heading "Приложения"@ru ;
+  site:heading "Applications"@en ;
+  site:summary """
+Готовые приложения на платформе Veda включают в себя набор востребованных объектов и процессов, что сокращает трудоемкость и сроки внедрения информационной системы.
+
+Некоторые приложения мы предлагаем в нескольких вариантах с различной степенью детализации предметной области, с учетом реальных потребностей вашего предприятия.
+
+Составляющие приложений можно изменять и адаптировать под актуальные задачи предприятия «на лету».
+  """@ru ;
+  site:summary """
+Applications on Veda platform include a set of objects and processes. This significantly reduces labor costs & saves time for deployment.
+
+Some applications are offered in several variants with varying details level depending on the business needs.
+
+The components of the applications can be changed and adapted to the actual tasks "on the fly."
+  """@en ;
+.
+
+site:ApplicationsMainTemplate
+  rdf:type v-ui:ClassTemplate ;
+  rdfs:label "Шаблон приложений для главной страницы"@ru ;
+  rdfs:label "Applications template for main page"@en ;
+  v-ui:template """
+<div class="container-fluid bg-none">
+  <div class="container margin-xxl">
+    <h1 about="@" property="site:heading" class="margin-xl"></h1>
+    <p about="@" property="site:summary" class="markdown lead"></p>
+    <a href="#/site:Applications" class="btn btn-lg btn-success margin-xl">
+      <span about="v-s:More" property="rdfs:label"></span>
+    </a>
+  </div>
+</div>
+  """ ;
+.
+
+site:ServicesMainArticle
+  rdf:type rdfs:Resource ;
+  rdfs:label "Статья об услугах для главной страницы"@ru ;
+  rdfs:label "Services article for main page"@en ;
+  v-ui:hasTemplate site:ServicesMainTemplate ;
+  site:heading "Услуги" ;
+  site:summary """
+Мы оказываем услуги по разработке, адаптации и внедрению приложений на платформе Veda.
+
+Развиваем приложения в соответствии с потребностями Заказчика.
+
+Обеспечиваем техническое сопровождение сформированной системы.
+
+Обучаем и поддерживаем пользователей.
+  """ ;
+.
+
+site:ServicesMainTemplate
+  rdf:type v-ui:ClassTemplate ;
+  rdfs:label "Шаблон услуг для главной страницы"@ru ;
+  rdfs:label "Services template for main page"@en ;
+  v-ui:template """
+<div class="container-fluid bg-white">
+  <div class="container margin-xxl">
+    <h1 about="@" property="site:heading" class="margin-xl"></h1>
+    <p about="@" property="site:summary" class="markdown lead"></p>
+    <a href="#/site:Applications" class="btn btn-lg btn-success margin-xl">
+      <span about="v-s:More" property="rdfs:label"></span>
+    </a>
+  </div>
+</div>
+  """ ;
+.
+
+site:ContactsMainArticle
+  rdf:type site:Article ;
+  rdfs:label "Статья о контактах для главной страницы"@ru ;
+  rdfs:label "Contacts article for main page"@en ;
+  v-ui:hasTemplate site:ContactsMainTemplate ;
+  site:heading "Контакты";
+  site:summary """
+167026, Республика Коми, г. Сыктывкар, пр. Бумажников, 35-133.
+
+Телефон: +7 912 965 14 01
+
+E-mail: [info@semantic-machines.com](mailto:info@semantic-machines.com)
+  """ ;
+.
+
+site:ContactsMainTemplate
+  rdf:type v-ui:ClassTemplate ;
+  rdfs:label "Шаблон контактов для главной страницы"@ru ;
+  rdfs:label "Contacts template for main page"@en ;
+  v-ui:template """
+<div class="container-fluid bg-none">
+  <div class="container margin-xxl">
+    <h1 about="@" property="site:heading" class="margin-xl"></h1>
+    <p about="@" property="site:summary" class="markdown lead"></p>
+  </div>
 </div>
   """ ;
 .

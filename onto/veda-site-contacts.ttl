@@ -23,49 +23,35 @@ site:Contacts
   rdfs:label "Контакты"@ru ;
   rdfs:label "Contacts"@en ;
   v-ui:hasTemplate site:ContactsTemplate ;
-  site:hasArticle site:ContactsMainArticle ;
+  site:hasArticle site:ContactsArticle ;
 .
 
-site:ContactsMainArticle
+site:ContactsTemplate
+  rdf:type v-ui:ClassTemplate ;
+  rdfs:label "Шаблон страницы контактов"@ru ;
+  rdfs:label "Contacts page template"@en ;
+  v-ui:template """
+<div about="@" rel="site:hasArticle">
+  <div class="container sheet">
+    <h1 about="@" property="site:heading" class="margin-xl page-header"></h1>
+    <p about="@" property="site:summary" class="markdown lead"></p>
+    <p about="@" property="site:content" class="markdown"></p>
+  </div>
+</div>
+  """ ;
+.
+
+site:ContactsArticle
   rdf:type site:Article ;
-  rdfs:label "Контакты для главной страницы"@ru ;
-  rdfs:label "Contacts for main page"@en ;
-  site:heading """Контакты""";
+  rdfs:label "Статья о контактах для страницы контактов"@ru ;
+  rdfs:label "Contacts article for contacts page"@en ;
+  v-ui:hasTemplate site:ContactsMainTemplate ;
+  site:heading "Контакты";
   site:summary """
 167026, Республика Коми, г. Сыктывкар, пр. Бумажников, 35-133.
 
 Телефон: +7 912 965 14 01
 
 E-mail: [info@semantic-machines.com](mailto:info@semantic-machines.com)
-"""@ru ;
-.
-
-### ABOUT TEMPLATES ####
-
-site:ContactsMainTemplate
-  rdf:type v-ui:ClassTemplate ;
-  rdfs:label "Шаблон страницы о компании"@ru ;
-  rdfs:label "About page template"@en ;
-  v-ui:template """
-<div class="container-fluid">
-  <div class="container margin-xxl">
-    <div rel="site:hasArticle" data-limit="1">
-      <h1 style="line-height: 1;">
-        <span property="site:heading"></span>
-        <br>
-        <small property="site:summary" class="markdown"></small>
-      </h1>
-    </div>
-  </div>
-</div>
   """ ;
-.
-
-site:ContactsTemplate
-  rdf:type v-ui:ClassTemplate ;
-  rdfs:label "Шаблон страницы о компании"@ru ;
-  rdfs:label "About page template"@en ;
-  v-ui:template """
-<div class="container-fluid bg-peter-river"></div>
-""";
 .

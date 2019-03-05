@@ -80,7 +80,19 @@ site:LayoutTemplate
 
 </script>
 <div class="page">
-  <nav role="navigation" class="navbar navbar-default navbar-veda navbar-fixed" style="margin-bottom:0;">
+  <style>
+    body { font-size:16px; line-height: 1.7em; }
+    h1, h2, h3, h4, h5, h6 { font-weight: 400; }
+    h1 { font-size: 2.00em; }
+    h2 { font-size: 1.75em; }
+    h3 { font-size: 1.50em; }
+    h4 { font-size: 1.25em; }
+    h5 { font-size: 1.00em; }
+    h6 { font-size: 0.75em; }
+    .page-header { border-bottom: 1px solid #eee; }
+    .sheet { padding: 30px!important; }
+  </style>
+  <nav role="navigation" class="navbar navbar-veda navbar-fixed" style="background-color: #fff; border-bottom: 2px solid #ddd; margin-bottom:15px;">
     <div class="container">
       <div class="navbar-header">
         <button type="button" class="btn btn-info navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
@@ -130,12 +142,15 @@ site:LayoutTemplate
   riot.route(markActive);
   function markActive(hash) {
     var page = hash.slice(2);
-    $(".nav-pages", template).children().removeClass("active");
-    $(".nav-pages", template).children("[resource='" + page + "']").addClass("active");
+    $(".nav-pages", template)
+      .children()
+      .removeClass("active")
+      .filter("[resource='" + veda.Util.escape4$(page) + "']")
+      .addClass("active");
   }
   setTimeout(function () {
     markActive(location.hash);
-  }, 100);
+  }, 300);
 
 //# sourceURL=site:LayoutTemplate
 </script>
@@ -144,98 +159,13 @@ site:LayoutTemplate
 
 ### COMMON TEMPLATES ####
 
-site:SliderTemplate
-  rdf:type v-ui:ClassTemplate ;
-  rdfs:label "Шаблон страницы продукта"@ru ;
-  rdfs:label "Product page template"@en ;
-  v-ui:template """
-<div>
-  <div id="page-slider" class="carousel slide" data-ride="carousel" data-interval="false" style="margin-top:-15px">
-    <!-- Indicators -->
-    <ol class="carousel-indicators" about="@" rel="site:hasPage">
-      <li data-target="#page-slider" about="@" property="v-s:shortLabel"></li>
-    </ol>
-    <div class="carousel-inner" role="listbox" about="@" rel="site:hasPage">
-      <div class="item">
-        <div about="@" rel="v-s:hasImage" data-template="v-ui:ImageTemplate"></div>
-        <div class="carousel-caption container-fluid" style="position: absolute; top: 0px; left: 0px; right:0px; border:none; background-color: transparent">
-          <div class="container" style="border:none; background-color: transparent">
-            <h1 property="rdfs:label"></h1>
-            <p property="rdfs:comment"></p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Controls -->
-    <a class="left carousel-control" href="#page-slider" role="button" data-slide="prev">
-      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#page-slider" role="button" data-slide="next">
-      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
-  </div>
-  <br>
-  <div id="page-container"></div>
-</div>
-<script><!--async-->
-  setTimeout(function () {
-
-    $(".carousel-indicators > li", template).each(function (index) {
-      var $this = $(this);
-      $this.attr("data-slide-to", index);
-      if (index === (individual.slideTo || 0) ) {
-        $this.addClass("active");
-      }
-    });
-    $(".carousel-inner > .item", template).each(function (index) {
-      $(this).attr("data-index", index);
-    });
-    var slider = $("#page-slider", template);
-    slider.on("slide.bs.carousel", showSlide);
-    $("body").css({
-      "overflow-y": "scroll",
-      "overflow-x": "hidden"
-    });
-    template.one("remove", function () {
-      $("body").css({
-        "overflow-y": "auto",
-        "overflow-x": "auto"
-      });
-    });
-    showSlide();
-
-    function showSlide(e) {
-      var uri, aspect, slide,
-          cntr = $("#page-container", template).empty().hide();
-      slide = e ? $(e.relatedTarget) : $("#page-slider .item", template).eq(individual.slideTo || 0).addClass("active");
-      individual.slideTo = slide.data("index");
-      uri = slide.attr("resource");
-      aspect = new veda.IndividualModel(uri);
-      aspect.present(cntr);
-      setTimeout(function () {
-        if (e) {
-          cntr.show( "slide", {direction: e.direction === "right" ? "left" : "right"}, 600);
-        } else {
-          cntr.show();
-        }
-      }, 100);
-    }
-
-  }, 100);
-  //# sourceURL=site:SliderTemplate
-</script>
-  """ ;
-.
-
 site:ArticleTemplate1
   rdf:type v-ui:ClassTemplate ;
   rdfs:label "Шаблон статьи 1"@ru ;
   rdfs:label "Article template 1"@en ;
   v-ui:template """
 <div class="container">
-  <div class="sheet" style="border: none;">
+  <div class="sheet">
     <div class="row">
       <div class="col-md-8">
         <h2>
@@ -261,7 +191,7 @@ site:ArticleTemplate2
   rdfs:label "Article template 2"@en ;
   v-ui:template """
 <div class="container">
-  <div class="sheet" style="border: none;">
+  <div class="sheet">
     <div class="row">
       <div class="col-md-4">
         <div rel="v-s:hasImage" data-template="v-ui:ModalImageTemplate"></div>
@@ -331,56 +261,6 @@ site:ArticleTemplate5
     <p class="lead" property="site:content"></p>
   </div>
 </div>
-  """ ;
-.
-
-site:SliderTemplate2
-  rdf:type v-ui:ClassTemplate ;
-  rdfs:label "Шаблон страницы продукта"@ru ;
-  rdfs:label "Product page template"@en ;
-  v-ui:template """
-<div>
-  <div id="page-slider" class="carousel slide" data-ride="carousel" data-interval="false" style="margin-top:-15px">
-    <div class="carousel-inner" role="listbox" about="@" rel="site:hasPage">
-      <div class="item">
-        <div about="@" rel="v-s:hasImage" data-template="v-ui:ImageTemplate"></div>
-        <div class="container-fluid" style="position: absolute; top: 0px; left: 0px; right:0px; border:none; background-color: transparent">
-          <div class="container" style="border:none; background-color: transparent">
-            <h1 style="line-height: 1; color: #ffffff; text-shadow: 0px 1px 2px black;">
-              <span property="rdfs:label"></span>
-              <br>
-              <small style="color: #ffffff;" property="rdfs:comment"></small>
-            </h1>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <br>
-  <div id="page-container"></div>
-</div>
-<script><!--async-->
-  setTimeout(function () {
-    showSlide();
-
-    function showSlide(e) {
-      var uri, aspect, slide,
-          cntr = $("#page-container", template).empty().hide();
-      slide = e ? $(e.relatedTarget) : $("#page-slider .item", template).eq(individual.slideTo || 0).addClass("active");
-      individual.slideTo = slide.data("index");
-      uri = slide.attr("resource");
-      aspect = new veda.IndividualModel(uri);
-      aspect.present(cntr);
-      setTimeout(function () {
-        if (e) {
-          cntr.show( "slide", {direction: e.direction === "right" ? "left" : "right"}, 600);
-        } else {
-          cntr.show();
-        }
-      }, 100);
-    }
-  }, 100);
-</script>
   """ ;
 .
 
