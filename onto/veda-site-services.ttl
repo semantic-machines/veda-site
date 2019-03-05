@@ -28,7 +28,7 @@ site:Services
   site:hasArticle site:ServicesArticle ;
 .
 
-### TEMPLATES ####
+### TEMPLATES ###
 
 site:ServicesTemplate
   rdf:type v-ui:ClassTemplate ;
