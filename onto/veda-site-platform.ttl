@@ -8,6 +8,8 @@
 @prefix d: <http://semantic-machines.com/veda/veda-data/> .
 @prefix site: <http://semantic-machines.com/veda-site/> .
 
+### PLATFORM ###
+
 <http://semantic-machines.com/veda/veda-site-platform>
   rdf:type owl:Ontology ;
   rdfs:label "Сайт Veda. Платформа"@ru ;
@@ -16,7 +18,7 @@
   v-s:loadPriority 10 ;
 .
 
-### PLATFORM ###
+### PAGES ###
 
 site:Platform
   rdf:type site:Page ;
@@ -26,7 +28,7 @@ site:Platform
   site:hasArticle site:PlatformArticle ;
 .
 
-### PLATFORM TEMPLATES ####
+### TEMPLATES ####
 
 site:PlatformTemplate
   rdf:type v-ui:ClassTemplate ;

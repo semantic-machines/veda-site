@@ -8,6 +8,8 @@
 @prefix d: <http://semantic-machines.com/veda/veda-data/> .
 @prefix site: <http://semantic-machines.com/veda-site/> .
 
+### VEDA ONLINE ###
+
 <http://semantic-machines.com/veda/veda-site-veda-online>
   rdf:type owl:Ontology ;
   rdfs:label "Сайт Veda. Veda онлайн"@ru ;
@@ -16,40 +18,44 @@
   v-s:loadPriority 10 ;
 .
 
-### VEDA ONLINE ###
+### PAGES ###
 
 site:VedaOnline
   rdf:type site:Page ;
   rdfs:label "Veda онлайн"@ru ;
   rdfs:label "Veda online"@en ;
   v-ui:hasTemplate site:VedaOnlineTemplate ;
+  site:hasArticle site:VedaOnlineArticle ;
 .
 
-### VEDA ONLINE TEMPLATES ####
-
-site:VedaOnlineMainTemplate
-  rdf:type v-ui:ClassTemplate ;
-  rdfs:label "Шаблон страницы Veda онлайн"@ru ;
-  rdfs:label "Veda online page template"@en ;
-  v-ui:template """
-<div class="container-fluid bg-peter-river">
-  <div class="container">
-    <h1 about="@" property="rdfs:label"></h1>
-  </div>
-</div>
-  """ ;
-.
-
+### TEMPLATES ####
 
 site:VedaOnlineTemplate
   rdf:type v-ui:ClassTemplate ;
   rdfs:label "Шаблон страницы Veda онлайн"@ru ;
   rdfs:label "Veda online page template"@en ;
   v-ui:template """
-<div class="container">
-  <div class="sheet">
-    <h1 about="@" property="rdfs:label"></h1>
+<div about="@" rel="site:hasArticle">
+  <div class="container sheet">
+    <h1 about="@" property="site:heading" class="margin-xl page-header"></h1>
+    <p about="@" property="site:summary" class="markdown lead"></p>
+    <p about="@" property="site:content" class="markdown"></p>
   </div>
 </div>
   """ ;
+.
+
+### ARTICLES ###
+
+site:ServicesArticle
+  rdf:type site:Article ;
+  rdfs:label "Статья о платформе для страницы платформы"@ru ;
+  rdfs:label "Platform article for platform page"@en ;
+  v-ui:hasTemplate site:ContactsMainTemplate ;
+  site:heading "Услуги"@ru ;
+  site:heading "Services"@en ;
+  site:summary """
+  """@ru ;
+  site:content """
+  """@ru;
 .

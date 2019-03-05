@@ -8,6 +8,8 @@
 @prefix d: <http://semantic-machines.com/veda/veda-data/> .
 @prefix site: <http://semantic-machines.com/veda-site/> .
 
+### SCHEMA ###
+
 <http://semantic-machines.com/veda/veda-site-schema>
   rdf:type owl:Ontology ;
   rdfs:label "Сайт Veda. Схема"@ru ;
@@ -16,7 +18,7 @@
   v-s:loadPriority 10 ;
 .
 
-### CLASSES ####
+### CLASSES ###
 
 site:Page
   rdf:type owl:Class ;
@@ -96,15 +98,4 @@ site:content
   rdfs:label "Содержание"@ru ;
   rdfs:label "Content"@en ;
   rdfs:range xsd:string ;
-.
-
-### TEMPLATES ###
-
-site:PageTemplate
-  rdf:type v-ui:ClassTemplate ;
-  rdfs:label "Шаблон страницы по умолчанию"@ru ;
-  rdfs:label "Default page template"@en ;
-  v-ui:template """
-<div rel="site:hasArticle"></div>
-  """ ;
 .

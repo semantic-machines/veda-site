@@ -8,6 +8,8 @@
 @prefix d: <http://semantic-machines.com/veda/veda-data/> .
 @prefix site: <http://semantic-machines.com/veda-site/> .
 
+### RIGHTS ###
+
 <http://semantic-machines.com/veda/veda-site-rights>
   rdf:type owl:Ontology ;
   rdfs:label "Сайт Veda. Права"@ru ;
@@ -16,13 +18,15 @@
   v-s:loadPriority 10 ;
 .
 
-### RIGHTS ###
+### GROUPS ###
 
 site:SiteAdmin
   rdf:type v-s:Group ;
   rdfs:label "Группа администраторов сайта"@ru ;
   rdfs:label "Site admin group"@en ;
 .
+
+### PERMISSIONS ###
 
 site:SiteAdminPermission
   rdf:type v-s:PermissionStatement ;

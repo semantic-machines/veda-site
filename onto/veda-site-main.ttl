@@ -8,6 +8,8 @@
 @prefix d: <http://semantic-machines.com/veda/veda-data/> .
 @prefix site: <http://semantic-machines.com/veda-site/> .
 
+### MAIN ###
+
 <http://semantic-machines.com/veda/veda-site-main>
   rdf:type owl:Ontology ;
   rdfs:label "Сайт Veda. Главная страница"@ru ;
@@ -16,7 +18,7 @@
   v-s:loadPriority 10 ;
 .
 
-### MAIN PAGE ###
+### PAGES ###
 
 site:Main
   rdf:type site:Page ;
@@ -31,7 +33,7 @@ site:Main
 #  site:hasPage site:VedaOnline ;
 .
 
-### MAIN PAGE TEMPLATE ####
+### TEMPLATES ####
 
 site:MainTemplate
   rdf:type v-ui:ClassTemplate ;
@@ -49,7 +51,7 @@ site:MainTemplate
   """ ;
 .
 
-### MAIN PAGE ARTICLES & TEMPLATES ####
+### ARTICLES & TEMPLATES ####
 
 site:AboutMainArticle
   rdf:type site:Article ;

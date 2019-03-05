@@ -8,6 +8,8 @@
 @prefix d: <http://semantic-machines.com/veda/veda-data/> .
 @prefix site: <http://semantic-machines.com/veda-site/> .
 
+### APPLICATIONS ###
+
 <http://semantic-machines.com/veda/veda-site-applications>
   rdf:type owl:Ontology ;
   rdfs:label "Сайт Veda. Приложения"@ru ;
@@ -16,7 +18,7 @@
   v-s:loadPriority 10 ;
 .
 
-### APPLICATIONS ###
+### PAGES ###
 
 site:Applications
   rdf:type site:Page ;
@@ -40,7 +42,7 @@ site:Applications
   site:hasPage site:ApplicationsProjects;
 .
 
-### APPLICATIONS TEMPLATES ####
+### TEMPLATES ####
 
 site:ApplicationsTemplate
   rdf:type v-ui:ClassTemplate ;
@@ -267,7 +269,7 @@ site:ApplicationCardTemplate
   """ ;
 .
 
-### INDIVIDUALS ###
+### ARTICLES ###
 
 site:ApplicationsSlogan1
   rdf:type rdfs:Resource ;

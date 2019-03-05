@@ -8,6 +8,8 @@
 @prefix d: <http://semantic-machines.com/veda/veda-data/> .
 @prefix site: <http://semantic-machines.com/veda-site/> .
 
+### CONTACTS ###
+
 <http://semantic-machines.com/veda/veda-site-contacts>
   rdf:type owl:Ontology ;
   rdfs:label "Сайт Veda. Контакты"@ru ;
@@ -16,7 +18,7 @@
   v-s:loadPriority 10 ;
 .
 
-### CONTACTS ###
+### PAGES ###
 
 site:Contacts
   rdf:type site:Page ;
@@ -25,6 +27,8 @@ site:Contacts
   v-ui:hasTemplate site:ContactsTemplate ;
   site:hasArticle site:ContactsArticle ;
 .
+
+### TEMPLATES ###
 
 site:ContactsTemplate
   rdf:type v-ui:ClassTemplate ;
@@ -40,6 +44,8 @@ site:ContactsTemplate
 </div>
   """ ;
 .
+
+### ARTICLES ###
 
 site:ContactsArticle
   rdf:type site:Article ;
