@@ -91,6 +91,7 @@ site:LayoutTemplate
     h6 { font-size: 0.75em; }
     .page-header { border-bottom: 1px solid #eee; }
     .sheet { padding: 30px!important; }
+    #main {margin: 20px 0 100px 0;}
   </style>
   <nav role="navigation" class="navbar navbar-veda navbar-fixed" style="background-color: #fff; border-bottom: 2px solid #ddd; margin-bottom:15px;">
     <div class="container">

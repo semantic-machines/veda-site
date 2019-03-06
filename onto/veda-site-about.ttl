@@ -8,6 +8,7 @@
 @prefix d: <http://semantic-machines.com/veda/veda-data/> .
 @prefix site: <http://semantic-machines.com/veda-site/> .
 
+### ABOUT ###
 
 <http://semantic-machines.com/veda/veda-site-about>
   rdf:type owl:Ontology ;
@@ -17,256 +18,46 @@
   v-s:loadPriority 10 ;
 .
 
-### ABOUT ###
+### PAGES ###
 
 site:About
   rdf:type site:Page ;
   rdfs:label "О компании"@ru ;
   rdfs:label "About us"@en ;
   v-ui:hasTemplate site:AboutTemplate ;
-#  site:hasPage site:Customers ;
-#  site:hasPage site:Partners ;
-#  site:hasArticle site:AboutMainArticle ;
+  site:hasArticle site:AboutArticle ;
 .
 
-### ABOUT TEMPLATES ####
+### TEMPLATES ###
 
 site:AboutTemplate
   rdf:type v-ui:ClassTemplate ;
   rdfs:label "Шаблон страницы о компании"@ru ;
   rdfs:label "About page template"@en ;
-  v-ui:template """
-<!--div class="container">
-  <div class="sheet">
-    <h1 about="@" property="rdfs:label"></h1>
-  </div>
-</div-->
-<div class="container-fluid" style="background-color: #fff;">
-  <div class="row">
-
-    <div class="col-md-2 sidebar" style="border-right:none; background-color: transparent;">
-
-      <ul class="section-nav lead">
-
-        <li>
-          <a href="#111" role="tab"><span about="site:ApplicationsContractors" property="rdfs:label"></span></a>
-        </li>
-
-        <li about="@" property="rdfs:label"></li>
-        <li about="site:ApplicationsContracts" property="rdfs:label"></li>
-        <li about="site:ApplicationsAccountingDocs" property="rdfs:label"></li>
-
-        <li>
-          <a href="#111" role="tab"><span about="site:ApplicationsMeetings" property="rdfs:label"></span></a>
-        </li>
-
-        <li about="site:ApplicationsAudits" property="rdfs:label"></li>
-      </ul>
-
-    </div>
-    <div class="col-md-10 col-md-offset-2 main">
-      <br>
-      <br>
-      <br>
-      <div class="container-sheet">
-
-          <div class="col-md-10">
-            <div class="panel bg-turquoise" style="border: none; background-image: url('/files/site:ImageGexagon');">
-              <div class="panel-header">
-              </div>
-              <div class="panel-body" style="height:250px">
-                <h3 about="@" property="rdfs:label"></h3>
-                <p about="@" property="rdfs:comment"></p>
-              </div>
-            </div>
-
-            <div class="panel panel-default" style="border: none;">
-              <div class="panel-header">
-              </div>
-              <div class="panel-body">
-                <div class="row">
-                  <div class="col-md-10">
-                    <h3 about="site:ApplicationsContractors" property="rdfs:label"></h3>
-                    <span class="lead">
-                      Приложение предназначено для централизации работы и детального анализа данных по каждому отдельному контрагенту,
-                      проведения формализованной процедуры проверки соответствия поставщиков внутренним требованиям организации.
-                    </span>
-                  </div>
-                  <div class="col-md-2">
-                    <div style="border: none; background-image: url('/files/site:ImageGexagon2'); height:150px; background-size: cover;"><br>
-
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="panel-footer clearfix" style="border-top: none;">
-                <a href="#/site:ApplicationsContractors" class="pull-right">
-                  <span about="site:More" property="rdfs:label"></span>
-                </a>
-              </div>
-            </div>
-
-            <div class="panel panel-default" style="border: none;">
-              <div class="panel-header">
-              </div>
-              <div class="panel-body">
-                <div class="row">
-                  <div class="col-md-2">
-                    <div><br>
-                      <img src="/files/site:ImageCopyLogo">
-                    </div>
-                  </div>
-                  <div class="col-md-10">
-                    <h3 about="site:ApplicationsContracts" property="rdfs:label"></h3>
-                    <span class="lead">
-                      Приложение предназначено для обеспечения контроля и прозрачности договорных процессов,
-                      централизации работы по каждому отдельному контракту и связанными с ним документами.
-                      Включает в себя  автоматизацию полного цикла договорной работы.
-                    </span>
-                  </div>
-                </div>
-                <a href="#/site:ApplicationsContracts" class="pull-right">
-                  <span class="lead" about="site:More" property="rdfs:label"></span>
-                </a>
-              </div>
-              <!--div class="panel-footer clearfix">
-                <a href="#/site:ApplicationsContracts" class="pull-right">
-                  <span about="site:More" property="rdfs:label"></span>
-                </a>
-              </div-->
-            </div>
-
-            <div class="panel panel-default" style="border: none; background-image: url('/files/site:ImageGold'); background-size: cover; height:250px;">
-              <div class="panel-header">
-              </div>
-              <div class="panel-body">
-                <h3 about="site:ApplicationsAccountingDocs" property="rdfs:label"></h3>
-                <span class="lead">
-                  Приложение предназначено для обеспечения оперативной обработки и хранения первичной документации.
-                </span>
-                <a href="#/site:ApplicationsAccountingDocs" class="pull-right">
-                  <span about="site:More" property="rdfs:label"></span>
-                </a>
-              </div>
-              <!--div class="panel-footer clearfix">
-                <a href="#/site:ApplicationsAccountingDocs" class="pull-right">
-                  <span about="site:More" property="rdfs:label"></span>
-                </a>
-              </div-->
-            </div>
-
-            <div id="111">
-              <div class="panel panel-default" style="border: none;">
-                <div class="panel-header">
-                </div>
-                <div class="panel-body">
-                  <h3 about="site:ApplicationsMeetings" property="rdfs:label"></h3>
-                  <span class="lead">
-                    Приложение предназначено для автоматизации планирования и проведения различных встреч (совещаний, заседаний, рабочих встреч...),
-                    контроля  выполнения планов реализации.
-                  </span>
-                  <a href="#/site:ApplicationsMeetings" class="pull-right">
-                    <span about="site:More" property="rdfs:label"></span>
-                  </a>
-                </div>
-                <!--div class="panel-footer clearfix">
-                  <a href="#/site:ApplicationsMeetings" class="pull-right">
-                    <span about="site:More" property="rdfs:label"></span>
-                  </a>
-                </div-->
-              </div>
-            </div>
-
-            <div class="panel panel-default" style="border: none;">
-              <div class="panel-header">
-              </div>
-              <div class="panel-body">
-                <h3 about="site:ApplicationsAudits" property="rdfs:label"></h3>
-                <span class="lead">
-                  Приложение предназначено для автоматизации планирования и проведения аудитов, контроля  выполнения планов реализации.
-                </span>
-                <a href="#/site:ApplicationsAudits" class="pull-right">
-                  <span about="site:More" property="rdfs:label"></span>
-                </a>
-              </div>
-              <!--div class="panel-footer clearfix">
-                <a href="#/site:ApplicationsAudits" class="pull-right">
-                  <span about="site:More" property="rdfs:label"></span>
-                </a>
-              </div-->
-            </div>
-
-          </div>
-
-      </div>
-    </div>
-
-  </div>
-</div>
-
-  """ ;
-.
-
-site:AboutSidebarTemplate
   rdf:type v-ui:ClassTemplate ;
-  rdfs:label "Шаблон карточки о компании sidebar"@ru ;
-  rdfs:label "About sidebar card template"@en ;
   v-ui:template """
-<div class="col-md-12">
-  <div class="panel panel-default">
-    <div class="panel-header">
-    </div>
-    <div class="panel-body">
-      <h3 about="@" property="rdfs:label"></h3>
-      <p about="@" property="rdfs:comment"></p>
-      <div about="@" rel="v-s:hasImage" data-template="v-ui:ImageTemplate"></div>
-    </div>
-    <div class="panel-footer clearfix">
-      <a href="#/@" class="btn btn-primary pull-right">
-        <span about="site:More" property="rdfs:label"></span>
-      </a>
-    </div>
+<div about="@" rel="site:hasArticle">
+  <div class="container sheet">
+    <h1 about="@" property="site:heading" class="margin-xl page-header"></h1>
+    <p about="@" property="site:summary" class="markdown lead"></p>
+    <p about="@" property="site:content" class="markdown"></p>
   </div>
 </div>
   """ ;
 .
 
-site:ImageGexagon
-  rdf:type v-s:File ;
-  v-s:fileUri "gexagon" ;
-  v-s:fileName "gexagon" ;
-  v-s:filePath "/site" ;
-.
+### ARTICLES ###
 
-site:ImageCosmos
-  rdf:type v-s:File ;
-  v-s:fileUri "cosmos.jpg" ;
-  v-s:fileName "cosmos.jpg" ;
-  v-s:filePath "/site" ;
-.
+site:AboutArticle
+  rdf:type site:Article ;
+  rdfs:label "Статья о компании для главной страницы"@ru ;
+  rdfs:label "Article about company for main page"@en ;
+  site:heading "Быстро разрабатываем приложения для вашего бизнеса!";
+  site:summary """
+Для разработки мы используем интегрированную платформу Veda.
 
-site:ImageGold
-  rdf:type v-s:File ;
-  v-s:fileUri "gold2.jpg" ;
-  v-s:fileName "gold2.jpg" ;
-  v-s:filePath "/site" ;
-.
+На платформе уже разработан ряд готовых приложений.
 
-site:ImageGexagon2
-  rdf:type v-s:File ;
-  v-s:fileUri "gexagon.png" ;
-  v-s:fileName "gexagon.png" ;
-  v-s:filePath "/site" ;
-.
-
-site:Customers
-  rdf:type site:Page ;
-  rdfs:label "Клиенты"@ru ;
-  rdfs:label "Customers"@en ;
-.
-
-site:Partners
-  rdf:type site:Page ;
-  rdfs:label "Партнерам"@ru ;
-  rdfs:label "Partnership"@en ;
+Наши клиенты успешно используют их с 2010 года.
+  """ ;
 .
