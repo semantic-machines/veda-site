@@ -1,0 +1,30 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix v-s: <http://semantic-machines.com/veda/veda-schema/> .
+@prefix v-ui: <http://semantic-machines.com/veda/veda-ui/> .
+@prefix v-wf: <http://semantic-machines.com/veda/veda-workflow/> .
+@prefix cfg: <http://semantic-machines.com/veda/config/> .
+@prefix mnd-s: <http://semantic-machines.com/veda/mondi-schema/> .
+
+<http://semantic-machines.com/veda/aspect-hr>
+  rdf:type owl:Ontology ;
+  rdfs:label "Онтология Veda. Аспект. Кадры"@ru ;
+  rdfs:label "Veda ontology. Aspect. Human resources"@en ;
+  v-s:loadPriority 10 ;
+.
+
+mnd-s:HumanResourcesAspect
+  rdf:type v-s:Aspect ;
+  rdfs:label "Кадры"@ru ;
+  rdfs:label "Human resources"@en ;
+  rdfs:comment "Люди важны!"@ru ;
+  rdfs:comment "People are important!"@en ;
+  v-s:shortLabel "Кадры"@ru ;
+  v-s:shortLabel "Human resources"@en ;
+  v-ui:hasTemplate v-s:AspectTemplate ;
+
+  v-s:hasApplication mnd-s:PowerOfAttorneyApplication ;
+  v-s:hasApplication mnd-s:DelegationApplication ;
+.

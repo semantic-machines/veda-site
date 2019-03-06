@@ -51,7 +51,6 @@ site:ContactsArticle
   rdf:type site:Article ;
   rdfs:label "Статья о контактах для страницы контактов"@ru ;
   rdfs:label "Contacts article for contacts page"@en ;
-  v-ui:hasTemplate site:ContactsMainTemplate ;
   site:heading "Контакты";
   site:summary """
 > 167026, Республика Коми, г. Сыктывкар, пр. Бумажников, 35-133.
