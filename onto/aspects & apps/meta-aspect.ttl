@@ -153,7 +153,7 @@ site:ApplicationSmallCardTemplate
     </div>
   </div>
   <div class="text-center no-padding">
-    <a class="btn btn-sm btn-block btn-primary" href="#/@//site:ApplicationTemplate" about="v-s:More" property="rdfs:label"></a>
+    <a class="btn btn-sm btn-block btn-primary" href="#/@//site:ApplicationTemplate" about="site:More" property="rdfs:label"></a>
   </div>
 </div>
   """ ;
