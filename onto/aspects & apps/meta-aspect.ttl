@@ -187,10 +187,10 @@ site:ApplicationTemplate
     </div>
     <hr class="margin-md">
     <div class="row">
-      <div class="col-lg-8 col-sm-6" style="border-right: 1px dotted #ddd;">
+      <div class="col-lg-9 col-sm-6" style="border-right: 1px dotted #ddd;">
         <div about="@" property="v-s:description" class="markdown"></div>
       </div>
-      <div class="col-lg-4 col-sm-6">
+      <div class="col-lg-3 col-sm-6">
         <!--strong about="v-s:attachment" property="rdfs:label"></strong-->
         <div about="@" rel="v-s:attachment" data-template="v-ui:FileTemplate"></div>
       </div>

@@ -50,5 +50,5 @@ site:ContractorsManagementIcon
   a v-s:File ;
   v-s:fileUri "contractor.svg"^^xsd:string ;
   v-s:fileName "contractor.svg"^^xsd:string ;
-  v-s:filePath "/mondi"^^xsd:string ;
+  v-s:filePath "/site"^^xsd:string ;
 .

@@ -24,6 +24,13 @@ site:Slogan
   rdfs:label "Business process automation"@en ;
 .
 
+site:SemanticMachinesLogo
+  a v-s:File;
+  v-s:fileUri "semantic-machines-logo.svg"^^xsd:string ;
+  v-s:fileName "semantic-machines-logo.svg"^^xsd:string;
+  v-s:filePath "/site"^^xsd:string ;
+.
+
 ### LAYOUT ###
 
 site:Layout
@@ -84,7 +91,7 @@ site:LayoutTemplate
   <style>
     body { font-size:16px; line-height: 1.7em; }
     h1, h2, h3, h4, h5, h6 { font-weight: 400; }
-    h1 { font-size: 2.00em; }
+    h1 { font-size: 2.25em; }
     h2 { font-size: 1.75em; }
     h3 { font-size: 1.50em; }
     h4 { font-size: 1.25em; }
@@ -96,6 +103,11 @@ site:LayoutTemplate
     .nav.navbar-nav > li.active { background-color: #eee; }
     .nav.navbar-nav > li > a:hover { background-color: #f8f8f8!important; }
     em { font-style: italic!important; font-weight: normal!important; }
+    .vcenter {
+      display: inline-block;
+      vertical-align: middle;
+      float: none;
+    }
   </style>
   <nav role="navigation" class="navbar navbar-veda navbar-fixed" style="background-color: #fff; border-bottom: 2px solid #ddd; margin-bottom:15px;">
     <div class="container">
@@ -103,7 +115,7 @@ site:LayoutTemplate
         <button type="button" class="btn btn-info navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
           <span class="glyphicon glyphicon-menu-hamburger"></span>
         </button>
-        <a class="navbar-brand" href="#/site:Main" class="pull-left" style="display: inline-block;"><img src="/img/veda-logo.png"></a>
+        <a class="navbar-brand" href="#/site:Main" class="pull-left" style="width:180px;margin-top:-15px;" about="site:SemanticMachinesLogo" data-template="v-ui:ImageTemplate"></a>
         <a class="navbar-brand" href="#/site:Main" class="pull-left" about="site:Slogan" property="rdfs:label"></a>
       </div>
       <div class="collapse navbar-collapse" id="navbar-collapse">
@@ -162,5 +174,3 @@ site:LayoutTemplate
 </script>
   """ ;
 .
-
-### COMMON TEMPLATES ####

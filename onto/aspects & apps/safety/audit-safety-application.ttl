@@ -50,5 +50,5 @@ site:AuditSafetyIcon
   a v-s:File ;
   v-s:fileUri "audit-safety.svg"^^xsd:string ;
   v-s:fileName "audit-safety.svg"^^xsd:string ;
-  v-s:filePath "/mondi"^^xsd:string ;
+  v-s:filePath "/site"^^xsd:string ;
 .
