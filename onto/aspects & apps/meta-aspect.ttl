@@ -191,7 +191,7 @@ site:ApplicationTemplate
         <div about="@" property="v-s:description" class="markdown"></div>
       </div>
       <div class="col-lg-4 col-sm-6">
-        <em about="v-s:attachment" property="rdfs:label"></em>
+        <!--strong about="v-s:attachment" property="rdfs:label"></strong-->
         <div about="@" rel="v-s:attachment" data-template="v-ui:FileTemplate"></div>
       </div>
     </div>

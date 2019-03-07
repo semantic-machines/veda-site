@@ -53,10 +53,8 @@ site:ContactsArticle
   rdfs:label "Contacts article for contacts page"@en ;
   site:heading "Контакты";
   site:summary """
-> 167026, Республика Коми, г. Сыктывкар, пр. Бумажников, 35-133.
-
-> Телефон: +7 912 965 14 01
-
+> 167026, Республика Коми, г. Сыктывкар, пр. Бумажников, 35-133.  
+> Телефон: +7 912 965 14 01  
 > E-mail: [info@semantic-machines.com](mailto:info@semantic-machines.com)
   """ ;
 .
