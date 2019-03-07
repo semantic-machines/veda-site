@@ -1,0 +1,56 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix v-s: <http://semantic-machines.com/veda/veda-schema/> .
+@prefix v-ui: <http://semantic-machines.com/veda/veda-ui/> .
+@prefix v-wf: <http://semantic-machines.com/veda/veda-workflow/> .
+@prefix cfg: <http://semantic-machines.com/veda/config/> .
+@prefix site: <http://semantic-machines.com/veda-site/> .
+
+<http://semantic-machines.com/veda/business-trip-application>
+  rdf:type owl:Ontology ;
+  rdfs:label "Онтология Veda. Командировка. Приложение"@ru ;
+  rdfs:label "Veda ontology. Business trip. Application"@en ;
+  v-s:loadPriority 20 ;
+.
+
+site:BusinessTripApplication
+  rdf:type v-s:Application ;
+  rdfs:label "Командировки"@ru ;
+  rdfs:label "Business trips"@en ;
+  rdfs:comment "Узнаём новое. Каждый день."@ru ;
+  rdfs:comment "Learning new. Every day."@en ;
+  v-s:shortLabel "Командировки"@ru ;
+  v-s:shortLabel "Business trips"@en ;
+  v-s:hasIcon site:BusinessTripApplicationIcon ;
+  v-ui:hasTemplate v-s:ApplicationTemplate ;
+
+  v-s:description """
+Приложение предназначено для оформления комплекта командировочных документов.
+
+**Приложение обеспечивает возможность:**
+  - Оформить и согласовать заявку на командировку, запросить помощь в организации командировки.
+  - Сформировать командировочные документы.
+  - Скорректировать сроки командировки в случае изменения, обосновать превышение денежных лимитов.
+  - Предоставить отчетные документы.
+  - Сформировать отчёт по командированным сотрудникам.
+  """@ru ;
+  v-s:description """
+The application is designed for registration and processing of business trip documents.
+
+**The application allows to:**
+  - Issue request and agree on business trip.
+  - Request assistance in organizing a trip (visa, transportation, hotel booking, etc).
+  - Generate travel documents.
+  - Adjust the terms of the trip in case of changes, justify the excess of cash limit.
+  - Provide reporting documents.
+  """@en ;
+.
+
+site:BusinessTripApplicationIcon
+  a v-s:File ;
+  v-s:fileUri "business-trip.svg"^^xsd:string ;
+  v-s:fileName "business-trip.svg"^^xsd:string ;
+  v-s:filePath "/site"^^xsd:string ;
+.

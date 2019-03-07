@@ -1,0 +1,52 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix v-s: <http://semantic-machines.com/veda/veda-schema/> .
+@prefix v-ui: <http://semantic-machines.com/veda/veda-ui/> .
+@prefix v-wf: <http://semantic-machines.com/veda/veda-workflow/> .
+@prefix cfg: <http://semantic-machines.com/veda/config/> .
+@prefix site: <http://semantic-machines.com/veda-site/> .
+
+<http://semantic-machines.com/veda/meeting-application>
+  rdf:type owl:Ontology ;
+  rdfs:label "Онтология Veda. Встречи. Приложение"@ru ;
+  rdfs:label "Veda ontology. Meetings. Application"@en ;
+  v-s:loadPriority 20 ;
+.
+
+site:MeetingsManagementApplication
+  rdf:type v-s:Application ;
+  rdfs:label "Встречи"@ru ;
+  rdfs:label "Meetings"@en ;
+  rdfs:comment "От обсуждений – к решениям."@ru ;
+  rdfs:comment "Turn discussion into decision."@en ;
+  v-s:shortLabel "Встречи"@ru ;
+  v-s:shortLabel "Meetings"@en ;
+  v-s:hasIcon site:MeetingsManagementApplicationIcon ;
+  v-ui:hasTemplate v-s:ApplicationTemplate ;
+
+  v-s:description """
+Приложение предназначено для обеспечения совместной работы сотрудников в рамках рабочих встреч.
+
+**Приложение обеспечивает возможность:**
+  - Планировать предстоящие встречи: проводить подготовку и согласование повестки, определять состав участников, время и место, своевременно оповещать всех заинтересованных лиц.
+  - Вести протоколы встреч, фиксировать принятые решения.
+  - Формировать план мероприятий по итогам встреч в виде поручений исполнителям. Назначать ответственных, контролировать статус выполнения.
+  """@ru ;
+  v-s:description """
+Application is designed to support employees' collaboration during working meetings.
+
+**The application allows to:**
+  - Plan the upcoming meetings: prepare and agree on the agenda, determine the composition of participants, the time and place, notify all interested persons in a timely manner.
+  - Register meeting minutes and discussed action plan.
+  - To form a set of instructions to responsible persons based on action plan & monitor it's implementation.
+  """@en ;
+.
+
+site:MeetingsManagementApplicationIcon
+  a v-s:File ;
+  v-s:fileUri "meeting.svg"^^xsd:string ;
+  v-s:fileName "meeting.svg"^^xsd:string ;
+  v-s:filePath "/site"^^xsd:string ;
+.

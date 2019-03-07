@@ -1,0 +1,53 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix v-s: <http://semantic-machines.com/veda/veda-schema/> .
+@prefix v-ui: <http://semantic-machines.com/veda/veda-ui/> .
+@prefix v-wf: <http://semantic-machines.com/veda/veda-workflow/> .
+@prefix cfg: <http://semantic-machines.com/veda/config/> .
+@prefix site: <http://semantic-machines.com/veda-site/> .
+
+<http://semantic-machines.com/veda/audit-quality-application>
+  rdf:type owl:Ontology ;
+  rdfs:label "Онтология Монди. Аудит ИСМ. Приложение"@ru ;
+  rdfs:label "Mondi ontology. Audit IMS. Application"@en ;
+  v-s:loadPriority 20 ;
+.
+
+site:AuditQualityApplication
+  rdf:type v-s:Application ;
+  rdfs:label "Аудиты качества"@ru ;
+  rdfs:label "Quality audits"@en ;
+  rdfs:comment "Высокие стандарты. Во всем."@ru ;
+  rdfs:comment "High standards. Everywhere."@en ;
+  v-s:shortLabel "Аудиты качества"@ru ;
+  v-s:shortLabel "Quality audits"@en ;
+  v-s:hasIcon site:AuditQualityIcon ;
+  v-ui:hasTemplate v-s:ApplicationTemplate ;
+
+  v-s:description """
+Приложение предназначено для проведения аудитов соответствия бизнес-процессов требованиям стандартов системы менеджмента качества (СМК).
+
+**Приложение обеспечивает возможность:**
+- Планировать предстоящие аудиты: определять состав аудиторов, время и место, своевременно оповещать заинтересованных лиц. Составлять годовую программу аудитов.
+- Оформлять наблюдения аудитов: выставлять оценки соответствия проверяемым требованиям, фиксировать отклонения, выдавать рекомендации по улучшению.
+- Формировать план мероприятий по устранению выявленных отклонений в виде поручений ответственным исполнителям. Контролировать выполнение, формировать отчеты.
+  """@ru;
+  v-s:description """
+The application is designed to audit the compliance of business processes to requirements of quality management system (QMS).
+
+**The application allows to:**
+- Plan upcoming audits: assign auditors, define time and place, notify stakeholders. Form an annual audit program.
+- Register audit observations: assess the level of compliance to checked requirements, identify deviations, provide recommendations for improvement.
+- Form an action to eliminate identified deviations, define responsible persons, monitor implementation.
+  """@en;
+.
+
+site:AuditQualityIcon
+  a v-s:File ;
+  v-s:fileUri "audit-quality.svg"^^xsd:string ;
+  v-s:fileName "audit-quality.svg"^^xsd:string ;
+  v-s:filePath "/site"^^xsd:string ;
+.
+

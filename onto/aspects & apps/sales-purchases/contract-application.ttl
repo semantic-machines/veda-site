@@ -1,0 +1,52 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix v-s: <http://semantic-machines.com/veda/veda-schema/> .
+@prefix v-ui: <http://semantic-machines.com/veda/veda-ui/> .
+@prefix v-wf: <http://semantic-machines.com/veda/veda-workflow/> .
+@prefix cfg: <http://semantic-machines.com/veda/config/> .
+@prefix site: <http://semantic-machines.com/veda-site/> .
+
+<http://semantic-machines.com/veda/contract-application>
+  rdf:type owl:Ontology ;
+  rdfs:label "Онтология Veda. Контракт. Приложение"@ru ;
+  rdfs:label "Veda ontology. Contract. Application"@en ;
+  v-s:loadPriority 20 ;
+.
+#------------------------------------------
+site:ContractsManagementApplication
+  rdf:type v-s:Application ;
+  rdfs:label "Контракты"@ru ;
+  rdfs:label "Contracts"@en ;
+  rdfs:comment "Лучшие условия. Всегда."@ru ;
+  rdfs:comment "Best conditions. Always."@en ;
+  v-s:shortLabel "Контракты"@ru ;
+  v-s:shortLabel "Contracts"@en ;
+  v-s:hasIcon site:ContractsManagementIcon ;
+  v-ui:hasTemplate v-s:ApplicationTemplate ;
+
+  v-s:description """
+Приложение предназначено для обеспечения контроля договорных процессов, координации работ по контрактам и связанным документам.
+
+**Приложение обеспечивает возможность:**
+  - Провести предварительную работу по подготовке контракта (оформить заявку на контракт, провести процедуру выбора поставщика).
+  - Автоматизировать процесс оформления контракта и сопутствующих документов (Дополнительные соглашения, УНК, ...)
+  - Контролировать актуальность, сроки и суммы платежей по контракту.
+"""@ru ;
+  v-s:description """
+Application purpose is to control and coordinate contractual processes.
+
+**The application allows to:**
+  - Take preliminary actions (create & process a contract request, hold a tender).
+  - Automate contract review & signing process.
+  - Control contract state, terms and payment.
+"""@en ;
+.
+
+site:ContractsManagementIcon
+  a v-s:File ;
+  v-s:fileUri "contract.svg"^^xsd:string ;
+  v-s:fileName "contract.svg"^^xsd:string ;
+  v-s:filePath "/site"^^xsd:string ;
+.

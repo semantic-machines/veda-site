@@ -75,7 +75,7 @@ site:ApplicationsArticleTemplate
   rdfs:label "Шаблон страницы приложений"@ru ;
   rdfs:label "Applications page template"@en ;
   v-ui:template """
-<div class="container sheet">
+<div class="container sheet page-sheet">
   <h1 about="@" property="site:heading" class="margin-lg"></h1>
   <p about="@" property="site:summary" class="markdown lead"></p>
   <hr>

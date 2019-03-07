@@ -1,0 +1,52 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix v-s: <http://semantic-machines.com/veda/veda-schema/> .
+@prefix v-ui: <http://semantic-machines.com/veda/veda-ui/> .
+@prefix v-wf: <http://semantic-machines.com/veda/veda-workflow/> .
+@prefix cfg: <http://semantic-machines.com/veda/config/> .
+@prefix site: <http://semantic-machines.com/veda-site/> .
+
+<http://semantic-machines.com/veda/pass-request-application>
+  rdf:type owl:Ontology ;
+  rdfs:label "Онтология Veda. Приложение. Заявки на пропуск."@ru ;
+  rdfs:label "Veda ontology. Application. Security pass request."@en ;
+  v-s:loadPriority 20 ;
+.
+
+site:PassRequestApplication
+  rdf:type v-s:Application ;
+  rdfs:label "Заявки на пропуск"@ru ;
+  rdfs:label "Security pass request"@en ;
+  rdfs:comment "Вовремя и точно."@ru ;
+  rdfs:comment "On time and precisely."@en ;
+  v-s:shortLabel "Заявки на пропуск"@ru ;
+  v-s:shortLabel "Security pass request"@en ;
+  v-s:hasIcon site:PassRequestIcon ;
+  v-ui:hasTemplate v-s:ApplicationTemplate ;
+
+  v-s:description """
+Приложение предназначено для автоматизации процессов оформления пропусков.
+
+**Приложение обеспечивает возможность:**
+- Формировать заявки на пропуска для сотрудников предприятия и сторонних организаций, транспортные средства, оборудование.
+- Рассматривать и согласовывать оформленные заявки.
+- Оформлять пропуска на основе утвержденных заявок.
+  """@ru;
+  v-s:description """
+The application is designed to automate the process of security passes issue.
+
+**The application allows to:**
+- To apply a pass request for employees of the enterprise and third-party organizations, vehicles, equipment.
+- Review and approve pass request.
+- To issue security passes on the basis of approved requests.
+  """@en;
+.
+
+site:PassRequestIcon
+  a v-s:File ;
+  v-s:fileUri "pass-request.svg"^^xsd:string ;
+  v-s:fileName "pass-request.svg"^^xsd:string ;
+  v-s:filePath "/site"^^xsd:string ;
+.

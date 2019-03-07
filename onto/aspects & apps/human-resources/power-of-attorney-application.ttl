@@ -1,0 +1,54 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix v-s: <http://semantic-machines.com/veda/veda-schema/> .
+@prefix v-ui: <http://semantic-machines.com/veda/veda-ui/> .
+@prefix v-wf: <http://semantic-machines.com/veda/veda-workflow/> .
+@prefix cfg: <http://semantic-machines.com/veda/config/> .
+@prefix site: <http://semantic-machines.com/veda-site/> .
+
+<http://semantic-machines.com/veda/power-of-attorney-application>
+  rdf:type owl:Ontology ;
+  rdfs:label "Онтология Veda. Доверенность. Приложение"@ru ;
+  rdfs:label "Veda ontology. Power of attorney. Application"@en ;
+  v-s:loadPriority 20 ;
+.
+
+site:PowerOfAttorneyApplication
+  rdf:type v-s:Application ;
+  rdfs:label "Доверенности"@ru ;
+  rdfs:label "Power of attorney"@en ;
+  rdfs:comment "Прозрачность во всём."@ru ;
+  rdfs:comment "Transparency in everything."@en ;
+  v-s:shortLabel "Доверенности"@ru ;
+  v-s:shortLabel "Power of attorney"@en ;
+  v-s:hasIcon site:PowerOfAttorneyApplicationIcon ;
+  v-ui:hasTemplate v-s:ApplicationTemplate ;
+
+  v-s:description """
+Приложение предназначено для оформления и регистрации доверенностей.
+
+**Приложение обеспечивает возможность:**
+  - Автоматизировать выдачу и учет доверенностей на предприятии.
+  - Оформлять доверенности на физические и юридические лица.
+  - Вести единый реестр выданных доверенностей.
+  - Получить быстрый доступ к информации по выданной доверенности: срок действия, передаваемые полномочия, объект доверия.
+  """@ru ;
+  v-s:description """
+The application is intended for registration of powers of attorney.
+
+**The application allows to:**
+  - To automate issue and account of powers of attorney.
+  - To issue powers of attorney for individuals and legal entities.
+  - To maintain a single register of issued powers of attorney.
+  - Get quick access to information on the issued powers of attorney: expiration date, delegated authority, trust entity.
+  """@en ;
+.
+
+site:PowerOfAttorneyApplicationIcon
+  a v-s:File ;
+  v-s:fileUri "power-of-attorney.svg"^^xsd:string ;
+  v-s:fileName "power-of-attorney.svg"^^xsd:string ;
+  v-s:filePath "/site"^^xsd:string ;
+.

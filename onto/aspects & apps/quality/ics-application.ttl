@@ -1,0 +1,54 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix v-s: <http://semantic-machines.com/veda/veda-schema/> .
+@prefix v-ui: <http://semantic-machines.com/veda/veda-ui/> .
+@prefix v-wf: <http://semantic-machines.com/veda/veda-workflow/> .
+@prefix cfg: <http://semantic-machines.com/veda/config/> .
+@prefix site: <http://semantic-machines.com/veda-site/> .
+
+<http://semantic-machines.com/veda/ics-application>
+  rdf:type owl:Ontology ;
+  rdfs:label "Онтология Veda. Удовлетворенность внутренних потребителей. Приложение"@ru ;
+  rdfs:label "Veda ontology. Internal customer satisfaction. Application"@en ;
+  v-s:loadPriority 20 ;
+.
+
+site:ICSApplication
+  rdf:type v-s:Application ;
+  rdfs:label "Внутренняя удовлетворенность"@ru ;
+  rdfs:label "Internal clients satisfaction"@en ;
+  rdfs:comment "С уважением друг к другу."@ru ;
+  rdfs:comment "With respect to each other."@en ;
+  v-s:shortLabel "Внутренняя удовлетворенность"@ru ;
+  v-s:shortLabel "Internal clients satisfaction"@en ;
+  v-s:hasIcon site:ICSApplicationIcon ;
+  v-ui:hasTemplate v-s:ApplicationTemplate ;
+
+  v-s:description """
+Приложение предназначено для повышения качества взаимодействия в процессах системы менеджмента качества (СМК).
+Оценка качества взаимодействия выполняется руководителями бизнес-процессов каждый квартал путем заполнения анкет с выставлением взаимных оценок.
+
+**Приложение обеспечивает возможность:**
+- Автоматизировано подготовить комплект анкет оценки каждого бизнес-процесса на основании матрицы взаимодействия процессов.
+- Выставить обоснованные оценки смежным бизнес-процессам, получить оценки по своему процессу.
+- Провести анализ и предоставить обратную связь по полученным оценкам.
+  """@ru;
+  v-s:description """
+The application is designed to increase the quality of interaction in processes defined in quality management system.
+The assessment is performed quarterly by business process managers by filling in the questionnaires with mutual ratings.
+
+**The application allows to:**
+- Prepare a set of assessment questionnaires for each business process based on the processes interaction matrix.
+- Provide reasonable ratings to other business processes, receive ratings for own process.
+- Analyze and provide a feedback regarding received ratings.
+  """@en;
+.
+
+site:ICSApplicationIcon
+  a v-s:File ;
+  v-s:fileUri "internal-client-satisfaction.svg"^^xsd:string ;
+  v-s:fileName "internal-client-satisfaction.svg"^^xsd:string ;
+  v-s:filePath "/site"^^xsd:string ;
+.

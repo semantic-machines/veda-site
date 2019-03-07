@@ -1,0 +1,52 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix v-s: <http://semantic-machines.com/veda/veda-schema/> .
+@prefix v-ui: <http://semantic-machines.com/veda/veda-ui/> .
+@prefix v-wf: <http://semantic-machines.com/veda/veda-workflow/> .
+@prefix cfg: <http://semantic-machines.com/veda/config/> .
+@prefix site: <http://semantic-machines.com/veda-site/> .
+
+<http://semantic-machines.com/veda/delegation-application>
+  rdf:type owl:Ontology ;
+  rdfs:label "Онтология Veda. Приложение. Делегирование."@ru ;
+  rdfs:label "Veda ontology. Application. Delegation."@en ;
+  v-s:loadPriority 10 ;
+.
+
+site:DelegationApplication
+  rdf:type v-s:Application ;
+  rdfs:label "Делегирование полномочий"@ru ;
+  rdfs:label "Delegation"@en ;
+  rdfs:comment "Доверяй и проверяй."@ru ;
+  rdfs:comment "Delegate and check."@en ;
+  v-s:shortLabel "Делегирование полномочий"@ru ;
+  v-s:shortLabel "Delegation"@en ;
+  v-s:hasIcon site:DelegationApplicationIcon ;
+  v-ui:hasTemplate v-s:ApplicationTemplate ;
+
+  v-s:description """
+Приложение предназначено для оформления замещения в системе отсутствующего сотрудника на определенный срок или бессрочно в соответствии с должностными полномочиями замещаемого сотрудника.
+
+**Приложение обеспечивает возможность:**
+- Заместителю получить доступ ко всем документам замещаемого сотрудника.
+- Заместителю исполнять входящие задачи по процессам за замещаемого сотрудника.
+- Назначать сотрудников на «роли» для выполнения задач в рамках деловых процессов.
+  """@ru;
+  v-s:description """
+The application is designed for substitution of an absent employee in the system for a period fo time in accordance with the official authority of the substitute employee.
+
+**The application allows to:**
+- Obtain permissions to documents of the absent employee.
+- Perform tasks in business processes on behalf of the absent employee.
+- Assign employees to "roles" in the system to perform tasks in business processes.
+  """@en;
+.
+
+site:DelegationApplicationIcon
+  a v-s:File ;
+  v-s:fileUri "delegation.svg"^^xsd:string ;
+  v-s:fileName "delegation.svg"^^xsd:string ;
+  v-s:filePath "/site"^^xsd:string ;
+.

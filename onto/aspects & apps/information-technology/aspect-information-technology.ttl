@@ -1,0 +1,29 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix v-s: <http://semantic-machines.com/veda/veda-schema/> .
+@prefix v-ui: <http://semantic-machines.com/veda/veda-ui/> .
+@prefix v-wf: <http://semantic-machines.com/veda/veda-workflow/> .
+@prefix cfg: <http://semantic-machines.com/veda/config/> .
+@prefix site: <http://semantic-machines.com/veda-site/> .
+
+<http://semantic-machines.com/veda/aspect-it>
+  rdf:type owl:Ontology ;
+  rdfs:label "Онтология Veda. Аспект. Информационные технологии"@ru ;
+  rdfs:label "Veda ontology. Aspect. Information technology"@en ;
+  v-s:loadPriority 10 ;
+.
+
+site:InformationTechnologyAspect
+  rdf:type v-s:Aspect ;
+  rdfs:label "Информационные технологии"@ru ;
+  rdfs:label "Information technology"@en ;
+  rdfs:comment "Цифровая трансформация бизнеса"@ru ;
+  rdfs:comment "Digital business transformation"@en ;
+  v-s:shortLabel "Информационные технологии"@ru ;
+  v-s:shortLabel "Information technology"@en ;
+  v-ui:hasTemplate v-s:AspectTemplate ;
+
+  v-s:hasApplication site:ItServicesApplication ;
+.

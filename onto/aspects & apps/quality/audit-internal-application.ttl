@@ -1,0 +1,53 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix v-s: <http://semantic-machines.com/veda/veda-schema/> .
+@prefix v-ui: <http://semantic-machines.com/veda/veda-ui/> .
+@prefix v-wf: <http://semantic-machines.com/veda/veda-workflow/> .
+@prefix cfg: <http://semantic-machines.com/veda/config/> .
+@prefix site: <http://semantic-machines.com/veda-site/> .
+
+<http://semantic-machines.com/veda/audit-internal-application>
+  rdf:type owl:Ontology ;
+  rdfs:label "Онтология Veda. Аудит внутренний. Приложение"@ru ;
+  rdfs:label "Veda ontology. Audit internal. Application"@en ;
+  v-s:loadPriority 20 ;
+.
+
+site:AuditInternalApplication
+  rdf:type v-s:Application ;
+  rdfs:label "Внутренние аудиты"@ru ;
+  rdfs:label "Internal audits"@en ;
+  rdfs:comment "Высокие стандарты. Во всем."@ru ;
+  rdfs:comment "High standards. Everywhere."@en ;
+  v-s:shortLabel "Внутренние аудиты"@ru ;
+  v-s:shortLabel "Internal audits"@en ;
+  v-s:hasIcon site:AuditInternalIcon ;
+  v-ui:hasTemplate v-s:ApplicationTemplate ;
+
+  v-s:description """
+Приложение предназначено для выявления и устранения несоответствий в различных подразделениях внутренним требованиям группы Монди.
+
+**Приложение обеспечивает возможность:**
+- Планировать предстоящие аудиты, составлять годовую программу аудитов.
+- Оформлять наблюдения аудитов: фиксировать отклонения, указывать риски, выдавать рекомендации по улучшению.
+- Формировать план мероприятий по устранению выявленных отклонений в виде поручений ответственным исполнителям.
+- Контролировать выполнение плана мероприятий и формировать отчеты.
+  """@ru;
+  v-s:description """
+The application is designed to identify and eliminate inconsistencies with the internal requirements of the Mondi group.
+
+**The application allows to:**
+- Plan upcoming audits, prepare annual audit program.
+- Submit audit observations: identify deviations, indicate risks, provide recommendations for improvement.
+- Form an action plan to eliminate identified deviations. Assign responsible persons, monitor implementation and generate reports.
+  """@en;
+.
+
+site:AuditInternalIcon
+  a v-s:File ;
+  v-s:fileUri "audit-internal.svg"^^xsd:string ;
+  v-s:fileName "audit-internal.svg"^^xsd:string ;
+  v-s:filePath "/site"^^xsd:string ;
+.

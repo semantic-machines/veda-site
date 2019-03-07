@@ -1,0 +1,50 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix v-s: <http://semantic-machines.com/veda/veda-schema/> .
+@prefix v-ui: <http://semantic-machines.com/veda/veda-ui/> .
+@prefix v-wf: <http://semantic-machines.com/veda/veda-workflow/> .
+@prefix cfg: <http://semantic-machines.com/veda/config/> .
+@prefix site: <http://semantic-machines.com/veda-site/> .
+
+<http://semantic-machines.com/veda/act-violation-application>
+  rdf:type owl:Ontology ;
+  rdfs:label "Онтология Veda. Приложение. Акт нарушения"@ru ;
+  rdfs:label "Veda ontology. Application. Act of violation"@en ;
+  v-s:loadPriority 20 ;
+.
+
+site:ActOfViolationApplication
+  rdf:type v-s:Application ;
+  rdfs:label "Акты нарушений"@ru ;
+  rdfs:label "Acts of violation"@en ;
+  rdfs:comment "Честная игра. Всегда."@ru ;
+  rdfs:comment "Fair play. Always."@en ;
+  v-s:shortLabel "Акты нарушений"@ru ;
+  v-s:shortLabel "Acts of violation"@en ;
+  v-s:hasIcon site:ActOfViolationIcon ;
+  v-ui:hasTemplate v-s:ApplicationTemplate ;
+
+  v-s:description """
+Приложение предназначено для устранения нарушений внутреннего правил и режима предприятия.
+
+**Приложение обеспечивает возможность:**
+- Зафиксировать нарушения режима сотрудниками предприятия или подрядных организаций, неисправность оборудования на КПП.
+- Выставить претензию подрядчику на основании оформленного акта нарушений.
+  """@ru;
+  v-s:description """
+The application is designed to eliminate violations of the enterprise internal rules.
+
+**The application allows to:**
+- Record violations of internal rules by employees of the enterprise or contractor organizations, equipment malfunction at the checkpoint.
+- Issue claims to the contractor based on recorded violations.
+  """@en;
+.
+
+site:ActOfViolationIcon
+  a v-s:File ;
+  v-s:fileUri "act-of-violation.svg"^^xsd:string ;
+  v-s:fileName "act-of-violation.svg"^^xsd:string ;
+  v-s:filePath "/site"^^xsd:string ;
+.

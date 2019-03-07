@@ -1,0 +1,50 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix v-s: <http://semantic-machines.com/veda/veda-schema/> .
+@prefix v-ui: <http://semantic-machines.com/veda/veda-ui/> .
+@prefix v-wf: <http://semantic-machines.com/veda/veda-workflow/> .
+@prefix cfg: <http://semantic-machines.com/veda/config/> .
+@prefix site: <http://semantic-machines.com/veda-site/> .
+
+<http://semantic-machines.com/veda/audit5s-application>
+  rdf:type owl:Ontology ;
+  rdfs:label "Онтология Veda. Аудит 5S. Приложение"@ru ;
+  rdfs:label "Veda ontology. Audit 5S. Application"@en ;
+  v-s:loadPriority 20 ;
+.
+
+site:Audit5SApplication
+  rdf:type v-s:Application ;
+  rdfs:label "Аудиты 5S"@ru ;
+  rdfs:label "Audits 5S"@en ;
+  rdfs:comment "Порядок на рабочем месте."@ru ;
+  rdfs:comment "Keep workplace in order."@en ;
+  v-s:shortLabel "Аудиты 5S"@ru ;
+  v-s:shortLabel "Audits 5S"@en ;
+  v-s:hasIcon site:Audit5SApplicationIcon ;
+  v-ui:hasTemplate v-s:ApplicationTemplate ;
+
+  v-s:description """
+Приложение предназначено для оценки порядка на рабочих местах сотрудников по методологии 5S.
+
+**Приложение обеспечивает возможность:**
+- Оформить проведенный аудит 5S и указать соответствие проверяемого рабочего места установленным требованиям.
+- Автоматически определить итоговую оценку соответствия требованиям методологии.
+  """@ru;
+  v-s:description """
+The application is designed to assess the order at employees workplaces following 5S methodology.
+
+**The application allows to:**
+- Register Audit 5S and indicate the compliance of the workplace to 5S requirements.
+- Automatically calculate rating of compliance to methodology requirements.
+  """@en;
+.
+
+site:Audit5SApplicationIcon
+  a v-s:File ;
+  v-s:fileUri "audit5s.svg"^^xsd:string ;
+  v-s:fileName "audit5s.svg"^^xsd:string ;
+  v-s:filePath "/site"^^xsd:string ;
+.

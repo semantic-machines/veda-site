@@ -1,0 +1,54 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix v-s: <http://semantic-machines.com/veda/veda-schema/> .
+@prefix v-ui: <http://semantic-machines.com/veda/veda-ui/> .
+@prefix v-wf: <http://semantic-machines.com/veda/veda-workflow/> .
+@prefix cfg: <http://semantic-machines.com/veda/config/> .
+@prefix site: <http://semantic-machines.com/veda-site/> .
+
+<http://semantic-machines.com/veda/contractor-application>
+  rdf:type owl:Ontology ;
+  rdfs:label "Онтология Veda. Приложение. Контрагент"@ru ;
+  rdfs:label "Veda ontology. Application. Contractor"@en ;
+  v-s:loadPriority 20 ;
+.
+
+site:ContractorsManagementApplication
+  rdf:type v-s:Application ;
+  rdfs:label "Контрагенты"@ru ;
+  rdfs:label "Contractors"@en ;
+  rdfs:comment "Наши партнеры - самые лучшие! Мы тщательно их выбираем."@ru ;
+  rdfs:comment "Our partners are the best! We choose them carefully."@en ;
+  v-s:shortLabel "Контрагенты"@ru ;
+  v-s:shortLabel "Contractors"@en ;
+  v-s:hasIcon site:ContractorsManagementIcon ;
+  v-ui:hasTemplate v-s:ApplicationTemplate ;
+
+  v-s:description """
+Приложение предназначено для формирования актуальной базы данных контрагентов и проведения процедуры проверки контрагентов Службой экономической безопасности, Правовым и Налоговым управлениями.
+
+**Приложение обеспечивает возможность:**
+  - Формировать досье контрагента содержащее учредительные документы, лицензии и прочие требуемые документы.
+  - Осуществить проверку заявленных контрагентом видов деятельности.
+  - Заключать договоры с контрагентом только по согласованным видам деятельности.
+  - Оформлять заявки на создание / изменение контрагентов.
+"""@ru ;
+  v-s:description """
+Application is designed to form actual contractors data base and to implement contractor's verification procedure by Financial security, Legal, Tax departments.
+
+**The application allows to:**
+  - Form contractor's profile containg founding documents, licenses and other required documents.
+  - Verify services declared by the contractor.
+  - Make agreements with contractor for the verified services only.
+  - Form requests to create / change of contractor records.
+"""@en ;
+.
+
+site:ContractorsManagementIcon
+  a v-s:File ;
+  v-s:fileUri "contractor.svg"^^xsd:string ;
+  v-s:fileName "contractor.svg"^^xsd:string ;
+  v-s:filePath "/mondi"^^xsd:string ;
+.

@@ -1,0 +1,55 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix v-s: <http://semantic-machines.com/veda/veda-schema/> .
+@prefix v-ui: <http://semantic-machines.com/veda/veda-ui/> .
+@prefix v-wf: <http://semantic-machines.com/veda/veda-workflow/> .
+@prefix cfg: <http://semantic-machines.com/veda/config/> .
+@prefix site: <http://semantic-machines.com/veda-site/> .
+
+<http://semantic-machines.com/veda/act-failure-application>
+  rdf:type owl:Ontology ;
+  rdfs:label "Онтология Veda. Акт расследования аварии. Приложение"@ru ;
+  rdfs:label "Veda ontology. RCFA. Application"@en ;
+  v-s:loadPriority 20 ;
+.
+
+site:ActFailureApplication
+  rdf:type v-s:Application ;
+  rdfs:label "Расследования аварий"@ru ;
+  rdfs:label "Failures analysis"@en ;
+  rdfs:comment "Всё тайное становится явным."@ru ;
+  rdfs:comment "Everything hidden reveals."@en ;
+  v-s:shortLabel "Расследования аварий"@ru ;
+  v-s:shortLabel "Failures analysis"@en ;
+  v-s:hasImage site:ActFailureImage ;
+  v-s:hasIcon site:ActFailureIcon ;
+  v-ui:hasTemplate v-s:ApplicationTemplate ;
+
+  v-s:description """
+Приложение предназначено для проведения детального расследования и устранения причин отказов производственного оборудования.
+
+**Приложение обеспечивает возможность:**
+- Фиксировать аварии на предприятии, их последствия, затраты на устранение.
+- Проводить детальный анализ причин аварий.
+- Формировать план мероприятий по устранению причин аварий.
+- Назначать ответственных, контролировать выполнение плана мероприятий.
+  """@ru;
+  v-s:description """
+The application is designed to perform root cause analysis of equipment failures.
+
+**The application allows to:**
+- Record equipment failures, their consequences, costs of elimination.
+- Perform root cause analysis of the failure.
+- Formulate an action plan to eliminate causes of the failure.
+- Assign responsibility and monitor implementation of the action plan.
+  """@en;
+.
+
+site:ActFailureIcon
+  a v-s:File ;
+  v-s:fileUri "act-failure.svg"^^xsd:string ;
+  v-s:fileName "act-failure.svg"^^xsd:string ;
+  v-s:filePath "/site"^^xsd:string ;
+.

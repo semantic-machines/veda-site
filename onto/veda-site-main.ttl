@@ -116,7 +116,7 @@ site:PlatformMainTemplate
       <div class="col-md-7">
         <h1 about="@" property="site:heading" class="margin-xl"></h1>
         <p about="@" property="site:summary" class="markdown lead"></p>
-        <a href="#/site:Platform" class="btn btn-lg btn-success margin-xl">
+        <a href="#/site:Platform" class="btn btn-lg btn-primary margin-xl">
           <span about="v-s:More" property="rdfs:label"></span>
         </a>
       </div>
@@ -158,7 +158,7 @@ site:ApplicationsMainTemplate
   <div class="container margin-xxl">
     <h1 about="@" property="site:heading" class="margin-xl"></h1>
     <p about="@" property="site:summary" class="markdown lead"></p>
-    <a href="#/site:Applications" class="btn btn-lg btn-success margin-xl">
+    <a href="#/site:Applications" class="btn btn-lg btn-primary margin-xl">
       <span about="v-s:More" property="rdfs:label"></span>
     </a>
   </div>
@@ -192,7 +192,7 @@ site:ServicesMainTemplate
   <div class="container margin-xxl">
     <h1 about="@" property="site:heading" class="margin-xl"></h1>
     <p about="@" property="site:summary" class="markdown lead"></p>
-    <a href="#/site:Applications" class="btn btn-lg btn-success margin-xl">
+    <a href="#/site:Services" class="btn btn-lg btn-primary margin-xl">
       <span about="v-s:More" property="rdfs:label"></span>
     </a>
   </div>

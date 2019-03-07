@@ -36,7 +36,7 @@ site:VedaOnlineTemplate
   rdfs:label "Veda online page template"@en ;
   v-ui:template """
 <div about="@" rel="site:hasArticle">
-  <div class="container sheet">
+  <div class="container sheet page-sheet">
     <h1 about="@" property="site:heading" class="margin-xl page-header"></h1>
     <p about="@" property="site:summary" class="markdown lead"></p>
     <p about="@" property="site:content" class="markdown"></p>
@@ -47,13 +47,12 @@ site:VedaOnlineTemplate
 
 ### ARTICLES ###
 
-site:ServicesArticle
+site:VedaOnlineArticle
   rdf:type site:Article ;
-  rdfs:label "Статья о платформе для страницы платформы"@ru ;
-  rdfs:label "Platform article for platform page"@en ;
-  v-ui:hasTemplate site:ContactsMainTemplate ;
-  site:heading "Услуги"@ru ;
-  site:heading "Services"@en ;
+  rdfs:label "Статья Veda-online для страницы Veda-online"@ru ;
+  rdfs:label "Veda-online article for Veda-online page"@en ;
+  site:heading "Veda онлайн"@ru ;
+  site:heading "Veda online"@en ;
   site:summary """
   """@ru ;
   site:content """

@@ -1,0 +1,54 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix v-s: <http://semantic-machines.com/veda/veda-schema/> .
+@prefix v-ui: <http://semantic-machines.com/veda/veda-ui/> .
+@prefix v-wf: <http://semantic-machines.com/veda/veda-workflow/> .
+@prefix cfg: <http://semantic-machines.com/veda/config/> .
+@prefix site: <http://semantic-machines.com/veda-site/> .
+
+<http://semantic-machines.com/veda/it-request-application>
+  rdf:type owl:Ontology ;
+  rdfs:label "Онтология Монди. Заявка ИТ. Приложение"@ru ;
+  rdfs:label "Mondi ontology. It Request. Application"@en ;
+  v-s:loadPriority 20 ;
+.
+
+site:ItServicesApplication
+  rdf:type v-s:Application ;
+  rdfs:label "ИТ услуги"@ru ;
+  rdfs:label "IT services"@en ;
+  rdfs:comment "Поддержка на высшем уровне."@ru ;
+  rdfs:comment "Highest-level support."@en ;
+  v-s:shortLabel "ИТ услуги"@ru ;
+  v-s:shortLabel "IT services"@en ;
+  v-s:hasIcon site:ItServicesIcon ;
+  v-ui:hasTemplate v-s:ApplicationTemplate ;
+
+  v-s:description """
+Приложение предназначено для автоматизации процесса предоставления ИТ-услуг.
+
+**Приложение обеспечивает возможность:**
+- Подавать заявки на ИТ-услуги по установленной форме.
+- Автоматически направлять заявки на исполнение ответственным сотрудникам в зависимости от объектов ИТ.
+- Контролировать исполнение заявок.
+- Вести учет фактически понесенных трудозатрат.
+  """@ru;
+  v-s:description """
+The application is designed to automate IT-service delivery process.
+
+**The application allows to:**
+- Issue an IT-service request.
+- Automatically route requests for execution to responsible IT specialists based on IT objects defined in request.
+- Monitor the execution of requests.
+- Keep track of the actual labor costs.
+  """@en;
+.
+
+site:ItServicesIcon
+  a v-s:File ;
+  v-s:fileUri "it-services.svg"^^xsd:string ;
+  v-s:fileName "it-services.svg"^^xsd:string ;
+  v-s:filePath "/site"^^xsd:string ;
+.

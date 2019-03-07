@@ -1,0 +1,50 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix v-s: <http://semantic-machines.com/veda/veda-schema/> .
+@prefix v-ui: <http://semantic-machines.com/veda/veda-ui/> .
+@prefix v-wf: <http://semantic-machines.com/veda/veda-workflow/> .
+@prefix cfg: <http://semantic-machines.com/veda/config/> .
+@prefix site: <http://semantic-machines.com/veda-site/> .
+
+<http://semantic-machines.com/veda/local-regulatory-document-application>
+  rdf:type owl:Ontology ;
+  rdfs:label "Онтология Veda. Локальный нормативный документ. Приложение"@ru ;
+  rdfs:label "Veda ontology. Local regulatory document. Application"@en ;
+  v-s:loadPriority 20 ;
+.
+
+site:LocalRegulatoryDocumentApplication
+  rdf:type v-s:Application ;
+  rdfs:label "Нормативные документы"@ru ;
+  rdfs:label "Regulatory documents"@en ;
+  rdfs:comment "Изучай и следуй в работе."@ru ;
+  rdfs:comment "Master and follow. Every day."@en ;
+  v-s:shortLabel "Нормативные документы"@ru ;
+  v-s:shortLabel "Regulatory documents"@en ;
+  v-s:hasIcon site:LocalRegulatoryDocumentApplicationIcon ;
+  v-ui:hasTemplate v-s:ApplicationTemplate ;
+
+  v-s:description """
+Приложение предназначено для поддержки организационно-распорядительной деятельности организации.
+
+**Приложение обеспечивает возможность:**
+- Оформлять локальные нормативные документы, создавать их версии, указывать актуальность версий документов, отслеживать историю изменений.
+- Оформлять распорядительные документы, контролировать их исполнение.
+  """@ru;
+  v-s:description """
+The application is designed to support administrative activities of the organization.
+
+**The application allows to:**
+- Issue local regulatory documents, create their versions, indicate the relevance of versions of documents, track the history of changes.
+- Issue, review and sign administrative documents and control their execution.
+  """@en;
+.
+
+site:LocalRegulatoryDocumentApplicationIcon
+  a v-s:File ;
+  v-s:fileUri "local-regulatory-document.svg"^^xsd:string ;
+  v-s:fileName "local-regulatory-document.svg"^^xsd:string ;
+  v-s:filePath "/site"^^xsd:string ;
+.

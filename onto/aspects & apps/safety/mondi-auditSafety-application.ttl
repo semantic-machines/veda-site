@@ -1,0 +1,54 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix v-s: <http://semantic-machines.com/veda/veda-schema/> .
+@prefix v-ui: <http://semantic-machines.com/veda/veda-ui/> .
+@prefix v-wf: <http://semantic-machines.com/veda/veda-workflow/> .
+@prefix cfg: <http://semantic-machines.com/veda/config/> .
+@prefix site: <http://semantic-machines.com/veda-site/> .
+
+<http://semantic-machines.com/veda/audit-safety-application>
+  rdf:type owl:Ontology ;
+  rdfs:label "Онтология Veda. Аудит безопасности. Приложение"@ru ;
+  rdfs:label "Veda ontology. Audit safety. Application"@en ;
+  v-s:loadPriority 20 ;
+.
+
+site:AuditSafetyApplication
+  rdf:type v-s:Application ;
+  rdfs:label "Аудиты безопасности"@ru ;
+  rdfs:label "Safety audits"@en ;
+  rdfs:comment "Безопасность труда начинается с тебя!"@ru ;
+  rdfs:comment "Labor safety is your responsibility!"@en ;
+  v-s:shortLabel "Аудиты безопасности"@ru ;
+  v-s:shortLabel "Safety audits"@en ;
+  v-s:hasIcon site:AuditSafetyIcon ;
+  v-ui:hasTemplate v-s:ApplicationTemplate ;
+
+  v-s:description """
+Приложение предназначено для повышения общего уровня промышленной безопасности предприятия, предовтращения травм и несчастных случаев на производстве.
+
+**Приложение обеспечивает возможность:**
+- Планировать проведение аудитов безопасности: определять состав аудиторов, время и место, своевременно оповещать заинтересованных лиц.
+- Фиксировать положительные наблюдения и нарушения правил и норм промышленной безопасности в рамках проведения аудита.
+- Формировать план мероприятий по устранению выявленных нарушений в виде поручений исполнителям.
+- Назначать ответственных, контролировать статус выполнения.
+  """@ru;
+  v-s:description """
+The application is designed to improve general production safety of the enterprise and to prevent injuries and casualties at productions sites.
+
+**The application allows to:**
+- Plan upcoming safety audits: assign auditors, time and place, notify stakeholders.
+- Record positive observations and violations of safety rules during audit.
+- Form an action plan to eliminate the violations in the form of instructions responsible persons.
+- Assign responsibility, monitor the implementation of planned actions.
+  """@en;
+.
+
+site:AuditSafetyIcon
+  a v-s:File ;
+  v-s:fileUri "audit-safety.svg"^^xsd:string ;
+  v-s:fileName "audit-safety.svg"^^xsd:string ;
+  v-s:filePath "/mondi"^^xsd:string ;
+.

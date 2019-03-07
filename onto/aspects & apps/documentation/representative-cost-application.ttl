@@ -1,0 +1,52 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix v-s: <http://semantic-machines.com/veda/veda-schema/> .
+@prefix v-ui: <http://semantic-machines.com/veda/veda-ui/> .
+@prefix v-wf: <http://semantic-machines.com/veda/veda-workflow/> .
+@prefix cfg: <http://semantic-machines.com/veda/config/> .
+@prefix site: <http://semantic-machines.com/veda-site/> .
+
+<http://semantic-machines.com/veda/representative-cost-application>
+  rdf:type owl:Ontology ;
+  rdfs:label "Онтология Veda. Представительские расходы. Приложение"@ru ;
+  rdfs:label "Veda ontology. Representative costs. Application"@en ;
+  v-s:loadPriority 20 ;
+.
+
+site:RepresentativeCostsApplication
+  rdf:type v-s:Application ;
+  rdfs:label "Представительские расходы"@ru ;
+  rdfs:label "Representative costs"@en ;
+  rdfs:comment "Точность в расчётах. Без проблем."@ru ;
+  rdfs:comment "Accuracy in figures. Easy."@en ;
+  v-s:shortLabel "Представительские расходы"@ru ;
+  v-s:shortLabel "Representative costs"@en ;
+  v-s:hasIcon site:RepresentativeCostsApplicationIcon ;
+  v-ui:hasTemplate v-s:ApplicationTemplate ;
+
+  v-s:description """
+Приложение предназначено для ведения формализованного учета затрат на проведение различных мероприятий (представительские расходы).
+
+**Приложение обеспечивает возможность:**
+- Оформить план мероприятий с указанием держателей бюджета, ответственных за проведение, участников, в том числе сотрудников внешних организаций.
+- Рассчитать и учесть расходы на проведение, в том числе в пересчете на одного участника.
+- Отчитаться о фактических затратах.
+  """@ru;
+  v-s:description """
+The application is designed to account representative costs for various events.
+
+**The application allows to:**
+- Issue an event plan with indication of the budget holders, responsibles, participants, including employees of external organizations.
+- Calculate and account the costs of event (total and per participant).
+- Report actual costs.
+  """@en;
+.
+
+site:RepresentativeCostsApplicationIcon
+  a v-s:File ;
+  v-s:fileUri "representative-costs.svg"^^xsd:string ;
+  v-s:fileName "representative-costs.svg"^^xsd:string ;
+  v-s:filePath "/site"^^xsd:string ;
+.

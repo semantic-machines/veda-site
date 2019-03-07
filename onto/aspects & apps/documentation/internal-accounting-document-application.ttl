@@ -1,0 +1,52 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix v-s: <http://semantic-machines.com/veda/veda-schema/> .
+@prefix v-ui: <http://semantic-machines.com/veda/veda-ui/> .
+@prefix v-wf: <http://semantic-machines.com/veda/veda-workflow/> .
+@prefix cfg: <http://semantic-machines.com/veda/config/> .
+@prefix site: <http://semantic-machines.com/veda-site/> .
+
+<http://semantic-machines.com/veda/internal-accounting-document-application>
+  rdf:type owl:Ontology ;
+  rdfs:label "Онтология Veda. Внутренний бухгалтерский документ. Приложение"@ru ;
+  rdfs:label "Veda ontology. Internal accounting document. Application"@en ;
+  v-s:loadPriority 20 ;
+.
+
+site:InternalAccountingDocApplication
+  rdf:type v-s:Application ;
+  rdfs:label "Внутренние бухгалтерские документы"@ru ;
+  rdfs:label "Internal accounting document"@en ;
+  rdfs:comment "Важное. Под рукой."@ru ;
+  rdfs:comment "Important. At hand."@en ;
+  v-s:shortLabel "Внутренние бухгалтерские документы"@ru ;
+  v-s:shortLabel "Internal accounting document"@en ;
+  v-s:hasIcon site:AccountingDocIcon ;
+  v-ui:hasTemplate v-s:ApplicationTemplate ;
+
+  v-s:description """
+Приложение предназначено для обеспечения оперативной обработки и хранения внутренней бухгалтерской документации.
+
+**Приложение обеспечивает возможность:**
+  - Вести учет и маршрутизацию первичной документации по перемещению ценностей и средств.
+  - Подготовить пакет первичных документов для  проведения налоговой или аудиторской проверки.
+  - Сформировать архив первичных документов для долгосрочного хранения.
+  """@ru ;
+  v-s:description """
+Application purpose is to provide operational processing and storage of internal accounting documentation.
+
+**The application allows to:**
+  - Record and process internal accounting documents.
+  - Prepare a package of documents for tax audit or exchange with contractor.
+  - Form an archive of primary documents for long-term storage.
+  """@en ;
+.
+
+site:AccountingDocIcon
+  a v-s:File ;
+  v-s:fileUri "accounting-doc.svg"^^xsd:string ;
+  v-s:fileName "accounting-doc.svg"^^xsd:string ;
+  v-s:filePath "/site"^^xsd:string ;
+.

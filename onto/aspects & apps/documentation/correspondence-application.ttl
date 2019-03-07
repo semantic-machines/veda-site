@@ -1,0 +1,52 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix v-s: <http://semantic-machines.com/veda/veda-schema/> .
+@prefix v-ui: <http://semantic-machines.com/veda/veda-ui/> .
+@prefix v-wf: <http://semantic-machines.com/veda/veda-workflow/> .
+@prefix cfg: <http://semantic-machines.com/veda/config/> .
+@prefix site: <http://semantic-machines.com/veda-site/> .
+
+<http://semantic-machines.com/veda/correspondence-application>
+  rdf:type owl:Ontology ;
+  rdfs:label "Онтология Veda. Приложение. Корреспонденция"@ru ;
+  rdfs:label "Veda ontology. Application. Correspondence"@en ;
+  v-s:loadPriority 20 ;
+.
+
+site:CorrespondenceApplication
+  rdf:type v-s:Application ;
+  rdfs:label "Корреспонденция"@ru ;
+  rdfs:label "Correspondence"@en ;
+  rdfs:comment "Всегда на связи."@ru ;
+  rdfs:comment "In touch. Every day."@en ;
+  v-s:shortLabel "Корреспонденция"@ru ;
+  v-s:shortLabel "Correspondence"@en ;
+  v-s:hasIcon site:CorrespondenceApplicationIcon ;
+  v-ui:hasTemplate v-s:ApplicationTemplate ;
+
+  v-s:description """
+Приложение предназначено для автоматизации делопроизводственных процессов организации.
+
+**Приложение обеспечивает возможность:**
+- Автоматически регистрировать входящую и исходящую корреспонденцию организации.
+- Создавать и исполнять внутренние документы общего харакетера.
+- Контролировать процессы исполнения документов.
+  """@ru;
+  v-s:description """
+The application is designed to automate record-keeping processes of the organization.
+
+**The application allows to:**
+- Automatically register all incoming and outgoing correspondence.
+- Create and execute generic internal documents.
+- Monitor the execution of documents.
+  """@en;
+.
+
+site:CorrespondenceApplicationIcon
+  a v-s:File ;
+  v-s:fileUri "correspondence.svg"^^xsd:string ;
+  v-s:fileName "correspondence.svg"^^xsd:string ;
+  v-s:filePath "/site"^^xsd:string ;
+.

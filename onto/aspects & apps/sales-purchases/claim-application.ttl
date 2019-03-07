@@ -1,0 +1,54 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix v-s: <http://semantic-machines.com/veda/veda-schema/> .
+@prefix v-ui: <http://semantic-machines.com/veda/veda-ui/> .
+@prefix v-wf: <http://semantic-machines.com/veda/veda-workflow/> .
+@prefix cfg: <http://semantic-machines.com/veda/config/> .
+@prefix site: <http://semantic-machines.com/veda-site/> .
+
+<http://semantic-machines.com/veda/claim-application>
+  rdf:type owl:Ontology ;
+  rdfs:label "Онтология Монди. Претензии. Приложение"@ru ;
+  rdfs:label "Mondi ontology. Claim. Application"@en ;
+  v-s:loadPriority 20 ;
+.
+
+site:ClaimsManagementApplication
+  rdf:type v-s:Application ;
+  rdfs:label "Претензии"@ru ;
+  rdfs:label "Claims"@en ;
+  rdfs:comment "Давайте исправлять ошибки!"@ru ;
+  rdfs:comment "Let's fix mistakes!"@en ;
+  v-s:shortLabel "Претензии"@ru ;
+  v-s:shortLabel "Claims"@en ;
+  v-s:hasIcon site:ClaimsManagementIcon ;
+  v-ui:hasTemplate v-s:ApplicationTemplate ;
+
+  v-s:description """
+Приложение предназначено для работы с претензиями.
+
+**Приложение обеспечивает возможность:**
+  - Регистрировать входящие и исходящие претензии, в том числе с привязкой к определенному контракту (контрагенту).
+  - Принимать решение по претензии и отслеживать ее статус.
+  - Контролировать сроки исполнения.
+  - Формировать отчеты о предпринятых действиях.
+  """@ru ;
+  v-s:description """
+The application is designed to work with claims.
+
+**The application allows to:**
+  - Register and track incoming and outgoing claims with link to specific contract & contractor.
+  - Make decision on the claim and track it's status.
+  - Control the timing of claim execution.
+  - Generate reports on taken actions.
+  """@en ;
+.
+
+site:ClaimsManagementIcon
+  a v-s:File ;
+  v-s:fileUri "claim.svg"^^xsd:string ;
+  v-s:fileName "claim.svg"^^xsd:string ;
+  v-s:filePath "/site"^^xsd:string ;
+.
