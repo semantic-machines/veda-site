@@ -126,7 +126,7 @@ site:ApplicationSmallCardTemplate
       text-overflow: ellipsis;
     }
   </style>
-  <a class="margin-xl" href="#/@" about="@" rel="v-s:hasIcon" data-template="v-ui:ImageTemplate" style="width:55%; margin-left: auto; margin-right: auto;"></a>
+  <a class="margin-xl" href="#/@//site:ApplicationTemplate" about="@" rel="v-s:hasIcon" data-template="v-ui:ImageTemplate" style="width:55%; margin-left: auto; margin-right: auto;"></a>
   <h4 class="margin-md text-center">
     <a href="#/@//site:ApplicationTemplate" about="@" property="rdfs:label"></a>
     <br>
@@ -191,7 +191,7 @@ site:ApplicationTemplate
         <div about="@" property="v-s:description" class="markdown"></div>
       </div>
       <div class="col-lg-4 col-sm-6">
-        <em about="v-s:ManualBundle" property="rdfs:label"></em>
+        <em about="v-s:attachment" property="rdfs:label"></em>
         <div about="@" rel="v-s:attachment" data-template="v-ui:FileTemplate"></div>
       </div>
     </div>
