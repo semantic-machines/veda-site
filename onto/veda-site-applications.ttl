@@ -50,6 +50,7 @@ site:ApplicationsArticle
   rdf:type site:Article ;
   rdfs:label "Статья о приложениях для страницы приложений"@ru ;
   rdfs:label "Applications article for application page"@en ;
+  v-s:hasImage site:ApplicationsIcon ;
   v-ui:hasTemplate site:ApplicationsArticleTemplate;
   site:heading "Приложения"@ru;
   site:summary """
@@ -77,8 +78,13 @@ site:ApplicationsArticleTemplate
   rdfs:label "Applications page template"@en ;
   v-ui:template """
 <div class="container sheet page-sheet">
-  <h1 about="@" property="site:heading" class="margin-lg"></h1>
-  <p about="@" property="site:summary" class="markdown lead"></p>
+  <div class="row">
+    <div class="col-md-2 col-md-push-10 vcenter" about="@" rel="v-s:hasImage" data-template="v-ui:ImageTemplate"></div><!--
+ --><div class="col-md-10 col-md-pull-2 vcenter">
+      <h1 about="@" property="site:heading"></h1>
+      <p about="@" property="site:summary" class="markdown lead"></p>
+    </div>
+  </div>
   <hr>
   <p about="@" property="site:content" class="markdown"></p>
 </div>

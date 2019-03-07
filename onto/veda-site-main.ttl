@@ -120,7 +120,6 @@ site:PlatformMainTemplate
           <span about="v-s:More" property="rdfs:label"></span>
         </a>
       </div>
-
     </div>
   </div>
 </div>
