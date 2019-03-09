@@ -119,7 +119,7 @@ site:PlatformArticle
   site:heading "Платформа Veda"@ru ;
   site:heading "Platform Veda"@en ;
   site:summary """
-> Современная семантическая платформа с открытым исходным текстом.  
+> Современная семантическая платформа с [открытым исходным текстом](https://github.com/semantic-machines/veda).  
 > Предназначена для быстрой разработки приложений автоматизации деловых процессов предприятия.
   """@ru ;
   site:summary """
