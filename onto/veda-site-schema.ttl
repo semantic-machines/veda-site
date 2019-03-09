@@ -33,7 +33,7 @@ site:Article
   rdfs:subClassOf owl:Thing ;
   rdfs:label "Статья"@ru ;
   rdfs:label "Article"@en ;
-  v-ui:hasTemplate site:ArticleTemplate1 ;
+  v-ui:hasTemplate site:ArticleTemplate ;
 .
 
 site:Comment

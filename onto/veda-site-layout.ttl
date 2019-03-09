@@ -181,3 +181,29 @@ site:LayoutTemplate
 </script>
   """ ;
 .
+
+site:PageTemplate
+  rdf:type v-ui:ClassTemplate ;
+  rdfs:label "Шаблон страницы"@ru ;
+  rdfs:label "Page template"@en ;
+  v-ui:template """
+<div class="container sheet page-sheet">
+  <h1 about="@" property="rdfs:label"></h1>
+  <div about="@" rel="site:hasArticle"></div>
+</div>
+  """ ;
+.
+
+site:ArticleTemplate
+  rdf:type v-ui:ClassTemplate ;
+  rdfs:label "Шаблон статьи"@ru ;
+  rdfs:label "Article template"@en ;
+  v-ui:template """
+<article>
+  <hr>
+  <h2 about="@" property="site:heading"></h2>
+  <p about="@" property="site:summary" class="markdown lead"></p>
+  <p about="@" property="site:content" class="markdown"></p>
+</article>
+  """ ;
+.

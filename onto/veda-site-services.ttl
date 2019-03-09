@@ -81,7 +81,6 @@ site:ServicesArticle
   rdfs:label "Статья о платформе для страницы платформы"@ru ;
   rdfs:label "Platform article for platform page"@en ;
   v-s:hasImage site:ServicesIcon ;
-  v-ui:hasTemplate site:ContactsMainTemplate ;
   site:heading "Услуги"@ru ;
   site:heading "Services"@en ;
   site:summary """
