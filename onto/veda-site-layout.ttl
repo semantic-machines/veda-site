@@ -124,7 +124,7 @@ site:LayoutTemplate
   <nav role="navigation" class="navbar navbar-veda navbar-fixed" style="background-color: #fff; border-bottom: 2px solid #ddd; margin-bottom:15px;">
     <div class="container">
       <div class="navbar-header">
-        <button type="button" class="btn btn-info navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+        <button type="button" class="btn btn-default navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
           <span class="glyphicon glyphicon-menu-hamburger"></span>
         </button>
         <!--a class="navbar-brand" href="#/site:Main" class="pull-left" style="width:180px;margin-top:-10px;" about="site:SemanticMachinesLogo" data-template="v-ui:ImageTemplate"></a-->
