@@ -171,18 +171,12 @@ site:LayoutTemplate
   riot.route(markActive);
   function markActive(hash) {
     var page = hash.slice(2);
-    //$(".nav-pages", template)
-    //  .children()
-    //  .removeClass("active")
-    //  .filter("[resource='" + veda.Util.escape4$(page) + "']")
-    //  .addClass("active");
-    var pagesLinks = $(".nav-pages", template);
-    var children = pagesLinks.children();
-    children.removeClass("active");
-    var thisPageLink = children.filter("[resource='" + veda.Util.escape4$(page) + "']");
-    thisPageLink.addClass("active");
+    $(".nav-pages", template)
+      .children()
+      .removeClass("active")
+      .filter("[resource='" + veda.Util.escape4$(page) + "']")
+      .addClass("active");
   }
-
 //# sourceURL=site:LayoutTemplate_post
 </script>
   """ ;
