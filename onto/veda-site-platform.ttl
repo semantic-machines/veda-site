@@ -22,8 +22,8 @@
 
 site:Platform
   rdf:type site:Page ;
-  rdfs:label "Платформа"@ru ;
-  rdfs:label "Platform"@en ;
+  rdfs:label "Платформа Veda"@ru ;
+  rdfs:label "Platform Veda"@en ;
   v-ui:hasTemplate site:PlatformTemplate ;
   site:hasArticle site:PlatformArticle ;
 .

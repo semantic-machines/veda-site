@@ -30,6 +30,18 @@ site:SemanticMachinesLogo
   v-s:fileName "semantic-machines-logo.svg"^^xsd:string;
   v-s:filePath "/site"^^xsd:string ;
 .
+site:SemanticMachinesLogoLong
+  a v-s:File;
+  v-s:fileUri "semantic-machines-logo-long.svg"^^xsd:string ;
+  v-s:fileName "semantic-machines-logo-long.svg"^^xsd:string;
+  v-s:filePath "/site"^^xsd:string ;
+.
+site:VedaLogo
+  a v-s:File;
+  v-s:fileUri "veda-logo.svg"^^xsd:string ;
+  v-s:fileName "veda-logo.svg"^^xsd:string;
+  v-s:filePath "/site"^^xsd:string ;
+.
 
 ### LAYOUT ###
 
@@ -115,10 +127,11 @@ site:LayoutTemplate
         <button type="button" class="btn btn-info navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
           <span class="glyphicon glyphicon-menu-hamburger"></span>
         </button>
-        <a class="navbar-brand" href="#/site:Main" class="pull-left" style="width:180px;margin-top:-10px;" about="site:SemanticMachinesLogo" data-template="v-ui:ImageTemplate"></a>
+        <!--a class="navbar-brand" href="#/site:Main" class="pull-left" style="width:180px;margin-top:-10px;" about="site:SemanticMachinesLogo" data-template="v-ui:ImageTemplate"></a-->
+        <a class="navbar-brand" href="#/site:Main" class="pull-left" style="width:300px;margin-top:-10px;" about="site:SemanticMachinesLogoLong" data-template="v-ui:ImageTemplate"></a>
       </div>
       <div class="collapse navbar-collapse" id="navbar-collapse">
-        <a class="navbar-brand" href="#/site:Main" class="pull-left" about="site:Slogan" property="rdfs:label"></a>
+        <!--a class="navbar-brand" href="#/site:Main" class="pull-left" about="site:Slogan" property="rdfs:label"></a-->
         <ul class="nav navbar-nav navbar-right" style="margin-left:15px;">
           <li id="user-info" class="hidden"></li>
           <li about="v-ui:AvailableLanguage" data-template="v-ui:LanguageSwitchTemplate"></li>
