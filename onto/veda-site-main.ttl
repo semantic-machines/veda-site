@@ -111,7 +111,7 @@ site:PlatformMainTemplate
   <div class="container margin-xxl">
     <div class="row">
       <div class="col-md-5 col-md-push-7">
-        <div about="@" rel="v-s:hasImage" data-template="v-ui:ImageTemplate"></div>
+        <div about="@" rel="v-s:hasImage" data-template="v-ui:ModalImageTemplate"></div>
       </div>
       <div class="col-md-7 col-md-pull-5">
         <h1 about="@" property="site:heading" class="margin-xl"></h1>

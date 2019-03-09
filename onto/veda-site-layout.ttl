@@ -115,7 +115,7 @@ site:LayoutTemplate
         <button type="button" class="btn btn-info navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
           <span class="glyphicon glyphicon-menu-hamburger"></span>
         </button>
-        <a class="navbar-brand" href="#/site:Main" class="pull-left" style="width:180px;margin-top:-15px;" about="site:SemanticMachinesLogo" data-template="v-ui:ImageTemplate"></a>
+        <a class="navbar-brand" href="#/site:Main" class="pull-left" style="width:180px;margin-top:-10px;" about="site:SemanticMachinesLogo" data-template="v-ui:ImageTemplate"></a>
         <a class="navbar-brand" href="#/site:Main" class="pull-left" about="site:Slogan" property="rdfs:label"></a>
       </div>
       <div class="collapse navbar-collapse" id="navbar-collapse">
