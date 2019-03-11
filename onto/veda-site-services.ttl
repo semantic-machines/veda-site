@@ -84,8 +84,11 @@ site:ServicesArticle
   site:heading "Услуги"@ru ;
   site:heading "Services"@en ;
   site:summary """
-> Обследуем, разработаем, внедрим и обеспечим поддержку системы, чтобы Вы могли развивать бизнес.  
+> Обследуем, разработаем, внедрим и обеспечим поддержку информационной системы, чтобы Вы могли развивать бизнес.  
   """@ru ;
+  site:summary """
+> We survey, develop, implement and provide support for the information system so that you can focus on developing your business.  
+  """@en ;
   site:content """
 
 ### 1. Консультирование
@@ -133,4 +136,51 @@ site:ServicesArticle
 - изменяем существующие и разрабатываем новые возможности системы;
 - обучаем новых сотрудников.
   """@ru ;
+  site:content """
+
+### 1. Consulting
+
+The key to success of any project is a complete understanding between the customer and the performer.
+To clearly formulate the goals and objectives of the project:
+
+- we examine business processes, document flow and regulatory documents, interview key employees,
+- make recommendations for the optimization of existing processes,
+- help to formulate the functional and technical requirements for the information system,
+- form the implementation plan and project budget;
+
+---
+
+### 2. Development
+
+In the course of development, we embody the requirements in the product:
+
+- we design the ontology of the domain: classes of objects, reference books, their properties and connections,
+- create automated processes, document templates, print forms, reports,
+- define roles and groups of users, their powers,
+- develop integration tools & procedures with other information systems,
+- make operational documentation.
+
+---
+
+### 3. Implementation
+
+At the implementation stage, we make sure that the product created meets the requirements and expectations of the customer:
+
+- we deploy and configure software components of the information system,
+- carry out acceptance tests,
+- eliminate shortcomings,
+- train users;
+- transfer system to continuous operation.
+
+---
+
+### 4. Technical Support
+
+The created system should be live and responsive to the changing business needs.
+To ensure smooth operation and enhancement of the system:
+
+- we provide all lines of technical support,
+- change existing and develop new features and functions of the system;
+- train new employees.
+  """@en ;
 .

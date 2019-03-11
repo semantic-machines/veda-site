@@ -50,11 +50,15 @@ site:ApplicationsArticle
   rdfs:label "Статья о приложениях для страницы приложений"@ru ;
   rdfs:label "Applications article for application page"@en ;
   v-s:hasImage site:ApplicationsIcon ;
-  v-ui:hasTemplate site:ApplicationsArticleTemplate;
-  site:heading "Приложения"@ru;
+  v-ui:hasTemplate site:ApplicationsArticleTemplate ;
+  site:heading "Приложения"@ru ;
+  site:heading "Applications"@en ;
   site:summary """
 > Выбирайте, что нравится, а мы сделаем, чтобы вам подошло!
   """@ru ;
+  site:summary """
+> Choose what you like, and we will make it fit!
+  """@en ;
   site:content """
 Мы разработали ряд готовых приложений для работы с востребованными деловыми процессами.  
 Возможности приложений можно менять и расширять под нужды конкретного предприятия.  
@@ -69,6 +73,20 @@ site:ApplicationsArticle
 - Роли, группы пользователей, их полномочия.
 - Эксплуатационная документация.
   """@ru ;
+  site:content """
+We have developed a number of ready-made applications for working with popular business processes.  
+Application capabilities can be changed and expanded to the needs of a particular enterprise.  
+The implementation of several applications will allow to achieve a significant synergy effect while using the system.
+
+**The application includes:**
+
+- Object classes and reference dictionaries of the subject domain.
+- Templates and other visual on-screen forms.
+- Registries, reporting and printing forms.
+- Business processes to automate collaboration with objects.
+- Roles, user groups, their powers.
+- Operational documentation.
+  """@en ;
 .
 
 site:ApplicationsArticleTemplate

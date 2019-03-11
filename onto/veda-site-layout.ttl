@@ -20,8 +20,7 @@
 
 site:Slogan
   rdf:type rdfs:Resource ;
-  rdfs:label "Автоматизация деловых процессов"@ru ;
-  rdfs:label "Business process automation"@en ;
+  rdfs:label "/ Semantic machines /"@en ;
 .
 
 site:SemanticMachinesLogo
@@ -127,11 +126,10 @@ site:LayoutTemplate
         <button type="button" class="btn btn-default navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
           <span class="glyphicon glyphicon-menu-hamburger"></span>
         </button>
-        <!--a class="navbar-brand" href="#/site:Main" class="pull-left" style="width:180px;margin-top:-10px;" about="site:SemanticMachinesLogo" data-template="v-ui:ImageTemplate"></a-->
-        <a class="navbar-brand" href="#/site:Main" class="pull-left" style="width:300px;margin-top:-10px;" about="site:SemanticMachinesLogoLong" data-template="v-ui:ImageTemplate"></a>
+        <a style="width:300px;margin-top:-10px;" class="navbar-brand" href="#/site:Main" about="site:SemanticMachinesLogoLong" data-template="v-ui:ImageTemplate"></a>
+        <small style="margin-top:5px;font-weight:200;" class="navbar-brand text-muted" href="#/site:Main" class="pull-left" about="site:Slogan" property="rdfs:label"></small>
       </div>
       <div class="collapse navbar-collapse" id="navbar-collapse">
-        <!--a class="navbar-brand" href="#/site:Main" class="pull-left" about="site:Slogan" property="rdfs:label"></a-->
         <ul class="nav navbar-nav navbar-right" style="margin-left:15px;">
           <li id="user-info" class="hidden"></li>
           <li about="v-ui:AvailableLanguage" data-template="v-ui:LanguageSwitchTemplate"></li>

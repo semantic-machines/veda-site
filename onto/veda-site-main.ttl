@@ -58,14 +58,22 @@ site:AboutMainArticle
   rdfs:label "Статья о компании для главной страницы"@ru ;
   rdfs:label "Article about company for main page"@en ;
   v-ui:hasTemplate site:AboutMainTemplate ;
-  site:heading "Быстро разрабатываем приложения для вашего бизнеса!";
+  site:heading "Быстро разрабатываем приложения для вашего бизнеса!"@ru ;
+  site:heading "Quickly develop applications for your business!"@en ;
   site:summary """
 Для разработки мы используем [интегрированную платформу Veda](#/site:Platform).
 
 На платформе уже разработан [ряд готовых приложений](#/site:Applications).
 
 Наши клиенты успешно используют их с 2010 года.
-  """ ;
+  """@ru ;
+  site:summary """
+For development we use [integrated platform Veda](#/site:Platform).
+
+We have already developed [a number of ready-made applications](#/site:Applications).
+
+Our customers have been using them successfully since 2010.
+  """@en ;
 .
 
 site:AboutMainTemplate
@@ -88,12 +96,18 @@ site:PlatformMainArticle
   rdfs:label "Platform article for main page"@en ;
   v-ui:hasTemplate site:PlatformMainTemplate ;
   v-s:hasImage site:ImageHydraContract ;
-  site:heading "Платформа Veda";
+  site:heading "Платформа Veda"@ru ;
+  site:heading "Platform Veda"@en ;
   site:summary"""
 Современная семантическая платформа с [открытым исходным текстом](https://github.com/semantic-machines/veda).
 
 Позволяет быстро и легко создавать приложения для автоматизации деловых процессов предприятия.
-  """;
+  """@ru ;
+  site:summary"""
+A modern [open source](https://github.com/semantic-machines/veda) semantic platform.
+
+Allows to quickly and easily create applications for business processes automation.
+  """@en ;
 .
 
 site:More
@@ -185,7 +199,8 @@ site:ServicesMainArticle
   rdfs:label "Services article for main page"@en ;
   v-s:hasImage site:ServicesIcon ;
   v-ui:hasTemplate site:ServicesMainTemplate ;
-  site:heading "Услуги" ;
+  site:heading "Услуги"@ru ;
+  site:heading "Services"@en ;
   site:summary """
 Мы оказываем услуги по разработке, адаптации и внедрению приложений на платформе Veda.
 
@@ -194,7 +209,18 @@ site:ServicesMainArticle
 Обеспечиваем техническое сопровождение сформированной системы.
 
 Обучаем и поддерживаем пользователей.
-  """ ;
+  """@ru ;
+  site:summary """
+We provide services for the development, 
+
+adaptation and implementation of applications on the platform Veda,
+
+enhance applications in accordance with the customer's business needs,
+
+provide technical support of the formed system.
+
+train and support users.
+  """@en ;
 .
 
 site:ServicesIcon
@@ -232,14 +258,22 @@ site:ContactsMainArticle
   rdfs:label "Contacts article for main page"@en ;
   v-s:hasImage site:ContactsIcon ;
   v-ui:hasTemplate site:ContactsMainTemplate ;
-  site:heading "Контакты";
+  site:heading "Контакты"@ru ;
+  site:heading "Contacts"@en ;
   site:summary """
 167026, Республика Коми, г. Сыктывкар, пр. Бумажников, 35-133.
 
 Телефон: +7 912 965 14 01
 
 E-mail: [info@semantic-machines.com](mailto:info@semantic-machines.com)
-  """ ;
+  """@ru ;
+  site:summary """
+Russian Federation, The Republic of Komi, 167026, Syktyvkar, Bumazhnikov ave, 35-133.
+
+Tel: +7 912 965 14 01
+
+E-mail: [info@semantic-machines.com](mailto:info@semantic-machines.com)
+  """@en ;
 .
 
 site:ContactsIcon

@@ -56,10 +56,16 @@ site:ContactsArticle
   rdfs:label "Статья о контактах для страницы контактов"@ru ;
   rdfs:label "Contacts article for contacts page"@en ;
   v-s:hasImage site:ContactsIcon ;
-  site:heading "Контакты";
+  site:heading "Контакты"@ru ;
+  site:heading "Contacts"@en ;
   site:summary """
 > 167026, Республика Коми, г. Сыктывкар, пр. Бумажников, 35-133.  
 > Телефон: +7 912 965 14 01  
 > E-mail: [info@semantic-machines.com](mailto:info@semantic-machines.com)
-  """ ;
+  """@ru ;
+  site:summary """
+> Russian Federation, The Republic of Komi, 167026, Syktyvkar, Bumazhnikov ave, 35-133.  
+> Tel: +7 912 965 14 01  
+> E-mail: [info@semantic-machines.com](mailto:info@semantic-machines.com)
+  """@en ;
 .
