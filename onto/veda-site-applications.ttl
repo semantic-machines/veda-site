@@ -25,7 +25,6 @@ site:Applications
   rdfs:label "Приложения"@ru ;
   rdfs:label "Applications"@en ;
   v-ui:hasTemplate site:ApplicationsTemplate ;
-  v-s:hasImage site:ImageAspects ;
   site:hasArticle site:ApplicationsArticle;
 .
 

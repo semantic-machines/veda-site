@@ -119,12 +119,14 @@ site:PlatformArticle
   site:heading "Платформа Veda"@ru ;
   site:heading "Platform Veda"@en ;
   site:summary """
-> Современная семантическая платформа с [открытым исходным текстом](https://github.com/semantic-machines/veda).  
-> Предназначена для быстрой разработки приложений автоматизации деловых процессов предприятия.
+> Современная семантическая платформа с [открытым исходным текстом](https://github.com/semantic-machines/veda).
+> Предназначена для быстрой разработки приложений автоматизации деловых процессов предприятия.  
+> _Кстати, этот сайт тоже является приложением на платформе Veda. [Посмотреть модель данных](#/site:Platform//v-ui:Graph)_
   """@ru ;
   site:summary """
-> Modern semantic open source platform.  
+> Modern semantic open source platform.
 > Designed to develop applications for business process automation.
+> _By the way, this site is also the application powered by Veda platform. [See data model](#/site:Platform//v-ui:Graph)_
   """@en ;
 
   site:content """
@@ -168,7 +170,7 @@ site:PlatformArticle
 - Интеграция с системами кадрового учета (SAP, 1C) для отражения в системе организационной структуры предприятия.
 - Интеграция с почтовой службой для автоматических уведомлений предусмотренных деловыми процессами, автоматического ввода документов в систему.
   """@ru ;
-  
+
   site:content """
 ## Features
 - Semantic Web methodology used for data & schema description.
