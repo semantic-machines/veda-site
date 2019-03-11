@@ -206,7 +206,7 @@ site:ServicesMainArticle
 
 Развиваем приложения в соответствии с потребностями Заказчика.
 
-Обеспечиваем техническое сопровождение сформированной системы.
+Проводим техническое обслуживание сформированной системы.
 
 Обучаем и поддерживаем пользователей.
   """@ru ;
@@ -217,9 +217,9 @@ adaptation and implementation of applications on the platform Veda,
 
 enhance applications in accordance with the customer's business needs,
 
-provide technical support of the formed system.
+perform maintenance of the formed system,
 
-train and support users.
+train and provide technical support to users.
   """@en ;
 .
 
