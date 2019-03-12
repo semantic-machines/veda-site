@@ -77,7 +77,7 @@ site:LayoutTemplate
     markdown.each(function () {
       this.classList.add("observed");
       var text = this.textContent;
-      this.innerHTML = marked(text, { sanitize: false });
+      this.innerHTML = marked(text, { sanitize: false, breaks: true });
       var markdownObserver = new MutationObserver(function(mutations, observer) {
         var lastMutation = mutations.pop();
         processMarkdown(lastMutation, observer);

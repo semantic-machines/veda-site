@@ -24,16 +24,16 @@ site:ActOfViolationApplication
   v-s:shortLabel "Акты нарушений"@ru ;
   v-s:shortLabel "Acts of violation"@en ;
   v-s:hasIcon site:ActOfViolationIcon ;
-  v-ui:hasTemplate v-s:ApplicationTemplate ;
+  v-ui:hasTemplate site:ApplicationTemplate ;
 
-  v-s:description """
+  v-s:summary """
 Приложение предназначено для устранения нарушений внутреннего правил и режима предприятия.
 
 **Приложение обеспечивает возможность:**
 - Зафиксировать нарушения режима сотрудниками предприятия или подрядных организаций, неисправность оборудования на КПП.
 - Выставить претензию подрядчику на основании оформленного акта нарушений.
   """@ru;
-  v-s:description """
+  v-s:summary """
 The application is designed to eliminate violations of the enterprise internal rules.
 
 **The application allows to:**

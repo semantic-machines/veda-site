@@ -24,9 +24,9 @@ site:RepresentativeCostsApplication
   v-s:shortLabel "Представительские расходы"@ru ;
   v-s:shortLabel "Representative costs"@en ;
   v-s:hasIcon site:RepresentativeCostsApplicationIcon ;
-  v-ui:hasTemplate v-s:ApplicationTemplate ;
+  v-ui:hasTemplate site:ApplicationTemplate ;
 
-  v-s:description """
+  v-s:summary """
 Приложение предназначено для ведения формализованного учета затрат на проведение различных мероприятий (представительские расходы).
 
 **Приложение обеспечивает возможность:**
@@ -34,7 +34,7 @@ site:RepresentativeCostsApplication
 - Рассчитать и учесть расходы на проведение, в том числе в пересчете на одного участника.
 - Отчитаться о фактических затратах.
   """@ru;
-  v-s:description """
+  v-s:summary """
 The application is designed to account representative costs for various events.
 
 **The application allows to:**

@@ -24,9 +24,9 @@ site:AuditQualityApplication
   v-s:shortLabel "Аудиты качества"@ru ;
   v-s:shortLabel "Quality audits"@en ;
   v-s:hasIcon site:AuditQualityIcon ;
-  v-ui:hasTemplate v-s:ApplicationTemplate ;
+  v-ui:hasTemplate site:ApplicationTemplate ;
 
-  v-s:description """
+  v-s:summary """
 Приложение предназначено для проведения аудитов соответствия бизнес-процессов требованиям стандартов системы менеджмента качества (СМК).
 
 **Приложение обеспечивает возможность:**
@@ -34,7 +34,7 @@ site:AuditQualityApplication
 - Оформлять наблюдения аудитов: выставлять оценки соответствия проверяемым требованиям, фиксировать отклонения, выдавать рекомендации по улучшению.
 - Формировать план мероприятий по устранению выявленных отклонений в виде поручений ответственным исполнителям. Контролировать выполнение, формировать отчеты.
   """@ru;
-  v-s:description """
+  v-s:summary """
 The application is designed to audit the compliance of business processes to requirements of quality management system (QMS).
 
 **The application allows to:**

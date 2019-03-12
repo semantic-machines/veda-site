@@ -24,9 +24,9 @@ site:BusinessTripApplication
   v-s:shortLabel "Командировки"@ru ;
   v-s:shortLabel "Business trips"@en ;
   v-s:hasIcon site:BusinessTripApplicationIcon ;
-  v-ui:hasTemplate v-s:ApplicationTemplate ;
+  v-ui:hasTemplate site:ApplicationTemplate ;
 
-  v-s:description """
+  v-s:summary """
 Приложение предназначено для оформления комплекта командировочных документов.
 
 **Приложение обеспечивает возможность:**
@@ -36,7 +36,7 @@ site:BusinessTripApplication
   - Предоставить отчетные документы.
   - Сформировать отчёт по командированным сотрудникам.
   """@ru ;
-  v-s:description """
+  v-s:summary """
 The application is designed for registration and processing of business trip documents.
 
 **The application allows to:**

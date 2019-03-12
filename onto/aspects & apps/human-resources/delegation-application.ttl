@@ -24,9 +24,9 @@ site:DelegationApplication
   v-s:shortLabel "Делегирование полномочий"@ru ;
   v-s:shortLabel "Delegation"@en ;
   v-s:hasIcon site:DelegationApplicationIcon ;
-  v-ui:hasTemplate v-s:ApplicationTemplate ;
+  v-ui:hasTemplate site:ApplicationTemplate ;
 
-  v-s:description """
+  v-s:summary """
 Приложение предназначено для оформления замещения в системе отсутствующего сотрудника на определенный срок или бессрочно в соответствии с должностными полномочиями замещаемого сотрудника.
 
 **Приложение обеспечивает возможность:**
@@ -34,7 +34,7 @@ site:DelegationApplication
 - Заместителю исполнять входящие задачи по процессам за замещаемого сотрудника.
 - Назначать сотрудников на «роли» для выполнения задач в рамках деловых процессов.
   """@ru;
-  v-s:description """
+  v-s:summary """
 The application is designed for substitution of an absent employee in the system for a period fo time in accordance with the official authority of the substitute employee.
 
 **The application allows to:**

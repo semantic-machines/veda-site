@@ -24,9 +24,9 @@ site:MeetingsManagementApplication
   v-s:shortLabel "Встречи"@ru ;
   v-s:shortLabel "Meetings"@en ;
   v-s:hasIcon site:MeetingsManagementApplicationIcon ;
-  v-ui:hasTemplate v-s:ApplicationTemplate ;
+  v-ui:hasTemplate site:ApplicationTemplate ;
 
-  v-s:description """
+  v-s:summary """
 Приложение предназначено для обеспечения совместной работы сотрудников в рамках рабочих встреч.
 
 **Приложение обеспечивает возможность:**
@@ -34,7 +34,7 @@ site:MeetingsManagementApplication
   - Вести протоколы встреч, фиксировать принятые решения.
   - Формировать план мероприятий по итогам встреч в виде поручений исполнителям. Назначать ответственных, контролировать статус выполнения.
   """@ru ;
-  v-s:description """
+  v-s:summary """
 Application is designed to support employees' collaboration during working meetings.
 
 **The application allows to:**

@@ -24,9 +24,9 @@ site:ClaimsManagementApplication
   v-s:shortLabel "Претензии"@ru ;
   v-s:shortLabel "Claims"@en ;
   v-s:hasIcon site:ClaimsManagementIcon ;
-  v-ui:hasTemplate v-s:ApplicationTemplate ;
+  v-ui:hasTemplate site:ApplicationTemplate ;
 
-  v-s:description """
+  v-s:summary """
 Приложение предназначено для работы с претензиями.
 
 **Приложение обеспечивает возможность:**
@@ -35,7 +35,7 @@ site:ClaimsManagementApplication
   - Контролировать сроки исполнения.
   - Формировать отчеты о предпринятых действиях.
   """@ru ;
-  v-s:description """
+  v-s:summary """
 The application is designed to work with claims.
 
 **The application allows to:**

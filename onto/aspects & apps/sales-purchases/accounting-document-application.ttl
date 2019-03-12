@@ -23,9 +23,9 @@ site:AccountingDocApplication
   v-s:shortLabel "Первичные документы"@ru ;
   v-s:shortLabel "Accounting documents"@en ;
   v-s:hasIcon site:AccountingDocIcon ;
-  v-ui:hasTemplate v-s:ApplicationTemplate ;
+  v-ui:hasTemplate site:ApplicationTemplate ;
 
-  v-s:description """
+  v-s:summary """
 Приложение предназначено для обеспечения оперативной обработки и хранения первичной бухгалтерской документации.
 
 **Приложение обеспечивает возможность:**
@@ -33,7 +33,7 @@ site:AccountingDocApplication
   - Подготовить пакет первичных документов для обмена с контрагентами и для проведения налоговой или аудиторской проверки.
   - Сформировать архив первичных документов для долгосрочного хранения.
   """@ru ;
-  v-s:description """
+  v-s:summary """
 Application purpose is to provide operational processing and storage of primary accounting documentation.
 
 **The application allows to:**

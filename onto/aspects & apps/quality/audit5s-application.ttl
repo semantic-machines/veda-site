@@ -24,16 +24,16 @@ site:Audit5SApplication
   v-s:shortLabel "Аудиты 5S"@ru ;
   v-s:shortLabel "Audits 5S"@en ;
   v-s:hasIcon site:Audit5SApplicationIcon ;
-  v-ui:hasTemplate v-s:ApplicationTemplate ;
+  v-ui:hasTemplate site:ApplicationTemplate ;
 
-  v-s:description """
+  v-s:summary """
 Приложение предназначено для оценки порядка на рабочих местах сотрудников по методологии 5S.
 
 **Приложение обеспечивает возможность:**
 - Оформить проведенный аудит 5S и указать соответствие проверяемого рабочего места установленным требованиям.
 - Автоматически определить итоговую оценку соответствия требованиям методологии.
   """@ru;
-  v-s:description """
+  v-s:summary """
 The application is designed to assess the order at employees workplaces following 5S methodology.
 
 **The application allows to:**

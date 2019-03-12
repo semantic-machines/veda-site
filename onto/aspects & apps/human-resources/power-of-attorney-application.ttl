@@ -24,9 +24,9 @@ site:PowerOfAttorneyApplication
   v-s:shortLabel "Доверенности"@ru ;
   v-s:shortLabel "Power of attorney"@en ;
   v-s:hasIcon site:PowerOfAttorneyApplicationIcon ;
-  v-ui:hasTemplate v-s:ApplicationTemplate ;
+  v-ui:hasTemplate site:ApplicationTemplate ;
 
-  v-s:description """
+  v-s:summary """
 Приложение предназначено для оформления и регистрации доверенностей.
 
 **Приложение обеспечивает возможность:**
@@ -35,7 +35,7 @@ site:PowerOfAttorneyApplication
   - Вести единый реестр выданных доверенностей.
   - Получить быстрый доступ к информации по выданной доверенности: срок действия, передаваемые полномочия, объект доверия.
   """@ru ;
-  v-s:description """
+  v-s:summary """
 The application is intended for registration of powers of attorney.
 
 **The application allows to:**

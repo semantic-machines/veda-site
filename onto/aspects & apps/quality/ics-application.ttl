@@ -24,9 +24,9 @@ site:ICSApplication
   v-s:shortLabel "Внутренняя удовлетворенность"@ru ;
   v-s:shortLabel "Internal clients satisfaction"@en ;
   v-s:hasIcon site:ICSApplicationIcon ;
-  v-ui:hasTemplate v-s:ApplicationTemplate ;
+  v-ui:hasTemplate site:ApplicationTemplate ;
 
-  v-s:description """
+  v-s:summary """
 Приложение предназначено для повышения качества взаимодействия в процессах системы менеджмента качества (СМК).
 Оценка качества взаимодействия выполняется руководителями бизнес-процессов каждый квартал путем заполнения анкет с выставлением взаимных оценок.
 
@@ -35,7 +35,7 @@ site:ICSApplication
 - Выставить обоснованные оценки смежным бизнес-процессам, получить оценки по своему процессу.
 - Провести анализ и предоставить обратную связь по полученным оценкам.
   """@ru;
-  v-s:description """
+  v-s:summary """
 The application is designed to increase the quality of interaction in processes defined in quality management system.
 The assessment is performed quarterly by business process managers by filling in the questionnaires with mutual ratings.
 

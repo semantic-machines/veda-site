@@ -24,9 +24,9 @@ site:ContractorsManagementApplication
   v-s:shortLabel "Контрагенты"@ru ;
   v-s:shortLabel "Contractors"@en ;
   v-s:hasIcon site:ContractorsManagementIcon ;
-  v-ui:hasTemplate v-s:ApplicationTemplate ;
+  v-ui:hasTemplate site:ApplicationTemplate ;
 
-  v-s:description """
+  v-s:summary """
 Приложение предназначено для формирования актуальной базы данных контрагентов и проведения процедуры проверки контрагентов Службой экономической безопасности, Правовым и Налоговым управлениями.
 
 **Приложение обеспечивает возможность:**
@@ -35,7 +35,7 @@ site:ContractorsManagementApplication
   - Заключать договоры с контрагентом только по согласованным видам деятельности.
   - Оформлять заявки на создание / изменение контрагентов.
 """@ru ;
-  v-s:description """
+  v-s:summary """
 Application is designed to form actual contractors data base and to implement contractor's verification procedure by Financial security, Legal, Tax departments.
 
 **The application allows to:**
