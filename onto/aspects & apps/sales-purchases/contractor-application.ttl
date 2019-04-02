@@ -44,6 +44,54 @@ Application is designed to form actual contractors data base and to implement co
   - Make agreements with contractor for the verified services only.
   - Form requests to create / change of contractor records.
 """@en ;
+  v-s:description """
+### Объекты предметной области
+---
+<div class='row'>
+
+<div class='col-md-7'>
+
+**Организация** — карточка юридического лица в системе, содержит основные реквизиты: наименование, форму собственности, ИНН, КПП, юридический и почтовый адреc.
+
+**Филиал** — составная часть документа Организация, оформляется на обособленные подразделения основного юридического лица, карточка которого заведена в системе.
+
+**Досье** — формируется  на юридическое лицо, с которым сотрудничает предприятие, на основании оформленного документа Организация. Содержит информацию о партнере, необходимую для заключения различных сделок.
+
+**Запрос на согласование** — формируется для проведения процедуры проверки партнера на соответствие внутренним требованиям предприятия. Предшествует заключению контракта.
+
+**Резолюция** — составная часть Запроса, заполняется согласующим после проведения необходимой проверки, может быть как положительной, так и отрицательной.
+
+**Единый лист согласования** — составная часть Запроса. Содержит итоговое решение согласующих по работе с контрагентом, дату принятия решения.
+
+Приложение позволяет делить контрагентов на категории в зависимости от различных характеристик, исходя из этого использовать автоматические маршруты согласования.
+
+</div>
+
+<div class='col-md-5'>
+
+![Схема процесса управления аудитами безопасности](/files/site:ContractorCategoryProcessDiagram_Ru#center)
+
+</div>
+
+</div>
+  """@ru;
+  v-s:description """
+### Domain subjects
+---
+<div class='row'>
+
+<div class='col-md-7'>
+
+</div>
+
+<div class='col-md-5'>
+
+![Схема процесса управления аудитами безопасности](/files/site:ContractorCategoryProcessDiagram_En#center)
+
+</div>
+
+</div>
+  """@en;
 .
 
 site:ContractorsManagementIcon
@@ -51,4 +99,19 @@ site:ContractorsManagementIcon
   v-s:fileUri "contractor.svg"^^xsd:string ;
   v-s:fileName "contractor.svg"^^xsd:string ;
   v-s:filePath "/site"^^xsd:string ;
+.
+
+site:ContractorCategoryProcessDiagram_Ru
+  a v-s:File ;
+  rdfs:label "Схема процесса";
+  v-s:fileUri "contractor-category-process-diagram-ru.svg" ;
+  v-s:fileName "contractor-category-process-diagram-ru.svg" ;
+  v-s:filePath "/site/diagrams"^^xsd:string ;
+.
+site:ContractorCategoryProcessDiagram_En
+  a v-s:File ;
+  rdfs:label "Схема процесса";
+  v-s:fileUri "contractor-category-process-diagram-en.svg" ;
+  v-s:fileName "contractor-category-process-diagram-en.svg" ;
+  v-s:filePath "/site/diagrams" ;
 .

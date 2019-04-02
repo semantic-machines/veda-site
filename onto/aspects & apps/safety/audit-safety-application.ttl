@@ -24,7 +24,6 @@ site:AuditSafetyApplication
   v-s:shortLabel "Аудиты безопасности"@ru ;
   v-s:shortLabel "Safety audits"@en ;
   v-s:hasIcon site:AuditSafetyIcon ;
-  v-s:attachment site:AuditSafetyProcessDiagram ;
   v-ui:hasTemplate site:ApplicationTemplate ;
 
   v-s:summary """
@@ -46,12 +45,49 @@ The application is designed to improve general production safety of the enterpri
 - Assign responsibility, monitor the implementation of planned actions.
   """@en;
   v-s:description """
-### Подробное описание приложения  
+### Объекты предметной области
+---
+<div class='row'>
 
-<br>
+<div class='col-md-7'>
 
-![Схема процесса управления аудитами безопасности](/files/site:AuditSafetyProcessDiagram)
+**Аудит безопасности** — документ, который содержит основные сведения о запланированном или проведенном аудите: вид аудита, дату проведения, состав аудиторов, проверяемое подразделение или подрядчик. В случае, если аудит проводился группой аудиторов, свои наблюдения может внести каждый аудитор.
+
+**Годовая программа аудитов** — план аудитов на год. В приложении предусмотрено заблаговременное оповещение заинтересованных лиц о датах предстоящих аудитов.
+
+**Мероприятие аудита** — составная часть документа Аудит безопасности, содержит замечания о выявленных положительных наблюдениях или нарушениях правил, норм, требований промышленной безопасности и охраны труда. Заполняется по итогам проведенного аудита. Совокупность мероприятий позволяет сформировать план по устранению выявленных нарушений с указанием сроков, ответственных сотрудников, приоритетом выданных исполнителям задач. В системе ответственным сотрудникам автоматически будут выданы поручения на исполнение.
+
+**Отчет о выполнении** - составная часть документа Аудит безопасности, заполняется ответственными сотрудниками по факту устранения замечаний (выполнения поручений).
+
+Приложение позволяет формировать печатные бланки заполненных аудитов и отчеты о проделанной работе в различных разрезах.
+
+</div>
+
+<div class='col-md-5'>
+
+![Схема процесса управления аудитами безопасности](/files/site:AuditSafetyProcessDiagram_Ru#center)
+
+</div>
+
+</div>
   """@ru;
+  v-s:description """
+### Domain subjects
+---
+<div class='row'>
+
+<div class='col-md-7'>
+
+</div>
+
+<div class='col-md-5'>
+
+![Схема процесса управления аудитами безопасности](/files/site:AuditSafetyProcessDiagram_En#center)
+
+</div>
+
+</div>
+  """@en;
 .
 
 site:AuditSafetyIcon
@@ -61,10 +97,17 @@ site:AuditSafetyIcon
   v-s:filePath "/site"^^xsd:string ;
 .
 
-site:AuditSafetyProcessDiagram
+site:AuditSafetyProcessDiagram_Ru
   a v-s:File ;
   rdfs:label "Схема процесса";
-  v-s:fileUri "audit-safety-process-diagram.svg"^^xsd:string ;
-  v-s:fileName "audit-safety-process-diagram.svg"^^xsd:string ;
+  v-s:fileUri "audit-safety-process-diagram-ru.svg"^^xsd:string ;
+  v-s:fileName "audit-safety-process-diagram-ru.svg"^^xsd:string ;
+  v-s:filePath "/site/diagrams"^^xsd:string ;
+.
+site:AuditSafetyProcessDiagram_En
+  a v-s:File ;
+  rdfs:label "Схема процесса";
+  v-s:fileUri "audit-safety-process-diagram-en.svg"^^xsd:string ;
+  v-s:fileName "audit-safety-process-diagram-en.svg"^^xsd:string ;
   v-s:filePath "/site/diagrams"^^xsd:string ;
 .

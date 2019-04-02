@@ -119,6 +119,19 @@ site:LayoutTemplate
       vertical-align: middle;
       float: none;
     }
+    img[src*="#left"] {
+      float: left;
+    }
+    img[src*="#right"] {
+      float: right;
+    }
+    img[src*="#center"] {
+      display: block;
+      margin: auto;
+    }
+    img {
+      max-width: 100%;
+    }
   </style>
   <nav role="navigation" class="navbar navbar-veda navbar-fixed" style="background-color: #fff; border-bottom: 2px solid #ddd; margin-bottom:15px;">
     <div class="container">
