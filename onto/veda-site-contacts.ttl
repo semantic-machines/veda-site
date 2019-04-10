@@ -59,7 +59,7 @@ site:ContactsArticle
   site:heading "Контакты"@ru ;
   site:heading "Contacts"@en ;
   site:summary """
-> 167026, Республика Коми, г. Сыктывкар, пр. Бумажников, 2.  
+> 167026, Республика Коми, Сыктывкар, проспект Бумажников, 2.  
 > Телефон: +7 922 276 16 75  
 > E-mail: [info@semantic-machines.com](mailto:info@semantic-machines.com)  
 > Telegram: [https://t.me/semantic_machines](https://t.me/semantic_machines)  
