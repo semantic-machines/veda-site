@@ -59,6 +59,7 @@ site:LayoutTemplate
   rdfs:label "Site layout template"@en ;
   v-ui:template """
 <script><!--async-->
+  document.title = "Смысловые машины";
   // Markdown
   var main = document;
   var observer = new MutationObserver(function(mutations, observer) {
