@@ -59,13 +59,17 @@ site:ContactsArticle
   site:heading "Контакты"@ru ;
   site:heading "Contacts"@en ;
   site:summary """
-> 167026, Республика Коми, г. Сыктывкар, пр. Бумажников, 35-133.  
-> Телефон: +7 912 965 14 01  
+> 167026, Республика Коми, г. Сыктывкар, пр. Бумажников, 2.
+> Телефон: +7 922 276 16 75
 > E-mail: [info@semantic-machines.com](mailto:info@semantic-machines.com)
+> Telegram: [https://t.me/semantic_machines](https://t.me/semantic_machines)
+> GitHub: [https://github.com/semantic-machines/veda](https://github.com/semantic-machines/veda)
   """@ru ;
   site:summary """
-> Russian Federation, The Republic of Komi, 167026, Syktyvkar, Bumazhnikov ave, 35-133.  
-> Tel: +7 912 965 14 01  
+> Russian Federation, The Republic of Komi, 167026, Syktyvkar, Bumazhnikov ave, 2.
+> Tel: +7 922 276 16 75
 > E-mail: [info@semantic-machines.com](mailto:info@semantic-machines.com)
+> Telegram: [https://t.me/semantic_machines](https://t.me/semantic_machines)
+> GitHub: [https://github.com/semantic-machines/veda](https://github.com/semantic-machines/veda)
   """@en ;
 .
