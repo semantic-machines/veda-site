@@ -68,7 +68,7 @@ site:AboutMainArticle
 Наши клиенты успешно используют их с 2010 года.
   """@ru ;
   site:summary """
-For development we use [integrated platform Veda](#/site:Platform).
+For development we use [the integrated platform Veda](#/site:Platform).
 
 We have already developed [a number of ready-made applications](#/site:Applications).
 
@@ -160,7 +160,7 @@ Applications on Veda platform include a set of objects and processes. This signi
 
 Some applications are offered in several variants with varying details level depending on the business needs.
 
-The components of the applications can be changed and adapted to the actual tasks "on the fly."
+Application components can be changed and adapted to the actual tasks on the fly.
   """@en ;
 .
 
@@ -217,7 +217,7 @@ adaptation and implementation of applications on the platform Veda,
 
 enhance applications in accordance with the customer's business needs,
 
-perform maintenance of the formed system,
+carry out maintenance of the formed system,
 
 train and provide technical support to users.
   """@en ;

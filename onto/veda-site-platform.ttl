@@ -124,9 +124,9 @@ site:PlatformArticle
 > _Кстати, этот сайт тоже является приложением на платформе Veda. [Посмотреть модель данных](#/site:Platform//v-ui:Graph)_
   """@ru ;
   site:summary """
-> Modern semantic open source platform.
-> Designed to develop applications for business process automation.
-> _By the way, this site is also the application powered by Veda platform. [See data model](#/site:Platform//v-ui:Graph)_
+> A modern open-source semantic platform.
+> Designed for the rapid development of business-processes automation applications.
+> _By the way, this site is also an application on the Veda platform. [View data model](#/site:Platform//v-ui:Graph)_
   """@en ;
 
   site:content """
@@ -173,18 +173,18 @@ site:PlatformArticle
 
   site:content """
 ## Features
-- Semantic Web methodology used for data & schema description.
+- Semantic Web methodology is used for data & schema description.
 - Domain ontologies are described, not hard coded!
 - High development speed. Ontology changes are processed on the fly.
 - Versatile data visualization methods.
-- Two-tier design: «thin» stateless server, full featured stateful single page application in browser.
+- Two-tier design: «thin» stateless server, full featured stateful single page application in the browser.
 - High performance & scalability.
 
 ---
 
 ### Data management
 - Object classes, properties and templates are defined using OWL & RDF/S vocabularies.
-- Objects are stored according to defined classes, properties and templates.
+- Objects are stored according to the defined classes, properties and templates.
 - Objects versions management support.
 - Mutual object links.
 - Fulltext and fine attributive search support.
@@ -195,7 +195,7 @@ site:PlatformArticle
 ---
 
 ### Business processes management
-- Worflows are designed with embedded editor.
+- Worflows are designed with the embedded editor.
 - Worflows visualization and management (start, stop, change) are available for end-users.
 - Automatic worflow  task management - tasks assignment, decisions processing.
 - Tasks can be searched, sorted, delegated.
