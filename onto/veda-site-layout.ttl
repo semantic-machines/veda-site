@@ -146,7 +146,7 @@ site:LayoutTemplate
       <div class="collapse navbar-collapse" id="navbar-collapse">
         <ul class="nav navbar-nav navbar-right" style="margin-left:15px;">
           <li id="user-info" class="hidden"></li>
-          <li about="v-ui:AvailableLanguage" data-template="v-ui:LanguageSwitchTemplate"></li>
+          <li about="v-ui:AvailableLanguage" data-template="v-ui:LanguageSwitchTemplate" data-switch-behavior="radio"></li>
         </ul>
         <ul class="nav navbar-nav navbar-right nav-pages" about="site:Main" rel="site:hasPage">
           <li about="@"><a about="@" href="#/@" property="rdfs:label"></a></li>
