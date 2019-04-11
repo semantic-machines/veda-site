@@ -157,6 +157,7 @@ site:PlatformArticle
 - Запуск, редактирование, прерывание процессов обработки документов.
 - Визуализация и журналирование хода выполнения процессов.
 - Обеспечение взаимодействия участников деловых процессов — автоматическое формирование задач, обработка ответов.
+- Напоминания по отложенным событиям (например, завершение срока действия документа, изменение статуса).
 - Поиск, сортировка задач.
 
 ---
@@ -195,9 +196,10 @@ site:PlatformArticle
 ---
 
 ### Business processes management
-- Worflows are designed with the embedded editor.
-- Worflows visualization and management (start, stop, change) are available for end-users.
-- Automatic worflow  task management - tasks assignment, decisions processing.
+- Workflows are designed with the embedded editor.
+- Workflows visualization and management (start, stop, change) are available for end-users.
+- Automatic workflow task management - tasks assignment, decisions processing.
+- Automatic delayed events notifications (i.e. document expiration, status change).
 - Tasks can be searched, sorted, delegated.
 
 ---
@@ -206,7 +208,7 @@ site:PlatformArticle
 - Modern web-interface that fit mobile devices.
 - Users authentication and authorization.
 - MS Active directory integration for single sign-on authentication.
-- Access to every system object type of is authorized: classes, properties, user objects, dicitionaries, tasks etc.
+- Access to every system object type of is authorized: classes, properties, user objects, dictionaries, tasks etc.
 - Rights delegation - assignment of a deputy with automatic authorization.
 - Integration with ERP systems for master data adoption.
 - Integration with mail service for workflow initiated notifications and automated object creation from e-mail.
