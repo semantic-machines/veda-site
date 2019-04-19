@@ -27,6 +27,7 @@ site:Main
   v-ui:hasTemplate site:MainTemplate ;
 #  site:hasPage site:About ;
   site:hasPage site:Platform ;
+  site:hasPage site:Documentation ;
   site:hasPage site:Applications ;
   site:hasPage site:Services ;
   site:hasPage site:Contacts ;

@@ -1,0 +1,68 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix v-fs: <http://semantic-machines.com/veda/veda-search/> .
+@prefix v-s: <http://semantic-machines.com/veda/veda-schema/> .
+@prefix v-ui: <http://semantic-machines.com/veda/veda-ui/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix d: <http://semantic-machines.com/veda/veda-data/> .
+@prefix site: <http://semantic-machines.com/veda-site/> .
+
+### ABOUT ###
+
+<http://semantic-machines.com/veda/veda-site-documentation>
+  rdf:type owl:Ontology ;
+  rdfs:label "Сайт Veda. Документация"@ru ;
+  rdfs:label "Veda site. Documentation"@en ;
+#  owl:versionInfo "1.3" ;
+  v-s:loadPriority 10 ;
+.
+
+### PAGES ###
+
+site:Documentation
+  rdf:type site:Page ;
+  rdfs:label "Документация"@ru ;
+  rdfs:label "Documentation"@en ;
+  v-ui:hasTemplate site:DocumentationTemplate ;
+  site:hasArticle site:DeveloperGuide ;
+.
+
+### TEMPLATES ###
+
+site:DocumentationTemplate
+  rdf:type v-ui:ClassTemplate ;
+  rdfs:label "Шаблон страницы о компании"@ru ;
+  rdfs:label "About page template"@en ;
+  rdf:type v-ui:ClassTemplate ;
+  v-ui:template """
+<div about="@" rel="site:hasArticle" class="container sheet"></div>
+  """ ;
+.
+
+site:DeveloperGuide
+  rdf:type site:Article ;
+  rdfs:label "Руководство разработчика"@ru ;
+  rdfs:label "Developer guide"@en ;
+  v-ui:hasTemplate site:DeveloperGuideTemplate ;
+.
+
+site:DeveloperGuideTemplate
+  rdf:type v-ui:ClassTemplate ;
+  rdfs:label "Шаблон статьи Руководство разработчика"@ru ;
+  rdfs:label "Developer guide article template"@en ;
+  rdf:type v-ui:ClassTemplate ;
+  v-ui:template """
+<script>
+  var base = "./doc/developer/";
+  var re = new RegExp('(!\\[.*]\\().*\\/(.*\\))', 'gi');
+  $.get(base + "dev-doc.md").then(function (doc) {
+    doc = doc.replace(re, "$1" + base + "$2");
+    template.text(doc);
+  });
+  //# sourceURL=site:DeveloperGuideTemplate_pre
+</script>
+<div class="markdown" style="padding: 0 30px;"></div>
+  """ ;
+.
+
