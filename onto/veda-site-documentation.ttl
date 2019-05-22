@@ -56,7 +56,7 @@ site:DeveloperGuideTemplate
 <script>
   var base = "./doc/developer/";
   var re = new RegExp('(!\\[.*]\\().*\\/(.*\\))', 'gi');
-  return $.get(base + "dev-doc.md").then(function (doc) {
+  return $.get(base + "dev-doc.md", { "_": $.now() }).then(function (doc) {
     doc = doc.replace(re, "$1" + base + "$2");
     template.find(".content").text(doc);
   });
