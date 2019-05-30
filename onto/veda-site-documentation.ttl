@@ -62,7 +62,7 @@ site:DeveloperGuideTemplate
   });
   //# sourceURL=site:DeveloperGuideTemplate_pre
 </script>
-<div style="padding: 0 30px;">
+<div>
   <style>
     .content {
       padding: 0 30px;
