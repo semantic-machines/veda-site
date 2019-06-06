@@ -98,6 +98,8 @@ site:DeveloperGuideTemplate
     }
     .docs img {
       margin: 1em 0;
+      border: 1px solid #aaa;
+      border-radius: 6px;
     }
   </style>
   <div class="docs markdown"></div>
