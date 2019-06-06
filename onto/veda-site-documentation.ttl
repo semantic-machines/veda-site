@@ -97,7 +97,7 @@ site:DeveloperGuideTemplate
       background-color: rgba(0, 0, 0, 0.05);
     }
     .docs img {
-      margin: 1em 0;
+      margin-top: 1em;
       border: 1px solid #aaa;
       border-radius: 6px;
     }
