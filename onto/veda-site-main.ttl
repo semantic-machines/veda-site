@@ -134,6 +134,9 @@ site:PlatformMainTemplate
         <a href="#/site:Platform" class="btn btn-lg btn-primary margin-xl">
           <span about="site:More" property="rdfs:label"></span>
         </a>
+        <a href="#/site:Download" class="btn btn-lg btn-success margin-xl">
+          <span about="site:Download" property="rdfs:label"></span>
+        </a>
       </div>
     </div>
   </div>
@@ -212,7 +215,7 @@ site:ServicesMainArticle
 Обучаем и поддерживаем пользователей.
   """@ru ;
   site:summary """
-We provide services for the development, 
+We provide services for the development,
 
 adaptation and implementation of applications on the platform Veda,
 

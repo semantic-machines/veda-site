@@ -141,7 +141,7 @@ site:LayoutTemplate
           <span class="glyphicon glyphicon-menu-hamburger"></span>
         </button>
         <a style="width:300px;margin-top:-10px;" class="navbar-brand" href="#/site:Main" about="site:SemanticMachinesLogoLong" data-template="v-ui:ImageTemplate"></a>
-        <small style="margin-top:5px;font-weight:200;" class="navbar-brand text-muted" class="pull-left" about="site:Slogan" property="rdfs:label"></small>
+        <small style="margin-top:5px;font-weight:200; font-size: 1em;" class="navbar-brand text-muted" class="pull-left" about="site:Slogan" property="rdfs:label"></small>
       </div>
       <div class="collapse navbar-collapse" id="navbar-collapse">
         <ul class="nav navbar-nav navbar-right" style="margin-left:15px;">

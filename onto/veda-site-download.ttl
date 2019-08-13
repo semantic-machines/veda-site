@@ -1,0 +1,118 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix v-fs: <http://semantic-machines.com/veda/veda-search/> .
+@prefix v-s: <http://semantic-machines.com/veda/veda-schema/> .
+@prefix v-ui: <http://semantic-machines.com/veda/veda-ui/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix d: <http://semantic-machines.com/veda/veda-data/> .
+@prefix site: <http://semantic-machines.com/veda-site/> .
+
+### DOWNLOAD ###
+
+<http://semantic-machines.com/veda/veda-site-download>
+  rdf:type owl:Ontology ;
+  rdfs:label "Сайт Veda. Скачать"@ru ;
+  rdfs:label "Veda site. Download"@en ;
+#  owl:versionInfo "1.3" ;
+  v-s:loadPriority 10 ;
+.
+
+### PAGES ###
+
+site:Download
+  rdf:type site:Page ;
+  rdfs:label "Скачать"@ru ;
+  rdfs:label "Download"@en ;
+  v-ui:hasTemplate site:DownloadTemplate ;
+  site:hasArticle site:DownloadArticle ;
+.
+
+### TEMPLATES ####
+
+site:DownloadTemplate
+  rdf:type v-ui:ClassTemplate ;
+  rdfs:label "Шаблон страницы платформы"@ru ;
+  rdfs:label "Platform page template"@en ;
+  v-ui:template """
+<div about="@" rel="site:hasArticle">
+  <div class="container sheet page-sheet">
+    <div class="row">
+      <div class="col-md-2 col-md-push-10 vcenter" about="@" rel="v-s:hasImage" data-template="v-ui:ImageTemplate"></div><!--
+   --><div class="col-md-10 col-md-pull-2 vcenter">
+        <h1 about="@" property="site:heading"></h1>
+        <p about="@" property="site:summary" class="markdown lead"></p>
+      </div>
+    </div>
+    <hr>
+    <p about="@" property="site:content" class="markdown"></p>
+  </div>
+</div>
+  """ ;
+.
+
+### IMAGES ###
+
+site:DownloadIcon
+  rdf:type v-s:File ;
+  v-s:fileUri "download.svg" ;
+  v-s:fileName "download.svg" ;
+  v-s:filePath "/site" ;
+.
+
+site:SourceCodeIcon
+  rdf:type v-s:File ;
+  v-s:fileUri "source-code.svg" ;
+  v-s:fileName "source-code.svg" ;
+  v-s:filePath "/site" ;
+.
+
+site:AppImageIcon
+  rdf:type v-s:File ;
+  v-s:fileUri "app-image.svg" ;
+  v-s:fileName "app-image.svg" ;
+  v-s:filePath "/site" ;
+.
+
+### FILES ###
+
+site:SourceCode
+  rdf:type v-s:File ;
+  v-s:fileUri "veda-5.4.8.zip" ;
+  v-s:fileName "veda-5.4.8.zip" ;
+  v-s:filePath "/site/download" ;
+.
+
+site:AppImage
+  rdf:type v-s:File ;
+  v-s:fileUri "Veda-x86_64.AppImage" ;
+  v-s:fileName "Veda-x86_64.AppImage" ;
+  v-s:filePath "/site/download" ;
+.
+
+### ARTICLES ###
+
+site:DownloadArticle
+  rdf:type site:Article ;
+  rdfs:label "Статья Скачать"@ru ;
+  rdfs:label "Download article"@en ;
+  v-s:hasImage site:DownloadIcon ;
+  site:heading "Скачать"@ru ;
+  site:heading "Download"@en ;
+  site:summary """
+> Здесь можно скачать исходные тексты платформы для исследования или образ демонстрационного приложения в формате AppImage.
+  """@ru ;
+  site:summary """
+> Here you can download the platform source code for review or a demo application in AppImage format.
+  """@en ;
+  site:content """
+<img width="48" src="files/site:SourceCodeIcon"></img> [Скачать исходные тексты](files/site:SourceCode).
+
+<img width="48" src="files/site:AppImageIcon"></img> [Скачать приложение в формате AppImage](files/site:AppImage).
+  """@ru ;
+  site:content """
+<img width="48" src="files/site:SourceCodeIcon"></img> [Download source code](files/site:SourceCode).
+
+<img width="48" src="files/site:AppImageIcon"></img> [Download application in AppImage format](files/site:AppImage).
+  """@en ;
+.
