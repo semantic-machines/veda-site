@@ -100,10 +100,10 @@ site:DownloadArticle
   site:heading "Скачать"@ru ;
   site:heading "Download"@en ;
   site:summary """
-> Здесь можно скачать исходные тексты платформы для исследования или образ демонстрационного приложения в формате AppImage.
+> Здесь можно скачать исходные тексты платформы для исследования или образ демонстрационного приложения в формате AppImage для установки в ОС семейства Linux.
   """@ru ;
   site:summary """
-> Here you can download the platform source code for review or a demo application in AppImage format.
+> Here you can download the platform source code for review or a demo application in AppImage format for installation in Linux family OS.
   """@en ;
   site:content """
 <img width="48" src="files/site:SourceCodeIcon"></img> [Скачать исходные тексты](files/site:SourceCode).
