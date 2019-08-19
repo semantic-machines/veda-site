@@ -109,10 +109,14 @@ site:DownloadArticle
 <img width="48" src="files/site:SourceCodeIcon"></img> [Скачать исходные тексты](files/site:SourceCode).
 
 <img width="48" src="files/site:AppImageIcon"></img> [Скачать приложение в формате AppImage](files/site:AppImage).
+
+Лицензия [GPLv3.](http://www.gnu.org/licenses/gpl.html "Официальный текст лицензии GNU General Public License version 3")
   """@ru ;
   site:content """
 <img width="48" src="files/site:SourceCodeIcon"></img> [Download source code](files/site:SourceCode).
 
 <img width="48" src="files/site:AppImageIcon"></img> [Download application in AppImage format](files/site:AppImage).
+
+License [GPLv3.](http://www.gnu.org/licenses/gpl.html "GNU General Public License version 3 official text")
   """@en ;
 .
