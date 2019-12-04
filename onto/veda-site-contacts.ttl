@@ -44,7 +44,7 @@ site:ContactsTemplate
         <p about="@" property="site:summary" class="markdown lead"></p>
       </div>
     </div>
-    <iframe src="https://yandex.ru/map-widget/v1/?z=12&ol=biz&oid=38999126937" height="600" frameborder="0"></iframe>
+    <iframe src="https://yandex.ru/map-widget/v1/?z=12&ol=biz&oid=38999126937" width="-1" height="600" frameborder="0"></iframe>
   </div>
 </div>
   """ ;
@@ -67,10 +67,10 @@ site:ContactsArticle
 > GitHub: [https://github.com/semantic-machines/veda](https://github.com/semantic-machines/veda)  
   """@ru ;
   site:summary """
-> Russian Federation, The Republic of Komi, 167026, Syktyvkar, Bumazhnikov ave, 2.
-> Tel: +7 922 276 16 75
-> E-mail: [info@semantic-machines.com](mailto:info@semantic-machines.com)
-> Telegram: [https://t.me/semantic_machines](https://t.me/semantic_machines)
-> GitHub: [https://github.com/semantic-machines/veda](https://github.com/semantic-machines/veda)
+> Russian Federation, The Republic of Komi, 167026, Syktyvkar, Bumazhnikov ave, 2.  
+> Tel: +7 922 276 16 75  
+> E-mail: [info@semantic-machines.com](mailto:info@semantic-machines.com)  
+> Telegram: [https://t.me/semantic_machines](https://t.me/semantic_machines)  
+> GitHub: [https://github.com/semantic-machines/veda](https://github.com/semantic-machines/veda)  
   """@en ;
 .
