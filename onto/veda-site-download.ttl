@@ -106,16 +106,16 @@ site:DownloadArticle
 > Here you can download the platform source code for review or a demo application in AppImage format for installation in a Linux family OS.
   """@en ;
   site:content """
-<img width="48" src="files/site:SourceCodeIcon"></img> [Скачать исходные тексты](files/site:SourceCode).
+<img width="48" src="files/site:SourceCodeIcon"></img> [Скачать исходные тексты](https://github.com/semantic-machines/veda).
 
-<img width="48" src="files/site:AppImageIcon"></img> [Скачать приложение в формате AppImage](files/site:AppImage).
+<img width="48" src="files/site:AppImageIcon"></img> [Скачать приложение в формате AppImage](https://github.com/semantic-machines/veda/releases).
 
 * Лицензия [GPLv3.](http://www.gnu.org/licenses/gpl.html "Официальный текст лицензии GNU General Public License version 3")
   """@ru ;
   site:content """
-<img width="48" src="files/site:SourceCodeIcon"></img> [Download source code](files/site:SourceCode).
+<img width="48" src="files/site:SourceCodeIcon"></img> [Download source code](https://github.com/semantic-machines/veda).
 
-<img width="48" src="files/site:AppImageIcon"></img> [Download application in AppImage format](files/site:AppImage).
+<img width="48" src="files/site:AppImageIcon"></img> [Download application in AppImage format](https://github.com/semantic-machines/veda/releases).
 
 * License [GPLv3.](http://www.gnu.org/licenses/gpl.html "GNU General Public License version 3 official text")
   """@en ;
