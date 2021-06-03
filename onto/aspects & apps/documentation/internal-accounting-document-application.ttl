@@ -24,7 +24,7 @@ site:InternalAccountingDocApplication
   v-s:shortLabel "Внутренние бухгалтерские документы"@ru ;
   v-s:shortLabel "Internal accounting document"@en ;
   v-s:hasIcon site:AccountingDocIcon ;
-  v-ui:hasTemplate site:ApplicationTemplate ;
+  v-ui:hasTemplate "site_ApplicationTemplate.html" ;
 
   v-s:summary """
 Приложение предназначено для обеспечения оперативной обработки и хранения внутренней бухгалтерской документации.

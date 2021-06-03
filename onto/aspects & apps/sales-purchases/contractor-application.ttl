@@ -24,7 +24,7 @@ site:ContractorsManagementApplication
   v-s:shortLabel "Контрагенты"@ru ;
   v-s:shortLabel "Contractors"@en ;
   v-s:hasIcon site:ContractorsManagementIcon ;
-  v-ui:hasTemplate site:ApplicationTemplate ;
+  v-ui:hasTemplate "site_ApplicationTemplate.html" ;
 
   v-s:summary """
 Приложение предназначено для формирования актуальной базы данных контрагентов и проведения процедуры проверки контрагентов Службой экономической безопасности, Правовым и Налоговым управлениями.

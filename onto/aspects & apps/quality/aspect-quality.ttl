@@ -23,7 +23,7 @@ site:QualityManagementAspect
   rdfs:comment "High requirements for all"@en ;
   v-s:shortLabel "Управление качеством"@ru ;
   v-s:shortLabel "Quality management"@en ;
-  v-ui:hasTemplate v-s:AspectTemplate ;
+  v-ui:hasTemplate "v-s_AspectTemplate.html" ;
 
   v-s:hasApplication site:AuditQualityApplication ;
   v-s:hasApplication site:AuditInternalApplication ;

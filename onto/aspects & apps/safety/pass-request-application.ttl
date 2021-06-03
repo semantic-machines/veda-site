@@ -24,7 +24,7 @@ site:PassRequestApplication
   v-s:shortLabel "Заявки на пропуск"@ru ;
   v-s:shortLabel "Security pass request"@en ;
   v-s:hasIcon site:PassRequestIcon ;
-  v-ui:hasTemplate site:ApplicationTemplate ;
+  v-ui:hasTemplate "site_ApplicationTemplate.html" ;
 
   v-s:summary """
 Приложение предназначено для автоматизации процессов оформления пропусков.

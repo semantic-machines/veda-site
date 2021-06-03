@@ -24,27 +24,11 @@ site:VedaOnline
   rdf:type site:Page ;
   rdfs:label "Veda онлайн"@ru ;
   rdfs:label "Veda online"@en ;
-  v-ui:hasTemplate site:VedaOnlineTemplate ;
+  v-ui:hasTemplate "site_VedaOnlineTemplate.html" ;
   site:hasArticle site:VedaOnlineArticle ;
 .
 
 ### TEMPLATES ####
-
-site:VedaOnlineTemplate
-  rdf:type v-ui:ClassTemplate ;
-  rdfs:label "Шаблон страницы Veda онлайн"@ru ;
-  rdfs:label "Veda online page template"@en ;
-  v-ui:template """
-<div about="@" rel="site:hasArticle">
-  <div class="container sheet page-sheet">
-    <h1 about="@" property="site:heading" class="margin-xl page-header"></h1>
-    <p about="@" property="site:summary" class="markdown lead"></p>
-    <p about="@" property="site:content" class="markdown"></p>
-  </div>
-</div>
-  """ ;
-.
-
 ### ARTICLES ###
 
 site:VedaOnlineArticle

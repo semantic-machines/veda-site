@@ -23,7 +23,7 @@ site:ProductionSafetyAspect
   rdfs:comment "Safety first!"@en ;
   v-s:shortLabel "Промышленная безопасность"@ru ;
   v-s:shortLabel "Production safety"@en ;
-  v-ui:hasTemplate v-s:AspectTemplate ;
+  v-ui:hasTemplate "v-s_AspectTemplate.html" ;
 
   v-s:hasApplication site:AuditSafetyApplication ;
   v-s:hasApplication site:ActFailureApplication ;

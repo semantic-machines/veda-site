@@ -25,7 +25,7 @@ site:Page
   rdfs:subClassOf owl:Thing ;
   rdfs:label "Страница"@ru ;
   rdfs:label "Page"@en ;
-  v-ui:hasTemplate site:PageTemplate ;
+  v-ui:hasTemplate "site_PageTemplate.html" ;
 .
 
 site:Article
@@ -33,7 +33,7 @@ site:Article
   rdfs:subClassOf owl:Thing ;
   rdfs:label "Статья"@ru ;
   rdfs:label "Article"@en ;
-  v-ui:hasTemplate site:ArticleTemplate ;
+  v-ui:hasTemplate "site_ArticleTemplate.html" ;
 .
 
 site:Comment

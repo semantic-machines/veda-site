@@ -23,7 +23,7 @@ site:InformationTechnologyAspect
   rdfs:comment "Digital business transformation"@en ;
   v-s:shortLabel "Информационные технологии"@ru ;
   v-s:shortLabel "Information technology"@en ;
-  v-ui:hasTemplate v-s:AspectTemplate ;
+  v-ui:hasTemplate "v-s_AspectTemplate.html" ;
 
   v-s:hasApplication site:ItServicesApplication ;
 .

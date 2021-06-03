@@ -24,7 +24,7 @@ site:AuditSafetyApplication
   v-s:shortLabel "Аудиты безопасности"@ru ;
   v-s:shortLabel "Safety audits"@en ;
   v-s:hasIcon site:AuditSafetyIcon ;
-  v-ui:hasTemplate site:ApplicationTemplate ;
+  v-ui:hasTemplate "site_ApplicationTemplate.html" ;
 
   v-s:summary """
 Приложение предназначено для повышения общего уровня промышленной безопасности предприятия, предовтращения травм и несчастных случаев на производстве.

@@ -24,7 +24,7 @@ site:PowerOfAttorneyApplication
   v-s:shortLabel "Доверенности"@ru ;
   v-s:shortLabel "Power of attorney"@en ;
   v-s:hasIcon site:PowerOfAttorneyApplicationIcon ;
-  v-ui:hasTemplate site:ApplicationTemplate ;
+  v-ui:hasTemplate "site_ApplicationTemplate.html" ;
 
   v-s:summary """
 Приложение предназначено для оформления и регистрации доверенностей.

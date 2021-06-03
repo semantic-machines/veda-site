@@ -24,7 +24,7 @@ site:CorrespondenceApplication
   v-s:shortLabel "Корреспонденция"@ru ;
   v-s:shortLabel "Correspondence"@en ;
   v-s:hasIcon site:CorrespondenceApplicationIcon ;
-  v-ui:hasTemplate site:ApplicationTemplate ;
+  v-ui:hasTemplate "site_ApplicationTemplate.html" ;
 
   v-s:summary """
 Приложение предназначено для автоматизации делопроизводственных процессов организации.

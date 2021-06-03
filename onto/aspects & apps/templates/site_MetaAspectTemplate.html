@@ -1,0 +1,65 @@
+<div>
+  <style>
+    .aspect-links {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .aspect-link-group {
+      flex-grow: 1;
+      border-bottom: 1px solid #333;
+    }
+    .aspect-link-group * {
+      flex-grow: 1;
+    }
+    .aspect-link-group .btn-link {
+      color: #333;
+      border-radius: 6px 6px 0 0!important;
+    }
+    .aspect-link-group .btn-link:hover {
+      color: #333;
+      text-decoration: underline;
+    }
+    .aspect-link-group .btn-link.active {
+      color: #fff;
+      background-color: #333;
+      border-color: #333;
+      pointer-events: none;
+      text-decoration: none;
+      text-shadow: 0px 1px 1px black;
+    }
+    .aspect-link-group .btn-link.active:hover {
+      color: #fff;
+      text-decoration: underline;
+      background-color: #333;
+      border-color: #333;
+    }
+  </style>
+  <div about="@" rel="v-s:hasAspect">
+    <div>
+      <div about="site:MetaAspect" class="container aspect-links">
+        <div class="btn-group aspect-link-group">
+          <div class="aspect-links" about="@" rel="v-s:hasAspect">
+            <a href="#" class="btn btn-link aspect-link" about="@" property="v-s:shortLabel"></a>
+          </div>
+        </div>
+      </div>
+      <div class="aspect-container" about="@" data-template="site_AspectTemplate.html"></div>
+    </div>
+    <script>
+      $(".aspect-link[about='" + veda.Util.escape4$(individual.id) + "']", template).addClass("active");
+      //# sourceURL=site_MetaAspectTemplate.html_inline
+    </script>
+  </div>
+</div>
+<script>
+  template.on("click", ".aspect-link", function (e) {
+    e.preventDefault();
+    var that = $(this);
+    var tabId = that.attr("about");
+    var tab = $(".active.aspect-link[about='" + veda.Util.escape4$(tabId) + "']");
+    $([document.documentElement, document.body]).animate({
+      scrollTop: tab.offset().top - 20
+    }, 400);
+  });
+//# sourceURL=site_MetaAspectTemplate.html_post
+</script>

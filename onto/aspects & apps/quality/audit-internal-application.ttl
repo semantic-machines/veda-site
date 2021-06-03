@@ -24,7 +24,7 @@ site:AuditInternalApplication
   v-s:shortLabel "Внутренние аудиты"@ru ;
   v-s:shortLabel "Internal audits"@en ;
   v-s:hasIcon site:AuditInternalIcon ;
-  v-ui:hasTemplate site:ApplicationTemplate ;
+  v-ui:hasTemplate "site_ApplicationTemplate.html" ;
 
   v-s:summary """
 Приложение предназначено для выявления и устранения несоответствий в различных подразделениях внутренним требованиям группы Монди.
