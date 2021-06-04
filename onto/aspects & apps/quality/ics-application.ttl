@@ -24,7 +24,7 @@ site:ICSApplication
   v-s:shortLabel "Внутренняя удовлетворенность"@ru ;
   v-s:shortLabel "Internal clients satisfaction"@en ;
   v-s:hasIcon site:ICSApplicationIcon ;
-  v-ui:hasTemplate "site_ApplicationTemplate.html" ;
+  v-ui:hasTemplate site:ApplicationTemplate ;
 
   v-s:summary """
 Приложение предназначено для повышения качества взаимодействия в процессах системы менеджмента качества (СМК).

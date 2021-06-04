@@ -24,7 +24,7 @@ site:AuditQualityApplication
   v-s:shortLabel "Аудиты качества"@ru ;
   v-s:shortLabel "Quality audits"@en ;
   v-s:hasIcon site:AuditQualityIcon ;
-  v-ui:hasTemplate "site_ApplicationTemplate.html" ;
+  v-ui:hasTemplate site:ApplicationTemplate ;
 
   v-s:summary """
 Приложение предназначено для проведения аудитов соответствия бизнес-процессов требованиям стандартов системы менеджмента качества (СМК).

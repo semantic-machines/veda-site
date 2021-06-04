@@ -24,7 +24,7 @@ site:ActOfViolationApplication
   v-s:shortLabel "Акты нарушений"@ru ;
   v-s:shortLabel "Acts of violation"@en ;
   v-s:hasIcon site:ActOfViolationIcon ;
-  v-ui:hasTemplate "site_ApplicationTemplate.html" ;
+  v-ui:hasTemplate site:ApplicationTemplate ;
 
   v-s:summary """
 Приложение предназначено для устранения нарушений внутреннего правил и режима предприятия.

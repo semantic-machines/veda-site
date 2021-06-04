@@ -25,7 +25,7 @@ site:ActFailureApplication
   v-s:shortLabel "Failures analysis"@en ;
   v-s:hasImage site:ActFailureImage ;
   v-s:hasIcon site:ActFailureIcon ;
-  v-ui:hasTemplate "site_ApplicationTemplate.html" ;
+  v-ui:hasTemplate site:ApplicationTemplate ;
 
   v-s:summary """
 Приложение предназначено для проведения детального расследования и устранения причин отказов производственного оборудования.

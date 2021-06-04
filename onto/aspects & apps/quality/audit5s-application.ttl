@@ -24,7 +24,7 @@ site:Audit5SApplication
   v-s:shortLabel "Аудиты 5S"@ru ;
   v-s:shortLabel "Audits 5S"@en ;
   v-s:hasIcon site:Audit5SApplicationIcon ;
-  v-ui:hasTemplate "site_ApplicationTemplate.html" ;
+  v-ui:hasTemplate site:ApplicationTemplate ;
 
   v-s:summary """
 Приложение предназначено для оценки порядка на рабочих местах сотрудников по методологии 5S.

@@ -23,7 +23,7 @@ site:HumanResourcesAspect
   rdfs:comment "People are important!"@en ;
   v-s:shortLabel "Кадры"@ru ;
   v-s:shortLabel "Human resources"@en ;
-  v-ui:hasTemplate "v-s_AspectTemplate.html" ;
+  v-ui:hasTemplate v-s:AspectTemplate ;
 
   v-s:hasApplication site:PowerOfAttorneyApplication ;
   v-s:hasApplication site:DelegationApplication ;

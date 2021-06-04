@@ -24,7 +24,7 @@ site:LocalRegulatoryDocumentApplication
   v-s:shortLabel "Нормативные документы"@ru ;
   v-s:shortLabel "Regulatory documents"@en ;
   v-s:hasIcon site:LocalRegulatoryDocumentApplicationIcon ;
-  v-ui:hasTemplate "site_ApplicationTemplate.html" ;
+  v-ui:hasTemplate site:ApplicationTemplate ;
 
   v-s:summary """
 Приложение предназначено для поддержки организационно-распорядительной деятельности организации.

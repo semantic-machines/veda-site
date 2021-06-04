@@ -23,7 +23,7 @@ site:PurchasesSalesAspect
   rdfs:comment "Everybody wins!"@en ;
   v-s:shortLabel "Закупки и продажи"@ru ;
   v-s:shortLabel "Sales and purchases"@en ;
-  v-ui:hasTemplate "v-s_AspectTemplate.html" ;
+  v-ui:hasTemplate v-s:AspectTemplate ;
 
   v-s:hasApplication site:ContractsManagementApplication ;
   v-s:hasApplication site:ContractorsManagementApplication ;

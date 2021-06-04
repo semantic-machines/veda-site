@@ -24,7 +24,7 @@ site:ItServicesApplication
   v-s:shortLabel "ИТ услуги"@ru ;
   v-s:shortLabel "IT services"@en ;
   v-s:hasIcon site:ItServicesIcon ;
-  v-ui:hasTemplate "site_ApplicationTemplate.html" ;
+  v-ui:hasTemplate site:ApplicationTemplate ;
 
   v-s:summary """
 Приложение предназначено для автоматизации процесса предоставления ИТ-услуг.
