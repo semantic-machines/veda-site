@@ -60,7 +60,7 @@ site:DeveloperGuideTemplate
     doc = doc.replace(/(!\\[.*\\]\\().*\\/(.*\\))/gi, "$1" + base + "$2");
     template.find(".docs").text(doc);
   });
-  //# sourceURL=site:DeveloperGuideTemplate_pre
+  
 </script>
 <div>
   <style>
@@ -117,7 +117,7 @@ site:DeveloperGuideTemplate
       behavior: "auto"
     });
   });
-//# sourceURL=site:DeveloperGuideTemplate_post
+
 </script>
   """ ;
 .

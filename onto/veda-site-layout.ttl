@@ -102,7 +102,7 @@ site:LayoutTemplate
     }
 
   });
-//# sourceURL=site:LayoutTemplate_pre
+
 </script>
 <div class="page">
   <style>
@@ -185,7 +185,7 @@ site:LayoutTemplate
       .filter("[resource='" + veda.Util.escape4$(page) + "']")
       .addClass("active");
   }
-//# sourceURL=site:LayoutTemplate_post
+
 </script>
   """ ;
 .

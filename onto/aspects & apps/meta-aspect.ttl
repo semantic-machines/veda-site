@@ -81,7 +81,7 @@ site:MetaAspectTemplate
     </div>
     <script>
       $(".aspect-link[about='" + veda.Util.escape4$(individual.id) + "']", template).addClass("active");
-      //# sourceURL=site:MetaAspectTemplate_inline
+      
     </script>
   </div>
 </div>
@@ -95,7 +95,7 @@ site:MetaAspectTemplate
       scrollTop: tab.offset().top - 20
     }, 400);
   });
-//# sourceURL=site:MetaAspectTemplate_post
+
 </script>
 
   """ ;
