@@ -60,8 +60,7 @@ site:LayoutTemplate
   v-ui:template """
 <script>
   document.title = "Смысловые машины";
-
-  return System.import('marked').then(function (module) {
+  System.import('marked').then(function (module) {
     var marked = module.default;
 
     // Markdown
@@ -100,9 +99,7 @@ site:LayoutTemplate
       target.innerHTML = marked(text);
       observer.observe(target, markdownConfig);
     }
-
   });
-
 </script>
 <div class="page">
   <style>

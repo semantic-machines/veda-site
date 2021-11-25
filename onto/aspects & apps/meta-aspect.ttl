@@ -81,7 +81,7 @@ site:MetaAspectTemplate
     </div>
     <script>
       $(".aspect-link[about='" + veda.Util.escape4$(individual.id) + "']", template).addClass("active");
-      
+
     </script>
   </div>
 </div>
@@ -95,9 +95,7 @@ site:MetaAspectTemplate
       scrollTop: tab.offset().top - 20
     }, 400);
   });
-
 </script>
-
   """ ;
 .
 
@@ -113,7 +111,7 @@ site:AspectTemplate
     <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12" style="display: flex;">
       <div about="@" data-template="site:ApplicationSmallCardTemplate" style="display: flex; width:100%;"></div>
     </div>
-  <div>
+  </div>
 </div>
   """ ;
 .
@@ -186,26 +184,28 @@ site:ApplicationTemplate
   }
 </script>
 <div about="@" class="container">
-  <div class="sheet">
-    <div class="clearfix">
-      <div class="pull-left" style="width:78px;" about="@" rel="v-s:hasIcon" data-template="v-ui:ImageTemplate"></div>
-      <h2 class="pull-left margin-lg-h" style="color: #555;">
-        <span href="#/@" property="rdfs:label"></span>
-        <small property="rdfs:comment"></small>
-      </h2>
-    </div>
-    <hr class="margin-md">
-    <div class="row">
-      <div class="col-lg-9 col-sm-6" style="border-right: 1px dotted #ddd;">
-        <div about="@" property="v-s:summary" class="markdown"></div>
+  <div>
+    <div class="sheet">
+      <div class="clearfix">
+        <div class="pull-left" style="width:78px;" about="@" rel="v-s:hasIcon" data-template="v-ui:ImageTemplate"></div>
+        <h2 class="pull-left margin-lg-h" style="color: #555;">
+          <span href="#/@" property="rdfs:label"></span>
+          <small property="rdfs:comment"></small>
+        </h2>
       </div>
-      <div class="col-lg-3 col-sm-6">
-        <!--strong about="v-s:attachment" property="rdfs:label"></strong-->
-        <div about="@" rel="v-s:attachment" data-template="v-ui:FileTemplate"></div>
+      <hr class="margin-md">
+      <div class="row">
+        <div class="col-lg-9 col-sm-6" style="border-right: 1px dotted #ddd;">
+          <div about="@" property="v-s:summary" class="markdown"></div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+          <!--strong about="v-s:attachment" property="rdfs:label"></strong-->
+          <div about="@" rel="v-s:attachment" data-template="v-ui:FileTemplate"></div>
+        </div>
       </div>
     </div>
+    <div about="@" property="v-s:description" class="sheet markdown"></div>
   </div>
-  <div about="@" property="v-s:description" class="sheet markdown"></div>
 </div>
   """ ;
 .
