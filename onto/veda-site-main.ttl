@@ -35,21 +35,11 @@ site:Main
 .
 
 ### TEMPLATES ####
-
 site:MainTemplate
   rdf:type v-ui:ClassTemplate ;
   rdfs:label "Шаблон главной страницы"@ru ;
   rdfs:label "Main page template"@en ;
-  v-ui:template """
-<div>
-  <div about="site:AboutMainArticle"></div>
-  <div about="site:PlatformMainArticle"></div>
-  <div about="site:ApplicationsMainArticle"></div>
-  <div about="site:ServicesMainArticle"></div>
-  <div about="site:ContactsMainArticle"></div>
-  <!--div about="site:VedaOnlineMainArticle"></div-->
-</div>
-  """ ;
+  v-ui:template "site_MainTemplate.js" ;
 .
 
 ### ARTICLES & TEMPLATES ####
@@ -76,19 +66,11 @@ We have already developed [a number of ready-made applications](#/site:Applicati
 Our customers have been using them successfully since 2010.
   """@en ;
 .
-
 site:AboutMainTemplate
   rdf:type v-ui:ClassTemplate ;
   rdfs:label "Шаблон о компании для главной страницы"@ru ;
   rdfs:label "About template for main page"@en ;
-  v-ui:template """
-<div class="container-fluid bg-none">
-  <div class="container margin-xxl">
-    <h1 about="@" property="site:heading" class="margin-xl"></h1>
-    <p about="@" property="site:summary" class="markdown lead"></p>
-  </div>
-</div>
-  """ ;
+  v-ui:template "site_AboutMainTemplate.js" ;
 .
 
 site:PlatformMainArticle
@@ -116,32 +98,11 @@ site:More
   rdfs:label "Подробнее"@ru ;
   rdfs:label "More"@en ;
 .
-
 site:PlatformMainTemplate
   rdf:type v-ui:ClassTemplate ;
   rdfs:label "Шаблон платформы для главной страницы"@ru ;
   rdfs:label "Platform template for main page"@en ;
-  v-ui:template """
-<div class="container-fluid bg-white">
-  <div class="container margin-xxl">
-    <div class="row">
-      <div class="col-md-5 col-md-push-7">
-        <div about="@" rel="v-s:hasImage" data-template="v-ui:ModalImageTemplate"></div>
-      </div>
-      <div class="col-md-7 col-md-pull-5">
-        <h1 about="@" property="site:heading" class="margin-xl"></h1>
-        <p about="@" property="site:summary" class="markdown lead"></p>
-        <a href="#/site:Platform" class="btn btn-lg btn-primary margin-xl">
-          <span about="site:More" property="rdfs:label"></span>
-        </a>
-        <a href="#/site:Download" class="btn btn-lg btn-success margin-xl">
-          <span about="site:Download" property="rdfs:label"></span>
-        </a>
-      </div>
-    </div>
-  </div>
-</div>
-  """ ;
+  v-ui:template "site_PlatformMainTemplate.js" ;
 .
 
 site:ApplicationsMainArticle
@@ -174,27 +135,11 @@ site:ApplicationsIcon
   v-s:fileName "applications.svg"^^xsd:string;
   v-s:filePath "/site"^^xsd:string ;
 .
-
 site:ApplicationsMainTemplate
   rdf:type v-ui:ClassTemplate ;
   rdfs:label "Шаблон приложений для главной страницы"@ru ;
   rdfs:label "Applications template for main page"@en ;
-  v-ui:template """
-<div class="container-fluid bg-none">
-  <div class="container margin-xxl">
-    <div class="row">
-      <div class="col-md-2 col-md-push-10 vcenter" about="@" rel="v-s:hasImage" data-template="v-ui:ImageTemplate"></div><!--
-   --><div class="col-md-10 col-md-pull-2 vcenter">
-        <h1 about="@" property="site:heading" class="margin-xl"></h1>
-        <p about="@" property="site:summary" class="markdown lead"></p>
-        <a href="#/site:Applications" class="btn btn-lg btn-primary margin-xl">
-          <span about="site:More" property="rdfs:label"></span>
-        </a>
-      </div>
-    </div>
-  </div>
-</div>
-  """ ;
+  v-ui:template "site_ApplicationsMainTemplate.js" ;
 .
 
 site:ServicesMainArticle
@@ -233,27 +178,11 @@ site:ServicesIcon
   v-s:fileName "services.svg"^^xsd:string;
   v-s:filePath "/site"^^xsd:string ;
 .
-
 site:ServicesMainTemplate
   rdf:type v-ui:ClassTemplate ;
   rdfs:label "Шаблон услуг для главной страницы"@ru ;
   rdfs:label "Services template for main page"@en ;
-  v-ui:template """
-<div class="container-fluid bg-white">
-  <div class="container margin-xxl">
-    <div class="row">
-      <div class="col-md-2 col-md-push-10 vcenter" about="@" rel="v-s:hasImage" data-template="v-ui:ImageTemplate"></div><!--
-   --><div class="col-md-10 col-md-pull-2 vcenter">
-        <h1 about="@" property="site:heading" class="margin-xl"></h1>
-        <p about="@" property="site:summary" class="markdown lead"></p>
-        <a href="#/site:Services" class="btn btn-lg btn-primary margin-xl">
-          <span about="site:More" property="rdfs:label"></span>
-        </a>
-      </div>
-    </div>
-  </div>
-</div>
-  """ ;
+  v-ui:template "site_ServicesMainTemplate.js" ;
 .
 
 site:ContactsMainArticle
@@ -294,25 +223,9 @@ site:ContactsIcon
   v-s:fileName "contacts.svg"^^xsd:string;
   v-s:filePath "/site"^^xsd:string ;
 .
-
 site:ContactsMainTemplate
   rdf:type v-ui:ClassTemplate ;
   rdfs:label "Шаблон контактов для главной страницы"@ru ;
   rdfs:label "Contacts template for main page"@en ;
-  v-ui:template """
-<div class="container-fluid bg-none">
-  <div class="container margin-xxl">
-    <div class="row">
-      <div class="col-md-2 col-md-push-10 vcenter" about="@" rel="v-s:hasImage" data-template="v-ui:ImageTemplate"></div><!--
-   --><div class="col-md-10 col-md-pull-2 vcenter">
-        <h1 about="@" property="site:heading" class="margin-xl"></h1>
-        <p about="@" property="site:summary" class="markdown lead"></p>
-        <a href="#/site:Contacts" class="btn btn-lg btn-primary margin-xl">
-          <span about="site:More" property="rdfs:label"></span>
-        </a>
-      </div>
-    </div>
-  </div>
-</div>
-  """ ;
+  v-ui:template "site_ContactsMainTemplate.js" ;
 .
