@@ -68,22 +68,7 @@ site:MetaAspectTemplate
       border-color: #333;
     }
   </style>
-  <div about="@" rel="v-s:hasAspect">
-    <div>
-      <div about="site:MetaAspect" class="container aspect-links">
-        <div class="btn-group aspect-link-group">
-          <div class="aspect-links" about="@" rel="v-s:hasAspect">
-            <a href="#" class="btn btn-link aspect-link" about="@" property="v-s:shortLabel"></a>
-          </div>
-        </div>
-      </div>
-      <div class="aspect-container" about="@" data-template="site:AspectTemplate"></div>
-    </div>
-    <script>
-      $(".aspect-link[about='" + veda.Util.escape4$(individual.id) + "']", template).addClass("active");
-
-    </script>
-  </div>
+  <div about="@" rel="v-s:hasAspect" data-template="site:MetaAspectTemplate_Aspect"></div>
 </div>
 <script>
   template.on("click", ".aspect-link", function (e) {
@@ -95,6 +80,28 @@ site:MetaAspectTemplate
       scrollTop: tab.offset().top - 20
     }, 400);
   });
+</script>
+  """ ;
+.
+
+site:MetaAspectTemplate_Aspect
+  rdf:type v-ui:ClassTemplate ;
+  rdfs:label "Шаблон аспекта"@ru ;
+  rdfs:label "Aspect template"@en ;
+  v-ui:forClass v-s:Aspect ;
+  v-ui:template """
+<div>
+  <div about="site:MetaAspect" class="container aspect-links">
+    <div class="btn-group aspect-link-group">
+      <div class="aspect-links" about="@" rel="v-s:hasAspect">
+        <a href="#" class="btn btn-link aspect-link" about="@" property="v-s:shortLabel"></a>
+      </div>
+    </div>
+  </div>
+  <div class="aspect-container" about="@" data-template="site:AspectTemplate"></div>
+</div>
+<script>
+  $(".aspect-link[about='" + veda.Util.escape4$(individual.id) + "']", template).addClass("active");
 </script>
   """ ;
 .
