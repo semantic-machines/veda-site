@@ -1,52 +1,50 @@
 import BrowserUtil from '/js/browser/util.js';
 import $ from 'jquery';
 import riot from 'riot';
+import marked from 'marked';
 
 export const pre = function (individual, template, container, mode, extra) {
   template = $(template);
   container = $(container);
 
   document.title = "Смысловые машины";
-  return System.import('marked').then(function (module) {
-    var marked = module.default;
 
-    // Markdown
-    var main = document;
-    var observer = new MutationObserver(function(mutations, observer) {
-      var lastMutation = mutations.pop();
-      processMain(lastMutation);
-    });
-    var mainConfig = { childList: true, subtree: true };
-    var markdownConfig = { childList: true };
-    observer.observe(main, mainConfig);
-    template.one("remove", function () {
-      observer.disconnect();
-    });
-    function processMain(mutation) {
-      var target = $(mutation.target);
-      var markdown = target.find(".markdown:not(.observed)");
-      markdown.each(function () {
-        this.classList.add("observed");
-        var text = this.textContent;
-        this.innerHTML = marked(text, { sanitize: false, breaks: true });
-        var markdownObserver = new MutationObserver(function(mutations, observer) {
-          var lastMutation = mutations.pop();
-          processMarkdown(lastMutation, observer);
-        });
-        markdownObserver.observe(this, markdownConfig);
-        $(this).one("remove", function () {
-          markdownObserver.disconnect();
-        });
-      });
-    }
-    function processMarkdown(mutation, observer) {
-      observer.disconnect();
-      var target = mutation.target;
-      var text = target.textContent;
-      target.innerHTML = marked(text);
-      observer.observe(target, markdownConfig);
-    }
+  // Markdown
+  var main = document;
+  var observer = new MutationObserver(function(mutations, observer) {
+    var lastMutation = mutations.pop();
+    processMain(lastMutation);
   });
+  var mainConfig = { childList: true, subtree: true };
+  var markdownConfig = { childList: true };
+  observer.observe(main, mainConfig);
+  template.one("remove", function () {
+    observer.disconnect();
+  });
+  function processMain(mutation) {
+    var target = $(mutation.target);
+    var markdown = target.find(".markdown:not(.observed)");
+    markdown.each(function () {
+      this.classList.add("observed");
+      var text = this.textContent;
+      this.innerHTML = marked(text, { sanitize: false, breaks: true });
+      var markdownObserver = new MutationObserver(function(mutations, observer) {
+        var lastMutation = mutations.pop();
+        processMarkdown(lastMutation, observer);
+      });
+      markdownObserver.observe(this, markdownConfig);
+      $(this).one("remove", function () {
+        markdownObserver.disconnect();
+      });
+    });
+  }
+  function processMarkdown(mutation, observer) {
+    observer.disconnect();
+    var target = mutation.target;
+    var text = target.textContent;
+    target.innerHTML = marked(text);
+    observer.observe(target, markdownConfig);
+  }
 };
 
 export const post = function (individual, template, container, mode, extra) {
