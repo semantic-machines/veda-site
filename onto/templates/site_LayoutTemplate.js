@@ -10,26 +10,26 @@ export const pre = function (individual, template, container, mode, extra) {
   document.title = 'Смысловые машины';
 
   // Markdown
-  var main = document;
-  var observer = new MutationObserver(function (mutations, observer) {
-    var lastMutation = mutations.pop();
+  const main = document;
+  const observer = new MutationObserver(function (mutations, observer) {
+    const lastMutation = mutations.pop();
     processMain(lastMutation);
   });
-  var mainConfig = { childList: true, subtree: true };
-  var markdownConfig = { childList: true };
+  const mainConfig = {childList: true, subtree: true};
+  const markdownConfig = {childList: true};
   observer.observe(main, mainConfig);
   template.one('remove', function () {
     observer.disconnect();
   });
-  function processMain(mutation) {
-    var target = $(mutation.target);
-    var markdown = target.find('.markdown:not(.observed)');
+  function processMain (mutation) {
+    const target = $(mutation.target);
+    const markdown = target.find('.markdown:not(.observed)');
     markdown.each(function () {
       this.classList.add('observed');
-      var text = this.textContent;
-      this.innerHTML = marked(text, { sanitize: false, breaks: true });
-      var markdownObserver = new MutationObserver(function (mutations, observer) {
-        var lastMutation = mutations.pop();
+      const text = this.textContent;
+      this.innerHTML = marked(text, {sanitize: false, breaks: true});
+      const markdownObserver = new MutationObserver(function (mutations, observer) {
+        const lastMutation = mutations.pop();
         processMarkdown(lastMutation, observer);
       });
       markdownObserver.observe(this, markdownConfig);
@@ -38,10 +38,10 @@ export const pre = function (individual, template, container, mode, extra) {
       });
     });
   }
-  function processMarkdown(mutation, observer) {
+  function processMarkdown (mutation, observer) {
     observer.disconnect();
-    var target = mutation.target;
-    var text = target.textContent;
+    const target = mutation.target;
+    const text = target.textContent;
     target.innerHTML = marked(text);
     observer.observe(target, markdownConfig);
   }
@@ -53,8 +53,8 @@ export const post = function (individual, template, container, mode, extra) {
 
   // Mark active item
   riot.route(markActive);
-  function markActive(hash) {
-    var page = hash.slice(2);
+  function markActive (hash) {
+    const page = hash.slice(2);
     $('.nav-pages', template)
       .children()
       .removeClass('active')

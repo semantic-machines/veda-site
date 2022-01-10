@@ -7,9 +7,9 @@ export const post = function (individual, template, container, mode, extra) {
 
   template.on('click', '.aspect-link', function (e) {
     e.preventDefault();
-    var that = $(this);
-    var tabId = that.attr('about');
-    var tab = $(".active.aspect-link[about='" + BrowserUtil.escape4$(tabId) + "']");
+    const that = $(this);
+    const tabId = that.attr('about');
+    const tab = $(".active.aspect-link[about='" + BrowserUtil.escape4$(tabId) + "']");
     $([document.documentElement, document.body]).animate(
       {
         scrollTop: tab.offset().top - 20,

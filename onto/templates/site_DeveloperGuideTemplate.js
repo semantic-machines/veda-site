@@ -4,9 +4,9 @@ export const pre = function (individual, template, container, mode, extra) {
   template = $(template);
   container = $(container);
 
-  var base = './doc/developer/';
-  var re = new RegExp('(!\\[.*\\]\\().*\\/(.*\\))', 'gi');
-  return $.get(base + 'dev-doc.md', { _: $.now() }).then(function (doc) {
+  const base = './doc/developer/';
+  const re = new RegExp('(!\\[.*\\]\\().*\\/(.*\\))', 'gi');
+  return $.get(base + 'dev-doc.md', {_: $.now()}).then(function (doc) {
     doc = doc.replace(re, '$1' + base + '$2');
     template.find('.docs').text(doc);
   });
@@ -18,11 +18,11 @@ export const post = function (individual, template, container, mode, extra) {
 
   template.on('click', "a[href^='#']", function (e) {
     e.preventDefault();
-    var id = decodeURIComponent(this.getAttribute('href')).substring(1);
-    var target = document.getElementById(id);
-    var bodyRect = document.body.getBoundingClientRect();
-    var targetRect = target.getBoundingClientRect();
-    var offset = targetRect.top - bodyRect.top - 10;
+    const id = decodeURIComponent(this.getAttribute('href')).substring(1);
+    const target = document.getElementById(id);
+    const bodyRect = document.body.getBoundingClientRect();
+    const targetRect = target.getBoundingClientRect();
+    const offset = targetRect.top - bodyRect.top - 10;
     window.scrollTo({
       top: offset,
       behavior: 'auto',
