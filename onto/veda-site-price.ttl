@@ -62,7 +62,6 @@ site:PriceArticle
   """@ru ;
   site:summary """
 > * Licenses are perpetual. The cost depends on the type of edition.
-> * Semantic machines LLC reserves the right to change prices at any time. Prices are indicated in Russian rubles, they are valid for settlements on the territory of the Russian Federation.
 > * Customization of ready-made modules (extension of functionality) is performed on request.
 > * Individual development is agreed upon request.
   """@en ;
@@ -480,7 +479,411 @@ site:PriceArticle
 * Объем и стоимость сопровождения определяются индивидуально. Ознакомиться с подробным описанием услуг можно в Соглашении об уровне сервиса.
   """@ru;
   site:content """
+<table class="table table-condensed table-bordered">
+  <colgroup>
+    <col width="5%" />
+    <col width="25%" />
+    <col width="" />
+    <col width="15%" />
+    <col width="15%" />
+  </colgroup>
+  <thead>
+    <tr>
+      <th style="vertical-align: middle;">#</th>
+      <th style="vertical-align: middle;">Application</th>
+      <th style="vertical-align: middle;">Module</th>
+      <th style="vertical-align: middle;">Standard version, rub.</th>
+      <th style="vertical-align: middle;">Advanced version, rub.</th>
+    </tr>
+  </thead>
+  <tr>
+    <td rowspan="11">1</td>
+    <td rowspan="11">Basic components</td>
+    <td>Working with tasks</td>
+    <td rowspan="7">50 000</td>
+    <td rowspan="11">96 000</td>
+  </tr>
+  <tr>
+    <td>Working with documents</td>
+  </tr>
+  <tr>
+    <td>Working with registries</td>
+  </tr>
+  <tr>
+    <td>E-mail notifications</td>
+  </tr>
+  <tr>
+    <td>Contractors' directory</td>
+  </tr>
+  <tr>
+    <td>IT service desk</td>
+  </tr>
+  <tr>
+    <td>Contact directory</td>
+  </tr>
+  <tr>
+    <td>Advanced contact directory</td>
+    <td>-</td>
+  </tr>
+  <tr>
+    <td>Fulltext search</td>
+    <td>-</td>
+  </tr>
+  <tr>
+    <td>Workflow administration</td>
+    <td>-</td>
+  </tr>
+  <tr>
+    <td>Report «Performers' discipline»</td>
+    <td>-</td>
+  </tr>
+  <tr>
+    <td rowspan="3">2</td>
+    <td rowspan="3">Contractors interaction management</td>
+    <td>Contractors dossier</td>
+    <td>80 000</td>
+    <td>160 000</td>
+  </tr>
+  <tr>
+    <td>Creditor approval request</td>
+    <td>80 000</td>
+    <td>160 000</td>
+  </tr>
+  <tr>
+    <td>Debitor approval request</td>
+    <td>80 000</td>
+    <td>160 000</td>
+  </tr>
+  <tr>
+    <td rowspan="7">3</td>
+    <td rowspan="7">Contracts management</td>
+    <td>Contract request</td>
+    <td>32 000</td>
+    <td>64 000</td>
+  </tr>
+  <tr>
+    <td>Contract</td>
+    <td>250 000</td>
+    <td>322 000</td>
+  </tr>
+  <tr>
+    <td>Additional agreement</td>
+    <td>32 000</td>
+    <td>64 000</td>
+  </tr>
+  <tr>
+    <td>Supplier selection</td>
+    <td>32 000</td>
+    <td>64 000</td>
+  </tr>
+  <tr>
+    <td>Contract passport</td>
+    <td>32 000</td>
+    <td>64 000</td>
+  </tr>
+  <tr>
+    <td>Tender</td>
+    <td>32 000</td>
+    <td>64 000</td>
+  </tr>
+  <tr>
+    <td>Contractor</td>
+    <td>32 000</td>
+    <td>64 000</td>
+  </tr>
+  <tr>
+    <td rowspan="3">4</td>
+    <td rowspan="3">Claims management</td>
+    <td>Claim</td>
+    <td>32 000</td>
+    <td>64 000</td>
+  </tr>
+  <tr>
+    <td>Court case</td>
+    <td>32 000</td>
+    <td>64 000</td>
+  </tr>
+  <tr>
+    <td>Claim event</td>
+    <td>20 000</td>
+    <td>32 000</td>
+  </tr>
+  <tr>
+    <td rowspan="2">5</td>
+    <td rowspan="2">Primary accounting documentation management</td>
+    <td>Primary accounting document</td>
+    <td>32 000</td>
+    <td>64 000</td>
+  </tr>
+  <tr>
+    <td>Internal accounting document</td>
+    <td>30 000</td>
+    <td>48 000</td>
+  </tr>
+  <tr>
+    <td rowspan="5">6</td>
+    <td rowspan="5">Office work</td>
+    <td>Correspondence - Incoming mail</td>
+    <td>30 000</td>
+    <td>48 000</td>
+  </tr>
+  <tr>
+    <td>Correspondence - Outgoing mail</td>
+    <td>30 000</td>
+    <td>48 000</td>
+  </tr>
+  <tr>
+    <td>Organizational and administrative documents</td>
+    <td>32 000</td>
+    <td>64 000</td>
+  </tr>
+  <tr>
+    <td>Local regulatory documentation + Versions</td>
+    <td>32 000</td>
+    <td>64 000</td>
+  </tr>
+  <tr>
+    <td>Internal document</td>
+    <td>32 000</td>
+    <td>64 000</td>
+  </tr>
+  <tr>
+    <td rowspan="3">7</td>
+    <td rowspan="3">Quality management</td>
+    <td>Quality act</td>
+    <td>80 000</td>
+    <td>160 000</td>
+  </tr>
+  <tr>
+    <td>Internal audit</td>
+    <td>80 000</td>
+    <td>160 000</td>
+  </tr>
+  <tr>
+    <td>Audit 5s</td>
+    <td>48 000</td>
+    <td>96 000</td>
+  </tr>
+  <tr>
+    <td rowspan="2">8</td>
+    <td rowspan="2">Production safety</td>
+    <td>Safety audit</td>
+    <td>80 000</td>
+    <td>160 000</td>
+  </tr>
+  <tr>
+    <td>Accident investigation</td>
+    <td>80 000</td>
+    <td>160 000</td>
+  </tr>
+  <tr>
+    <td>9</td>
+    <td>Innovation management</td>
+    <td> </td>
+    <td>250 000</td>
+    <td>322 000</td>
+  </tr>
+  <tr>
+    <td>10</td>
+    <td>Meeting management</td>
+    <td> </td>
+    <td>80 000</td>
+    <td>160 000</td>
+  </tr>
+  <tr>
+    <td rowspan="13">11</td>
+    <td rowspan="13">Internal services management</td>
+    <td>Business trips</td>
+    <td>48 000</td>
+    <td>96 000</td>
+  </tr>
+  <tr>
+    <td>Power of attorney</td>
+    <td>32 000</td>
+    <td>64 000</td>
+  </tr>
+  <tr>
+    <td>Representation expenses</td>
+    <td>32 000</td>
+    <td>64 000</td>
+  </tr>
+  <tr>
+    <td>Service request</td>
+    <td>32 000</td>
+    <td>64 000</td>
+  </tr>
+  <tr>
+    <td>IT request</td>
+    <td>80 000</td>
+    <td>160 000</td>
+  </tr>
+  <tr>
+    <td>Transportation request</td>
+    <td>48 000</td>
+    <td>96 000</td>
+  </tr>
+  <tr>
+    <td>Goods and services purchase request</td>
+    <td>32 000</td>
+    <td>64 000</td>
+  </tr>
+  <tr>
+    <td>Goods and materials issuance request</td>
+    <td>32 000</td>
+    <td>64 000</td>
+  </tr>
+  <tr>
+    <td>Repair work request</td>
+    <td>32 000</td>
+    <td>64 000</td>
+  </tr>
+  <tr>
+    <td>Inspection of buildings request</td>
+    <td>48 000</td>
+    <td>96 000</td>
+  </tr>
+  <tr>
+    <td>Internal commission</td>
+    <td>32 000</td>
+    <td>64 000</td>
+  </tr>
+  <tr>
+    <td>Housing contract</td>
+    <td>32 000</td>
+    <td>64 000</td>
+  </tr>
+  <tr>
+    <td>Housing contract addendum</td>
+    <td>20 000</td>
+    <td>32 000</td>
+  </tr>
+  <tr>
+    <td rowspan="2">12</td>
+    <td rowspan="2">Internal security services</td>
+    <td>Pass</td>
+    <td>32 000</td>
+    <td>64 000</td>
+  </tr>
+  <tr>
+    <td>Violation act</td>
+    <td>32 000</td>
+    <td>64 000</td>
+  </tr>
+  <tr>
+    <td rowspan="4">13</td>
+    <td rowspan="4">Technical documents</td>
+    <td>Engineering request</td>
+    <td>80 000</td>
+    <td>160 000</td>
+  </tr>
+  <tr>
+    <td>Technical document</td>
+    <td>80 000</td>
+    <td>160 000</td>
+  </tr>
+  <tr>
+    <td>Request to the technical archive</td>
+    <td>32 000</td>
+    <td>64 000</td>
+  </tr>
+  <tr>
+    <td>Blueprint</td>
+    <td>32 000</td>
+    <td>64 000</td>
+  </tr>
+</table>
+<small>
+  <i>
+    Semantic machines LLC reserves the right to change prices at any time.<br>
+    Prices are indicated in Russian rubles, they are valid for settlements on the territory of the Russian Federation.
+  </i>
+</small>
 
+---
+
+## Additional services
+
+* Implementation of the system, performed remotely - 90,000 rubles (approx).
+* User training (group up to 15 people, 1 day) - 20,000 rubles.
+
+---
+
+## Support
+
+* We provide various options for technical support for users and the system. The volume and cost of support are discussed individually.
+
+<table class="table table-condensed table-bordered">
+  <colgroup>
+    <col width="20%" />
+    <col width="" />
+    <col width="8%" />
+    <col width="8%" />
+    <col width="8%" />
+    <col width="8%" />
+  </colgroup>
+  <thead>
+    <tr>
+      <th colspan="2"> </th>
+      <th>1 линия</th>
+      <th>2 линия</th>
+      <th>3 линия</th>
+      <th>4 линия</th>
+    </tr>
+  </thead>
+  <tr>
+    <td colspan="2">Installation of updates</td>
+    <td>+</td>
+    <td>+</td>
+    <td>+</td>
+    <td>+</td>
+  </tr>
+  <tr>
+    <td colspan="2">System maintenance</td>
+    <td>+</td>
+    <td>+</td>
+    <td>+</td>
+    <td>+</td>
+  </tr>
+  <tr>
+    <td rowspan="4">Users support</td>
+    <td>
+      Requests from users to the Support Service via selected communication channels
+    </td>
+    <td>+</td>
+    <td>+</td>
+    <td>+</td>
+    <td>+</td>
+  </tr>
+  <tr>
+    <td>
+      Consultation of users on the functioning of the system using a remote connection
+    </td>
+    <td> </td>
+    <td>+</td>
+    <td>+</td>
+    <td>+</td>
+  </tr>
+  <tr>
+    <td>
+      Requests from dedicated specialists of the Customer, entailing changes in the system configuration
+    </td>
+    <td> </td>
+    <td> </td>
+    <td>+</td>
+    <td>+</td>
+  </tr>
+  <tr>
+    <td>
+      System development (survey, technical requirements, development of new functions and processes)
+    </td>
+    <td> </td>
+    <td> </td>
+    <td> </td>
+    <td>+</td>
+  </tr>
+</table>
+
+* According to the current price list of Semantic machines LLC. Annual cost of updates subscription is 30% of the cost of licenses if purchased no later than 30 calendar days from the date of expiration. The cost of updates subscription to the current version is 60% of the cost of licenses.
+* The volume and cost of support are determined individually. For a detailed description of the services, please refer to the Service Level Agreement.
   """@en;
 .
-
