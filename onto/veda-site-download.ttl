@@ -28,7 +28,8 @@ site:Download
   site:hasArticle site:DownloadArticle ;
 .
 
-### TEMPLATES ####
+### TEMPLATES ###
+
 site:DownloadTemplate
   rdf:type v-ui:ClassTemplate ;
   rdfs:label "Шаблон страницы платформы"@ru ;

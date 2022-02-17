@@ -30,11 +30,13 @@ site:Main
   site:hasPage site:Documentation ;
   site:hasPage site:Applications ;
   site:hasPage site:Services ;
+  site:hasPage site:Price ;
   site:hasPage site:Contacts ;
 #  site:hasPage site:VedaOnline ;
 .
 
-### TEMPLATES ####
+### TEMPLATES ###
+
 site:MainTemplate
   rdf:type v-ui:ClassTemplate ;
   rdfs:label "Шаблон главной страницы"@ru ;
@@ -42,7 +44,7 @@ site:MainTemplate
   v-ui:template "site_MainTemplate.js" ;
 .
 
-### ARTICLES & TEMPLATES ####
+### ARTICLES & TEMPLATES ###
 
 site:AboutMainArticle
   rdf:type site:Article ;

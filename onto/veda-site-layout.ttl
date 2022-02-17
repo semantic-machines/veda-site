@@ -51,7 +51,8 @@ site:Layout
   v-ui:hasTemplate site:LayoutTemplate  ;
 .
 
-### LAYOUT TEMPLATE ####
+### LAYOUT TEMPLATE ###
+
 site:LayoutTemplate
   rdf:type v-ui:ClassTemplate ;
   rdfs:label "Шаблон макета сайта"@ru ;

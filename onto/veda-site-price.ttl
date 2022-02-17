@@ -1,0 +1,486 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix v-fs: <http://semantic-machines.com/veda/veda-search/> .
+@prefix v-s: <http://semantic-machines.com/veda/veda-schema/> .
+@prefix v-ui: <http://semantic-machines.com/veda/veda-ui/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix d: <http://semantic-machines.com/veda/veda-data/> .
+@prefix site: <http://semantic-machines.com/veda-site/> .
+
+### PRICE ###
+
+<http://semantic-machines.com/veda/veda-site-price>
+  rdf:type owl:Ontology ;
+  rdfs:label "Сайт Veda. Цены"@ru ;
+  rdfs:label "Veda site. Price"@en ;
+#  owl:versionInfo "1.3" ;
+  v-s:loadPriority 10 ;
+.
+
+### PAGES ###
+
+site:Price
+  rdf:type site:Page ;
+  rdfs:label "Цены"@ru ;
+  rdfs:label "Price"@en ;
+  v-ui:hasTemplate site:PriceTemplate ;
+  site:hasArticle site:PriceArticle ;
+.
+
+### IMAGES ###
+
+site:PriceIcon
+  a v-s:File;
+  v-s:fileUri "price.svg"^^xsd:string ;
+  v-s:fileName "price.svg"^^xsd:string;
+  v-s:filePath "/site"^^xsd:string ;
+.
+
+### TEMPLATES ###
+
+site:PriceTemplate
+  rdf:type v-ui:ClassTemplate ;
+  rdfs:label "Шаблон страницы Цены"@ru ;
+  rdfs:label "Price page template"@en ;
+  v-ui:template "site_PriceTemplate.js" ;
+.
+
+### ARTICLES ###
+
+site:PriceArticle
+  rdf:type site:Article ;
+  rdfs:label "Статья страницы Цены"@ru ;
+  rdfs:label "Price article for Price page"@en ;
+  v-s:hasImage site:PriceIcon ;
+  site:heading "Цены"@ru ;
+  site:heading "Price"@en ;
+  site:summary """
+> * Лицензии на модули бессрочные. Стоимость зависит от вида редакции.
+> * Кастомизация готовых модулей (расширение функциональности) выполняется по запросу.
+> * Индивидуальная разработка выполняется по запросу.
+  """@ru ;
+  site:summary """
+> * Licenses are perpetual. The cost depends on the type of edition.
+> * Semantic machines LLC reserves the right to change prices at any time. Prices are indicated in Russian rubles, they are valid for settlements on the territory of the Russian Federation.
+> * Customization of ready-made modules (extension of functionality) is performed on request.
+> * Individual development is agreed upon request.
+  """@en ;
+
+  site:content """
+<table class="table table-condensed table-bordered">
+  <colgroup>
+    <col width="5%" />
+    <col width="25%" />
+    <col width="" />
+    <col width="15%" />
+    <col width="15%" />
+  </colgroup>
+  <thead>
+    <tr>
+      <th style="vertical-align: middle;">№</th>
+      <th style="vertical-align: middle;">Приложение</th>
+      <th style="vertical-align: middle;">Модуль</th>
+      <th style="vertical-align: middle;">Стандартная версия, руб.</th>
+      <th style="vertical-align: middle;">Расширенная версия, руб.</th>
+    </tr>
+  </thead>
+  <tr>
+    <td rowspan="11">1</td>
+    <td rowspan="11">Базовые компоненты</td>
+    <td>Работа с задачами</td>
+    <td rowspan="7">50 000</td>
+    <td rowspan="11">96 000</td>
+  </tr>
+  <tr>
+    <td>Работа с документами</td>
+  </tr>
+  <tr>
+    <td>Работа с реестрами</td>
+  </tr>
+  <tr>
+    <td>Уведомления почтовые</td>
+  </tr>
+  <tr>
+    <td>Справочник контрагентов</td>
+  </tr>
+  <tr>
+    <td>Обращение в Службу поддержки</td>
+  </tr>
+  <tr>
+    <td>Контактный справочник</td>
+  </tr>
+  <tr>
+    <td>Контактный справочник расширенный</td>
+    <td>-</td>
+  </tr>
+  <tr>
+    <td>Поиск полнотекстовый</td>
+    <td>-</td>
+  </tr>
+  <tr>
+    <td>Администрирование документооборота</td>
+    <td>-</td>
+  </tr>
+  <tr>
+    <td>Отчет «Исполнительская дисциплина»</td>
+    <td>-</td>
+  </tr>
+  <tr>
+    <td rowspan="3">2</td>
+    <td rowspan="3">Управление взаимодействием с контрагентами</td>
+    <td>Досье контрагента</td>
+    <td>80 000</td>
+    <td>160 000</td>
+  </tr>
+  <tr>
+    <td>Запрос на согласование кредитора</td>
+    <td>80 000</td>
+    <td>160 000</td>
+  </tr>
+  <tr>
+    <td>Запрос на согласование дебитора</td>
+    <td>80 000</td>
+    <td>160 000</td>
+  </tr>
+  <tr>
+    <td rowspan="7">3</td>
+    <td rowspan="7">Управление контрактами</td>
+    <td>Заявка на контракт</td>
+    <td>32 000</td>
+    <td>64 000</td>
+  </tr>
+  <tr>
+    <td>Контракт</td>
+    <td>250 000</td>
+    <td>322 000</td>
+  </tr>
+  <tr>
+    <td>Дополнительное соглашение</td>
+    <td>32 000</td>
+    <td>64 000</td>
+  </tr>
+  <tr>
+    <td>Выбор поставщика</td>
+    <td>32 000</td>
+    <td>64 000</td>
+  </tr>
+  <tr>
+    <td>Паспорт сделки</td>
+    <td>32 000</td>
+    <td>64 000</td>
+  </tr>
+  <tr>
+    <td>Тендер</td>
+    <td>32 000</td>
+    <td>64 000</td>
+  </tr>
+  <tr>
+    <td>Контрагент</td>
+    <td>32 000</td>
+    <td>64 000</td>
+  </tr>
+  <tr>
+    <td rowspan="3">4</td>
+    <td rowspan="3">Управление претензиями</td>
+    <td>Претензия</td>
+    <td>32 000</td>
+    <td>64 000</td>
+  </tr>
+  <tr>
+    <td>Судебное дело</td>
+    <td>32 000</td>
+    <td>64 000</td>
+  </tr>
+  <tr>
+    <td>Претензионное событие</td>
+    <td>20 000</td>
+    <td>32 000</td>
+  </tr>
+  <tr>
+    <td rowspan="2">5</td>
+    <td rowspan="2">Управление первичной бухгалтерской документацией</td>
+    <td>Первичный документ</td>
+    <td>32 000</td>
+    <td>64 000</td>
+  </tr>
+  <tr>
+    <td>Внутренний бухгалтерский документ</td>
+    <td>30 000</td>
+    <td>48 000</td>
+  </tr>
+  <tr>
+    <td rowspan="5">6</td>
+    <td rowspan="5">Делопроизводство</td>
+    <td>Корреспонденция - Входящие</td>
+    <td>30 000</td>
+    <td>48 000</td>
+  </tr>
+  <tr>
+    <td>Корреспонденция - Исходящие</td>
+    <td>30 000</td>
+    <td>48 000</td>
+  </tr>
+  <tr>
+    <td>Организационно-распорядительная деятельность</td>
+    <td>32 000</td>
+    <td>64 000</td>
+  </tr>
+  <tr>
+    <td>Локальная нормативная документация + Версии</td>
+    <td>32 000</td>
+    <td>64 000</td>
+  </tr>
+  <tr>
+    <td>Внутренний документ</td>
+    <td>32 000</td>
+    <td>64 000</td>
+  </tr>
+  <tr>
+    <td rowspan="3">7</td>
+    <td rowspan="3">Управление качеством</td>
+    <td>Аудит качества</td>
+    <td>80 000</td>
+    <td>160 000</td>
+  </tr>
+  <tr>
+    <td>Аудит внутренний</td>
+    <td>80 000</td>
+    <td>160 000</td>
+  </tr>
+  <tr>
+    <td>Аудит 5S</td>
+    <td>48 000</td>
+    <td>96 000</td>
+  </tr>
+  <tr>
+    <td rowspan="2">8</td>
+    <td rowspan="2">Промышленная безопасность</td>
+    <td>Аудит безопасности</td>
+    <td>80 000</td>
+    <td>160 000</td>
+  </tr>
+  <tr>
+    <td>Расследование аварий</td>
+    <td>80 000</td>
+    <td>160 000</td>
+  </tr>
+  <tr>
+    <td>9</td>
+    <td>Управление инновациями</td>
+    <td> </td>
+    <td>250 000</td>
+    <td>322 000</td>
+  </tr>
+  <tr>
+    <td>10</td>
+    <td>Управление встречами</td>
+    <td> </td>
+    <td>80 000</td>
+    <td>160 000</td>
+  </tr>
+  <tr>
+    <td rowspan="13">11</td>
+    <td rowspan="13">Управление внутренними сервисами</td>
+    <td>Командировки</td>
+    <td>48 000</td>
+    <td>96 000</td>
+  </tr>
+  <tr>
+    <td>Доверенности</td>
+    <td>32 000</td>
+    <td>64 000</td>
+  </tr>
+  <tr>
+    <td>Представительские расходы</td>
+    <td>32 000</td>
+    <td>64 000</td>
+  </tr>
+  <tr>
+    <td>Заявка на услуги</td>
+    <td>32 000</td>
+    <td>64 000</td>
+  </tr>
+  <tr>
+    <td>Заявка ИТ</td>
+    <td>80 000</td>
+    <td>160 000</td>
+  </tr>
+  <tr>
+    <td>Заявка на транспорт</td>
+    <td>48 000</td>
+    <td>96 000</td>
+  </tr>
+  <tr>
+    <td>Заявка на приобретение товаров и услуг</td>
+    <td>32 000</td>
+    <td>64 000</td>
+  </tr>
+  <tr>
+    <td>Заявка на выдачу ТМЦ</td>
+    <td>32 000</td>
+    <td>64 000</td>
+  </tr>
+  <tr>
+    <td>Заявка на ремонтные работы</td>
+    <td>32 000</td>
+    <td>64 000</td>
+  </tr>
+  <tr>
+    <td>Акты осмотра зданий и сооружений</td>
+    <td>48 000</td>
+    <td>96 000</td>
+  </tr>
+  <tr>
+    <td>Внутренние комиссии</td>
+    <td>32 000</td>
+    <td>64 000</td>
+  </tr>
+  <tr>
+    <td>Договор найма жилья</td>
+    <td>32 000</td>
+    <td>64 000</td>
+  </tr>
+  <tr>
+    <td>Дополнительное соглашение к договору найма</td>
+    <td>20 000</td>
+    <td>32 000</td>
+  </tr>
+  <tr>
+    <td rowspan="2">12</td>
+    <td rowspan="2">Внутренний режим и контроль</td>
+    <td>Пропуска</td>
+    <td>32 000</td>
+    <td>64 000</td>
+  </tr>
+  <tr>
+    <td>Акты нарушений</td>
+    <td>32 000</td>
+    <td>64 000</td>
+  </tr>
+  <tr>
+    <td rowspan="4">13</td>
+    <td rowspan="4">Технические документы</td>
+    <td>Конструкторская заявка</td>
+    <td>80 000</td>
+    <td>160 000</td>
+  </tr>
+  <tr>
+    <td>Технический документ</td>
+    <td>80 000</td>
+    <td>160 000</td>
+  </tr>
+  <tr>
+    <td>Запрос в технический архив</td>
+    <td>32 000</td>
+    <td>64 000</td>
+  </tr>
+  <tr>
+    <td>Чертеж</td>
+    <td>32 000</td>
+    <td>64 000</td>
+  </tr>
+</table>
+<small>
+  <i>
+    ООО «Смысловые машины» оставляет за собой право изменить цены в любой момент.<br>
+    Цены указаны в российских рублях, действуют для расчетов на территории РФ, НДС не облагаются на основании пп. 26, п. 2, ст. 149 Налогового кодекса РФ.
+  </i>
+</small>
+
+---
+
+## Дополнительные услуги
+
+* Внедрение системы, выполняется дистанционно — 90 000 рублей (ориентировочно).
+* Обучение пользователей (группа до 15 человек, 1 день) — 20 000 рублей.
+
+---
+
+## Сопровождение
+
+* Мы обеспечиваем различные варианты технического сопровождения пользователей и программного комплекса. Объем и стоимость поддержки обсуждаются индивидуально.
+
+<table class="table table-condensed table-bordered">
+  <colgroup>
+    <col width="20%" />
+    <col width="" />
+    <col width="8%" />
+    <col width="8%" />
+    <col width="8%" />
+    <col width="8%" />
+  </colgroup>
+  <thead>
+    <tr>
+      <th colspan="2"> </th>
+      <th>1 линия</th>
+      <th>2 линия</th>
+      <th>3 линия</th>
+      <th>4 линия</th>
+    </tr>
+  </thead>
+  <tr>
+    <td colspan="2">Установка обновлений*</td>
+    <td>+</td>
+    <td>+</td>
+    <td>+</td>
+    <td>+</td>
+  </tr>
+  <tr>
+    <td colspan="2">Техническая обслуживание продукта</td>
+    <td>+</td>
+    <td>+</td>
+    <td>+</td>
+    <td>+</td>
+  </tr>
+  <tr>
+    <td rowspan="4">Поддержка пользователей</td>
+    <td>
+      Обращение пользователей в Службу поддержки по выбранным каналам связи,
+      фиксация обращений
+    </td>
+    <td>+</td>
+    <td>+</td>
+    <td>+</td>
+    <td>+</td>
+  </tr>
+  <tr>
+    <td>
+      Консультация пользователей по вопросам функционирования системы с
+      возможностью удаленного подключения
+    </td>
+    <td> </td>
+    <td>+</td>
+    <td>+</td>
+    <td>+</td>
+  </tr>
+  <tr>
+    <td>
+      Обращение выделенных специалистов Заказчика, влекущее за собой изменения в
+      конфигурации системы
+    </td>
+    <td> </td>
+    <td> </td>
+    <td>+</td>
+    <td>+</td>
+  </tr>
+  <tr>
+    <td>
+      Развитие системы (обследование, составление технического задания,
+      разработка новых функций и процессов)
+    </td>
+    <td> </td>
+    <td> </td>
+    <td> </td>
+    <td>+</td>
+  </tr>
+</table>
+
+* По действующему прайс-листу ООО «Смысловые машины». Стоимость годового пакета обновлений - 30% от стоимости лицензий на приложения, далее приобретается не позднее 30 календарных дней с момента окончания срока действия. Стоимость пакета обновлений до текущей версии — 60% от стоимости лицензий. В период действия годового пакета обновлений мы предоставляем гарантию работоспособности ПО.
+* Объем и стоимость сопровождения определяются индивидуально. Ознакомиться с подробным описанием услуг можно в Соглашении об уровне сервиса.
+  """@ru;
+  site:content """
+
+  """@en;
+.
+

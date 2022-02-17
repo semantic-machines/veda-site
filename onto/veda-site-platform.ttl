@@ -28,7 +28,8 @@ site:Platform
   site:hasArticle site:PlatformArticle ;
 .
 
-### TEMPLATES ####
+### TEMPLATES ###
+
 site:PlatformTemplate
   rdf:type v-ui:ClassTemplate ;
   rdfs:label "Шаблон страницы платформы"@ru ;

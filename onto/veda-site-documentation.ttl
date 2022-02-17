@@ -23,7 +23,7 @@
 site:Documentation
   rdf:type site:Page ;
   rdfs:label "Документация"@ru ;
-  rdfs:label "Documentation"@en ;
+  rdfs:label "Docs"@en ;
   v-ui:hasTemplate site:DocumentationTemplate ;
   site:hasArticle site:DeveloperGuide ;
 .

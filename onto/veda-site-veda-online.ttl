@@ -28,7 +28,8 @@ site:VedaOnline
   site:hasArticle site:VedaOnlineArticle ;
 .
 
-### TEMPLATES ####
+### TEMPLATES ###
+
 site:VedaOnlineTemplate
   rdf:type v-ui:ClassTemplate ;
   rdfs:label "Шаблон страницы Veda онлайн"@ru ;

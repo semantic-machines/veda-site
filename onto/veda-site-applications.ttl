@@ -23,12 +23,13 @@
 site:Applications
   rdf:type site:Page ;
   rdfs:label "Приложения"@ru ;
-  rdfs:label "Applications"@en ;
+  rdfs:label "Apps"@en ;
   v-ui:hasTemplate site:ApplicationsTemplate ;
   site:hasArticle site:ApplicationsArticle;
 .
 
-### TEMPLATES ####
+### TEMPLATES ###
+
 site:ApplicationsTemplate
   rdf:type v-ui:ClassTemplate ;
   rdfs:label "Шаблон страницы приложений"@ru ;
@@ -53,8 +54,8 @@ site:ApplicationsArticle
 > Choose what you like, and we will make it fit!
   """@en ;
   site:content """
-Мы разработали ряд готовых приложений для работы с востребованными деловыми процессами.  
-Возможности приложений можно менять и расширять под нужды конкретного предприятия.  
+Мы разработали ряд готовых приложений для работы с востребованными деловыми процессами.
+Возможности приложений можно менять и расширять под нужды конкретного предприятия.
 Внедрение совокупности нескольких приложений позволит достичь значительного синергетического эффекта при использовании системы.
 
 **В состав приложения входят:**
@@ -67,8 +68,8 @@ site:ApplicationsArticle
 - Эксплуатационная документация.
   """@ru ;
   site:content """
-We have developed a number of ready-made applications for working with popular business processes.  
-Application capabilities can be changed and expanded to the needs of a particular enterprise.  
+We have developed a number of ready-made applications for working with popular business processes.
+Application capabilities can be changed and expanded to the needs of a particular enterprise.
 The implementation of several applications will allow to achieve a significant synergy effect while using the system.
 
 **The application includes:**
