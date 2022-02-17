@@ -8,7 +8,7 @@ export const html = `
           <p about="@" property="site:summary" class="markdown lead"></p>
         </div>
       </div>
-      <iframe src="https://yandex.ru/map-widget/v1/?z=12&ol=biz&oid=38999126937" width="600" height="400" frameborder="0"></iframe>
+      <!--iframe src="https://yandex.ru/map-widget/v1/?z=12&ol=biz&oid=38999126937" width="600" height="400" frameborder="0"></iframe-->
     </div>
   </div>
 `;
