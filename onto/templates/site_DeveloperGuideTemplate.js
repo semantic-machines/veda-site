@@ -4,7 +4,7 @@ export const pre = function (individual, template, container, mode, extra) {
   template = $(template);
   container = $(container);
 
-  const base = './doc/developer/';
+  const base = 'https://raw.githubusercontent.com/semantic-machines/veda/master/doc/developer/';
   const re = new RegExp('(!\\[.*\\]\\().*\\/(.*\\))', 'gi');
   return $.get(base + 'dev-doc.md', {_: $.now()}).then(function (doc) {
     doc = doc.replace(re, '$1' + base + '$2');
