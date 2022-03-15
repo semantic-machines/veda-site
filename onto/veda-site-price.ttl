@@ -13,7 +13,7 @@
 <http://semantic-machines.com/veda/veda-site-price>
   rdf:type owl:Ontology ;
   rdfs:label "Сайт Veda. Цены"@ru ;
-  rdfs:label "Veda site. Price"@en ;
+  rdfs:label "Veda site. Prices"@en ;
 #  owl:versionInfo "1.3" ;
   v-s:loadPriority 10 ;
 .
@@ -23,7 +23,7 @@
 site:Price
   rdf:type site:Page ;
   rdfs:label "Цены"@ru ;
-  rdfs:label "Price"@en ;
+  rdfs:label "Prices"@en ;
   v-ui:hasTemplate site:PriceTemplate ;
   site:hasArticle site:PriceArticle ;
 .
@@ -42,7 +42,7 @@ site:PriceIcon
 site:PriceTemplate
   rdf:type v-ui:ClassTemplate ;
   rdfs:label "Шаблон страницы Цены"@ru ;
-  rdfs:label "Price page template"@en ;
+  rdfs:label "Prices page template"@en ;
   v-ui:template "site_PriceTemplate.js" ;
 .
 
@@ -51,10 +51,10 @@ site:PriceTemplate
 site:PriceArticle
   rdf:type site:Article ;
   rdfs:label "Статья страницы Цены"@ru ;
-  rdfs:label "Price article for Price page"@en ;
+  rdfs:label "Article for Prices page"@en ;
   v-s:hasImage site:PriceIcon ;
   site:heading "Цены"@ru ;
-  site:heading "Price"@en ;
+  site:heading "Prices"@en ;
   site:summary """
 > * Лицензии на модули бессрочные. Стоимость зависит от вида редакции.
 > * Кастомизация готовых модулей (расширение функциональности) выполняется по запросу.
