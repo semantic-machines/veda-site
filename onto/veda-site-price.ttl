@@ -824,10 +824,10 @@ site:PriceArticle
   <thead>
     <tr>
       <th colspan="2"> </th>
-      <th>1 линия</th>
-      <th>2 линия</th>
-      <th>3 линия</th>
-      <th>4 линия</th>
+      <th>1 level</th>
+      <th>2 level</th>
+      <th>3 level</th>
+      <th>4 level</th>
     </tr>
   </thead>
   <tr>
