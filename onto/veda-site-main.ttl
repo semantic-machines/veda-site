@@ -87,11 +87,15 @@ site:PlatformMainArticle
 Современная семантическая платформа с [открытым исходным текстом](https://github.com/semantic-machines/veda).
 
 Позволяет быстро и легко создавать приложения для автоматизации деловых процессов предприятия.
+
+Сделана в [России](https://reestr.digital.gov.ru/reestr/307394/).
   """@ru ;
   site:summary"""
 A modern [open source](https://github.com/semantic-machines/veda) semantic platform.
 
 Allows to quickly and easily create applications for business processes automation.
+
+Made in [Russia](https://reestr.digital.gov.ru/reestr/307394/).
   """@en ;
 .
 

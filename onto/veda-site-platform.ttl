@@ -107,11 +107,13 @@ site:PlatformArticle
   site:summary """
 > Современная семантическая платформа с [открытым исходным текстом](https://github.com/semantic-machines/veda).
 > Предназначена для быстрой разработки приложений автоматизации деловых процессов предприятия.
+> Сделана в [России](https://reestr.digital.gov.ru/reestr/307394/).
 > _Кстати, этот сайт тоже является приложением на платформе Veda. [Посмотреть модель данных](#/site:Platform//v-ui:Graph)_
   """@ru ;
   site:summary """
 > A modern open-source semantic platform.
 > Designed for the rapid development of business-processes automation applications.
+> Made in [Russia](https://reestr.digital.gov.ru/reestr/307394/).
 > _By the way, this site is also an application on the Veda platform. [View data model](#/site:Platform//v-ui:Graph)_
   """@en ;
 
