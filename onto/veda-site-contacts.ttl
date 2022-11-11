@@ -46,7 +46,7 @@ site:ContactsArticle
   site:heading "Контакты"@ru ;
   site:heading "Contacts"@en ;
   site:summary """
-> ООО «Смысловые машины»  
+> *ООО «Смысловые машины»*  
 > Аккредитованная российская ИТ-компания. [Ссылка на реестр](https://www.gosuslugi.ru/itorgs)  
 > Основной код ОКВЭД - 62.01 Разработка компьютерного программного обеспечения.  
 > ОГРН 111112100210  
@@ -59,7 +59,7 @@ site:ContactsArticle
 > Платформа Veda включена в [реестр российского программного обеспечения](https://reestr.digital.gov.ru/reestr/307394/)
   """@ru ;
   site:summary """
-> Semantic machines, LLC  
+> *Semantic machines, LLC*  
 > Accredited Russian IT company. [Link to registry](https://www.gosuslugi.ru/itorgs)  
 > Russian Federation, The Republic of Komi, 167026, Syktyvkar, Bumazhnikov ave, 2.  
 > Tel: +7 922 276 16 75  
