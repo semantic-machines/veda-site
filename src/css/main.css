@@ -468,6 +468,15 @@ em { font-style: italic; }
   padding-top: 2rem;
 }
 
+/* Documentation page */
+.doc-tabs {
+  margin-bottom: 2.5rem;
+}
+
+.doc-content--hidden {
+  display: none;
+}
+
 /* Images referenced with #center anchor in markdown */
 .markdown img[src*="#center"] {
   display: block;
