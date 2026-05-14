@@ -1,6 +1,11 @@
-import { Component, Model } from 'veda-client';
+import { Component, Model, Router } from 'veda-client';
 import { marked } from 'marked';
 import lang from '../lang.js';
+
+// Module-level cache — shared across component instances (back/forward navigation)
+let _cache = null;
+let _lastAspectIdx = 0;  // remember selected tab across instances
+let _savedScrollY  = 0;  // remember scroll position before opening app detail
 
 // Parse "text^^RU" / "text^^EN" → { ru, en } plain object
 const LANG_RE = /^([\s\S]*)\^\^([A-Za-z]{2})$/;
@@ -47,52 +52,80 @@ export default class ApplicationsPage extends Component(HTMLElement) {
 
   async added () {
     try {
-      // Article header
-      const article = new Model('site:ApplicationsArticle');
-      await article.load();
-      this._heading     = pickLang(biLingual(article, 'site:heading'));
-      this._summaryHtml = mdHtml(biLingual(article, 'site:summary'));
-      this._contentHtml = mdHtml(biLingual(article, 'site:content'));
-      const imgRef = article['v-s:hasImage']?.[0];
-      this._imageUrl = imgRef ? `/files/${imgRef.id}` : null;
+      if (!_cache) {
+        // First load — fetch everything and populate cache
+        const article = new Model('site:ApplicationsArticle');
+        await article.load();
+        const imgRef = article['v-s:hasImage']?.[0];
 
-      // MetaAspect → aspects → applications (with full detail data)
-      const meta = new Model('site:MetaAspect');
-      await meta.load();
+        const meta = new Model('site:MetaAspect');
+        await meta.load();
 
-      const aspects = await Promise.all(
-        (meta['v-s:hasAspect'] ?? []).map(async (ref) => {
-          const aspect = new Model(ref.id);
-          await aspect.load();
+        const aspects = await Promise.all(
+          (meta['v-s:hasAspect'] ?? []).map(async (ref) => {
+            const aspect = new Model(ref.id);
+            await aspect.load();
+            const applications = await Promise.all(
+              (aspect['v-s:hasApplication'] ?? []).map(async (appRef) => {
+                const app = new Model(appRef.id);
+                await app.load();
+                const iconRef = app['v-s:hasIcon']?.[0];
+                return {
+                  id:          app.id,
+                  label:       pickLang(biLingual(app, 'rdfs:label')),
+                  comment:     pickLang(biLingual(app, 'rdfs:comment')),
+                  iconUrl:     iconRef ? `/files/${iconRef.id}` : null,
+                  summaryHtml: mdHtml(biLingual(app, 'v-s:summary')),
+                  descHtml:    mdHtml(biLingual(app, 'v-s:description')),
+                };
+              })
+            );
+            return {
+              id:         aspect.id,
+              label:      pickLang(biLingual(aspect, 'rdfs:label')),
+              shortLabel: pickLang(biLingual(aspect, 'v-s:shortLabel')) || pickLang(biLingual(aspect, 'rdfs:label')),
+              applications,
+            };
+          })
+        );
 
-          const applications = await Promise.all(
-            (aspect['v-s:hasApplication'] ?? []).map(async (appRef) => {
-              const app = new Model(appRef.id);
-              await app.load();
-              const iconRef = app['v-s:hasIcon']?.[0];
-              return {
-                id:          app.id,
-                label:       pickLang(biLingual(app, 'rdfs:label')),
-                comment:     pickLang(biLingual(app, 'rdfs:comment')),
-                iconUrl:     iconRef ? `/files/${iconRef.id}` : null,
-                summaryHtml: mdHtml(biLingual(app, 'v-s:summary')),
-                descHtml:    mdHtml(biLingual(app, 'v-s:description')),
-              };
-            })
-          );
+        _cache = {
+          heading:     pickLang(biLingual(article, 'site:heading')),
+          summaryHtml: mdHtml(biLingual(article, 'site:summary')),
+          contentHtml: mdHtml(biLingual(article, 'site:content')),
+          imageUrl:    imgRef ? `/files/${imgRef.id}` : null,
+          aspects,
+        };
+      }
 
-          return {
-            id:         aspect.id,
-            label:      pickLang(biLingual(aspect, 'rdfs:label')),
-            shortLabel: pickLang(biLingual(aspect, 'v-s:shortLabel')) || pickLang(biLingual(aspect, 'rdfs:label')),
-            applications,
-          };
-        })
-      );
+      // Apply cached data to instance fields
+      this._heading     = _cache.heading;
+      this._summaryHtml = _cache.summaryHtml;
+      this._contentHtml = _cache.contentHtml;
+      this._imageUrl    = _cache.imageUrl;
 
-      this.state.aspects    = aspects;
-      this.state.activeApps = aspects[0]?.applications ?? [];
-      this.state.activeIdx  = 0;
+      this.state.aspects = _cache.aspects;
+
+      // Check if opened directly to a specific app (browser back/forward or deep link)
+      const initialAppId = this.getAttribute('data-initial-app');
+      if (initialAppId) {
+        for (const aspect of _cache.aspects) {
+          const found = aspect.applications.find((a) => a.id === initialAppId);
+          if (found) {
+            this._detailApp = found;
+            const idx = _cache.aspects.indexOf(aspect);
+            _lastAspectIdx        = idx;   // save so list view restores it
+            this.state.activeIdx  = idx;
+            this.state.activeApps = aspect.applications;
+            break;
+          }
+        }
+      } else {
+        // List view — restore the last selected tab
+        const idx = _lastAspectIdx;
+        this.state.activeIdx  = idx;
+        this.state.activeApps = _cache.aspects[idx]?.applications ?? _cache.aspects[0]?.applications ?? [];
+      }
     } catch (e) {
       this.state.error = e.message;
     } finally {
@@ -105,29 +138,34 @@ export default class ApplicationsPage extends Component(HTMLElement) {
     if (!btn) return;
     const idx = parseInt(btn.dataset.idx, 10);
     if (isNaN(idx) || idx === this.state.activeIdx) return;
+    _lastAspectIdx        = idx;
     this.state.activeIdx  = idx;
     this.state.activeApps = this.state.aspects[idx]?.applications ?? [];
   }
 
-  async openApp (e) {
+  openApp (e) {
     const card = e.target.closest('[data-app-id]');
     if (!card) return;
-    const id  = card.dataset.appId;
-    const app = this.state.activeApps.find((a) => a.id === id);
-    if (!app) return;
-    this._savedScrollY = window.scrollY;   // remember scroll before opening
-    this._detailApp = app;
-    await this.update();
-    window.scrollTo({ top: 0, behavior: 'instant' });
+    const id = card.dataset.appId;
+    _savedScrollY = window.scrollY;   // save before navigating away
+    const router = new Router();
+    router.go(`#/${lang.current}/applications/${encodeURIComponent(id)}`);
   }
 
-  async closeApp () {
-    this._detailApp = null;
-    await this.update();
-    // Restore scroll after paint so layout is already in place
-    requestAnimationFrame(() => {
-      window.scrollTo({ top: this._savedScrollY ?? 0, behavior: 'instant' });
-    });
+  closeApp () {
+    const router = new Router();
+    router.go(`#/${lang.current}/applications`);
+  }
+
+  post () {
+    // Restore scroll when returning to list view via in-page "back" button
+    if (!this._detailApp && _savedScrollY > 0) {
+      const y = _savedScrollY;
+      _savedScrollY = 0;
+      requestAnimationFrame(() => {
+        window.scrollTo({ top: y, behavior: 'instant' });
+      });
+    }
   }
 
   render () {

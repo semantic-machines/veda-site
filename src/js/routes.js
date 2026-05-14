@@ -44,6 +44,20 @@ export function initRoutes () {
     window.scrollTo({ top: 0, behavior: 'instant' });
   });
 
+  router.add('#/:l/applications/:appId', async (l, appId) => {
+    lang.current = l;
+    lang.page = 'applications';
+    document.documentElement.lang = l;
+    const module = await import('./components/ApplicationsPage.js');
+    const tag = module.default.tag;
+    if (!customElements.get(tag)) customElements.define(tag, module.default);
+    const el = document.createElement(tag);
+    el.setAttribute('data-initial-app', decodeURIComponent(appId));
+    const outlet = getOutlet();
+    if (outlet) outlet.replaceChildren(el);
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  });
+
   router.add('#/cms', async () => {
     const module = await import('./cms/CmsApp.js');
     const tag = module.default.tag;
