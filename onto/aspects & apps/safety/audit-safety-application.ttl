@@ -46,10 +46,6 @@ The application is designed to improve general production safety of the enterpri
   """@en;
   v-s:description """
 ### Объекты предметной области
----
-<div class='row'>
-
-<div class='col-md-7'>
 
 **Аудит безопасности** — документ, который содержит основные сведения о запланированном или проведенном аудите: вид аудита, дату проведения, состав аудиторов, проверяемое подразделение или подрядчик. В случае, если аудит проводился группой аудиторов, свои наблюдения может внести каждый аудитор.
 
@@ -57,36 +53,26 @@ The application is designed to improve general production safety of the enterpri
 
 **Мероприятие аудита** — составная часть документа Аудит безопасности, содержит замечания о выявленных положительных наблюдениях или нарушениях правил, норм, требований промышленной безопасности и охраны труда. Заполняется по итогам проведенного аудита. Совокупность мероприятий позволяет сформировать план по устранению выявленных нарушений с указанием сроков, ответственных сотрудников, приоритетом выданных исполнителям задач. В системе ответственным сотрудникам автоматически будут выданы поручения на исполнение.
 
-**Отчет о выполнении** - составная часть документа Аудит безопасности, заполняется ответственными сотрудниками по факту устранения замечаний (выполнения поручений).
+**Отчет о выполнении** — составная часть документа Аудит безопасности, заполняется ответственными сотрудниками по факту устранения замечаний (выполнения поручений).
 
 Приложение позволяет формировать печатные бланки заполненных аудитов и отчеты о проделанной работе в различных разрезах.
 
-</div>
-
-<div class='col-md-5'>
-
-![Схема процесса управления аудитами безопасности](/files/site:AuditSafetyProcessDiagram_Ru#center)
-
-</div>
-
-</div>
+![Схема процесса управления аудитами безопасности](/files/site:AuditSafetyProcessDiagram_Ru)
   """@ru;
   v-s:description """
 ### Domain subjects
----
-<div class='row'>
 
-<div class='col-md-7'>
+**Safety audit** — a document containing key information about a planned or conducted audit: type, date, auditor team, audited unit or contractor. Each auditor can record their own observations.
 
-</div>
+**Annual audit programme** — a yearly audit plan. The application provides advance notification to stakeholders about upcoming audit dates.
 
-<div class='col-md-5'>
+**Audit action** — a part of the Safety audit document, records observations about positive findings or violations of industrial safety and occupational health rules. Completed after the audit. The set of actions forms a remediation plan with deadlines, responsible employees, and task priorities. The system automatically issues instructions to responsible employees.
 
-![Схема процесса управления аудитами безопасности](/files/site:AuditSafetyProcessDiagram_En#center)
+**Completion report** — a part of the Safety audit document, filled by responsible employees upon resolving findings.
 
-</div>
+The application generates printable audit forms and work completion reports in various views.
 
-</div>
+![Safety audit process diagram](/files/site:AuditSafetyProcessDiagram_En)
   """@en;
 .
 

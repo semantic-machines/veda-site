@@ -46,16 +46,12 @@ Application is designed to form actual contractors data base and to implement co
 """@en ;
   v-s:description """
 ### Объекты предметной области
----
-<div class='row'>
-
-<div class='col-md-7'>
 
 **Организация** — карточка юридического лица в системе, содержит основные реквизиты: наименование, форму собственности, ИНН, КПП, юридический и почтовый адреc.
 
 **Филиал** — составная часть документа Организация, оформляется на обособленные подразделения основного юридического лица, карточка которого заведена в системе.
 
-**Досье** — формируется  на юридическое лицо, с которым сотрудничает предприятие, на основании оформленного документа Организация. Содержит информацию о партнере, необходимую для заключения различных сделок.
+**Досье** — формируется на юридическое лицо, с которым сотрудничает предприятие, на основании оформленного документа Организация. Содержит информацию о партнере, необходимую для заключения различных сделок.
 
 **Запрос на согласование** — формируется для проведения процедуры проверки партнера на соответствие внутренним требованиям предприятия. Предшествует заключению контракта.
 
@@ -65,32 +61,26 @@ Application is designed to form actual contractors data base and to implement co
 
 Приложение позволяет делить контрагентов на категории в зависимости от различных характеристик, исходя из этого использовать автоматические маршруты согласования.
 
-</div>
-
-<div class='col-md-5'>
-
-![Схема процесса управления аудитами безопасности](/files/site:ContractorCategoryProcessDiagram_Ru#center)
-
-</div>
-
-</div>
+![Схема процесса](/files/site:ContractorCategoryProcessDiagram_Ru)
   """@ru;
   v-s:description """
 ### Domain subjects
----
-<div class='row'>
 
-<div class='col-md-7'>
+**Organization** — a legal entity card in the system, contains basic details: name, ownership type, tax IDs, legal and postal address.
 
-</div>
+**Branch** — a subdivision of an Organization document, created for separate departments of the main legal entity.
 
-<div class='col-md-5'>
+**Dossier** — formed for a legal entity the enterprise cooperates with. Contains partner information required for various transactions.
 
-![Схема процесса управления аудитами безопасности](/files/site:ContractorCategoryProcessDiagram_En#center)
+**Approval request** — created to verify a partner's compliance with internal enterprise requirements. Precedes contract signing.
 
-</div>
+**Resolution** — a part of the Request, filled by the approver after the required review. Can be positive or negative.
 
-</div>
+**Unified approval sheet** — a part of the Request. Contains the final decision of approvers, the decision date.
+
+The application allows categorizing contractors based on various characteristics and using automatic approval routes.
+
+![Process diagram](/files/site:ContractorCategoryProcessDiagram_En)
   """@en;
 .
 
