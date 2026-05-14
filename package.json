@@ -1,0 +1,18 @@
+{
+  "name": "veda-site",
+  "version": "1.0.0",
+  "description": "Semantic Machines marketing site on veda-client",
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "watch": "node watch.mjs",
+    "deploy": "node build.mjs && node deploy.mjs"
+  },
+  "dependencies": {
+    "marked": "^17.0.6",
+    "veda-client": "github:semantic-machines/veda-client"
+  },
+  "devDependencies": {
+    "esbuild": "^0.24.2"
+  }
+}

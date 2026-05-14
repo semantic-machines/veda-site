@@ -21,8 +21,8 @@ site:InformationTechnologyAspect
   rdfs:label "Information technology"@en ;
   rdfs:comment "Цифровая трансформация бизнеса"@ru ;
   rdfs:comment "Digital business transformation"@en ;
-  v-s:shortLabel "Информационные технологии"@ru ;
-  v-s:shortLabel "Information technology"@en ;
+  v-s:shortLabel "ИТ"@ru ;
+  v-s:shortLabel "IT"@en ;
   v-ui:hasTemplate v-s:AspectTemplate ;
 
   v-s:hasApplication site:ItServicesApplication ;

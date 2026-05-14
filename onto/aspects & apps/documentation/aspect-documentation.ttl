@@ -21,8 +21,8 @@ site:DocumentationAspect
   rdfs:label "Documentation"@en ;
   rdfs:comment "Словом и делом!"@ru ;
   rdfs:comment "Words & deeds!"@en ;
-  v-s:shortLabel "Документационное обеспечение"@ru ;
-  v-s:shortLabel "Documentation"@en ;
+  v-s:shortLabel "Документы"@ru ;
+  v-s:shortLabel "Documents"@en ;
   v-ui:hasTemplate v-s:AspectTemplate ;
 
   v-s:hasApplication site:BusinessTripApplication ;
