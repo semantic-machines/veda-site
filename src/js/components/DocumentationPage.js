@@ -5,7 +5,6 @@ import lang from '../lang.js';
 import devDocRaw from '../../doc/dev-doc.md';
 import webApiRaw from '../../doc/web-api.md';
 
-// Fix relative image/file links coming from the doc sources
 function mdHtml (raw) {
   return marked.parse(raw).replace(/(href|src)="files\//g, '$1="/files/');
 }
@@ -18,7 +17,7 @@ const DOCS = [
   },
   {
     id: 'web-api',
-    label: { ru: 'Web API',                   en: 'Web API' },
+    label: { ru: 'Web API', en: 'Web API' },
     html: mdHtml(webApiRaw),
   },
 ];
@@ -31,11 +30,25 @@ export default class DocumentationPage extends Component(HTMLElement) {
     this.state.activeIdx = 0;
   }
 
+  // Set doc body innerHTML directly — bypasses veda-client template processing
+  // so curly braces in code examples are never interpreted as reactive expressions
+  _updateBody (idx) {
+    const body = this.querySelector('.doc-body');
+    if (body) body.innerHTML = `<div class="markdown">${DOCS[idx].html}</div>`;
+  }
+
   selectDoc (e) {
     const btn = e.target.closest('[data-idx]');
     if (!btn) return;
     const idx = parseInt(btn.dataset.idx, 10);
-    if (!isNaN(idx)) this.state.activeIdx = idx;
+    if (isNaN(idx)) return;
+    this.state.activeIdx = idx;
+    this._updateBody(idx);
+  }
+
+  // post() is called after the component is fully rendered — safe to query DOM
+  post () {
+    this._updateBody(this.state.activeIdx);
   }
 
   render () {
@@ -46,16 +59,10 @@ export default class DocumentationPage extends Component(HTMLElement) {
                data-idx="${i}" onclick="{selectDoc}">${doc.label[l] || doc.label.ru}</button>`
     ).join('');
 
-    // Content is rendered once per render() call — activeIdx switching is reactive via update()
-    // We use post() to swap visible content to avoid re-parsing large markdown on each tab click
     return `
       <div class="container page-section">
         <div class="aspects-tabs doc-tabs">${tabs}</div>
-        ${DOCS.map((doc, i) =>
-          `<div class="doc-content {state.activeIdx === ${i} ? '' : 'doc-content--hidden'}" data-doc="${i}">
-             <div class="markdown">${doc.html}</div>
-           </div>`
-        ).join('')}
+        <div class="doc-body"></div>
       </div>
     `;
   }

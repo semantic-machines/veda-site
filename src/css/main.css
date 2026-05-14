@@ -470,6 +470,8 @@ em { font-style: italic; }
 
 /* Documentation page */
 .doc-tabs {
+  justify-content: flex-start;
+  gap: 2rem;
   margin-bottom: 2.5rem;
 }
 
