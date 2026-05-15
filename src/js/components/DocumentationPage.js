@@ -6,7 +6,11 @@ import devDocRaw from '../../doc/dev-doc.md';
 import webApiRaw from '../../doc/web-api.md';
 
 function mdHtml (raw) {
-  return marked.parse(raw).replace(/(href|src)="files\//g, '$1="/files/');
+  return marked.parse(raw)
+    // Fix Veda file links: files/xxx → /files/xxx
+    .replace(/(href|src)="files\//g, '$1="/files/')
+    // Fix relative image paths from doc sources: img.png → /site/doc/img.png
+    .replace(/src="(?!https?:\/\/|\/)/g, 'src="/site/doc/');
 }
 
 const DOCS = [

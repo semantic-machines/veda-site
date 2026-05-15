@@ -21,6 +21,9 @@ if (fs.existsSync(faviconSrc)) {
   fs.copyFileSync(faviconSrc, `${faviconDst}/favicon.png`);
 }
 
+// Copy doc assets (images alongside .md files)
+fs.cpSync('src/doc', 'dist/doc', { recursive: true });
+
 // Build JS
 await esbuild.build({
   ...options,
