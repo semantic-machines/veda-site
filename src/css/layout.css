@@ -50,7 +50,7 @@
   display: block;
   padding: 0.45em 0.85em;
   border-radius: var(--radius-md);
-  font-size: 0.95rem;
+  font-size: 1rem;
   color: var(--color-text);
   font-weight: 500;
   transition: background 0.15s, color 0.15s;
