@@ -14,16 +14,21 @@ export default class Footer extends Component(HTMLElement) {
   constructor () {
     super();
     this.state.isAdmin = false;
+    this.state.lang    = lang.current;
   }
 
   async added () {
+    this.effect(() => { this.state.lang = lang.current; });
     try {
       const rights = await Backend.get_rights('site:Article');
       this.state.isAdmin = rights?.canCreate === true;
     } catch {
       this.state.isAdmin = false;
     }
-    // Set rel="noopener noreferrer" on external links — avoid using rel= in template
+  }
+
+  post () {
+    // Set rel="noopener noreferrer" after every render — can't use rel= in template
     // because veda-client treats rel as an RDF relation attribute
     this.querySelectorAll('a[target="_blank"]').forEach((a) => {
       a.setAttribute('rel', 'noopener noreferrer');
@@ -31,7 +36,7 @@ export default class Footer extends Component(HTMLElement) {
   }
 
   render () {
-    const l = lang.current;
+    const l = this.state.lang;
     const year = new Date().getFullYear();
     const cmsLink = this.state.isAdmin
       ? `<a class="footer__link footer__cms-link" href="#/cms">${LABELS.cmsLink[l]}</a>`
