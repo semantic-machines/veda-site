@@ -228,7 +228,7 @@ export default class ApplicationsPage extends Component(HTMLElement) {
 
             <div class="app-grid" items="{state.activeApps}" as="app" key="id">
               <div class="app-card" data-app-id="{app.id}" onclick="{openApp}">
-                <img src="{app.iconUrl}" alt="" class="app-card__icon" loading="lazy">
+                <img :src="{app.iconUrl}" alt="" class="app-card__icon" loading="lazy">
                 <div class="app-card__title">{app.label}</div>
                 <div class="app-card__desc">{app.comment}</div>
               </div>
