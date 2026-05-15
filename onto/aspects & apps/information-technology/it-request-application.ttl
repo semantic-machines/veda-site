@@ -16,7 +16,7 @@
 .
 
 site:ItServicesApplication
-  rdf:type v-s:Application ;
+  rdf:type site:SiteApplication ;
   rdfs:label "ИТ услуги"@ru ;
   rdfs:label "IT services"@en ;
   rdfs:comment "Поддержка на высшем уровне."@ru ;
@@ -47,7 +47,7 @@ The application is designed to automate IT-service delivery process.
 .
 
 site:ItServicesIcon
-  a v-s:File ;
+  a v-s:File, site:SiteFile ;
   v-s:fileUri "it-services.svg"^^xsd:string ;
   v-s:fileName "it-services.svg"^^xsd:string ;
   v-s:filePath "/site"^^xsd:string ;

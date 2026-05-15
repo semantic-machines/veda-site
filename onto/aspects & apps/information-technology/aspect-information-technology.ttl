@@ -16,7 +16,7 @@
 .
 
 site:InformationTechnologyAspect
-  rdf:type v-s:Aspect ;
+  rdf:type site:SiteAspect ;
   rdfs:label "Информационные технологии"@ru ;
   rdfs:label "Information technology"@en ;
   rdfs:comment "Цифровая трансформация бизнеса"@ru ;

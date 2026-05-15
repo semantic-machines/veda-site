@@ -40,56 +40,56 @@ site:PlatformTemplate
 ### IMAGES ###
 
 site:PlatformIcon
-  rdf:type v-s:File ;
+  rdf:type v-s:File, site:SiteFile ;
   v-s:fileUri "platform.svg" ;
   v-s:fileName "platform.svg" ;
   v-s:filePath "/site" ;
 .
 
 site:ImageHydraContract
-  rdf:type v-s:File ;
+  rdf:type v-s:File, site:SiteFile ;
   v-s:fileUri "hydra-contract.svg" ;
   v-s:fileName "hydra-contract.svg" ;
   v-s:filePath "/site" ;
 .
 
 site:AdvantagesArticleImage1
-  rdf:type v-s:File ;
+  rdf:type v-s:File, site:SiteFile ;
   v-s:fileUri "hydra.svg" ;
   v-s:fileName "hydra.svg" ;
   v-s:filePath "/site" ;
 .
 
 site:AdvantagesArticleImage2
-  rdf:type v-s:File ;
+  rdf:type v-s:File, site:SiteFile ;
   v-s:fileUri "thin-server.svg" ;
   v-s:fileName "thin-server.svg" ;
   v-s:filePath "/site" ;
 .
 
 site:AdvantagesArticleImage3
-  rdf:type v-s:File ;
+  rdf:type v-s:File, site:SiteFile ;
   v-s:fileUri "scalability.svg" ;
   v-s:fileName "scalability.svg" ;
   v-s:filePath "/site" ;
 .
 
 site:FeturesArticleImage1
-  rdf:type v-s:File ;
+  rdf:type v-s:File, site:SiteFile ;
   v-s:fileUri "hydra.svg" ;
   v-s:fileName "hydra.svg" ;
   v-s:filePath "/site" ;
 .
 
 site:FeturesArticleImage2
-  rdf:type v-s:File ;
+  rdf:type v-s:File, site:SiteFile ;
   v-s:fileUri "hydra.svg" ;
   v-s:fileName "hydra.svg" ;
   v-s:filePath "/site" ;
 .
 
 site:FeturesArticleImage3
-  rdf:type v-s:File ;
+  rdf:type v-s:File, site:SiteFile ;
   v-s:fileUri "hydra.svg" ;
   v-s:fileName "hydra.svg" ;
   v-s:filePath "/site" ;

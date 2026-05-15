@@ -6,6 +6,7 @@
 @prefix v-ui: <http://semantic-machines.com/veda/veda-ui/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix d: <http://semantic-machines.com/veda/veda-data/> .
+@prefix cfg: <http://semantic-machines.com/veda/config/> .
 @prefix site: <http://semantic-machines.com/veda-site/> .
 
 ### RIGHTS ###
@@ -27,6 +28,24 @@ site:SiteAdmin
 .
 
 ### PERMISSIONS ###
+
+# Public read access for unauthenticated visitors.
+# cfg:Guest is the built-in Veda user for requests without a session ticket.
+# Grants canRead on all instances of the classes used by the public site:
+#   site:Article_group      — page content articles (auto-membership via cfg:Event_7)
+#   site:Page_group         — page individuals (auto-membership via cfg:Event_7)
+#   site:SiteFile_group     — logos, icons, images (auto-membership via cfg:Event_7)
+#   site:SiteAspect_group   — aspect catalogue (auto-membership via cfg:Event_7)
+#   site:SiteApplication_group — application catalogue (auto-membership via cfg:Event_7)
+site:GuestReadPermission
+  rdf:type v-s:PermissionStatement ;
+  rdfs:label "Права на чтение для гостевого пользователя"@ru ;
+  rdfs:label "Read permissions for guest user"@en ;
+  v-s:permissionSubject cfg:Guest ;
+  v-s:permissionObject site:Article_group, site:Page_group, site:SiteFile_group ;
+  v-s:permissionObject site:SiteAspect_group, site:SiteApplication_group ;
+  v-s:canRead "true"^^xsd:boolean ;
+.
 
 site:SiteAdminPermission
   rdf:type v-s:PermissionStatement ;

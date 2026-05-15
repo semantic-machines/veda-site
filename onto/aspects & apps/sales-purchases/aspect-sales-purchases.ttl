@@ -16,7 +16,7 @@
 .
 
 site:PurchasesSalesAspect
-  rdf:type v-s:Aspect ;
+  rdf:type site:SiteAspect ;
   rdfs:label "Закупки и продажи"@ru ;
   rdfs:label "Sales and purchases"@en ;
   rdfs:comment "Выигрывают все!"@ru ;

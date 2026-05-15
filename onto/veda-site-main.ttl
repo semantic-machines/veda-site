@@ -136,7 +136,7 @@ Application components can be changed and adapted to the actual tasks on the fly
 .
 
 site:ApplicationsIcon
-  a v-s:File;
+  a v-s:File, site:SiteFile ;
   v-s:fileUri "applications.svg"^^xsd:string ;
   v-s:fileName "applications.svg"^^xsd:string;
   v-s:filePath "/site"^^xsd:string ;
@@ -149,7 +149,7 @@ site:ApplicationsMainTemplate
 .
 
 site:ServicesMainArticle
-  rdf:type rdfs:Resource ;
+  rdf:type site:Article ;
   rdfs:label "Статья об услугах для главной страницы"@ru ;
   rdfs:label "Services article for main page"@en ;
   v-s:hasImage site:ServicesIcon ;
@@ -175,7 +175,7 @@ We maintain the deployed system and support users.
 .
 
 site:ServicesIcon
-  a v-s:File;
+  a v-s:File, site:SiteFile ;
   v-s:fileUri "services.svg"^^xsd:string ;
   v-s:fileName "services.svg"^^xsd:string;
   v-s:filePath "/site"^^xsd:string ;
@@ -220,7 +220,7 @@ GitHub: [https://github.com/semantic-machines/veda](https://github.com/semantic-
 .
 
 site:ContactsIcon
-  a v-s:File;
+  a v-s:File, site:SiteFile ;
   v-s:fileUri "contacts.svg"^^xsd:string ;
   v-s:fileName "contacts.svg"^^xsd:string;
   v-s:filePath "/site"^^xsd:string ;

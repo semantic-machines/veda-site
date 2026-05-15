@@ -16,7 +16,7 @@
 .
 
 site:PassRequestApplication
-  rdf:type v-s:Application ;
+  rdf:type site:SiteApplication ;
   rdfs:label "Заявки на пропуск"@ru ;
   rdfs:label "Security pass request"@en ;
   rdfs:comment "Вовремя и точно."@ru ;
@@ -45,7 +45,7 @@ The application is designed to automate the security pass issuance process.
 .
 
 site:PassRequestIcon
-  a v-s:File ;
+  a v-s:File, site:SiteFile ;
   v-s:fileUri "pass-request.svg"^^xsd:string ;
   v-s:fileName "pass-request.svg"^^xsd:string ;
   v-s:filePath "/site"^^xsd:string ;

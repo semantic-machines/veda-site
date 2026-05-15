@@ -16,7 +16,7 @@
 .
 
 site:QualityManagementAspect
-  rdf:type v-s:Aspect ;
+  rdf:type site:SiteAspect ;
   rdfs:label "Управление качеством"@ru ;
   rdfs:label "Quality management"@en ;
   rdfs:comment "Высокие требования ко всем"@ru ;

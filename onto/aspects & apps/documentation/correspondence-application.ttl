@@ -16,7 +16,7 @@
 .
 
 site:CorrespondenceApplication
-  rdf:type v-s:Application ;
+  rdf:type site:SiteApplication ;
   rdfs:label "Корреспонденция"@ru ;
   rdfs:label "Correspondence"@en ;
   rdfs:comment "Всегда на связи."@ru ;
@@ -45,7 +45,7 @@ The application is designed to automate record-keeping processes of the organiza
 .
 
 site:CorrespondenceApplicationIcon
-  a v-s:File ;
+  a v-s:File, site:SiteFile ;
   v-s:fileUri "correspondence.svg"^^xsd:string ;
   v-s:fileName "correspondence.svg"^^xsd:string ;
   v-s:filePath "/site"^^xsd:string ;

@@ -40,21 +40,21 @@ site:DownloadTemplate
 ### IMAGES ###
 
 site:DownloadIcon
-  rdf:type v-s:File ;
+  rdf:type v-s:File, site:SiteFile ;
   v-s:fileUri "download.svg" ;
   v-s:fileName "download.svg" ;
   v-s:filePath "/site" ;
 .
 
 site:SourceCodeIcon
-  rdf:type v-s:File ;
+  rdf:type v-s:File, site:SiteFile ;
   v-s:fileUri "source-code.svg" ;
   v-s:fileName "source-code.svg" ;
   v-s:filePath "/site" ;
 .
 
 site:AppImageIcon
-  rdf:type v-s:File ;
+  rdf:type v-s:File, site:SiteFile ;
   v-s:fileUri "app-image.svg" ;
   v-s:fileName "app-image.svg" ;
   v-s:filePath "/site" ;
@@ -63,14 +63,14 @@ site:AppImageIcon
 ### FILES ###
 
 site:SourceCode
-  rdf:type v-s:File ;
+  rdf:type v-s:File, site:SiteFile ;
   v-s:fileUri "veda-5.4.8.zip" ;
   v-s:fileName "veda-5.4.8.zip" ;
   v-s:filePath "/site/download" ;
 .
 
 site:AppImage
-  rdf:type v-s:File ;
+  rdf:type v-s:File, site:SiteFile ;
   v-s:fileUri "Veda-x86_64.AppImage" ;
   v-s:fileName "Veda-x86_64.AppImage" ;
   v-s:filePath "/site/download" ;

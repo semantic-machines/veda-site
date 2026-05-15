@@ -15,7 +15,7 @@
   v-s:loadPriority 20 ;
 .
 site:AccountingDocApplication
-  rdf:type v-s:Application ;
+  rdf:type site:SiteApplication ;
   rdfs:label "Первичные документы"@ru ;
   rdfs:label "Accounting documents"@en ;
   rdfs:comment "Важное. Под рукой."@ru ;
@@ -44,7 +44,7 @@ Application purpose is to provide operational processing and storage of primary 
 .
 
 site:AccountingDocIcon
-  a v-s:File ;
+  a v-s:File, site:SiteFile ;
   v-s:fileUri "accounting-doc.svg"^^xsd:string ;
   v-s:fileName "accounting-doc.svg"^^xsd:string ;
   v-s:filePath "/site"^^xsd:string ;

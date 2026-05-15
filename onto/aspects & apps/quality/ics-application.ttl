@@ -16,7 +16,7 @@
 .
 
 site:ICSApplication
-  rdf:type v-s:Application ;
+  rdf:type site:SiteApplication ;
   rdfs:label "Внутренняя удовлетворенность"@ru ;
   rdfs:label "Internal customer satisfaction"@en ;
   rdfs:comment "С уважением друг к другу."@ru ;
@@ -47,7 +47,7 @@ The assessment is performed quarterly by business process owners who complete mu
 .
 
 site:ICSApplicationIcon
-  a v-s:File ;
+  a v-s:File, site:SiteFile ;
   v-s:fileUri "internal-client-satisfaction.svg"^^xsd:string ;
   v-s:fileName "internal-client-satisfaction.svg"^^xsd:string ;
   v-s:filePath "/site"^^xsd:string ;

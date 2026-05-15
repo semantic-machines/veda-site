@@ -16,7 +16,7 @@
 .
 #------------------------------------------
 site:ContractsManagementApplication
-  rdf:type v-s:Application ;
+  rdf:type site:SiteApplication ;
   rdfs:label "Контракты"@ru ;
   rdfs:label "Contracts"@en ;
   rdfs:comment "Лучшие условия. Всегда."@ru ;
@@ -45,7 +45,7 @@ Application purpose is to control and coordinate contractual processes.
 .
 
 site:ContractsManagementIcon
-  a v-s:File ;
+  a v-s:File, site:SiteFile ;
   v-s:fileUri "contract.svg"^^xsd:string ;
   v-s:fileName "contract.svg"^^xsd:string ;
   v-s:filePath "/site"^^xsd:string ;

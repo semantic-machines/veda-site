@@ -16,7 +16,7 @@
 .
 
 site:BusinessTripApplication
-  rdf:type v-s:Application ;
+  rdf:type site:SiteApplication ;
   rdfs:label "Командировки"@ru ;
   rdfs:label "Business trips"@en ;
   rdfs:comment "Узнаём новое. Каждый день."@ru ;
@@ -49,7 +49,7 @@ The application is designed for processing business trip documentation.
 .
 
 site:BusinessTripApplicationIcon
-  a v-s:File ;
+  a v-s:File, site:SiteFile ;
   v-s:fileUri "business-trip.svg"^^xsd:string ;
   v-s:fileName "business-trip.svg"^^xsd:string ;
   v-s:filePath "/site"^^xsd:string ;

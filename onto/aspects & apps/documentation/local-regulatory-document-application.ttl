@@ -16,7 +16,7 @@
 .
 
 site:LocalRegulatoryDocumentApplication
-  rdf:type v-s:Application ;
+  rdf:type site:SiteApplication ;
   rdfs:label "Нормативные документы"@ru ;
   rdfs:label "Regulatory documents"@en ;
   rdfs:comment "Изучай и следуй в работе."@ru ;
@@ -43,7 +43,7 @@ The application is designed to support administrative activities of the organiza
 .
 
 site:LocalRegulatoryDocumentApplicationIcon
-  a v-s:File ;
+  a v-s:File, site:SiteFile ;
   v-s:fileUri "local-regulatory-document.svg"^^xsd:string ;
   v-s:fileName "local-regulatory-document.svg"^^xsd:string ;
   v-s:filePath "/site"^^xsd:string ;

@@ -16,7 +16,7 @@
 .
 
 site:ActOfViolationApplication
-  rdf:type v-s:Application ;
+  rdf:type site:SiteApplication ;
   rdfs:label "Акты нарушений"@ru ;
   rdfs:label "Acts of violation"@en ;
   rdfs:comment "Честная игра. Всегда."@ru ;
@@ -43,7 +43,7 @@ The application is designed to record and address violations of the enterprise's
 .
 
 site:ActOfViolationIcon
-  a v-s:File ;
+  a v-s:File, site:SiteFile ;
   v-s:fileUri "act-of-violation.svg"^^xsd:string ;
   v-s:fileName "act-of-violation.svg"^^xsd:string ;
   v-s:filePath "/site"^^xsd:string ;

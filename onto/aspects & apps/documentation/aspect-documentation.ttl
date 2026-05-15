@@ -16,7 +16,7 @@
 .
 
 site:DocumentationAspect
-  rdf:type v-s:Aspect ;
+  rdf:type site:SiteAspect ;
   rdfs:label "Документационное обеспечение"@ru ;
   rdfs:label "Documentation"@en ;
   rdfs:comment "Словом и делом!"@ru ;

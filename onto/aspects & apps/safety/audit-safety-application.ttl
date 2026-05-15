@@ -16,7 +16,7 @@
 .
 
 site:AuditSafetyApplication
-  rdf:type v-s:Application ;
+  rdf:type site:SiteApplication ;
   rdfs:label "Аудиты безопасности"@ru ;
   rdfs:label "Safety audits"@en ;
   rdfs:comment "Безопасность труда начинается с тебя!"@ru ;
@@ -77,14 +77,14 @@ The application generates printable audit forms and work completion reports in v
 .
 
 site:AuditSafetyIcon
-  a v-s:File ;
+  a v-s:File, site:SiteFile ;
   v-s:fileUri "audit-safety.svg"^^xsd:string ;
   v-s:fileName "audit-safety.svg"^^xsd:string ;
   v-s:filePath "/site"^^xsd:string ;
 .
 
 site:AuditSafetyProcessDiagram_Ru
-  a v-s:File ;
+  a v-s:File, site:SiteFile ;
   rdfs:label "Схема процесса"@ru ;
   rdfs:label "Process diagram"@en ;
   v-s:fileUri "audit-safety-process-diagram-ru.svg"^^xsd:string ;
@@ -92,7 +92,7 @@ site:AuditSafetyProcessDiagram_Ru
   v-s:filePath "/site/diagrams"^^xsd:string ;
 .
 site:AuditSafetyProcessDiagram_En
-  a v-s:File ;
+  a v-s:File, site:SiteFile ;
   rdfs:label "Схема процесса"@ru ;
   rdfs:label "Process diagram"@en ;
   v-s:fileUri "audit-safety-process-diagram-en.svg"^^xsd:string ;

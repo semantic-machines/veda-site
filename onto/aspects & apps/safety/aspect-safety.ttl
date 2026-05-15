@@ -16,7 +16,7 @@
 .
 
 site:ProductionSafetyAspect
-  rdf:type v-s:Aspect ;
+  rdf:type site:SiteAspect ;
   rdfs:label "Промышленная безопасность"@ru ;
   rdfs:label "Production safety"@en ;
   rdfs:comment "Сначала безопасность!"@ru ;

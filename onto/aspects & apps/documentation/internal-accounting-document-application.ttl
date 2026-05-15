@@ -16,7 +16,7 @@
 .
 
 site:InternalAccountingDocApplication
-  rdf:type v-s:Application ;
+  rdf:type site:SiteApplication ;
   rdfs:label "Внутренние бухгалтерские документы"@ru ;
   rdfs:label "Internal accounting document"@en ;
   rdfs:comment "Важное. Под рукой."@ru ;
@@ -45,7 +45,7 @@ Application purpose is to provide operational processing and storage of internal
 .
 
 site:AccountingDocIcon
-  a v-s:File ;
+  a v-s:File, site:SiteFile ;
   v-s:fileUri "accounting-doc.svg"^^xsd:string ;
   v-s:fileName "accounting-doc.svg"^^xsd:string ;
   v-s:filePath "/site"^^xsd:string ;

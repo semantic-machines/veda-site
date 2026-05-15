@@ -16,7 +16,7 @@
 .
 
 site:AuditInternalApplication
-  rdf:type v-s:Application ;
+  rdf:type site:SiteApplication ;
   rdfs:label "Внутренние аудиты"@ru ;
   rdfs:label "Internal audits"@en ;
   rdfs:comment "Высокие стандарты. Во всем."@ru ;
@@ -46,7 +46,7 @@ The application is designed to identify and address non-conformities across ente
 .
 
 site:AuditInternalIcon
-  a v-s:File ;
+  a v-s:File, site:SiteFile ;
   v-s:fileUri "audit-internal.svg"^^xsd:string ;
   v-s:fileName "audit-internal.svg"^^xsd:string ;
   v-s:filePath "/site"^^xsd:string ;

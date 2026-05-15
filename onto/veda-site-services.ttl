@@ -39,21 +39,21 @@ site:ServicesTemplate
 ### IMAGES ###
 
 site:ImageServicesBackground
-  rdf:type v-s:File ;
+  rdf:type v-s:File, site:SiteFile ;
   v-s:fileUri "5.png" ;
   v-s:fileName "5.png" ;
   v-s:filePath "/site" ;
 .
 
 site:ImageServicesBackgroundForCard
-  rdf:type v-s:File ;
+  rdf:type v-s:File, site:SiteFile ;
   v-s:fileUri "background3.png" ;
   v-s:fileName "background3.png" ;
   v-s:filePath "/site" ;
 .
 
 site:ImageServicesBackgroundForCard1
-  rdf:type v-s:File ;
+  rdf:type v-s:File, site:SiteFile ;
   v-s:fileUri "background4.png" ;
   v-s:fileName "background4.png" ;
   v-s:filePath "/site" ;

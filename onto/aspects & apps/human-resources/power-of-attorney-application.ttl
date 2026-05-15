@@ -16,7 +16,7 @@
 .
 
 site:PowerOfAttorneyApplication
-  rdf:type v-s:Application ;
+  rdf:type site:SiteApplication ;
   rdfs:label "Доверенности"@ru ;
   rdfs:label "Power of attorney"@en ;
   rdfs:comment "Прозрачность во всём."@ru ;
@@ -47,7 +47,7 @@ The application is intended for registration of powers of attorney.
 .
 
 site:PowerOfAttorneyApplicationIcon
-  a v-s:File ;
+  a v-s:File, site:SiteFile ;
   v-s:fileUri "power-of-attorney.svg"^^xsd:string ;
   v-s:fileName "power-of-attorney.svg"^^xsd:string ;
   v-s:filePath "/site"^^xsd:string ;

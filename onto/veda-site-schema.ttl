@@ -22,7 +22,7 @@
 
 site:Page
   rdf:type owl:Class ;
-  rdfs:subClassOf owl:Thing ;
+  rdfs:subClassOf v-s:ClassAuthorized ;
   rdfs:label "Страница"@ru ;
   rdfs:label "Page"@en ;
   v-ui:hasTemplate site:PageTemplate ;
@@ -30,7 +30,7 @@ site:Page
 
 site:Article
   rdf:type owl:Class ;
-  rdfs:subClassOf owl:Thing ;
+  rdfs:subClassOf v-s:ClassAuthorized ;
   rdfs:label "Статья"@ru ;
   rdfs:label "Article"@en ;
   v-ui:hasTemplate site:ArticleTemplate ;
@@ -38,16 +38,39 @@ site:Article
 
 site:Comment
   rdf:type owl:Class ;
-  rdfs:subClassOf owl:Thing ;
+  rdfs:subClassOf v-s:ClassAuthorized ;
   rdfs:label "Комментарий"@ru ;
   rdfs:label "Comment"@en ;
 .
 
 site:Category
   rdf:type owl:Class ;
-  rdfs:subClassOf owl:Thing ;
+  rdfs:subClassOf v-s:ClassAuthorized ;
   rdfs:label "Категория"@ru ;
   rdfs:label "Category"@en ;
+.
+
+site:SiteFile
+  rdf:type owl:Class ;
+  rdfs:subClassOf v-s:ClassAuthorized ;
+  rdfs:label "Файл сайта"@ru ;
+  rdfs:label "Site file"@en ;
+.
+
+site:SiteAspect
+  rdf:type owl:Class ;
+  rdfs:subClassOf v-s:Aspect ;
+  rdfs:subClassOf v-s:ClassAuthorized ;
+  rdfs:label "Аспект сайта"@ru ;
+  rdfs:label "Site aspect"@en ;
+.
+
+site:SiteApplication
+  rdf:type owl:Class ;
+  rdfs:subClassOf v-s:Application ;
+  rdfs:subClassOf v-s:ClassAuthorized ;
+  rdfs:label "Приложение сайта"@ru ;
+  rdfs:label "Site application"@en ;
 .
 
 ### PROPERTIES ###

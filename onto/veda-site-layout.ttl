@@ -25,19 +25,19 @@ site:Slogan
 .
 
 site:SemanticMachinesLogo
-  a v-s:File;
+  a v-s:File, site:SiteFile ;
   v-s:fileUri "semantic-machines-logo.svg"^^xsd:string ;
   v-s:fileName "semantic-machines-logo.svg"^^xsd:string;
   v-s:filePath "/site"^^xsd:string ;
 .
 site:SemanticMachinesLogoLong
-  a v-s:File;
+  a v-s:File, site:SiteFile ;
   v-s:fileUri "semantic-machines-logo-long.svg"^^xsd:string ;
   v-s:fileName "semantic-machines-logo-long.svg"^^xsd:string;
   v-s:filePath "/site"^^xsd:string ;
 .
 site:VedaLogo
-  a v-s:File;
+  a v-s:File, site:SiteFile ;
   v-s:fileUri "veda-logo.svg"^^xsd:string ;
   v-s:fileName "veda-logo.svg"^^xsd:string;
   v-s:filePath "/site"^^xsd:string ;

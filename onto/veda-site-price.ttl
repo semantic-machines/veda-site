@@ -31,7 +31,7 @@ site:Price
 ### IMAGES ###
 
 site:PriceIcon
-  a v-s:File;
+  a v-s:File, site:SiteFile ;
   v-s:fileUri "price.svg"^^xsd:string ;
   v-s:fileName "price.svg"^^xsd:string;
   v-s:filePath "/site"^^xsd:string ;

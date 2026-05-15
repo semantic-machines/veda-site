@@ -16,7 +16,7 @@
 .
 
 site:DelegationApplication
-  rdf:type v-s:Application ;
+  rdf:type site:SiteApplication ;
   rdfs:label "Делегирование полномочий"@ru ;
   rdfs:label "Delegation"@en ;
   rdfs:comment "Доверяй и проверяй."@ru ;
@@ -45,7 +45,7 @@ The application is designed to set up a temporary or indefinite substitution for
 .
 
 site:DelegationApplicationIcon
-  a v-s:File ;
+  a v-s:File, site:SiteFile ;
   v-s:fileUri "delegation.svg"^^xsd:string ;
   v-s:fileName "delegation.svg"^^xsd:string ;
   v-s:filePath "/site"^^xsd:string ;

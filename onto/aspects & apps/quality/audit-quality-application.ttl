@@ -16,7 +16,7 @@
 .
 
 site:AuditQualityApplication
-  rdf:type v-s:Application ;
+  rdf:type site:SiteApplication ;
   rdfs:label "Аудиты качества"@ru ;
   rdfs:label "Quality audits"@en ;
   rdfs:comment "Высокие стандарты. Во всем."@ru ;
@@ -45,7 +45,7 @@ The application is designed to audit the compliance of business processes to req
 .
 
 site:AuditQualityIcon
-  a v-s:File ;
+  a v-s:File, site:SiteFile ;
   v-s:fileUri "audit-quality.svg"^^xsd:string ;
   v-s:fileName "audit-quality.svg"^^xsd:string ;
   v-s:filePath "/site"^^xsd:string ;

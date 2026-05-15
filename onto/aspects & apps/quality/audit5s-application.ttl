@@ -16,7 +16,7 @@
 .
 
 site:Audit5SApplication
-  rdf:type v-s:Application ;
+  rdf:type site:SiteApplication ;
   rdfs:label "Аудиты 5S"@ru ;
   rdfs:label "5S audits"@en ;
   rdfs:comment "Порядок на рабочем месте."@ru ;
@@ -43,7 +43,7 @@ The application is designed to assess workplace organization at employees' works
 .
 
 site:Audit5SApplicationIcon
-  a v-s:File ;
+  a v-s:File, site:SiteFile ;
   v-s:fileUri "audit5s.svg"^^xsd:string ;
   v-s:fileName "audit5s.svg"^^xsd:string ;
   v-s:filePath "/site"^^xsd:string ;

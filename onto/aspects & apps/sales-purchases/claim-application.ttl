@@ -16,7 +16,7 @@
 .
 
 site:ClaimsManagementApplication
-  rdf:type v-s:Application ;
+  rdf:type site:SiteApplication ;
   rdfs:label "Претензии"@ru ;
   rdfs:label "Claims"@en ;
   rdfs:comment "Давайте исправлять ошибки!"@ru ;
@@ -47,7 +47,7 @@ The application is designed to manage claims.
 .
 
 site:ClaimsManagementIcon
-  a v-s:File ;
+  a v-s:File, site:SiteFile ;
   v-s:fileUri "claim.svg"^^xsd:string ;
   v-s:fileName "claim.svg"^^xsd:string ;
   v-s:filePath "/site"^^xsd:string ;

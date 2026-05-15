@@ -9,7 +9,7 @@ customElements.define(Footer.tag, Footer);
 export default class SiteApp extends Component(HTMLElement) {
   static tag = 'site-app';
 
-  async added () {
+  added () {
     this._onError = (e) => {
       console.error('[veda-site] uncaught error:', e.error ?? e.message);
     };
@@ -18,6 +18,7 @@ export default class SiteApp extends Component(HTMLElement) {
     };
     window.addEventListener('error', this._onError);
     window.addEventListener('unhandledrejection', this._onRejection);
+
     initRoutes();
   }
 

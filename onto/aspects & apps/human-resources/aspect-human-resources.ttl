@@ -16,7 +16,7 @@
 .
 
 site:HumanResourcesAspect
-  rdf:type v-s:Aspect ;
+  rdf:type site:SiteAspect ;
   rdfs:label "Кадры"@ru ;
   rdfs:label "Human resources"@en ;
   rdfs:comment "Люди важны!"@ru ;

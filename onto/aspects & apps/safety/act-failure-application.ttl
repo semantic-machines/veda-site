@@ -16,7 +16,7 @@
 .
 
 site:ActFailureApplication
-  rdf:type v-s:Application ;
+  rdf:type site:SiteApplication ;
   rdfs:label "Расследования аварий"@ru ;
   rdfs:label "Failures analysis"@en ;
   rdfs:comment "Всё тайное становится явным."@ru ;
@@ -48,7 +48,7 @@ The application is designed to perform root cause analysis of equipment failures
 .
 
 site:ActFailureIcon
-  a v-s:File ;
+  a v-s:File, site:SiteFile ;
   v-s:fileUri "act-failure.svg"^^xsd:string ;
   v-s:fileName "act-failure.svg"^^xsd:string ;
   v-s:filePath "/site"^^xsd:string ;

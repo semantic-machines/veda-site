@@ -16,7 +16,7 @@
 .
 
 site:MeetingsManagementApplication
-  rdf:type v-s:Application ;
+  rdf:type site:SiteApplication ;
   rdfs:label "Встречи"@ru ;
   rdfs:label "Meetings"@en ;
   rdfs:comment "От обсуждений – к решениям."@ru ;
@@ -45,7 +45,7 @@ The application is designed to support employee collaboration during meetings.
 .
 
 site:MeetingsManagementApplicationIcon
-  a v-s:File ;
+  a v-s:File, site:SiteFile ;
   v-s:fileUri "meeting.svg"^^xsd:string ;
   v-s:fileName "meeting.svg"^^xsd:string ;
   v-s:filePath "/site"^^xsd:string ;

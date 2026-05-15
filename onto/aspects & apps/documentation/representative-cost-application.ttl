@@ -16,7 +16,7 @@
 .
 
 site:RepresentativeCostsApplication
-  rdf:type v-s:Application ;
+  rdf:type site:SiteApplication ;
   rdfs:label "Представительские расходы"@ru ;
   rdfs:label "Representative costs"@en ;
   rdfs:comment "Точность в расчётах. Без проблем."@ru ;
@@ -45,7 +45,7 @@ The application is designed to account representative costs for various events.
 .
 
 site:RepresentativeCostsApplicationIcon
-  a v-s:File ;
+  a v-s:File, site:SiteFile ;
   v-s:fileUri "representative-costs.svg"^^xsd:string ;
   v-s:fileName "representative-costs.svg"^^xsd:string ;
   v-s:filePath "/site"^^xsd:string ;

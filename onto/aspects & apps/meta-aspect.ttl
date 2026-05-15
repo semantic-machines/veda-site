@@ -16,7 +16,7 @@
 .
 
 site:MetaAspect
-  rdf:type v-s:Aspect ;
+  rdf:type site:SiteAspect ;
   rdfs:label "Meta aspect" ;
   v-ui:hasTemplate site:MetaAspectTemplate ;
   v-s:hasAspect site:PurchasesSalesAspect ;
