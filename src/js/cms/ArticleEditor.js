@@ -1,25 +1,7 @@
 import { Component, Model, Backend } from 'veda-client';
 import { marked } from 'marked';
 import { parseMLString } from '../utils/mlValue.js';
-
-// Main page section articles (shown on homepage)
-// Individual page articles (shown on dedicated pages)
-const ARTICLES = [
-  { uri: 'site:AboutMainArticle',    label: 'Главная — О компании (секция)' },
-  { uri: 'site:PlatformMainArticle', label: 'Главная — Платформа (секция)' },
-  { uri: 'site:ApplicationsMainArticle', label: 'Главная — Приложения (секция)' },
-  { uri: 'site:ServicesMainArticle', label: 'Главная — Услуги (секция)' },
-  { uri: 'site:ContactsMainArticle', label: 'Главная — Контакты (секция)' },
-  { uri: 'site:AboutArticle',        label: 'Страница: О компании' },
-  { uri: 'site:PlatformArticle',     label: 'Страница: Платформа' },
-  { uri: 'site:ApplicationsArticle', label: 'Страница: Приложения' },
-  { uri: 'site:ServicesArticle',     label: 'Страница: Услуги' },
-  { uri: 'site:DeveloperGuide',      label: 'Страница: Документация' },
-  { uri: 'site:PriceArticle',        label: 'Страница: Цены' },
-  { uri: 'site:ContactsArticle',     label: 'Страница: Контакты' },
-  { uri: 'site:DownloadArticle',     label: 'Страница: Скачать' },
-  { uri: 'site:ConfidentialArticle', label: 'Политика конфиденциальности' },
-];
+import { ALL_ARTICLES as ARTICLES } from '../pages.js';
 
 export default class ArticleEditor extends Component(HTMLElement) {
   static tag = 'cms-article-editor';

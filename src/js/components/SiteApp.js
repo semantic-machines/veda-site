@@ -10,7 +10,20 @@ export default class SiteApp extends Component(HTMLElement) {
   static tag = 'site-app';
 
   async added () {
+    this._onError = (e) => {
+      console.error('[veda-site] uncaught error:', e.error ?? e.message);
+    };
+    this._onRejection = (e) => {
+      console.error('[veda-site] unhandled rejection:', e.reason);
+    };
+    window.addEventListener('error', this._onError);
+    window.addEventListener('unhandledrejection', this._onRejection);
     initRoutes();
+  }
+
+  removed () {
+    window.removeEventListener('error', this._onError);
+    window.removeEventListener('unhandledrejection', this._onRejection);
   }
 
   render () {

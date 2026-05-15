@@ -1,14 +1,6 @@
 import { Component } from 'veda-client';
 import lang from '../lang.js';
-
-const NAV_PAGES = [
-  { id: 'platform',      label: { ru: 'Платформа',    en: 'Platform' } },
-  { id: 'documentation', label: { ru: 'Документация', en: 'Docs' } },
-  { id: 'applications',  label: { ru: 'Приложения',   en: 'Applications' } },
-  { id: 'services',      label: { ru: 'Услуги',       en: 'Services' } },
-  { id: 'price',         label: { ru: 'Цены',         en: 'Price' } },
-  { id: 'contacts',      label: { ru: 'Контакты',     en: 'Contacts' } },
-];
+import { NAV_PAGES } from '../pages.js';
 
 export default class NavBar extends Component(HTMLElement) {
   static tag = 'site-navbar';

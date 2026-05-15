@@ -1,15 +1,11 @@
 import { Component, Model, Backend } from 'veda-client';
+import { CMS_PAGES } from '../pages.js';
 
-const PAGES = [
-  { uri: 'site:About',         labelRu: 'О компании',   labelEn: 'About' },
-  { uri: 'site:Platform',      labelRu: 'Платформа',    labelEn: 'Platform' },
-  { uri: 'site:Applications',  labelRu: 'Приложения',   labelEn: 'Applications' },
-  { uri: 'site:Services',      labelRu: 'Услуги',       labelEn: 'Services' },
-  { uri: 'site:Documentation', labelRu: 'Документация', labelEn: 'Documentation' },
-  { uri: 'site:Price',         labelRu: 'Цены',         labelEn: 'Price' },
-  { uri: 'site:Contacts',      labelRu: 'Контакты',     labelEn: 'Contacts' },
-  { uri: 'site:Download',      labelRu: 'Скачать',      labelEn: 'Download' },
-];
+const PAGES = CMS_PAGES.map((p) => ({
+  uri:     p.pageUri,
+  labelRu: p.label?.ru ?? p.id,
+  labelEn: p.label?.en ?? p.id,
+}));
 
 export default class PageManager extends Component(HTMLElement) {
   static tag = 'cms-page-manager';

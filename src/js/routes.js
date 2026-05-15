@@ -1,18 +1,6 @@
 import { Router } from 'veda-client';
 import lang from './lang.js';
-
-const pages = {
-  main:          () => import('./components/MainPage.js'),
-  about:         () => import('./components/AboutPage.js'),
-  platform:      () => import('./components/PlatformPage.js'),
-  applications:  () => import('./components/ApplicationsPage.js'),
-  services:      () => import('./components/ServicesPage.js'),
-  documentation: () => import('./components/DocumentationPage.js'),
-  price:         () => import('./components/PricePage.js'),
-  contacts:      () => import('./components/ContactsPage.js'),
-  download:      () => import('./components/DownloadPage.js'),
-  privacy:       () => import('./components/PrivacyPage.js'),
-};
+import { PAGE_LOADERS } from './pages.js';
 
 // Query outlet fresh on each navigation to handle re-renders
 function getOutlet () {
@@ -28,7 +16,7 @@ export function initRoutes () {
     lang.page = page;
     document.documentElement.lang = l;
 
-    const loader = pages[page];
+    const loader = PAGE_LOADERS[page];
     if (!loader) {
       router.go(`#/${l}/main`);
       return;

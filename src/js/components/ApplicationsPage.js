@@ -54,6 +54,9 @@ export default class ApplicationsPage extends Component(HTMLElement) {
         const meta = new Model('site:MetaAspect');
         await meta.load();
 
+        // Cache stores language-neutral biLingual objects so that
+        // language switches (which recreate the component) always pick
+        // the correct language from the same cached data.
         const aspects = await Promise.all(
           (meta['v-s:hasAspect'] ?? []).map(async (ref) => {
             const aspect = new Model(ref.id);
@@ -64,60 +67,73 @@ export default class ApplicationsPage extends Component(HTMLElement) {
                 await app.load();
                 const iconRef = app['v-s:hasIcon']?.[0];
                 return {
-                  id:          app.id,
-                  label:       pickLang(biLingual(app, 'rdfs:label')),
-                  comment:     pickLang(biLingual(app, 'rdfs:comment')),
-                  iconUrl:     iconRef ? `/files/${iconRef.id}` : null,
-                  summaryHtml: mdHtml(biLingual(app, 'v-s:summary')),
-                  descHtml:    mdHtml(biLingual(app, 'v-s:description')),
+                  id:         app.id,
+                  labelBi:    biLingual(app, 'rdfs:label'),
+                  commentBi:  biLingual(app, 'rdfs:comment'),
+                  iconUrl:    iconRef ? `/files/${iconRef.id}` : null,
+                  summaryBi:  biLingual(app, 'v-s:summary'),
+                  descBi:     biLingual(app, 'v-s:description'),
                 };
               })
             );
             return {
-              id:         aspect.id,
-              label:      pickLang(biLingual(aspect, 'rdfs:label')),
-              shortLabel: pickLang(biLingual(aspect, 'v-s:shortLabel')) || pickLang(biLingual(aspect, 'rdfs:label')),
+              id:           aspect.id,
+              labelBi:      biLingual(aspect, 'rdfs:label'),
+              shortLabelBi: biLingual(aspect, 'v-s:shortLabel'),
               applications,
             };
           })
         );
 
         _cache = {
-          heading:     pickLang(biLingual(article, 'site:heading')),
-          summaryHtml: mdHtml(biLingual(article, 'site:summary')),
-          contentHtml: mdHtml(biLingual(article, 'site:content')),
-          imageUrl:    imgRef ? `/files/${imgRef.id}` : null,
+          headingBi:  biLingual(article, 'site:heading'),
+          summaryBi:  biLingual(article, 'site:summary'),
+          contentBi:  biLingual(article, 'site:content'),
+          imageUrl:   imgRef ? `/files/${imgRef.id}` : null,
           aspects,
         };
       }
 
-      // Apply cached data to instance fields
-      this._heading     = _cache.heading;
-      this._summaryHtml = _cache.summaryHtml;
-      this._contentHtml = _cache.contentHtml;
+      // Apply cached data using current language — called on every component
+      // creation so language switches always produce correctly translated data.
+      this._heading     = pickLang(_cache.headingBi);
+      this._summaryHtml = mdHtml(_cache.summaryBi);
+      this._contentHtml = mdHtml(_cache.contentBi);
       this._imageUrl    = _cache.imageUrl;
 
-      this.state.aspects = _cache.aspects;
+      this.state.aspects = _cache.aspects.map((aspect) => ({
+        id:         aspect.id,
+        label:      pickLang(aspect.labelBi),
+        shortLabel: pickLang(aspect.shortLabelBi) || pickLang(aspect.labelBi),
+        applications: aspect.applications.map((app) => ({
+          id:          app.id,
+          label:       pickLang(app.labelBi),
+          comment:     pickLang(app.commentBi),
+          iconUrl:     app.iconUrl,
+          summaryHtml: mdHtml(app.summaryBi),
+          descHtml:    mdHtml(app.descBi),
+        })),
+      }));
 
       // Check if opened directly to a specific app (browser back/forward or deep link)
       const initialAppId = this.getAttribute('data-initial-app');
+      const aspects = this.state.aspects;
       if (initialAppId) {
-        for (const aspect of _cache.aspects) {
+        for (const aspect of aspects) {
           const found = aspect.applications.find((a) => a.id === initialAppId);
           if (found) {
             this._detailApp = found;
-            const idx = _cache.aspects.indexOf(aspect);
-            _lastAspectIdx        = idx;   // save so list view restores it
+            const idx = aspects.indexOf(aspect);
+            _lastAspectIdx        = idx;
             this.state.activeIdx  = idx;
             this.state.activeApps = aspect.applications;
             break;
           }
         }
       } else {
-        // List view — restore the last selected tab
         const idx = _lastAspectIdx;
         this.state.activeIdx  = idx;
-        this.state.activeApps = _cache.aspects[idx]?.applications ?? _cache.aspects[0]?.applications ?? [];
+        this.state.activeApps = aspects[idx]?.applications ?? aspects[0]?.applications ?? [];
       }
     } catch (e) {
       this.state.error = e.message;
