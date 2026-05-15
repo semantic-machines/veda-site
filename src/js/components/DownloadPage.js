@@ -1,4 +1,3 @@
-import { marked } from 'marked';
 import BasePage from './BasePage.js';
 import lang from '../lang.js';
 
@@ -11,14 +10,9 @@ export default class DownloadPage extends BasePage {
   static tag = 'page-download';
   static articleUri = 'site:DownloadArticle';
 
-  added () {
-    const result = super.added();
-    // Set rel on external links after render
-    result?.then?.(() => this._setExternalRel());
-    return result;
-  }
-
-  _setExternalRel () {
+  post () {
+    // Set rel="noopener noreferrer" after render — can't use rel= in template
+    // because veda-client treats rel as an RDF relation attribute
     this.querySelectorAll('a[target="_blank"]').forEach((a) => {
       a.setAttribute('rel', 'noopener noreferrer');
     });

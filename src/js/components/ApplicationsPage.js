@@ -171,7 +171,7 @@ export default class ApplicationsPage extends Component(HTMLElement) {
   render () {
     if (this.state.loading) return `<div class="loading">...</div>`;
     if (this.state.error) {
-      return `<div class="container page-section"><p class="text-muted">${this.state.error}</p></div>`;
+      return `<div class="container page-section"><p class="text-muted">{state.error}</p></div>`;
     }
 
     const l = lang.current;
@@ -224,7 +224,7 @@ export default class ApplicationsPage extends Component(HTMLElement) {
                       onclick="{selectAspect}">{aspect.shortLabel}</button>
             </div>
 
-            <h2 class="aspect-title">{state.aspects[state.activeIdx].label}</h2>
+            <h2 class="aspect-title">{state.aspects[state.activeIdx]?.label}</h2>
 
             <div class="app-grid" items="{state.activeApps}" as="app" key="id">
               <div class="app-card" data-app-id="{app.id}" onclick="{openApp}">

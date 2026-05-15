@@ -20,15 +20,14 @@ export default class MainPage extends BasePage {
 
   async added () {
     try {
-      const models = await Promise.all(
+      const sections = await Promise.all(
         SECTIONS.map(async ({ uri, largeImage }) => {
-          const m = new Model(uri);
-          await m.load();
-          m._largeImage = largeImage ?? false;
-          return m;
+          const model = new Model(uri);
+          await model.load();
+          return { model, largeImage: largeImage ?? false };
         })
       );
-      this.state.sections = models;
+      this.state.sections = sections;
     } catch (e) {
       this.state.error = e.message;
     } finally {
@@ -39,7 +38,7 @@ export default class MainPage extends BasePage {
   render () {
     if (this.state.loading) return `<div class="loading">...</div>`;
 
-    const sections = this.state.sections.map((article, idx) => {
+    const sections = this.state.sections.map(({ model: article, largeImage }, idx) => {
       const heading = this.getLangValue(article, 'site:heading');
       const summary = this.renderMarkdown(article, 'site:summary');
       const content = this.renderMarkdown(article, 'site:content');
@@ -49,7 +48,7 @@ export default class MainPage extends BasePage {
       const imageUri = imageModel?.id ?? null;
       const imageUrl = imageUri ? `/files/${imageUri}` : null;
 
-      const imgClass = `section-img${article._largeImage ? ' section-img--large' : ''}`;
+      const imgClass = `section-img${largeImage ? ' section-img--large' : ''}`;
       const imageBlock = imageUrl
         ? `<div class="section-media">
              <img src="${imageUrl}" alt="${heading}" class="${imgClass}" loading="lazy">

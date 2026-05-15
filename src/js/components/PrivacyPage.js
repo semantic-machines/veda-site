@@ -7,7 +7,7 @@ export default class PrivacyPage extends BasePage {
   render () {
     if (this.state.loading) return `<div class="loading">...</div>`;
     if (this.state.error) {
-      return `<div class="container page-section"><p class="text-muted">${this.state.error}</p></div>`;
+      return `<div class="container page-section"><p class="text-muted">{state.error}</p></div>`;
     }
 
     const article = this.state.article;

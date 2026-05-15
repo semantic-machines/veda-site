@@ -96,7 +96,7 @@ export default class OntologyGraph extends Component(HTMLElement) {
 
   render () {
     if (this.state.error) {
-      return `<div class="container page-section"><p class="text-muted">${this.state.error}</p></div>`;
+      return `<div class="container page-section"><p class="text-muted">{state.error}</p></div>`;
     }
     const l = lang.current;
     const legendHtml = LEGEND.map(
@@ -387,6 +387,11 @@ export default class OntologyGraph extends Component(HTMLElement) {
     };
     window.addEventListener('mousemove', onMove);
     window.addEventListener('mouseup', onUp);
+  }
+
+  removed () {
+    this._sim?.stop();
+    this._sim = null;
   }
 
   _startNodeDrag (e, node) {
