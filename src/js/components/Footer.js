@@ -4,7 +4,6 @@ import lang from '../lang.js';
 const LABELS = {
   privacy:   { ru: 'Политика конфиденциальности', en: 'Privacy Policy' },
   poweredBy: { ru: 'Работает на',                 en: 'Powered by' },
-  license:   { ru: 'Лицензия',                    en: 'License' },
   cmsLink:   { ru: 'Управление сайтом',           en: 'Site management' },
 };
 
@@ -13,12 +12,26 @@ export default class Footer extends Component(HTMLElement) {
 
   constructor () {
     super();
-    this.state.isAdmin = false;
-    this.state.lang    = lang.current;
+    this.state.isAdmin    = false;
+    this.state.poweredBy  = '';
+    this.state.privacyTxt = '';
+    this.state.privacyHref = '#/';
+    this.state.cmsLinkTxt = '';
+    this._syncLabels();
+  }
+
+  _syncLabels () {
+    const l = lang.current;
+    this.state.poweredBy   = LABELS.poweredBy[l];
+    this.state.privacyTxt  = LABELS.privacy[l];
+    this.state.privacyHref = `#/${l}/privacy`;
+    this.state.cmsLinkTxt  = LABELS.cmsLink[l];
   }
 
   async added () {
-    this.effect(() => { this.state.lang = lang.current; });
+    // Re-sync labels whenever lang changes — reads lang.current so it's tracked
+    this.effect(() => this._syncLabels());
+
     try {
       const rights = await Backend.get_rights('site:Article');
       this.state.isAdmin = rights?.canCreate === true;
@@ -36,12 +49,7 @@ export default class Footer extends Component(HTMLElement) {
   }
 
   render () {
-    const l = this.state.lang;
     const year = new Date().getFullYear();
-    const cmsLink = this.state.isAdmin
-      ? `<a class="footer__link footer__cms-link" href="#/cms">${LABELS.cmsLink[l]}</a>`
-      : '';
-
     return `
       <footer class="footer">
         <div class="container footer__inner">
@@ -54,17 +62,13 @@ export default class Footer extends Component(HTMLElement) {
           </div>
           <div class="footer__copyright text-muted">
             &copy; ${year} Semantic Machines.
-            ${LABELS.poweredBy[l]}
+            {state.poweredBy}
             <a href="https://github.com/semantic-machines/veda" target="_blank">Veda</a>.
-            <!--
-            ${LABELS.license[l]}
-            <a href="https://www.gnu.org/licenses/gpl.html" target="_blank">GPLv3</a>.
-            -->
           </div>
           <ul class="footer__links">
-            <li><a href="#/${l}/privacy">${LABELS.privacy[l]}</a></li>
+            <li><a href="{state.privacyHref}">{state.privacyTxt}</a></li>
             <li><a href="https://semantic-machines.com" target="_blank">semantic-machines.com</a></li>
-            ${this.state.isAdmin ? `<li><a href="#/cms">${LABELS.cmsLink[l]}</a></li>` : ''}
+            ${this.state.isAdmin ? `<li><a href="#/cms">{state.cmsLinkTxt}</a></li>` : ''}
           </ul>
         </div>
       </footer>
