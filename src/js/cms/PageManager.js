@@ -44,10 +44,10 @@ export default class PageManager extends Component(HTMLElement) {
 
     const newEnabled = !page.enabled;
     page.enabled = newEnabled;
-    page.model['v-s:deleted'] = newEnabled ? [] : [{ type: 'Boolean', value: true }];
+    page.model['v-s:deleted'] = newEnabled ? null : true;
 
     try {
-      await Backend.put_individual(page.model);
+      await Backend.put_individual(page.model.toJSON());
       this.state.message = {
         type: 'success',
         text: `${page.labelRu}: ${newEnabled ? 'включена' : 'скрыта'}`,

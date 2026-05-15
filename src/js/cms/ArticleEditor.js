@@ -87,7 +87,7 @@ export default class ArticleEditor extends Component(HTMLElement) {
         `${this.state.contentRu}^^RU`,
         `${this.state.contentEn}^^EN`,
       ];
-      await Backend.put_individual(article);
+      await Backend.put_individual(article.toJSON());
       this.state.message = { type: 'success', text: 'Сохранено' };
     } catch (e) {
       this.state.message = { type: 'error', text: e.message };
@@ -105,9 +105,10 @@ export default class ArticleEditor extends Component(HTMLElement) {
   }
 
   togglePreview () {
-    // Sync textarea content before re-render so preview shows what user typed
-    const ta = this.querySelector('#content-ru');
-    if (ta) this.state.contentRu = ta.value;
+    const taRu = this.querySelector('#content-ru');
+    const taEn = this.querySelector('#content-en');
+    if (taRu) this.state.contentRu = taRu.value;
+    if (taEn) this.state.contentEn = taEn.value;
     this.state.preview = !this.state.preview;
     this.update();
   }
@@ -144,62 +145,61 @@ export default class ArticleEditor extends Component(HTMLElement) {
       ? `<div class="alert alert-${s.message.type}">${s.message.text}</div>`
       : '';
 
-    const previewHtml = marked.parse(s.contentRu || '');
+    const previewRu = marked.parse(s.contentRu || '');
+    const previewEn = marked.parse(s.contentEn || '');
 
     return `
       <div class="article-editor">
-        <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem">
-          <h2>${articleMeta?.label ?? s.selectedUri}</h2>
-          <button class="btn btn-outline" onclick="{cancel}" style="margin-left:auto">← Назад</button>
+        <div class="editor-toolbar">
+          <h2 class="editor-title">${articleMeta?.label ?? s.selectedUri}</h2>
+          <div class="editor-toolbar__actions">
+            <button class="btn btn-outline btn-sm" onclick="{togglePreview}">
+              ${s.preview ? '✏️ Редактор' : '👁 Предпросмотр'}
+            </button>
+            <button class="btn btn-primary btn-sm" onclick="{save}" ${s.saving ? 'disabled' : ''}>
+              ${s.saving ? 'Сохраняю...' : '💾 Сохранить'}
+            </button>
+            <button class="btn btn-outline btn-sm" onclick="{cancel}">← Назад</button>
+          </div>
         </div>
 
         ${msgHtml}
 
-        <div class="form-group">
-          <label class="form-label">Заголовок (RU)</label>
-          <input class="form-input" type="text" value="${s.labelRu}"
-            oninput="{handleLabelRu}">
-        </div>
-        <div class="form-group">
-          <label class="form-label">Заголовок (EN)</label>
-          <input class="form-input" type="text" value="${s.labelEn}"
-            oninput="{handleLabelEn}">
-        </div>
-        <div class="form-group">
-          <label class="form-label">Heading (RU)</label>
-          <input class="form-input" type="text" value="${s.headingRu}"
-            oninput="{handleHeadingRu}">
-        </div>
-        <div class="form-group">
-          <label class="form-label">Heading (EN)</label>
-          <input class="form-input" type="text" value="${s.headingEn}"
-            oninput="{handleHeadingEn}">
-        </div>
-
-        <div class="form-group">
-          <div style="display:flex;align-items:center;gap:.5rem;margin-bottom:.4rem">
-            <span class="form-label" style="margin:0">Контент RU (Markdown)</span>
-            <button class="btn btn-outline" style="padding:.2em .6em;font-size:.8rem"
-              onclick="{togglePreview}">
-              ${s.preview ? 'Редактор' : 'Предпросмотр'}
-            </button>
+        <div class="editor-split">
+          <div class="editor-split__pane">
+            <div class="form-group">
+              <label class="form-label">Заголовок RU</label>
+              <input class="form-input" type="text" value="${s.labelRu}" oninput="{handleLabelRu}">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Heading RU</label>
+              <input class="form-input" type="text" value="${s.headingRu}" oninput="{handleHeadingRu}">
+            </div>
+            <div class="form-group" style="flex:1">
+              <label class="form-label">Контент RU (Markdown)</label>
+              ${s.preview
+                ? `<div class="editor-preview markdown">${previewRu}</div>`
+                : `<textarea id="content-ru" class="form-textarea editor-textarea">${s.contentRu}</textarea>`
+              }
+            </div>
           </div>
-          ${s.preview
-            ? `<div class="editor-preview markdown">${previewHtml}</div>`
-            : `<textarea id="content-ru" class="form-textarea">${s.contentRu}</textarea>`
-          }
-        </div>
-
-        <div class="form-group">
-          <label class="form-label">Контент EN (Markdown)</label>
-          <textarea id="content-en" class="form-textarea">${s.contentEn}</textarea>
-        </div>
-
-        <div class="editor-actions">
-          <button class="btn btn-primary" onclick="{save}" ${s.saving ? 'disabled' : ''}>
-            ${s.saving ? 'Сохраняю...' : 'Сохранить'}
-          </button>
-          <button class="btn btn-outline" onclick="{cancel}">Отмена</button>
+          <div class="editor-split__pane">
+            <div class="form-group">
+              <label class="form-label">Заголовок EN</label>
+              <input class="form-input" type="text" value="${s.labelEn}" oninput="{handleLabelEn}">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Heading EN</label>
+              <input class="form-input" type="text" value="${s.headingEn}" oninput="{handleHeadingEn}">
+            </div>
+            <div class="form-group" style="flex:1">
+              <label class="form-label">Контент EN (Markdown)</label>
+              ${s.preview
+                ? `<div class="editor-preview markdown">${previewEn}</div>`
+                : `<textarea id="content-en" class="form-textarea editor-textarea">${s.contentEn}</textarea>`
+              }
+            </div>
+          </div>
         </div>
       </div>
     `;

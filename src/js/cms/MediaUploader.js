@@ -1,4 +1,4 @@
-import { Component, Backend } from 'veda-client';
+import { Component } from 'veda-client';
 
 export default class MediaUploader extends Component(HTMLElement) {
   static tag = 'cms-media-uploader';
@@ -48,9 +48,9 @@ export default class MediaUploader extends Component(HTMLElement) {
       try {
         const formData = new FormData();
         formData.append('file', file);
-        const ticket = Backend.ticket;
-        const res = await fetch(`/files?ticket=${ticket}`, {
+        const res = await fetch('/files', {
           method: 'POST',
+          credentials: 'include',
           body: formData,
         });
         if (!res.ok) throw new Error(`HTTP ${res.status}`);

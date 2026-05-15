@@ -11,7 +11,13 @@ function getOutlet () {
 export function initRoutes () {
   const router = new Router();
 
+  function setSiteChrome (visible) {
+    const app = document.querySelector('site-app');
+    if (app) app.classList.toggle('cms-mode', !visible);
+  }
+
   router.add('#/:l/:page', async (l, page) => {
+    setSiteChrome(true);
     lang.current = l;
     lang.page = page;
     document.documentElement.lang = l;
@@ -33,6 +39,7 @@ export function initRoutes () {
   });
 
   router.add('#/:l/graph/:uri', async (l, uri) => {
+    setSiteChrome(true);
     lang.current = l;
     lang.page = 'platform';
     document.documentElement.lang = l;
@@ -47,6 +54,7 @@ export function initRoutes () {
   });
 
   router.add('#/:l/applications/:appId', async (l, appId) => {
+    setSiteChrome(true);
     lang.current = l;
     lang.page = 'applications';
     document.documentElement.lang = l;
@@ -61,6 +69,7 @@ export function initRoutes () {
   });
 
   router.add('#/cms', async () => {
+    setSiteChrome(false);
     const module = await import('./cms/CmsApp.js');
     const tag = module.default.tag;
     if (!customElements.get(tag)) {

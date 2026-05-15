@@ -8,9 +8,9 @@ customElements.define(PageManager.tag, PageManager);
 customElements.define(MediaUploader.tag, MediaUploader);
 
 const SECTIONS = [
-  { id: 'articles', label: 'Статьи' },
-  { id: 'pages',    label: 'Страницы' },
-  { id: 'media',    label: 'Медиафайлы' },
+  { id: 'articles', label: 'Статьи',     icon: '📝' },
+  { id: 'pages',    label: 'Страницы',   icon: '🗂' },
+  { id: 'media',    label: 'Медиафайлы', icon: '🖼' },
 ];
 
 export default class CmsApp extends Component(HTMLElement) {
@@ -21,16 +21,51 @@ export default class CmsApp extends Component(HTMLElement) {
     this.state.checking = true;
     this.state.allowed = false;
     this.state.section = 'articles';
+    this.state.login = '';
+    this.state.password = '';
+    this.state.loginError = null;
+    this.state.loggingIn = false;
   }
 
   async added () {
+    await this._checkAccess();
+  }
+
+  async _checkAccess () {
+    this.state.checking = true;
     try {
       const rights = await Backend.get_rights('site:Article');
-      this.state.allowed = rights?.canCreate === true || rights?.canUpdate === true;
+      this.state.allowed = !!rights?.['v-s:canCreate']?.[0]?.data || !!rights?.['v-s:canUpdate']?.[0]?.data;
     } catch {
       this.state.allowed = false;
     } finally {
       this.state.checking = false;
+    }
+    await this.update();
+  }
+
+  handleLogin (e)    { this.state.login    = e.target.value; }
+  handlePassword (e) { this.state.password = e.target.value; }
+
+  async submitLogin (e) {
+    e.preventDefault();
+    this.state.loggingIn = true;
+    this.state.loginError = null;
+    await this.update();
+    try {
+      const encoded = new TextEncoder().encode(this.state.password);
+      const hashBuffer = await crypto.subtle.digest('SHA-256', encoded);
+      const hashHex = Array.from(new Uint8Array(hashBuffer))
+        .map((b) => b.toString(16).padStart(2, '0'))
+        .join('');
+      await Backend.authenticate(this.state.login, hashHex);
+      this.state.login = '';
+      this.state.password = '';
+      await this._checkAccess();
+    } catch {
+      this.state.loginError = 'Неверный логин или пароль';
+      this.state.loggingIn = false;
+      await this.update();
     }
   }
 
@@ -38,7 +73,10 @@ export default class CmsApp extends Component(HTMLElement) {
   selectSection (e) {
     e.preventDefault();
     const el = e.target.closest('[data-section]');
-    if (el) this.state.section = el.dataset.section;
+    if (el) {
+      this.state.section = el.dataset.section;
+      this.update();
+    }
   }
 
   render () {
@@ -47,11 +85,34 @@ export default class CmsApp extends Component(HTMLElement) {
     }
 
     if (!this.state.allowed) {
+      const errHtml = this.state.loginError
+        ? `<div class="alert alert-error">${this.state.loginError}</div>`
+        : '';
       return `
-        <div class="container page-section text-center">
-          <h2>Доступ запрещён</h2>
-          <p class="text-muted">Управление сайтом доступно только членам группы site:SiteAdmin.</p>
-          <a class="btn btn-outline" href="#/ru/main">На главную</a>
+        <div class="cms-login">
+          <div class="cms-login__card">
+            <div class="cms-login__title">Вход в CMS</div>
+            <div class="cms-login__sub">Управление контентом сайта</div>
+            ${errHtml}
+            <form onsubmit="{submitLogin}">
+              <div class="form-group" style="margin-bottom:.75rem">
+                <label class="form-label">Логин</label>
+                <input class="form-input" type="text" autocomplete="username"
+                  value="${this.state.login}" oninput="{handleLogin}">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Пароль</label>
+                <input class="form-input" type="password" autocomplete="current-password"
+                  value="${this.state.password}" oninput="{handlePassword}">
+              </div>
+              <div class="cms-login__actions">
+                <button class="btn btn-primary" type="submit" ${this.state.loggingIn ? 'disabled' : ''}>
+                  ${this.state.loggingIn ? 'Вход...' : 'Войти'}
+                </button>
+                <a class="btn btn-outline" href="#/ru/main">← На сайт</a>
+              </div>
+            </form>
+          </div>
         </div>
       `;
     }
@@ -63,7 +124,7 @@ export default class CmsApp extends Component(HTMLElement) {
          href="#"
          data-section="${s.id}"
          onclick="{selectSection}">
-        ${s.label}
+        <span>${s.icon}</span> ${s.label}
       </a>
     `).join('');
 
@@ -77,10 +138,8 @@ export default class CmsApp extends Component(HTMLElement) {
           <h1>Управление сайтом</h1>
           <a class="cms-header__back" href="#/ru/main">← На сайт</a>
         </header>
-        <div class="cms-layout">
-          <nav class="cms-sidebar">${navItems}</nav>
-          <main class="cms-content">${content}</main>
-        </div>
+        <nav class="cms-sidebar">${navItems}</nav>
+        <main class="cms-content">${content}</main>
       </div>
     `;
   }
