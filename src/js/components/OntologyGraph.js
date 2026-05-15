@@ -283,8 +283,9 @@ export default class OntologyGraph extends Component(HTMLElement) {
     node._expanded = true;
     if (node._badge) node._badge.remove();
 
-    // Collect unique target URIs not yet in the map
+    // Collect unique targets and uncached property URIs
     const newTargets = new Set();
+    const newProps   = new Set();
     const linkDefs   = []; // { prop, targetUri, key }
 
     for (const [prop, values] of Object.entries(json)) {
@@ -294,62 +295,55 @@ export default class OntologyGraph extends Component(HTMLElement) {
         const key = `${uri}→${prop}→${data}`;
         if (this._linkSet.has(key)) continue;
         linkDefs.push({ prop, targetUri: data, key });
-        if (!this._nodeMap.has(data)) newTargets.add(data);
+        if (!this._nodeMap.has(data))       newTargets.add(data);
+        if (!this._propCache.has(prop))     newProps.add(prop);
       }
     }
 
-    // Load all new target individuals in parallel
-    const targetList = [...newTargets];
-    const targetJsons = await Promise.all(
-      targetList.map((tUri) => Backend.get_individual(tUri, false).catch(() => null))
-    );
+    // Single batch request: targets + property labels (uncached only)
+    const batchUris = [...newTargets, ...newProps];
+    if (batchUris.length > 0) {
+      const results = await Backend.get_individuals(batchUris);
+      // Index by URI — order and completeness not guaranteed
+      const byUri = new Map(
+        (results ?? []).filter(Boolean).map((j) => [j['@'], j])
+      );
 
-    for (let i = 0; i < targetList.length; i++) {
-      const tUri  = targetList[i];
-      const tJson = targetJsons[i];
-      if (!tJson) {
-        this._nodeMap.set(tUri, { id: tUri, _skip: true });
-        continue;
+      // Register target nodes
+      for (const tUri of newTargets) {
+        const tJson  = byUri.get(tUri);
+        const tTypes = tJson ? (tJson['rdf:type'] ?? []).map((v) => v.data) : [];
+        if (!tJson || tTypes.some((t) => SKIP_TYPES.has(t))) {
+          this._nodeMap.set(tUri, { id: tUri, _skip: true });
+          continue;
+        }
+        const tLabel = getLabelFromJson(tJson);
+        const tNode  = {
+          id: tUri, label: tLabel, types: tTypes,
+          x: node.x + (Math.random() - 0.5) * 150,
+          y: node.y + (Math.random() - 0.5) * 150,
+        };
+        this._nodes.push(tNode);
+        this._nodeMap.set(tUri, tNode);
       }
-      const tTypes = (tJson['rdf:type'] ?? []).map((v) => v.data);
-      if (tTypes.some((t) => SKIP_TYPES.has(t))) {
-        this._nodeMap.set(tUri, { id: tUri, _skip: true });
-        continue;
+
+      // Cache property labels
+      for (const pUri of newProps) {
+        const pJson = byUri.get(pUri);
+        this._propCache.set(pUri, pJson ? getLabelFromJson(pJson) : pUri.split(/[:/]/).pop());
       }
-      const tLabel = getLabelFromJson(tJson);
-      const tNode  = {
-        id: tUri, label: tLabel, types: tTypes,
-        x: node.x + (Math.random() - 0.5) * 150,
-        y: node.y + (Math.random() - 0.5) * 150,
-      };
-      this._nodes.push(tNode);
-      this._nodeMap.set(tUri, tNode);
     }
 
     // Add edges — skip filtered targets
-    // Load property labels in parallel
-    const uniqueProps = [...new Set(linkDefs.map((d) => d.prop))];
-    await Promise.all(uniqueProps.map((p) => this._getPropLabel(p)));
-
     for (const { prop, targetUri, key } of linkDefs) {
       const targetNode = this._nodeMap.get(targetUri);
       if (!targetNode || targetNode._skip) continue;
       this._linkSet.add(key);
-      this._links.push({ source: uri, target: targetUri, label: this._propCache.get(prop) ?? prop.split(/[:/]/).pop() });
-    }
-  }
-
-  async _getPropLabel (propUri) {
-    if (this._propCache.has(propUri)) return this._propCache.get(propUri);
-    try {
-      const json = await Backend.get_individual(propUri, false);
-      const label = getLabelFromJson(json);
-      this._propCache.set(propUri, label);
-      return label;
-    } catch {
-      const short = propUri.split(/[:/]/).pop();
-      this._propCache.set(propUri, short);
-      return short;
+      this._links.push({
+        source: uri,
+        target: targetUri,
+        label: this._propCache.get(prop) ?? prop.split(/[:/]/).pop(),
+      });
     }
   }
 
