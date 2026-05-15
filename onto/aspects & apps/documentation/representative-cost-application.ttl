@@ -37,7 +37,7 @@ site:RepresentativeCostsApplication
   v-s:summary """
 The application is designed to account representative costs for various events.
 
-**The application allows to:**
+**The application enables you to:**
 - Issue an event plan with indication of the budget holders, responsibles, participants, including employees of external organizations.
 - Calculate and account the costs of event (total and per participant).
 - Report actual costs.

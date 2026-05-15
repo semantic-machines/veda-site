@@ -38,7 +38,7 @@ site:PowerOfAttorneyApplication
   v-s:summary """
 The application is intended for registration of powers of attorney.
 
-**The application allows to:**
+**The application enables you to:**
   - To automate issue and account of powers of attorney.
   - To issue powers of attorney for individuals and legal entities.
   - To maintain a single register of issued powers of attorney.

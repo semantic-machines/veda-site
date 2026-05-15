@@ -36,13 +36,13 @@ site:ContractorsManagementApplication
   - Оформлять заявки на создание / изменение контрагентов.
 """@ru ;
   v-s:summary """
-Application is designed to form actual contractors data base and to implement contractor's verification procedure by Financial security, Legal, Tax departments.
+The application is designed to maintain an up-to-date contractor database and to carry out contractor verification procedures involving the Financial Security, Legal, and Tax departments.
 
-**The application allows to:**
-  - Form contractor's profile containg founding documents, licenses and other required documents.
-  - Verify services declared by the contractor.
-  - Make agreements with contractor for the verified services only.
-  - Form requests to create / change of contractor records.
+**The application enables you to:**
+  - Create a contractor profile containing founding documents, licences and other required documents.
+  - Verify the types of activities declared by the contractor.
+  - Enter into agreements with a contractor only for verified activity types.
+  - Submit requests to create or update contractor records.
 """@en ;
   v-s:description """
 ### Объекты предметной области
@@ -100,7 +100,8 @@ site:ContractorCategoryProcessDiagram_Ru
 .
 site:ContractorCategoryProcessDiagram_En
   a v-s:File ;
-  rdfs:label "Схема процесса";
+  rdfs:label "Схема процесса"@ru ;
+  rdfs:label "Process diagram"@en ;
   v-s:fileUri "contractor-category-process-diagram-en.svg" ;
   v-s:fileName "contractor-category-process-diagram-en.svg" ;
   v-s:filePath "/site/diagrams" ;

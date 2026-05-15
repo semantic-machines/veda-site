@@ -36,7 +36,7 @@ site:LocalRegulatoryDocumentApplication
   v-s:summary """
 The application is designed to support administrative activities of the organization.
 
-**The application allows to:**
+**The application enables you to:**
 - Issue local regulatory documents, create their versions, indicate the relevance of versions of documents, track the history of changes.
 - Issue, review and sign administrative documents and control their execution.
   """@en;

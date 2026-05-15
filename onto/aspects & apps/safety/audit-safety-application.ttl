@@ -27,7 +27,7 @@ site:AuditSafetyApplication
   v-ui:hasTemplate site:ApplicationTemplate ;
 
   v-s:summary """
-Приложение предназначено для повышения общего уровня промышленной безопасности предприятия, предовтращения травм и несчастных случаев на производстве.
+Приложение предназначено для повышения общего уровня промышленной безопасности предприятия, предотвращения травм и несчастных случаев на производстве.
 
 **Приложение обеспечивает возможность:**
 - Планировать проведение аудитов безопасности: определять состав аудиторов, время и место, своевременно оповещать заинтересованных лиц.
@@ -36,13 +36,13 @@ site:AuditSafetyApplication
 - Назначать ответственных, контролировать статус выполнения.
   """@ru;
   v-s:summary """
-The application is designed to improve general production safety of the enterprise and to prevent injuries and casualties at productions sites.
+The application is designed to improve overall workplace safety and prevent injuries and accidents at production sites.
 
-**The application allows to:**
-- Plan upcoming safety audits: assign auditors, time and place, notify stakeholders.
-- Record positive observations and violations of safety rules during audit.
-- Form an action plan to eliminate the violations in the form of instructions responsible persons.
-- Assign responsibility, monitor the implementation of planned actions.
+**The application enables you to:**
+- Plan upcoming safety audits: assign auditors, schedule time and location, notify stakeholders.
+- Record positive observations and safety rule violations during audits.
+- Create a remediation action plan with instructions assigned to responsible employees.
+- Track responsibility and monitor the completion status of planned actions.
   """@en;
   v-s:description """
 ### Объекты предметной области
@@ -85,14 +85,16 @@ site:AuditSafetyIcon
 
 site:AuditSafetyProcessDiagram_Ru
   a v-s:File ;
-  rdfs:label "Схема процесса";
+  rdfs:label "Схема процесса"@ru ;
+  rdfs:label "Process diagram"@en ;
   v-s:fileUri "audit-safety-process-diagram-ru.svg"^^xsd:string ;
   v-s:fileName "audit-safety-process-diagram-ru.svg"^^xsd:string ;
   v-s:filePath "/site/diagrams"^^xsd:string ;
 .
 site:AuditSafetyProcessDiagram_En
   a v-s:File ;
-  rdfs:label "Схема процесса";
+  rdfs:label "Схема процесса"@ru ;
+  rdfs:label "Process diagram"@en ;
   v-s:fileUri "audit-safety-process-diagram-en.svg"^^xsd:string ;
   v-s:fileName "audit-safety-process-diagram-en.svg"^^xsd:string ;
   v-s:filePath "/site/diagrams"^^xsd:string ;

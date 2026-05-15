@@ -20,6 +20,7 @@
 
 site:Slogan
   rdf:type rdfs:Resource ;
+  rdfs:label "/ Смысловые машины /"@ru ;
   rdfs:label "/ Semantic machines /"@en ;
 .
 
@@ -80,8 +81,8 @@ site:ArticleMarkdownTemplate
 
 site:ConfidentialArticle
   rdf:type site:Article ;
-  rdfs:label "Конфиденциальность"@ru ;
-  rdfs:label "Confidential"@en ;
+  rdfs:label "Политика конфиденциальности"@ru ;
+  rdfs:label "Privacy Policy"@en ;
   v-ui:hasTemplate site:ArticleMarkdownTemplate ;
   site:content """
 Политика в отношении обработки персональных данных
@@ -197,5 +198,5 @@ site:ConfidentialArticle
 10.3. Контроль за исполнением требований настоящей Политики осуществляется лицом, ответственным за организацию обработки персональных данных Администратора.
 
 **Дата последнего обновления Политики 29 мая 2019 года.**
-""" ;
+"""@ru ;
 .

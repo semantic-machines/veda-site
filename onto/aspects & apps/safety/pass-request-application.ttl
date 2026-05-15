@@ -35,12 +35,12 @@ site:PassRequestApplication
 - Оформлять пропуска на основе утвержденных заявок.
   """@ru;
   v-s:summary """
-The application is designed to automate the process of security passes issue.
+The application is designed to automate the security pass issuance process.
 
-**The application allows to:**
-- To apply a pass request for employees of the enterprise and third-party organizations, vehicles, equipment.
-- Review and approve pass request.
-- To issue security passes on the basis of approved requests.
+**The application enables you to:**
+- Submit pass requests for enterprise employees and contractor personnel, vehicles, and equipment.
+- Review and approve submitted requests.
+- Issue security passes based on approved requests.
   """@en;
 .
 

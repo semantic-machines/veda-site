@@ -70,7 +70,7 @@ site:ApplicationsArticle
   site:content """
 We have developed a number of ready-made applications for working with popular business processes.
 Application capabilities can be changed and expanded to the needs of a particular enterprise.
-The implementation of several applications will allow to achieve a significant synergy effect while using the system.
+The implementation of several applications helps achieve a significant synergy effect while using the system.
 
 **The application includes:**
 
@@ -78,7 +78,7 @@ The implementation of several applications will allow to achieve a significant s
 - Templates and other visual on-screen forms.
 - Registries, reporting and printing forms.
 - Business processes to automate collaboration with objects.
-- Roles, user groups, their powers.
+- Roles, user groups, and their permissions.
 - Operational documentation.
   """@en ;
 .

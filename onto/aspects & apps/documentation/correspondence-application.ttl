@@ -31,13 +31,13 @@ site:CorrespondenceApplication
 
 **Приложение обеспечивает возможность:**
 - Автоматически регистрировать входящую и исходящую корреспонденцию организации.
-- Создавать и исполнять внутренние документы общего харакетера.
+- Создавать и исполнять внутренние документы общего характера.
 - Контролировать процессы исполнения документов.
   """@ru;
   v-s:summary """
 The application is designed to automate record-keeping processes of the organization.
 
-**The application allows to:**
+**The application enables you to:**
 - Automatically register all incoming and outgoing correspondence.
 - Create and execute generic internal documents.
 - Monitor the execution of documents.

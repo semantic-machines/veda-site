@@ -10,8 +10,8 @@
 
 <http://semantic-machines.com/veda/claim-application>
   rdf:type owl:Ontology ;
-  rdfs:label "Онтология Монди. Претензии. Приложение"@ru ;
-  rdfs:label "Mondi ontology. Claim. Application"@en ;
+  rdfs:label "Онтология Veda. Претензии. Приложение"@ru ;
+  rdfs:label "Veda ontology. Claim. Application"@en ;
   v-s:loadPriority 20 ;
 .
 
@@ -36,13 +36,13 @@ site:ClaimsManagementApplication
   - Формировать отчеты о предпринятых действиях.
   """@ru ;
   v-s:summary """
-The application is designed to work with claims.
+The application is designed to manage claims.
 
-**The application allows to:**
-  - Register and track incoming and outgoing claims with link to specific contract & contractor.
-  - Make decision on the claim and track it's status.
-  - Control the timing of claim execution.
-  - Generate reports on taken actions.
+**The application enables you to:**
+  - Register and track incoming and outgoing claims, linked to specific contracts and contractors.
+  - Make decisions on claims and track their status.
+  - Monitor claim resolution deadlines.
+  - Generate reports on actions taken.
   """@en ;
 .
 

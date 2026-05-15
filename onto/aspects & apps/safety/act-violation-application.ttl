@@ -27,18 +27,18 @@ site:ActOfViolationApplication
   v-ui:hasTemplate site:ApplicationTemplate ;
 
   v-s:summary """
-Приложение предназначено для устранения нарушений внутреннего правил и режима предприятия.
+Приложение предназначено для фиксации и устранения нарушений внутренних правил и режима предприятия.
 
 **Приложение обеспечивает возможность:**
 - Зафиксировать нарушения режима сотрудниками предприятия или подрядных организаций, неисправность оборудования на КПП.
 - Выставить претензию подрядчику на основании оформленного акта нарушений.
   """@ru;
   v-s:summary """
-The application is designed to eliminate violations of the enterprise internal rules.
+The application is designed to record and address violations of the enterprise's internal rules and procedures.
 
-**The application allows to:**
-- Record violations of internal rules by employees of the enterprise or contractor organizations, equipment malfunction at the checkpoint.
-- Issue claims to the contractor based on recorded violations.
+**The application enables you to:**
+- Record internal rule violations by enterprise employees or contractor personnel, as well as equipment malfunctions at checkpoints.
+- Issue claims to the contractor based on documented violations.
   """@en;
 .
 

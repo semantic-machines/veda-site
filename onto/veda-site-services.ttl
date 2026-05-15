@@ -63,8 +63,8 @@ site:ImageServicesBackgroundForCard1
 
 site:ServicesArticle
   rdf:type site:Article ;
-  rdfs:label "Статья о платформе для страницы платформы"@ru ;
-  rdfs:label "Platform article for platform page"@en ;
+  rdfs:label "Статья страницы услуг"@ru ;
+  rdfs:label "Article for services page"@en ;
   v-s:hasImage site:ServicesIcon ;
   site:heading "Услуги"@ru ;
   site:heading "Services"@en ;

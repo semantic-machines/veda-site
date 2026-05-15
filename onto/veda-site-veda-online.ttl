@@ -46,7 +46,19 @@ site:VedaOnlineArticle
   site:heading "Veda онлайн"@ru ;
   site:heading "Veda online"@en ;
   site:summary """
+Попробуйте платформу Veda в действии — без установки и настройки.
+  """@ru ;
+  site:summary """
+Try the Veda platform in action — no installation or configuration required.
+  """@en ;
+  site:content """
+Демонстрационная среда позволяет ознакомиться с возможностями платформы Veda: создание объектов, настройка шаблонов, управление деловыми процессами и правами доступа.
+
+Для доступа к демонстрационной среде свяжитесь с нами по адресу [info@semantic-machines.com](mailto:info@semantic-machines.com).
   """@ru ;
   site:content """
-  """@ru;
+The demonstration environment lets you explore the Veda platform capabilities: creating objects, configuring templates, managing workflows and access rights.
+
+To access the demonstration environment, contact us at [info@semantic-machines.com](mailto:info@semantic-machines.com).
+  """@en ;
 .

@@ -39,7 +39,7 @@ site:ActFailureApplication
   v-s:summary """
 The application is designed to perform root cause analysis of equipment failures.
 
-**The application allows to:**
+**The application enables you to:**
 - Record equipment failures, their consequences, costs of elimination.
 - Perform root cause analysis of the failure.
 - Formulate an action plan to eliminate causes of the failure.

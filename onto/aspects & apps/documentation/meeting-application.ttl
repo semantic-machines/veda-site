@@ -35,12 +35,12 @@ site:MeetingsManagementApplication
   - Формировать план мероприятий по итогам встреч в виде поручений исполнителям. Назначать ответственных, контролировать статус выполнения.
   """@ru ;
   v-s:summary """
-Application is designed to support employees' collaboration during working meetings.
+The application is designed to support employee collaboration during meetings.
 
-**The application allows to:**
-  - Plan the upcoming meetings: prepare and agree on the agenda, determine the composition of participants, the time and place, notify all interested persons in a timely manner.
-  - Register meeting minutes and discussed action plan.
-  - To form a set of instructions to responsible persons based on action plan & monitor it's implementation.
+**The application enables you to:**
+  - Plan upcoming meetings: prepare and approve the agenda, select participants, schedule time and venue, and notify all stakeholders in advance.
+  - Record meeting minutes and agreed action items.
+  - Create a set of instructions for responsible employees based on the action plan and monitor their completion.
   """@en ;
 .
 

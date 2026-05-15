@@ -32,8 +32,8 @@ site:Download
 
 site:DownloadTemplate
   rdf:type v-ui:ClassTemplate ;
-  rdfs:label "Шаблон страницы платформы"@ru ;
-  rdfs:label "Platform page template"@en ;
+  rdfs:label "Шаблон страницы Скачать"@ru ;
+  rdfs:label "Download page template"@en ;
   v-ui:template "site_DownloadTemplate.js" ;
 .
 

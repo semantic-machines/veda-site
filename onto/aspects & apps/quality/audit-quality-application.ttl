@@ -10,8 +10,8 @@
 
 <http://semantic-machines.com/veda/audit-quality-application>
   rdf:type owl:Ontology ;
-  rdfs:label "Онтология Монди. Аудит ИСМ. Приложение"@ru ;
-  rdfs:label "Mondi ontology. Audit IMS. Application"@en ;
+  rdfs:label "Онтология Veda. Аудит ИСМ. Приложение"@ru ;
+  rdfs:label "Veda ontology. IMS audit. Application"@en ;
   v-s:loadPriority 20 ;
 .
 
@@ -37,7 +37,7 @@ site:AuditQualityApplication
   v-s:summary """
 The application is designed to audit the compliance of business processes to requirements of quality management system (QMS).
 
-**The application allows to:**
+**The application enables you to:**
 - Plan upcoming audits: assign auditors, define time and place, notify stakeholders. Form an annual audit program.
 - Register audit observations: assess the level of compliance to checked requirements, identify deviations, provide recommendations for improvement.
 - Form an action to eliminate identified deviations, define responsible persons, monitor implementation.

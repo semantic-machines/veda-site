@@ -36,7 +36,7 @@ site:AccountingDocApplication
   v-s:summary """
 Application purpose is to provide operational processing and storage of primary accounting documentation.
 
-**The application allows to:**
+**The application enables you to:**
   - Record and process primary accounting documents.
   - Prepare a package of primary documents for tax audit or exchange with contractor.
   - Form an archive of primary documents for long-term storage.

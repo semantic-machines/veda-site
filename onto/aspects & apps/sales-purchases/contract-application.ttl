@@ -37,7 +37,7 @@ site:ContractsManagementApplication
   v-s:summary """
 Application purpose is to control and coordinate contractual processes.
 
-**The application allows to:**
+**The application enables you to:**
   - Take preliminary actions (create & process a contract request, hold a tender).
   - Automate contract review & signing process.
   - Control contract state, terms and payment.

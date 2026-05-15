@@ -10,8 +10,8 @@
 
 <http://semantic-machines.com/veda/it-request-application>
   rdf:type owl:Ontology ;
-  rdfs:label "Онтология Монди. Заявка ИТ. Приложение"@ru ;
-  rdfs:label "Mondi ontology. It Request. Application"@en ;
+  rdfs:label "Онтология Veda. Заявка ИТ. Приложение"@ru ;
+  rdfs:label "Veda ontology. IT request. Application"@en ;
   v-s:loadPriority 20 ;
 .
 
@@ -38,7 +38,7 @@ site:ItServicesApplication
   v-s:summary """
 The application is designed to automate IT-service delivery process.
 
-**The application allows to:**
+**The application enables you to:**
 - Issue an IT-service request.
 - Automatically route requests for execution to responsible IT specialists based on IT objects defined in request.
 - Monitor the execution of requests.

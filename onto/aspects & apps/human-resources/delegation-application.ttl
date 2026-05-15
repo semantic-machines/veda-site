@@ -35,12 +35,12 @@ site:DelegationApplication
 - Назначать сотрудников на «роли» для выполнения задач в рамках деловых процессов.
   """@ru;
   v-s:summary """
-The application is designed for substitution of an absent employee in the system for a period fo time in accordance with the official authority of the substitute employee.
+The application is designed to set up a temporary or indefinite substitution for an absent employee, granting the deputy the same access rights and responsibilities.
 
-**The application allows to:**
-- Obtain permissions to documents of the absent employee.
-- Perform tasks in business processes on behalf of the absent employee.
-- Assign employees to "roles" in the system to perform tasks in business processes.
+**The application enables you to:**
+- Give the deputy access to all documents of the absent employee.
+- Allow the deputy to complete incoming workflow tasks on behalf of the absent employee.
+- Assign employees to system roles for performing tasks within business processes.
   """@en;
 .
 

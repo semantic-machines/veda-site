@@ -38,7 +38,7 @@ site:AuditInternalApplication
   v-s:summary """
 The application is designed to identify and eliminate inconsistencies with the internal requirements of the Mondi group.
 
-**The application allows to:**
+**The application enables you to:**
 - Plan upcoming audits, prepare annual audit program.
 - Submit audit observations: identify deviations, indicate risks, provide recommendations for improvement.
 - Form an action plan to eliminate identified deviations. Assign responsible persons, monitor implementation and generate reports.

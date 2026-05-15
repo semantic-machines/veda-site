@@ -18,11 +18,11 @@
 site:ICSApplication
   rdf:type v-s:Application ;
   rdfs:label "Внутренняя удовлетворенность"@ru ;
-  rdfs:label "Internal clients satisfaction"@en ;
+  rdfs:label "Internal customer satisfaction"@en ;
   rdfs:comment "С уважением друг к другу."@ru ;
   rdfs:comment "With respect to each other."@en ;
   v-s:shortLabel "Внутренняя удовлетворенность"@ru ;
-  v-s:shortLabel "Internal clients satisfaction"@en ;
+  v-s:shortLabel "Internal customer satisfaction"@en ;
   v-s:hasIcon site:ICSApplicationIcon ;
   v-ui:hasTemplate site:ApplicationTemplate ;
 
@@ -36,13 +36,13 @@ site:ICSApplication
 - Провести анализ и предоставить обратную связь по полученным оценкам.
   """@ru;
   v-s:summary """
-The application is designed to increase the quality of interaction in processes defined in quality management system.
-The assessment is performed quarterly by business process managers by filling in the questionnaires with mutual ratings.
+The application is designed to improve the quality of cross-process interactions within a quality management system (QMS).
+The assessment is performed quarterly by business process owners who complete mutual rating questionnaires.
 
-**The application allows to:**
-- Prepare a set of assessment questionnaires for each business process based on the processes interaction matrix.
-- Provide reasonable ratings to other business processes, receive ratings for own process.
-- Analyze and provide a feedback regarding received ratings.
+**The application enables you to:**
+- Automatically generate a set of rating questionnaires for each business process based on the process interaction matrix.
+- Assign scores to related business processes and receive scores for your own process.
+- Analyze and provide feedback on the ratings received.
   """@en;
 .
 

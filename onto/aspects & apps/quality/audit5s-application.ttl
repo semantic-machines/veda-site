@@ -18,11 +18,11 @@
 site:Audit5SApplication
   rdf:type v-s:Application ;
   rdfs:label "Аудиты 5S"@ru ;
-  rdfs:label "Audits 5S"@en ;
+  rdfs:label "5S audits"@en ;
   rdfs:comment "Порядок на рабочем месте."@ru ;
   rdfs:comment "Keep workplace in order."@en ;
   v-s:shortLabel "Аудиты 5S"@ru ;
-  v-s:shortLabel "Audits 5S"@en ;
+  v-s:shortLabel "5S audits"@en ;
   v-s:hasIcon site:Audit5SApplicationIcon ;
   v-ui:hasTemplate site:ApplicationTemplate ;
 
@@ -34,11 +34,11 @@ site:Audit5SApplication
 - Автоматически определить итоговую оценку соответствия требованиям методологии.
   """@ru;
   v-s:summary """
-The application is designed to assess the order at employees workplaces following 5S methodology.
+The application is designed to assess workplace organization at employees' workstations using the 5S methodology.
 
-**The application allows to:**
-- Register Audit 5S and indicate the compliance of the workplace to 5S requirements.
-- Automatically calculate rating of compliance to methodology requirements.
+**The application enables you to:**
+- Record a 5S audit and indicate the compliance level of the inspected workplace with 5S requirements.
+- Automatically calculate the overall compliance rating.
   """@en;
 .
 

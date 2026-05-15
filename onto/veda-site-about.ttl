@@ -41,14 +41,22 @@ site:AboutTemplate
 
 site:AboutArticle
   rdf:type site:Article ;
-  rdfs:label "Статья о компании для главной страницы"@ru ;
-  rdfs:label "Article about company for main page"@en ;
-  site:heading "Быстро разрабатываем приложения для вашего бизнеса!";
+  rdfs:label "Статья о компании"@ru ;
+  rdfs:label "About company article"@en ;
+  site:heading "Быстро разрабатываем приложения для вашего бизнеса!"@ru ;
+  site:heading "We build applications for your business — fast!"@en ;
   site:summary """
 Для разработки мы используем интегрированную платформу Veda.
 
 На платформе уже разработан ряд готовых приложений.
 
 Наши клиенты успешно используют их с 2010 года.
-  """ ;
+  """@ru ;
+  site:summary """
+We use the integrated Veda platform for development.
+
+A number of ready-made applications have already been built on the platform.
+
+Our customers have been using them successfully since 2010.
+  """@en ;
 .

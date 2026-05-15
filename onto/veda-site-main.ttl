@@ -93,7 +93,7 @@ site:PlatformMainArticle
   site:summary"""
 A modern [open source](https://github.com/semantic-machines/veda) semantic platform.
 
-Allows to quickly and easily create applications for business processes automation.
+Makes it easy to build applications for business processes automation.
 
 Made in [Russia](https://reestr.digital.gov.ru/reestr/307394/).
   """@en ;
@@ -129,7 +129,7 @@ site:ApplicationsMainArticle
   site:summary """
 Applications on Veda platform include a set of objects and processes. This significantly reduces labor costs & saves time for deployment.
 
-Some applications are offered in several variants with varying details level depending on the business needs.
+Some applications are offered in several variants with varying levels of detail to match your business needs.
 
 Application components can be changed and adapted to the actual tasks on the fly.
   """@en ;
@@ -166,15 +166,11 @@ site:ServicesMainArticle
 Обучаем и поддерживаем пользователей.
   """@ru ;
   site:summary """
-We provide services for the development,
+We provide services for the development, adaptation and implementation of applications on the Veda platform.
 
-adaptation and implementation of applications on the platform Veda,
+We enhance applications in line with the customer's evolving business needs.
 
-enhance applications in accordance with the customer's business needs,
-
-carry out maintenance of the formed system,
-
-train and provide technical support to users.
+We maintain the deployed system and support users.
   """@en ;
 .
 

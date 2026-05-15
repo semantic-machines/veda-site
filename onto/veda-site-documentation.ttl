@@ -31,8 +31,8 @@ site:Documentation
 ### TEMPLATES ###
 site:DocumentationTemplate
   rdf:type v-ui:ClassTemplate ;
-  rdfs:label "Шаблон страницы о компании"@ru ;
-  rdfs:label "About page template"@en ;
+  rdfs:label "Шаблон страницы документации"@ru ;
+  rdfs:label "Documentation page template"@en ;
   rdf:type v-ui:ClassTemplate ;
   v-ui:template "site_DocumentationTemplate.js" ;
 .

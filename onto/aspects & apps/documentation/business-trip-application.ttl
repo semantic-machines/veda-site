@@ -37,14 +37,14 @@ site:BusinessTripApplication
   - Сформировать отчёт по командированным сотрудникам.
   """@ru ;
   v-s:summary """
-The application is designed for registration and processing of business trip documents.
+The application is designed for processing business trip documentation.
 
-**The application allows to:**
-  - Issue request and agree on business trip.
-  - Request assistance in organizing a trip (visa, transportation, hotel booking, etc).
-  - Generate travel documents.
-  - Adjust the terms of the trip in case of changes, justify the excess of cash limit.
-  - Provide reporting documents.
+**The application enables you to:**
+  - Submit and approve a business trip request.
+  - Request assistance with trip logistics (visa, transport, hotel booking, etc.).
+  - Generate the required travel documents.
+  - Adjust trip dates if plans change and justify any budget overruns.
+  - Submit expense reports and generate a summary report on business trips.
   """@en ;
 .
 

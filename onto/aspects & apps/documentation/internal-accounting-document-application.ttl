@@ -37,7 +37,7 @@ site:InternalAccountingDocApplication
   v-s:summary """
 Application purpose is to provide operational processing and storage of internal accounting documentation.
 
-**The application allows to:**
+**The application enables you to:**
   - Record and process internal accounting documents.
   - Prepare a package of documents for tax audit or exchange with contractor.
   - Form an archive of primary documents for long-term storage.

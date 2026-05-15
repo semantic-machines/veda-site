@@ -196,7 +196,7 @@ site:PlatformArticle
 - Modern web-interface that fit mobile devices.
 - Users authentication and authorization.
 - MS Active directory integration for single sign-on authentication.
-- Access to every system object type of is authorized: classes, properties, user objects, dictionaries, tasks etc.
+- Fine-grained access control for every system object type: classes, properties, user objects, dictionaries, tasks etc.
 - Rights delegation - assignment of a deputy with automatic authorization.
 - Integration with ERP systems for master data adoption.
 - Integration with mail service for workflow initiated notifications and automated object creation from e-mail.
