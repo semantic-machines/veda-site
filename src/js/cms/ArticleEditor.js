@@ -1,5 +1,6 @@
 import { Component, Model, Backend } from 'veda-client';
 import { marked } from 'marked';
+import { parseMLString } from '../utils/mlValue.js';
 
 // Main page section articles (shown on homepage)
 // Individual page articles (shown on dedicated pages)
@@ -43,52 +44,55 @@ export default class ArticleEditor extends Component(HTMLElement) {
     const el = e.target.closest('[data-uri]');
     if (!el) return;
     const uri = el.dataset.uri;
-    this.state.selectedUri = uri;
     this.state.message = null;
     try {
       const article = new Model(uri);
       await article.load();
+
       this.state.article = article;
-
-      // Values are stored as "text^^RU" strings (see Value.js parse())
-      const LANG_RE = /^([\s\S]*)\^\^([A-Za-z]{2})$/;
-      const getVal = (prop, langCode) => {
-        const values = article[prop] ?? [];
-        const match = values.find((v) => {
-          const m = String(v).match(LANG_RE);
-          return m && m[2].toUpperCase() === langCode.toUpperCase();
-        });
-        if (match) return String(match).replace(LANG_RE, '$1');
-        // Fallback: first value without language tag
-        const plain = values.find((v) => !String(v).match(LANG_RE));
-        return plain != null ? String(plain) : '';
-      };
-
-      this.state.labelRu   = getVal('rdfs:label', 'ru');
-      this.state.labelEn   = getVal('rdfs:label', 'en');
-      this.state.headingRu = getVal('site:heading', 'ru');
-      this.state.headingEn = getVal('site:heading', 'en');
-      this.state.contentRu = getVal('site:content', 'ru');
-      this.state.contentEn = getVal('site:content', 'en');
+      this.state.selectedUri = uri;
+      this.state.preview = false;
+      this._loadBothLangs(article);
     } catch (e) {
       this.state.message = { type: 'error', text: e.message };
+      this.state.selectedUri = null;
     }
+    await this.update();
+  }
+
+  _loadBothLangs (article) {
+    const getVal = (prop, langCode) => {
+      const lc = langCode.toUpperCase();
+      const values = article[prop] ?? [];
+      const match = values.find((v) => parseMLString(String(v)).lang === lc);
+      if (match) return parseMLString(String(match)).text;
+      const plain = values.find((v) => parseMLString(String(v)).lang === null);
+      return plain != null ? parseMLString(String(plain)).text : '';
+    };
+
+    this.state.labelRu   = getVal('rdfs:label', 'ru');
+    this.state.labelEn   = getVal('rdfs:label', 'en');
+    this.state.headingRu = getVal('site:heading', 'ru');
+    this.state.headingEn = getVal('site:heading', 'en');
+    this.state.contentRu = getVal('site:content', 'ru');
+    this.state.contentEn = getVal('site:content', 'en');
   }
 
   async save () {
     if (!this.state.article) return;
-    this.state.saving = true;
-    this.state.message = null;
 
-    // Sync textarea values from DOM before saving
+    // Sync textarea content from DOM before re-rendering
     const taRu = this.querySelector('#content-ru');
     const taEn = this.querySelector('#content-en');
     if (taRu) this.state.contentRu = taRu.value;
     if (taEn) this.state.contentEn = taEn.value;
 
+    this.state.saving = true;
+    this.state.message = null;
+    await this.update();
+
     try {
       const article = this.state.article;
-      // Save as "text^^RU" strings — Value.serialize() recognises this format
       article['rdfs:label'] = [
         `${this.state.labelRu}^^RU`,
         `${this.state.labelEn}^^EN`,
@@ -107,6 +111,7 @@ export default class ArticleEditor extends Component(HTMLElement) {
       this.state.message = { type: 'error', text: e.message };
     } finally {
       this.state.saving = false;
+      await this.update();
     }
   }
 
@@ -114,10 +119,15 @@ export default class ArticleEditor extends Component(HTMLElement) {
     this.state.selectedUri = null;
     this.state.article = null;
     this.state.message = null;
+    this.update();
   }
 
   togglePreview () {
+    // Sync textarea content before re-render so preview shows what user typed
+    const ta = this.querySelector('#content-ru');
+    if (ta) this.state.contentRu = ta.value;
     this.state.preview = !this.state.preview;
+    this.update();
   }
 
   render () {

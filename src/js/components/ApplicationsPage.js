@@ -1,28 +1,21 @@
 import { Component, Model, Router } from 'veda-client';
 import { marked } from 'marked';
 import lang from '../lang.js';
+import { parseMLString } from '../utils/mlValue.js';
 
 // Module-level cache — shared across component instances (back/forward navigation)
 let _cache = null;
 let _lastAspectIdx = 0;  // remember selected tab across instances
 let _savedScrollY  = 0;  // remember scroll position before opening app detail
 
-// Parse "text^^RU" / "text^^EN" → { ru, en } plain object
-const LANG_RE = /^([\s\S]*)\^\^([A-Za-z]{2})$/;
-
+// Build a { ru, en } object from all language-tagged values of model[prop]
 function biLingual (model, prop) {
   const result = { ru: '', en: '' };
   for (const v of model[prop] ?? []) {
-    if (typeof v !== 'string') continue;
-    const m = v.match(LANG_RE);
-    if (m) {
-      const l = m[2].toUpperCase();
-      if (l === 'RU') result.ru = result.ru || m[1];
-      else if (l === 'EN') result.en = result.en || m[1];
-    } else {
-      result.ru = result.ru || v;
-      result.en = result.en || v;
-    }
+    const { text, lang: l } = parseMLString(String(v));
+    if (l === 'RU')       result.ru = result.ru || text;
+    else if (l === 'EN')  result.en = result.en || text;
+    else { result.ru = result.ru || text; result.en = result.en || text; }
   }
   return result;
 }

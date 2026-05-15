@@ -24,7 +24,7 @@ export default class DownloadPage extends BasePage {
     const l = lang.current;
     const article = this.state.article;
     const heading = article ? this.getLangValue(article, 'site:heading') : '';
-    const content = article ? marked.parse(this.getLangValue(article, 'site:content') || '') : '';
+    const content = article ? this.renderMarkdown(article, 'site:content') : '';
 
     return `
       <div class="container page-section">

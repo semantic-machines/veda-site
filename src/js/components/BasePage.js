@@ -1,19 +1,6 @@
 import { Component, Model } from 'veda-client';
 import { marked } from 'marked';
-import lang from '../lang.js';
-
-// Matches Value.js parse() output: "text^^RU" or "text^^EN"
-const LANG_SUFFIX_RE = /^([\s\S]*)\^\^([A-Za-z]{2})$/;
-
-/**
- * Parse a string returned by veda-client Value.parse().
- * Language-tagged literals come back as "text^^RU" (uppercase 2-letter code).
- */
-function parseMLString (v) {
-  if (typeof v !== 'string') return { text: String(v ?? ''), lang: null };
-  const m = v.match(LANG_SUFFIX_RE);
-  return m ? { text: m[1], lang: m[2].toUpperCase() } : { text: v, lang: null };
-}
+import { getLangValue as getLangValueUtil } from '../utils/mlValue.js';
 
 export default class BasePage extends Component(HTMLElement) {
   static articleUri = null;
@@ -38,18 +25,7 @@ export default class BasePage extends Component(HTMLElement) {
   }
 
   getLangValue (article, prop) {
-    const l = lang.current.toUpperCase(); // 'RU' or 'EN'
-    const values = article[prop];
-    if (!values?.length) return '';
-
-    // Find value matching current language
-    const match = values.find((v) => parseMLString(v).lang === l)
-      // Fallback: first value with no language tag (plain string)
-      ?? values.find((v) => parseMLString(v).lang === null)
-      // Last resort: first value
-      ?? values[0];
-
-    return parseMLString(match).text;
+    return getLangValueUtil(article, prop);
   }
 
   renderMarkdown (article, prop) {

@@ -8,25 +8,24 @@ export default class MediaUploader extends Component(HTMLElement) {
     this.state.files = [];
     this.state.uploading = false;
     this.state.message = null;
-    this.state.dragOver = false;
   }
 
-  added () {
+  // post() runs after every render — DOM is guaranteed to exist here
+  post () {
     const zone = this.querySelector('.media-uploader');
-    if (zone) {
-      zone.addEventListener('dragover', (e) => {
-        e.preventDefault();
-        this.state.dragOver = true;
-      });
-      zone.addEventListener('dragleave', () => {
-        this.state.dragOver = false;
-      });
-      zone.addEventListener('drop', (e) => {
-        e.preventDefault();
-        this.state.dragOver = false;
-        this.uploadFiles(e.dataTransfer.files);
-      });
-    }
+    if (!zone) return;
+    zone.addEventListener('dragover', (e) => {
+      e.preventDefault();
+      zone.classList.add('media-uploader--drag-over');
+    });
+    zone.addEventListener('dragleave', () => {
+      zone.classList.remove('media-uploader--drag-over');
+    });
+    zone.addEventListener('drop', (e) => {
+      e.preventDefault();
+      zone.classList.remove('media-uploader--drag-over');
+      this.uploadFiles(e.dataTransfer.files);
+    });
   }
 
   openFilePicker () {
@@ -42,6 +41,7 @@ export default class MediaUploader extends Component(HTMLElement) {
     if (!fileList?.length) return;
     this.state.uploading = true;
     this.state.message = null;
+    await this.update();
 
     const results = [];
     for (const file of fileList) {
@@ -67,8 +67,8 @@ export default class MediaUploader extends Component(HTMLElement) {
     this.state.message = errors.length
       ? { type: 'error', text: `Ошибка загрузки: ${errors.map((e) => e.name).join(', ')}` }
       : { type: 'success', text: `Загружено: ${results.length} файл(ов)` };
-
     this.state.uploading = false;
+    await this.update();
   }
 
   // onclick="{copyUri}" — reads uri from data-uri
@@ -78,6 +78,7 @@ export default class MediaUploader extends Component(HTMLElement) {
     const uri = el.dataset.uri;
     navigator.clipboard.writeText(uri).then(() => {
       this.state.message = { type: 'success', text: `Скопировано: ${uri}` };
+      this.update();
     });
   }
 
@@ -107,8 +108,7 @@ export default class MediaUploader extends Component(HTMLElement) {
 
         ${msgHtml}
 
-        <div class="media-uploader${s.dragOver ? ' media-uploader--drag-over' : ''}"
-             onclick="{openFilePicker}">
+        <div class="media-uploader" onclick="{openFilePicker}">
           <div class="media-uploader__icon">📁</div>
           ${s.uploading
             ? '<p>Загружаю...</p>'
