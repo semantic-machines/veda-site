@@ -9,6 +9,7 @@
     "deploy": "node build.mjs && node deploy.mjs"
   },
   "dependencies": {
+    "d3-force": "^3.0.0",
     "marked": "^17.0.6",
     "veda-client": "github:semantic-machines/veda-client"
   },

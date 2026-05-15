@@ -468,6 +468,66 @@ em { font-style: italic; }
   padding-top: 2rem;
 }
 
+/* =====================  ONTOLOGY GRAPH  ===================== */
+
+.onto-graph-wrap {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 120px);
+  min-height: 500px;
+  padding: 0;
+}
+
+.onto-graph-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 0.75rem 1.5rem;
+  background: var(--color-bg-alt);
+  border-bottom: 1px solid var(--color-border);
+  flex-wrap: wrap;
+}
+
+.onto-graph-hint {
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+  flex: 1;
+}
+
+.onto-legend {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.onto-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+.onto-legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.onto-graph-svg {
+  flex: 1;
+  width: 100%;
+  display: block;
+  background: var(--color-bg);
+  cursor: grab;
+}
+
+.onto-graph-svg:active {
+  cursor: grabbing;
+}
+
 /* Documentation page */
 .doc-tabs {
   justify-content: flex-start;
