@@ -27,7 +27,7 @@ site:AuditInternalApplication
   v-ui:hasTemplate site:ApplicationTemplate ;
 
   v-s:summary """
-Приложение предназначено для выявления и устранения несоответствий в различных подразделениях внутренним требованиям группы Монди.
+Приложение предназначено для выявления и устранения несоответствий в подразделениях предприятия внутренним требованиям и стандартам.
 
 **Приложение обеспечивает возможность:**
 - Планировать предстоящие аудиты, составлять годовую программу аудитов.
@@ -36,7 +36,7 @@ site:AuditInternalApplication
 - Контролировать выполнение плана мероприятий и формировать отчеты.
   """@ru;
   v-s:summary """
-The application is designed to identify and eliminate inconsistencies with the internal requirements of the Mondi group.
+The application is designed to identify and address non-conformities across enterprise divisions against internal standards and requirements.
 
 **The application enables you to:**
 - Plan upcoming audits, prepare annual audit program.
