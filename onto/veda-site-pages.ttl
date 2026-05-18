@@ -431,7 +431,7 @@ site:BlockPlatformStack
 | **Модель данных** | RDF/OWL, Turtle, RDFa |
 | **Развёртывание** | Linux, AppImage |
 
-[Подробнее о стеке в разделе Документация →](#/ru/documentation)
+[Подробнее о стеке в разделе Документация →](#/ru/p/documentation)
   """@ru ;
   site:content """
 | Layer | Technologies |
