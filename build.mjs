@@ -16,9 +16,9 @@ fs.cpSync('src/css', 'dist/css', { recursive: true });
 // Copy favicon from site files
 const faviconDst = 'dist/css/img';
 if (!fs.existsSync(faviconDst)) fs.mkdirSync(faviconDst, { recursive: true });
-const faviconSrc = 'files/site/favicon.png';
+const faviconSrc = 'files/site/favicon.svg';
 if (fs.existsSync(faviconSrc)) {
-  fs.copyFileSync(faviconSrc, `${faviconDst}/favicon.png`);
+  fs.copyFileSync(faviconSrc, `${faviconDst}/favicon.svg`);
 }
 
 // Copy doc assets (images alongside .md files)
