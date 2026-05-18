@@ -27,4 +27,8 @@ site:HumanResourcesAspect
 
   v-s:hasApplication site:PowerOfAttorneyApplication ;
   v-s:hasApplication site:DelegationApplication ;
+
+  site:hasItem site:PowerOfAttorneyApplication ;
+  site:hasItem site:DelegationApplication ;
+  v-s:order 50 ;
 .

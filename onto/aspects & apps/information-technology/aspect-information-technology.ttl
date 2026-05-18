@@ -26,4 +26,7 @@ site:InformationTechnologyAspect
   v-ui:hasTemplate v-s:AspectTemplate ;
 
   v-s:hasApplication site:ItServicesApplication ;
+
+  site:hasItem site:ItServicesApplication ;
+  v-s:order 60 ;
 .

@@ -29,4 +29,10 @@ site:QualityManagementAspect
   v-s:hasApplication site:AuditInternalApplication ;
   v-s:hasApplication site:ICSApplication ;
   v-s:hasApplication site:Audit5SApplication ;
+
+  site:hasItem site:AuditQualityApplication ;
+  site:hasItem site:AuditInternalApplication ;
+  site:hasItem site:ICSApplication ;
+  site:hasItem site:Audit5SApplication ;
+  v-s:order 20 ;
 .

@@ -24,6 +24,9 @@ if (fs.existsSync('files/site/favicon.png')) {
   fs.copyFileSync('files/site/favicon.png', `${faviconDst}/favicon.png`);
 }
 
+// Copy doc assets (markdown files + images)
+fs.cpSync('src/doc', 'dist/doc', { recursive: true });
+
 // Watch for changes in static files
 fs.watch('src', { recursive: true }, (eventType, filename) => {
   if (filename?.endsWith('.html')) {
@@ -37,6 +40,10 @@ fs.watch('src', { recursive: true }, (eventType, filename) => {
   if (filename?.endsWith('.css')) {
     fs.cpSync('src/css', 'dist/css', { recursive: true });
     console.log('Copied CSS');
+  }
+  if (filename?.startsWith('doc/')) {
+    fs.cpSync('src/doc', 'dist/doc', { recursive: true });
+    console.log('Copied doc assets');
   }
 });
 
@@ -77,15 +84,16 @@ const server = http.createServer((req, res) => {
 
   const ext = filePath.split('.').pop();
   const contentTypes = {
-    html: 'text/html',
-    js:   'application/javascript',
-    css:  'text/css',
-    json: 'application/json',
-    svg:  'image/svg+xml',
-    png:  'image/png',
-    jpg:  'image/jpeg',
-    webp: 'image/webp',
+    html:  'text/html',
+    js:    'application/javascript',
+    css:   'text/css',
+    json:  'application/json',
+    svg:   'image/svg+xml',
+    png:   'image/png',
+    jpg:   'image/jpeg',
+    webp:  'image/webp',
     woff2: 'font/woff2',
+    md:    'text/plain',
   };
 
   try {

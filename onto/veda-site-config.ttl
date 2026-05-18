@@ -1,0 +1,139 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix v-s: <http://semantic-machines.com/veda/veda-schema/> .
+@prefix v-ui: <http://semantic-machines.com/veda/veda-ui/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix site: <http://semantic-machines.com/veda-site/> .
+
+### SITE CONFIG ###
+
+<http://semantic-machines.com/veda/veda-site-config>
+  rdf:type owl:Ontology ;
+  rdfs:label "Сайт Veda. Конфигурация сайта"@ru ;
+  rdfs:label "Veda site. Site configuration"@en ;
+  v-s:loadPriority 10 ;
+.
+
+# Root site object. URI is referenced in src/js/config.js as SITE_URI.
+# Design tokens here override CSS custom properties at app startup.
+site:VedaSite
+  rdf:type site:Site ;
+  rdfs:label "Смысловые машины"@ru ;
+  rdfs:label "Semantic Machines"@en ;
+  site:slug "veda-site" ;
+  site:defaultLang "ru" ;
+
+  # Logo: reuses v-s:hasImage (file uploaded to /files/site:SemanticMachinesLogoLong)
+  v-s:hasImage site:SemanticMachinesLogoLong ;
+
+  # Navigation menus
+  site:hasNavMenu site:MainNavMenu ;
+  site:hasNavMenu site:FooterNavMenu ;
+
+  # All pages (including those not in nav menus — used for slug resolution)
+  site:hasPage  site:PageMain ,
+                site:PagePlatform ,
+                site:PageDocumentation ,
+                site:PageApplications ,
+                site:PageServices ,
+                site:PagePrice ,
+                site:PageContacts ,
+                site:PageAbout ,
+                site:PageDownload ,
+                site:PageVedaOnline ,
+                site:PagePrivacy ;
+
+  # Design tokens (override defaults from main.css)
+  site:colorPrimary       "#1a6eb5" ;
+  site:colorPrimaryHover  "#155a96" ;
+  site:colorPrimaryLight  "#e8f0fa" ;
+  site:colorText          "#1a1a2e" ;
+  site:colorTextMuted     "#6b7280" ;
+  site:colorBg            "#ffffff" ;
+  site:colorBgAlt         "#f5f7fa" ;
+  site:fontSans           "system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" ;
+.
+
+# ── Navigation ────────────────────────────────────────────
+
+site:MainNavMenu
+  rdf:type site:NavMenu ;
+  rdfs:label "Главное меню"@ru ;
+  rdfs:label "Main menu"@en ;
+  site:navPosition "main" ;
+  site:hasMenuItem
+    site:MenuItemPlatform ,
+    site:MenuItemDocumentation ,
+    site:MenuItemApplications ,
+    site:MenuItemServices ,
+    site:MenuItemPrice ,
+    site:MenuItemContacts ;
+.
+
+site:FooterNavMenu
+  rdf:type site:NavMenu ;
+  rdfs:label "Футер"@ru ;
+  rdfs:label "Footer"@en ;
+  site:navPosition "footer" ;
+  site:hasMenuItem
+    site:MenuItemPrivacy ;
+.
+
+# ── Menu items ────────────────────────────────────────────
+
+site:MenuItemPlatform
+  rdf:type site:MenuItem ;
+  rdfs:label "Платформа"@ru ;
+  rdfs:label "Platform"@en ;
+  v-s:order 10 ;
+  site:targetPage site:PagePlatform ;
+.
+
+site:MenuItemDocumentation
+  rdf:type site:MenuItem ;
+  rdfs:label "Документация"@ru ;
+  rdfs:label "Docs"@en ;
+  v-s:order 20 ;
+  site:targetPage site:PageDocumentation ;
+.
+
+site:MenuItemApplications
+  rdf:type site:MenuItem ;
+  rdfs:label "Приложения"@ru ;
+  rdfs:label "Applications"@en ;
+  v-s:order 30 ;
+  site:targetPage site:PageApplications ;
+.
+
+site:MenuItemServices
+  rdf:type site:MenuItem ;
+  rdfs:label "Услуги"@ru ;
+  rdfs:label "Services"@en ;
+  v-s:order 40 ;
+  site:targetPage site:PageServices ;
+.
+
+site:MenuItemPrice
+  rdf:type site:MenuItem ;
+  rdfs:label "Цены"@ru ;
+  rdfs:label "Price"@en ;
+  v-s:order 50 ;
+  site:targetPage site:PagePrice ;
+.
+
+site:MenuItemContacts
+  rdf:type site:MenuItem ;
+  rdfs:label "Контакты"@ru ;
+  rdfs:label "Contacts"@en ;
+  v-s:order 60 ;
+  site:targetPage site:PageContacts ;
+.
+
+site:MenuItemPrivacy
+  rdf:type site:MenuItem ;
+  rdfs:label "Политика конфиденциальности"@ru ;
+  rdfs:label "Privacy policy"@en ;
+  v-s:order 10 ;
+  site:targetPage site:PagePrivacy ;
+.

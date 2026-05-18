@@ -94,6 +94,50 @@ em { font-style: italic; }
   background: var(--color-bg-alt);
 }
 
+.page-section--dark {
+  background: var(--color-dark, #1a1a2e);
+  color: #ffffff;
+}
+
+.page-section--dark .section-heading,
+.page-section--dark h1,
+.page-section--dark h2,
+.page-section--dark h3 {
+  color: #ffffff;
+}
+
+.page-section--dark .section-summary,
+.page-section--dark .text-muted {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.page-section--primary {
+  background: var(--color-primary);
+  color: #ffffff;
+}
+
+.page-section--primary .section-heading,
+.page-section--primary h1,
+.page-section--primary h2,
+.page-section--primary h3 {
+  color: #ffffff;
+}
+
+.page-section--primary .section-summary,
+.page-section--primary .text-muted {
+  color: rgba(255, 255, 255, 0.80);
+}
+
+.page-section--primary .btn-primary {
+  background: #ffffff;
+  color: var(--color-primary);
+  border-color: #ffffff;
+}
+
+.page-section--primary .btn-primary:hover {
+  background: rgba(255, 255, 255, 0.90);
+}
+
 /* Section layout with optional image */
 .section-inner {
   display: flex;
@@ -613,4 +657,61 @@ em { font-style: italic; }
   .contacts-layout {
     grid-template-columns: 1fr;
   }
+}
+
+/* ======================  BLOCK COMPONENTS  ====================== */
+
+/* Hero block */
+.block-hero .page-heading {
+  font-size: clamp(1.8rem, 4vw, 2.75rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+}
+
+.block-hero__image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.block-hero__cta {
+  margin-top: 1.5rem;
+  display: inline-block;
+}
+
+/* CTA block */
+.block-cta .container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.25rem;
+}
+
+.block-cta .container.text-center {
+  align-items: center;
+}
+
+.block-cta__btn {
+  margin-top: 0.25rem;
+  font-size: 1.05rem;
+  padding: 0.7em 2em;
+}
+
+/* Layout block grid */
+.block-layout__grid {
+  display: grid;
+  gap: 2rem;
+  align-items: start;
+}
+
+@media (max-width: 768px) {
+  .block-layout__grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* text-center utility (used by CTA block alignment) */
+.text-center {
+  text-align: center;
 }

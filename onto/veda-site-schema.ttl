@@ -1,39 +1,101 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix v-fs: <http://semantic-machines.com/veda/veda-search/> .
 @prefix v-s: <http://semantic-machines.com/veda/veda-schema/> .
 @prefix v-ui: <http://semantic-machines.com/veda/veda-ui/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix d: <http://semantic-machines.com/veda/veda-data/> .
 @prefix site: <http://semantic-machines.com/veda-site/> .
 
-### SCHEMA ###
+### ONTOLOGY ###
 
 <http://semantic-machines.com/veda/veda-site-schema>
   rdf:type owl:Ontology ;
   rdfs:label "Сайт Veda. Схема"@ru ;
   rdfs:label "Veda site. Schema"@en ;
-#  owl:versionInfo "1.3" ;
   v-s:loadPriority 10 ;
 .
 
-### CLASSES ###
+# ═══════════════════════════════════════════════════════════
+# CLASSES — Site structure
+# ═══════════════════════════════════════════════════════════
 
+# Root object for a site. One Veda instance can host multiple sites.
+# Holds design tokens (CSS vars), logo, nav menus.
+site:Site
+  rdf:type owl:Class ;
+  rdfs:subClassOf v-s:ClassAuthorized ;
+  rdfs:label "Сайт"@ru ;
+  rdfs:label "Site"@en ;
+.
+
+# Ordered list of MenuItems. A Site can have several menus (main, footer, ...).
+site:NavMenu
+  rdf:type owl:Class ;
+  rdfs:subClassOf v-s:ClassAuthorized ;
+  rdfs:label "Меню навигации"@ru ;
+  rdfs:label "Navigation menu"@en ;
+.
+
+# A single entry in a NavMenu. Can nest sub-items via site:hasMenuItem.
+site:MenuItem
+  rdf:type owl:Class ;
+  rdfs:subClassOf v-s:ClassAuthorized ;
+  rdfs:label "Пункт меню"@ru ;
+  rdfs:label "Menu item"@en ;
+.
+
+# A routable page. Contains an ordered list of Blocks.
+# Visibility in nav is controlled by v-s:deleted on the linked MenuItem.
 site:Page
   rdf:type owl:Class ;
   rdfs:subClassOf v-s:ClassAuthorized ;
   rdfs:label "Страница"@ru ;
   rdfs:label "Page"@en ;
-  v-ui:hasTemplate site:PageTemplate ;
 .
+
+# ═══════════════════════════════════════════════════════════
+# CLASSES — Content
+# ═══════════════════════════════════════════════════════════
+
+# A content block on a page. blockType determines the renderer.
+# Blocks can be nested (layout block contains child blocks via site:hasBlock).
+# Block data: heading, summary, content (markdown), image, items.
+site:Block
+  rdf:type owl:Class ;
+  rdfs:subClassOf v-s:ClassAuthorized ;
+  rdfs:label "Блок"@ru ;
+  rdfs:label "Block"@en ;
+.
+
+# A leaf content item inside a Block (card, tab, list entry, ...).
+# Can nest sub-items via site:hasItem for two-level structures (tabs → cards).
+site:BlockItem
+  rdf:type owl:Class ;
+  rdfs:subClassOf v-s:ClassAuthorized ;
+  rdfs:label "Элемент блока"@ru ;
+  rdfs:label "Block item"@en ;
+.
+
+# ═══════════════════════════════════════════════════════════
+# CLASSES — Support
+# ═══════════════════════════════════════════════════════════
+
+site:SiteFile
+  rdf:type owl:Class ;
+  rdfs:subClassOf v-s:ClassAuthorized ;
+  rdfs:label "Файл сайта"@ru ;
+  rdfs:label "Site file"@en ;
+.
+
+# ═══════════════════════════════════════════════════════════
+# CLASSES — Legacy (kept for migration period, do not use for new content)
+# ═══════════════════════════════════════════════════════════
 
 site:Article
   rdf:type owl:Class ;
   rdfs:subClassOf v-s:ClassAuthorized ;
   rdfs:label "Статья"@ru ;
   rdfs:label "Article"@en ;
-  v-ui:hasTemplate site:ArticleTemplate ;
 .
 
 site:Comment
@@ -48,13 +110,6 @@ site:Category
   rdfs:subClassOf v-s:ClassAuthorized ;
   rdfs:label "Категория"@ru ;
   rdfs:label "Category"@en ;
-.
-
-site:SiteFile
-  rdf:type owl:Class ;
-  rdfs:subClassOf v-s:ClassAuthorized ;
-  rdfs:label "Файл сайта"@ru ;
-  rdfs:label "Site file"@en ;
 .
 
 site:SiteAspect
@@ -73,35 +128,219 @@ site:SiteApplication
   rdfs:label "Site application"@en ;
 .
 
-### PROPERTIES ###
+# ═══════════════════════════════════════════════════════════
+# PROPERTIES — Site
+# ═══════════════════════════════════════════════════════════
 
-site:hasPage
+# URL segment for a Page, e.g. "platform" → #/ru/platform
+# Also used as a site identifier slug.
+site:slug
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "URL-слаг"@ru ;
+  rdfs:label "URL slug"@en ;
+  rdfs:range xsd:string ;
+.
+
+site:defaultLang
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain site:Site ;
+  rdfs:label "Язык по умолчанию"@ru ;
+  rdfs:label "Default language"@en ;
+  rdfs:range xsd:string ;
+.
+
+# site:Site v-s:hasImage → file   (logo — reuses Veda's existing property)
+
+site:hasNavMenu
   rdf:type owl:ObjectProperty ;
-  rdfs:domain site:Page ;
-  rdfs:label "Страница"@ru ;
-  rdfs:label "Page"@en ;
+  rdfs:domain site:Site ;
+  rdfs:range site:NavMenu ;
+  rdfs:label "Меню навигации"@ru ;
+  rdfs:label "Navigation menu"@en ;
+.
+
+# ═══════════════════════════════════════════════════════════
+# PROPERTIES — NavMenu / MenuItem
+# ═══════════════════════════════════════════════════════════
+
+# Discriminates menus: "main" | "footer" | custom string
+site:navPosition
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain site:NavMenu ;
+  rdfs:label "Позиция меню"@ru ;
+  rdfs:label "Menu position"@en ;
+  rdfs:comment "Values: main | footer"@en ;
+  rdfs:range xsd:string ;
+.
+
+# Used on NavMenu → MenuItem and MenuItem → MenuItem (sub-menu).
+# Ordering is controlled by v-s:order on the MenuItem.
+site:hasMenuItem
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "Пункт меню"@ru ;
+  rdfs:label "Menu item"@en ;
+  rdfs:range site:MenuItem ;
+.
+
+site:targetPage
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain site:MenuItem ;
   rdfs:range site:Page ;
+  rdfs:label "Целевая страница"@ru ;
+  rdfs:label "Target page"@en ;
 .
 
-site:hasCategory
+# ═══════════════════════════════════════════════════════════
+# PROPERTIES — Page
+# ═══════════════════════════════════════════════════════════
+
+# Ordered list of top-level Blocks on a Page.
+# Also used inside a layout Block to hold its child Blocks.
+site:hasBlock
   rdf:type owl:ObjectProperty ;
-  rdfs:domain site:Article ;
-  rdfs:label "Категория"@ru ;
-  rdfs:label "Category"@en ;
-  rdfs:range site:Category ;
+  rdfs:label "Блок"@ru ;
+  rdfs:label "Block"@en ;
+  rdfs:range site:Block ;
 .
 
-site:hasArticle
-  rdf:type owl:ObjectProperty ;
-  rdfs:domain site:Page ;
-  rdfs:label "статья"@ru ;
-  rdfs:label "article"@en ;
-  rdfs:range site:Article ;
+# ═══════════════════════════════════════════════════════════
+# PROPERTIES — Block
+# ═══════════════════════════════════════════════════════════
+
+# Determines which JS renderer handles this block.
+# Built-in types: hero | text | cards | tabs | layout | cta | query-list
+# Custom types are supported — add a corresponding renderer component.
+site:blockType
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain site:Block ;
+  rdfs:label "Тип блока"@ru ;
+  rdfs:label "Block type"@en ;
+  rdfs:comment "hero | text | cards | tabs | layout | cta | query-list"@en ;
+  rdfs:range xsd:string ;
 .
+
+# Section background variant mapped to CSS modifier.
+# Values: default | alt | dark | primary
+site:bgVariant
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "Вариант фона"@ru ;
+  rdfs:label "Background variant"@en ;
+  rdfs:comment "default | alt | dark | primary"@en ;
+  rdfs:range xsd:string ;
+.
+
+# Horizontal alignment of block content.
+# Values: left | center
+site:align
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "Выравнивание"@ru ;
+  rdfs:label "Alignment"@en ;
+  rdfs:comment "left | center"@en ;
+  rdfs:range xsd:string ;
+.
+
+# Position of the image relative to text in a text-type block.
+# Values: right | left | top
+site:imagePos
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain site:Block ;
+  rdfs:label "Позиция изображения"@ru ;
+  rdfs:label "Image position"@en ;
+  rdfs:comment "right | left | top"@en ;
+  rdfs:range xsd:string ;
+.
+
+# Number of columns in a layout-type block.
+site:columns
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain site:Block ;
+  rdfs:label "Количество колонок"@ru ;
+  rdfs:label "Number of columns"@en ;
+  rdfs:range xsd:integer ;
+.
+
+# Extra CSS class(es) added to the block's root element.
+# Developer writes matching styles in the site's custom CSS.
+site:cssClass
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "CSS-класс"@ru ;
+  rdfs:label "CSS class"@en ;
+  rdfs:range xsd:string ;
+.
+
+# URL of a static file (e.g. a .md document) to be loaded and rendered by a block component.
+site:fileUrl
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "URL файла"@ru ;
+  rdfs:label "File URL"@en ;
+  rdfs:domain site:Block ;
+  rdfs:range xsd:string ;
+.
+
+# Reference to a shared Block defined once and reused across pages.
+# The renderer substitutes this block's content in place.
+site:sharedBlock
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain site:Block ;
+  rdfs:range site:Block ;
+  rdfs:label "Общий блок"@ru ;
+  rdfs:label "Shared block"@en ;
+.
+
+# Ordered list of BlockItems inside a Block (cards, tabs, etc.).
+# Also used on BlockItem → BlockItem for two-level nesting (tab → cards).
+site:hasItem
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "Элемент"@ru ;
+  rdfs:label "Item"@en ;
+  rdfs:range site:BlockItem ;
+.
+
+# ═══════════════════════════════════════════════════════════
+# PROPERTIES — Query block
+# ═══════════════════════════════════════════════════════════
+
+# The OWL class whose instances are fetched (e.g. site:NewsItem).
+site:queryClass
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain site:Block ;
+  rdfs:label "Класс запроса"@ru ;
+  rdfs:label "Query class"@en ;
+.
+
+# Veda query filter string (property=value pairs).
+site:queryFilter
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain site:Block ;
+  rdfs:label "Фильтр запроса"@ru ;
+  rdfs:label "Query filter"@en ;
+  rdfs:range xsd:string ;
+.
+
+# Maximum number of results to fetch.
+site:queryLimit
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain site:Block ;
+  rdfs:label "Лимит запроса"@ru ;
+  rdfs:label "Query limit"@en ;
+  rdfs:range xsd:integer ;
+.
+
+# Sort expression for query results, e.g. "v-s:created desc".
+site:queryOrder
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain site:Block ;
+  rdfs:label "Порядок запроса"@ru ;
+  rdfs:label "Query order"@en ;
+  rdfs:range xsd:string ;
+.
+
+# ═══════════════════════════════════════════════════════════
+# PROPERTIES — Content (shared: Block, BlockItem)
+# ═══════════════════════════════════════════════════════════
 
 site:heading
   rdf:type owl:DatatypeProperty ;
-  rdfs:domain site:Article ;
   rdfs:label "Заголовок"@ru ;
   rdfs:label "Heading"@en ;
   rdfs:range xsd:string ;
@@ -109,7 +348,6 @@ site:heading
 
 site:summary
   rdf:type owl:DatatypeProperty ;
-  rdfs:domain site:Article ;
   rdfs:label "Резюме"@ru ;
   rdfs:label "Summary"@en ;
   rdfs:range xsd:string ;
@@ -117,8 +355,128 @@ site:summary
 
 site:content
   rdf:type owl:DatatypeProperty ;
-  rdfs:domain site:Article ;
   rdfs:label "Содержание"@ru ;
   rdfs:label "Content"@en ;
   rdfs:range xsd:string ;
+.
+
+# External or internal URL for links in cards, CTA buttons, menu items.
+site:url
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "URL"@en ;
+  rdfs:range xsd:string ;
+.
+
+# Label for a CTA button or link element.
+site:ctaLabel
+  rdf:type owl:DatatypeProperty ;
+  rdfs:label "Текст кнопки"@ru ;
+  rdfs:label "CTA label"@en ;
+  rdfs:range xsd:string ;
+.
+
+# ═══════════════════════════════════════════════════════════
+# PROPERTIES — Site theme tokens
+# All map 1-to-1 to CSS custom properties injected at app startup.
+# ═══════════════════════════════════════════════════════════
+
+site:colorPrimary
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain site:Site ;
+  rdfs:label "Основной цвет"@ru ;
+  rdfs:label "Primary color"@en ;
+  rdfs:range xsd:string ;
+.
+
+site:colorPrimaryHover
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain site:Site ;
+  rdfs:label "Основной цвет (hover)"@ru ;
+  rdfs:label "Primary color hover"@en ;
+  rdfs:range xsd:string ;
+.
+
+site:colorPrimaryLight
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain site:Site ;
+  rdfs:label "Основной цвет (светлый)"@ru ;
+  rdfs:label "Primary color light"@en ;
+  rdfs:range xsd:string ;
+.
+
+site:colorText
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain site:Site ;
+  rdfs:label "Цвет текста"@ru ;
+  rdfs:label "Text color"@en ;
+  rdfs:range xsd:string ;
+.
+
+site:colorTextMuted
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain site:Site ;
+  rdfs:label "Цвет приглушённого текста"@ru ;
+  rdfs:label "Muted text color"@en ;
+  rdfs:range xsd:string ;
+.
+
+site:colorBg
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain site:Site ;
+  rdfs:label "Цвет фона"@ru ;
+  rdfs:label "Background color"@en ;
+  rdfs:range xsd:string ;
+.
+
+site:colorBgAlt
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain site:Site ;
+  rdfs:label "Альтернативный цвет фона"@ru ;
+  rdfs:label "Alt background color"@en ;
+  rdfs:range xsd:string ;
+.
+
+site:fontSans
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain site:Site ;
+  rdfs:label "Шрифт"@ru ;
+  rdfs:label "Font family"@en ;
+  rdfs:range xsd:string ;
+.
+
+# Arbitrary CSS appended after the main stylesheet.
+# For developer use; editable in CMS by trusted admins.
+site:customCss
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain site:Site ;
+  rdfs:label "Пользовательский CSS"@ru ;
+  rdfs:label "Custom CSS"@en ;
+  rdfs:range xsd:string ;
+.
+
+# ═══════════════════════════════════════════════════════════
+# PROPERTIES — Legacy (kept for migration period)
+# ═══════════════════════════════════════════════════════════
+
+site:hasPage
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "Страница"@ru ;
+  rdfs:label "Page"@en ;
+  rdfs:range site:Page ;
+.
+
+site:hasArticle
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain site:Page ;
+  rdfs:range site:Article ;
+  rdfs:label "Статья"@ru ;
+  rdfs:label "Article"@en ;
+.
+
+site:hasCategory
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain site:Article ;
+  rdfs:range site:Category ;
+  rdfs:label "Категория"@ru ;
+  rdfs:label "Category"@en ;
 .

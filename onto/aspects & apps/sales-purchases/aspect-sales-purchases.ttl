@@ -29,4 +29,10 @@ site:PurchasesSalesAspect
   v-s:hasApplication site:ContractorsManagementApplication ;
   v-s:hasApplication site:AccountingDocApplication ;
   v-s:hasApplication site:ClaimsManagementApplication ;
+
+  site:hasItem site:ContractsManagementApplication ;
+  site:hasItem site:ContractorsManagementApplication ;
+  site:hasItem site:AccountingDocApplication ;
+  site:hasItem site:ClaimsManagementApplication ;
+  v-s:order 10 ;
 .

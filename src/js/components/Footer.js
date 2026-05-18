@@ -24,7 +24,7 @@ export default class Footer extends Component(HTMLElement) {
     const l = lang.current;
     this.state.poweredBy   = LABELS.poweredBy[l];
     this.state.privacyTxt  = LABELS.privacy[l];
-    this.state.privacyHref = `#/${l}/privacy`;
+    this.state.privacyHref = `#/${l}/p/privacy`;
     this.state.cmsLinkTxt  = LABELS.cmsLink[l];
   }
 

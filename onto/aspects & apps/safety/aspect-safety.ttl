@@ -29,4 +29,10 @@ site:ProductionSafetyAspect
   v-s:hasApplication site:ActFailureApplication ;
   v-s:hasApplication site:PassRequestApplication ;
   v-s:hasApplication site:ActOfViolationApplication ;
+
+  site:hasItem site:AuditSafetyApplication ;
+  site:hasItem site:ActFailureApplication ;
+  site:hasItem site:PassRequestApplication ;
+  site:hasItem site:ActOfViolationApplication ;
+  v-s:order 30 ;
 .

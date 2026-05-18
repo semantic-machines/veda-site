@@ -44,6 +44,7 @@ site:GuestReadPermission
   v-s:permissionSubject cfg:Guest ;
   v-s:permissionObject site:Article_group, site:Page_group, site:SiteFile_group ;
   v-s:permissionObject site:SiteAspect_group, site:SiteApplication_group ;
+  v-s:permissionObject site:Block_group, site:Site_group, site:NavMenu_group, site:MenuItem_group ;
   v-s:canRead "true"^^xsd:boolean ;
 .
 

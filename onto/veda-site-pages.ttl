@@ -1,0 +1,1256 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix v-s: <http://semantic-machines.com/veda/veda-schema/> .
+@prefix v-ui: <http://semantic-machines.com/veda/veda-ui/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix site: <http://semantic-machines.com/veda-site/> .
+
+### PAGES — new block-based model ###
+
+<http://semantic-machines.com/veda/veda-site-pages>
+  rdf:type owl:Ontology ;
+  rdfs:label "Сайт Veda. Страницы (новая модель)"@ru ;
+  rdfs:label "Veda site. Pages (new model)"@en ;
+  v-s:loadPriority 10 ;
+.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PAGES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+site:PageMain
+  rdf:type site:Page ;
+  rdfs:label "Главная"@ru ;
+  rdfs:label "Home"@en ;
+  site:slug "main" ;
+  site:hasBlock
+    site:BlockMainAbout ,
+    site:BlockMainPlatform ,
+    site:BlockMainApplications ,
+    site:BlockMainServices ,
+    site:BlockMainContacts ;
+.
+
+site:PagePlatform
+  rdf:type site:Page ;
+  rdfs:label "Платформа"@ru ;
+  rdfs:label "Platform"@en ;
+  site:slug "platform" ;
+  site:hasBlock
+    site:BlockPlatformHero ,
+    site:BlockPlatformContent ;
+.
+
+site:PageDocumentation
+  rdf:type site:Page ;
+  rdfs:label "Документация"@ru ;
+  rdfs:label "Docs"@en ;
+  site:slug "documentation" ;
+  site:hasBlock
+    site:BlockDocumentationContent ,
+    site:BlockDevDoc ,
+    site:BlockWebApi ;
+.
+
+site:PageApplications
+  rdf:type site:Page ;
+  rdfs:label "Приложения"@ru ;
+  rdfs:label "Applications"@en ;
+  site:slug "applications" ;
+  site:hasBlock
+    site:BlockApplicationsHero ,
+    site:BlockApplicationsTabs ;
+.
+
+site:PageServices
+  rdf:type site:Page ;
+  rdfs:label "Услуги"@ru ;
+  rdfs:label "Services"@en ;
+  site:slug "services" ;
+  site:hasBlock
+    site:BlockServicesContent ;
+.
+
+site:PagePrice
+  rdf:type site:Page ;
+  rdfs:label "Цены"@ru ;
+  rdfs:label "Price"@en ;
+  site:slug "price" ;
+  site:hasBlock
+    site:BlockPriceContent ;
+.
+
+site:PageContacts
+  rdf:type site:Page ;
+  rdfs:label "Контакты"@ru ;
+  rdfs:label "Contacts"@en ;
+  site:slug "contacts" ;
+  site:hasBlock
+    site:BlockContactsContent ;
+.
+
+site:PageAbout
+  rdf:type site:Page ;
+  rdfs:label "О компании"@ru ;
+  rdfs:label "About"@en ;
+  site:slug "about" ;
+  site:hasBlock
+    site:BlockAboutContent ;
+.
+
+site:PageDownload
+  rdf:type site:Page ;
+  rdfs:label "Скачать"@ru ;
+  rdfs:label "Download"@en ;
+  site:slug "download" ;
+  site:hasBlock
+    site:BlockDownloadContent ;
+.
+
+site:PageVedaOnline
+  rdf:type site:Page ;
+  rdfs:label "Veda онлайн"@ru ;
+  rdfs:label "Veda online"@en ;
+  site:slug "veda-online" ;
+  site:hasBlock
+    site:BlockVedaOnlineContent ;
+.
+
+site:PagePrivacy
+  rdf:type site:Page ;
+  rdfs:label "Политика конфиденциальности"@ru ;
+  rdfs:label "Privacy policy"@en ;
+  site:slug "privacy" ;
+  site:hasBlock
+    site:BlockPrivacyContent ;
+.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# BLOCKS — Главная (main)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+site:BlockMainAbout
+  rdf:type site:Block ;
+  site:blockType "text" ;
+  v-s:order 10 ;
+  site:heading "Быстро разрабатываем приложения для вашего бизнеса!"@ru ;
+  site:heading "Quickly develop applications for your business!"@en ;
+  site:summary """
+Для разработки мы используем [интегрированную платформу Veda](#/ru/p/platform).
+
+На платформе уже разработан [ряд готовых приложений](#/ru/p/applications).
+
+Наши клиенты успешно используют их с 2010 года.
+  """@ru ;
+  site:summary """
+For development we use [the integrated platform Veda](#/en/p/platform).
+
+We have already developed [a number of ready-made applications](#/en/p/applications).
+
+Our customers have been using them successfully since 2010.
+  """@en ;
+.
+
+site:BlockMainPlatform
+  rdf:type site:Block ;
+  site:blockType "text" ;
+  v-s:order 20 ;
+  site:bgVariant "alt" ;
+  site:imagePos "right" ;
+  v-s:hasImage site:ImageHydraContract ;
+  site:heading "Платформа Veda"@ru ;
+  site:heading "Platform Veda"@en ;
+  site:summary """
+Современная семантическая платформа с [открытым исходным текстом](https://github.com/semantic-machines/veda).
+
+Позволяет быстро и легко создавать приложения для автоматизации деловых процессов предприятия.
+
+Сделана в [России](https://reestr.digital.gov.ru/reestr/307394/).
+  """@ru ;
+  site:summary """
+A modern [open source](https://github.com/semantic-machines/veda) semantic platform.
+
+Makes it easy to build applications for business processes automation.
+
+Made in [Russia](https://reestr.digital.gov.ru/reestr/307394/).
+  """@en ;
+.
+
+site:BlockMainApplications
+  rdf:type site:Block ;
+  site:blockType "text" ;
+  v-s:order 30 ;
+  v-s:hasImage site:ApplicationsIcon ;
+  site:heading "Приложения"@ru ;
+  site:heading "Applications"@en ;
+  site:summary """
+Готовые приложения на платформе Veda включают в себя набор востребованных объектов и процессов, что сокращает трудоемкость и сроки внедрения информационной системы.
+
+Некоторые приложения мы предлагаем в нескольких вариантах с различной степенью детализации предметной области, с учетом реальных потребностей вашего предприятия.
+
+Составляющие приложений можно изменять и адаптировать под актуальные задачи предприятия «на лету».
+  """@ru ;
+  site:summary """
+Applications on Veda platform include a set of objects and processes. This significantly reduces labor costs and saves time for deployment.
+
+Some applications are offered in several variants with varying levels of detail to match your business needs.
+
+Application components can be changed and adapted to the actual tasks on the fly.
+  """@en ;
+.
+
+site:BlockMainServices
+  rdf:type site:Block ;
+  site:blockType "text" ;
+  v-s:order 40 ;
+  site:bgVariant "alt" ;
+  v-s:hasImage site:ServicesIcon ;
+  site:heading "Услуги"@ru ;
+  site:heading "Services"@en ;
+  site:summary """
+Мы оказываем услуги по разработке, адаптации и внедрению приложений на платформе Veda.
+
+Развиваем приложения в соответствии с потребностями Заказчика.
+
+Проводим техническое обслуживание сформированной системы. Обучаем и поддерживаем пользователей.
+  """@ru ;
+  site:summary """
+We provide services for the development, adaptation and implementation of applications on the Veda platform.
+
+We enhance applications in line with the customer's evolving business needs.
+
+We maintain the deployed system and support users.
+  """@en ;
+.
+
+site:BlockMainContacts
+  rdf:type site:Block ;
+  site:blockType "text" ;
+  v-s:order 50 ;
+  v-s:hasImage site:ContactsIcon ;
+  site:heading "Контакты"@ru ;
+  site:heading "Contacts"@en ;
+  site:summary """
+167026, Республика Коми, Сыктывкар, проспект Бумажников, 2.
+
+Телефон: +7 922 276 16 75
+
+E-mail: [info@semantic-machines.com](mailto:info@semantic-machines.com)
+
+Telegram: [https://t.me/semantic_machines](https://t.me/semantic_machines)
+
+GitHub: [https://github.com/semantic-machines/veda](https://github.com/semantic-machines/veda)
+  """@ru ;
+  site:summary """
+Russian Federation, The Republic of Komi, 167026, Syktyvkar, Bumazhnikov ave, 2.
+
+Tel: +7 922 276 16 75
+
+E-mail: [info@semantic-machines.com](mailto:info@semantic-machines.com)
+
+Telegram: [https://t.me/semantic_machines](https://t.me/semantic_machines)
+
+GitHub: [https://github.com/semantic-machines/veda](https://github.com/semantic-machines/veda)
+  """@en ;
+.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# BLOCKS — Платформа (platform)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+site:BlockPlatformHero
+  rdf:type site:Block ;
+  site:blockType "hero" ;
+  v-s:order 10 ;
+  v-s:hasImage site:PlatformIcon ;
+  site:heading "Платформа Veda"@ru ;
+  site:heading "Platform Veda"@en ;
+  site:summary """
+> Современная семантическая платформа с [открытым исходным текстом](https://github.com/semantic-machines/veda).
+> Предназначена для быстрой разработки приложений автоматизации деловых процессов предприятия.
+> Сделана в [России](https://reestr.digital.gov.ru/reestr/307394/).
+> _Кстати, этот сайт тоже является приложением на платформе Veda. [Посмотреть модель данных](#/ru/graph/site%3APlatform)_
+  """@ru ;
+  site:summary """
+> A modern open-source semantic platform.
+> Designed for the rapid development of business-processes automation applications.
+> Made in [Russia](https://reestr.digital.gov.ru/reestr/307394/).
+> _By the way, this site is also an application on the Veda platform. [View data model](#/en/graph/site%3APlatform)_
+  """@en ;
+.
+
+site:BlockPlatformContent
+  rdf:type site:Block ;
+  site:blockType "text" ;
+  v-s:order 20 ;
+  site:bgVariant "alt" ;
+  site:content """
+## Особенности
+- Используется методология Semantic Web. Онтологии предметных областей проектируются, а не программируются!
+- Высокая скорость разработки, изменения онтологии загружаются «на лету».
+- Различные способы визуализации данных.
+- Двухзвенная архитектура: «тонкий» сервер (stateless), одностраничное web-приложение в браузере (stateful).
+- Высокая производительность и масштабируемость.
+
+---
+
+### Управление данными
+- Проектирование классов, свойств и шаблонов объектов с использованием словарей OWL и RDF/S.
+- Создание объектов на основе разработанных классов, свойств и шаблонов.
+- Управление структурой и содержанием нормативно-справочной информации.
+- Хранение версий объектов.
+- Поиск, сортировка объектов по фрагменту текста или точному значению свойства.
+- Журналирование изменений объектов.
+
+---
+
+### Управление деловыми процессами
+- Разработка автоматизированных деловых процессов с помощью встроенного редактора.
+- Запуск, редактирование, прерывание процессов обработки документов.
+- Визуализация и журналирование хода выполнения процессов.
+
+---
+
+### Общие функции
+- Современный web-интерфейс с полноценной поддержкой мобильных устройств.
+- Аутентификация и авторизация субъектов доступа.
+- Управление правами доступа ко всем видам объектов платформы.
+- Делегирование полномочий — назначение «заместителя» с автоматической передачей прав доступа.
+  """@ru ;
+  site:content """
+## Features
+- Semantic Web methodology is used for data & schema description.
+- Domain ontologies are described, not hard coded!
+- High development speed. Ontology changes are processed on the fly.
+- Versatile data visualization methods.
+- Two-tier design: «thin» stateless server, full featured stateful SPA in the browser.
+- High performance & scalability.
+
+---
+
+### Data management
+- Object classes, properties and templates are defined using OWL & RDF/S vocabularies.
+- Objects versions management support.
+- Fulltext and fine attributive search support.
+- Object mutations logging.
+
+---
+
+### Business processes management
+- Workflows are designed with the embedded editor.
+- Workflows visualization and management (start, stop, change) are available for end-users.
+- Automatic workflow task management.
+
+---
+
+### Common functions
+- Modern web-interface that fit mobile devices.
+- Users authentication and authorization.
+- Fine-grained access control for every system object type.
+- Rights delegation — assignment of a deputy with automatic authorization.
+  """@en ;
+.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# BLOCKS — Документация (documentation)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+site:BlockDocumentationContent
+  rdf:type site:Block ;
+  site:blockType "text" ;
+  v-s:order 10 ;
+  site:heading "Документация"@ru ;
+  site:heading "Documentation"@en ;
+  site:summary """
+> Руководство разработчика и справочник HTTP API платформы Veda.
+  """@ru ;
+  site:summary """
+> Developer guide and HTTP API reference for the Veda platform.
+  """@en ;
+.
+
+site:BlockDevDoc
+  rdf:type site:Block ;
+  site:blockType "markdown-file" ;
+  v-s:order 20 ;
+  site:fileUrl "doc/dev-doc.md" ;
+  site:bgVariant "alt" ;
+.
+
+site:BlockWebApi
+  rdf:type site:Block ;
+  site:blockType "markdown-file" ;
+  v-s:order 30 ;
+  site:heading "HTTP API"@ru ;
+  site:heading "HTTP API"@en ;
+  site:fileUrl "doc/web-api.md" ;
+.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# BLOCKS — Приложения (applications)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+site:BlockApplicationsHero
+  rdf:type site:Block ;
+  site:blockType "hero" ;
+  v-s:order 10 ;
+  v-s:hasImage site:ApplicationsIcon ;
+  site:heading "Приложения"@ru ;
+  site:heading "Applications"@en ;
+  site:summary """
+> Выбирайте, что нравится, а мы сделаем, чтобы вам подошло!
+  """@ru ;
+  site:summary """
+> Choose what you like, and we will make it fit!
+  """@en ;
+  site:content """
+Мы разработали ряд готовых приложений для работы с востребованными деловыми процессами.
+Возможности приложений можно менять и расширять под нужды конкретного предприятия.
+Внедрение совокупности нескольких приложений позволит достичь значительного синергетического эффекта при использовании системы.
+
+**В состав приложения входят:**
+
+- Классы объектов и справочники предметной области.
+- Шаблоны отображения объектов предметной области.
+- Реестры, отчетные и печатные формы.
+- Деловые процессы для автоматизации совместной работы с объектами.
+- Роли, группы пользователей, их полномочия.
+- Эксплуатационная документация.
+  """@ru ;
+  site:content """
+We have developed a number of ready-made applications for working with popular business processes.
+Application capabilities can be changed and expanded to the needs of a particular enterprise.
+The implementation of several applications helps achieve a significant synergy effect while using the system.
+
+**The application includes:**
+
+- Object classes and reference dictionaries of the subject domain.
+- Templates and other visual on-screen forms.
+- Registries, reporting and printing forms.
+- Business processes to automate collaboration with objects.
+- Roles, user groups, and their permissions.
+- Operational documentation.
+  """@en ;
+.
+
+# Tabs block: items (aspects) are managed via CMS.
+# Initial aspects can be created as site:BlockItem individuals below.
+site:BlockApplicationsTabs
+  rdf:type site:Block ;
+  site:blockType "tabs" ;
+  v-s:order 20 ;
+  site:bgVariant "alt" ;
+.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# BLOCKS — Услуги (services)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+site:BlockServicesContent
+  rdf:type site:Block ;
+  site:blockType "text" ;
+  v-s:order 10 ;
+  v-s:hasImage site:ServicesIcon ;
+  site:heading "Услуги"@ru ;
+  site:heading "Services"@en ;
+  site:summary """
+> Обследуем, разработаем, внедрим и обеспечим поддержку информационной системы, чтобы Вы могли сосредоточиться на развитии бизнеса.
+  """@ru ;
+  site:summary """
+> We survey, develop, implement and provide support for the information system so that you can focus on developing your business.
+  """@en ;
+  site:content """
+### 1. Консультируем
+
+Залог успеха любого проекта — полное взаимопонимание заказчика и исполнителя.
+
+- обследуем деловые процессы, берем интервью у ключевых сотрудников,
+- составляем рекомендации по оптимизации существующих процессов,
+- помогаем сформулировать функциональные и технические требования,
+- формируем план реализации и бюджет проекта.
+
+---
+
+### 2. Разрабатываем
+
+- проектируем онтологию предметной области,
+- создаем автоматизированные процессы, шаблоны документов, отчеты,
+- определяем роли и группы пользователей,
+- составляем эксплуатационную документацию.
+
+---
+
+### 3. Внедряем
+
+- развертываем и настраиваем программные компоненты,
+- проводим приемочные испытания,
+- обучаем пользователей,
+- передаем систему в постоянную эксплуатацию.
+
+---
+
+### 4. Обеспечиваем поддержку
+
+- предоставляем все линии технической поддержки,
+- проводим техническое обслуживание системы,
+- изменяем существующие и разрабатываем новые возможности системы.
+  """@ru ;
+  site:content """
+### 1. Consulting
+
+The key to success of any project is a complete understanding between the customer and the performer.
+
+- we examine business processes and interview key employees,
+- make recommendations for the optimization of existing processes,
+- help to formulate the functional and technical requirements,
+- form the implementation plan and project budget.
+
+---
+
+### 2. Development
+
+- we design the ontology of the domain,
+- create automated processes, document templates, reports,
+- define roles and groups of users,
+- make operational documentation.
+
+---
+
+### 3. Implementation
+
+- we deploy and configure software components,
+- carry out acceptance tests,
+- train users,
+- transfer system to continuous operation.
+
+---
+
+### 4. Technical Support
+
+- we provide all lines of technical support,
+- perform system maintenance,
+- change existing and develop new features and functions of the system.
+  """@en ;
+.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# BLOCKS — Цены (price)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+site:BlockPriceContent
+  rdf:type site:Block ;
+  site:blockType "text" ;
+  v-s:order 10 ;
+  v-s:hasImage site:PriceIcon ;
+  site:heading "Цены"@ru ;
+  site:heading "Prices"@en ;
+  site:summary """
+> * Лицензии на модули бессрочные. Стоимость зависит от вида редакции.
+> * Кастомизация готовых модулей (расширение функциональности) выполняется по запросу.
+> * Индивидуальная разработка выполняется по запросу.
+  """@ru ;
+  site:summary """
+> * Licenses are perpetual. The cost depends on the type of edition.
+> * Customization of ready-made modules (extension of functionality) is performed on request.
+> * Individual development is agreed upon request.
+  """@en ;
+  site:content """
+<table class="table table-condensed table-bordered">
+  <colgroup>
+    <col width="5%" />
+    <col width="25%" />
+    <col width="" />
+    <col width="15%" />
+    <col width="15%" />
+  </colgroup>
+  <thead>
+    <tr>
+      <th style="vertical-align: middle;">№</th>
+      <th style="vertical-align: middle;">Приложение</th>
+      <th style="vertical-align: middle;">Модуль</th>
+      <th style="vertical-align: middle;">Стандартная версия, руб.</th>
+      <th style="vertical-align: middle;">Расширенная версия, руб.</th>
+    </tr>
+  </thead>
+  <tr>
+    <td rowspan="11">1</td>
+    <td rowspan="11">Базовые компоненты</td>
+    <td>Работа с задачами</td>
+    <td rowspan="7">50 000</td>
+    <td rowspan="11">96 000</td>
+  </tr>
+  <tr><td>Работа с документами</td></tr>
+  <tr><td>Работа с реестрами</td></tr>
+  <tr><td>Уведомления почтовые</td></tr>
+  <tr><td>Справочник контрагентов</td></tr>
+  <tr><td>Обращение в Службу поддержки</td></tr>
+  <tr><td>Контактный справочник</td></tr>
+  <tr><td>Контактный справочник расширенный</td><td>-</td></tr>
+  <tr><td>Поиск полнотекстовый</td><td>-</td></tr>
+  <tr><td>Администрирование документооборота</td><td>-</td></tr>
+  <tr><td>Отчет «Исполнительская дисциплина»</td><td>-</td></tr>
+  <tr>
+    <td rowspan="3">2</td>
+    <td rowspan="3">Управление взаимодействием с контрагентами</td>
+    <td>Досье контрагента</td><td>80 000</td><td>160 000</td>
+  </tr>
+  <tr><td>Запрос на согласование кредитора</td><td>80 000</td><td>160 000</td></tr>
+  <tr><td>Запрос на согласование дебитора</td><td>80 000</td><td>160 000</td></tr>
+  <tr>
+    <td rowspan="7">3</td>
+    <td rowspan="7">Управление контрактами</td>
+    <td>Заявка на контракт</td><td>32 000</td><td>64 000</td>
+  </tr>
+  <tr><td>Контракт</td><td>250 000</td><td>322 000</td></tr>
+  <tr><td>Дополнительное соглашение</td><td>32 000</td><td>64 000</td></tr>
+  <tr><td>Выбор поставщика</td><td>32 000</td><td>64 000</td></tr>
+  <tr><td>Паспорт сделки</td><td>32 000</td><td>64 000</td></tr>
+  <tr><td>Тендер</td><td>32 000</td><td>64 000</td></tr>
+  <tr><td>Контрагент</td><td>32 000</td><td>64 000</td></tr>
+  <tr>
+    <td rowspan="3">4</td>
+    <td rowspan="3">Управление претензиями</td>
+    <td>Претензия</td><td>32 000</td><td>64 000</td>
+  </tr>
+  <tr><td>Судебное дело</td><td>32 000</td><td>64 000</td></tr>
+  <tr><td>Претензионное событие</td><td>20 000</td><td>32 000</td></tr>
+  <tr>
+    <td rowspan="2">5</td>
+    <td rowspan="2">Управление первичной бухгалтерской документацией</td>
+    <td>Первичный документ</td><td>32 000</td><td>64 000</td>
+  </tr>
+  <tr><td>Внутренний бухгалтерский документ</td><td>30 000</td><td>48 000</td></tr>
+  <tr>
+    <td rowspan="5">6</td>
+    <td rowspan="5">Делопроизводство</td>
+    <td>Корреспонденция — Входящие</td><td>30 000</td><td>48 000</td>
+  </tr>
+  <tr><td>Корреспонденция — Исходящие</td><td>30 000</td><td>48 000</td></tr>
+  <tr><td>Организационно-распорядительная деятельность</td><td>32 000</td><td>64 000</td></tr>
+  <tr><td>Локальная нормативная документация + Версии</td><td>32 000</td><td>64 000</td></tr>
+  <tr><td>Внутренний документ</td><td>32 000</td><td>64 000</td></tr>
+  <tr>
+    <td rowspan="3">7</td>
+    <td rowspan="3">Управление качеством</td>
+    <td>Аудит качества</td><td>80 000</td><td>160 000</td>
+  </tr>
+  <tr><td>Аудит внутренний</td><td>80 000</td><td>160 000</td></tr>
+  <tr><td>Аудит 5S</td><td>48 000</td><td>96 000</td></tr>
+  <tr>
+    <td rowspan="2">8</td>
+    <td rowspan="2">Промышленная безопасность</td>
+    <td>Аудит безопасности</td><td>80 000</td><td>160 000</td>
+  </tr>
+  <tr><td>Расследование аварий</td><td>80 000</td><td>160 000</td></tr>
+  <tr><td>9</td><td>Управление инновациями</td><td> </td><td>250 000</td><td>322 000</td></tr>
+  <tr><td>10</td><td>Управление встречами</td><td> </td><td>80 000</td><td>160 000</td></tr>
+  <tr>
+    <td rowspan="13">11</td>
+    <td rowspan="13">Управление внутренними сервисами</td>
+    <td>Командировки</td><td>48 000</td><td>96 000</td>
+  </tr>
+  <tr><td>Доверенности</td><td>32 000</td><td>64 000</td></tr>
+  <tr><td>Представительские расходы</td><td>32 000</td><td>64 000</td></tr>
+  <tr><td>Заявка на услуги</td><td>32 000</td><td>64 000</td></tr>
+  <tr><td>Заявка ИТ</td><td>80 000</td><td>160 000</td></tr>
+  <tr><td>Заявка на транспорт</td><td>48 000</td><td>96 000</td></tr>
+  <tr><td>Заявка на приобретение товаров и услуг</td><td>32 000</td><td>64 000</td></tr>
+  <tr><td>Заявка на выдачу ТМЦ</td><td>32 000</td><td>64 000</td></tr>
+  <tr><td>Заявка на ремонтные работы</td><td>32 000</td><td>64 000</td></tr>
+  <tr><td>Акты осмотра зданий и сооружений</td><td>48 000</td><td>96 000</td></tr>
+  <tr><td>Внутренние комиссии</td><td>32 000</td><td>64 000</td></tr>
+  <tr><td>Договор найма жилья</td><td>32 000</td><td>64 000</td></tr>
+  <tr><td>Дополнительное соглашение к договору найма</td><td>20 000</td><td>32 000</td></tr>
+  <tr>
+    <td rowspan="2">12</td>
+    <td rowspan="2">Внутренний режим и контроль</td>
+    <td>Пропуска</td><td>32 000</td><td>64 000</td>
+  </tr>
+  <tr><td>Акты нарушений</td><td>32 000</td><td>64 000</td></tr>
+  <tr>
+    <td rowspan="4">13</td>
+    <td rowspan="4">Технические документы</td>
+    <td>Конструкторская заявка</td><td>80 000</td><td>160 000</td>
+  </tr>
+  <tr><td>Технический документ</td><td>80 000</td><td>160 000</td></tr>
+  <tr><td>Запрос в технический архив</td><td>32 000</td><td>64 000</td></tr>
+  <tr><td>Чертеж</td><td>32 000</td><td>64 000</td></tr>
+</table>
+<small><i>
+  ООО «Смысловые машины» оставляет за собой право изменить цены в любой момент.<br>
+  Цены указаны в российских рублях, действуют для расчетов на территории РФ, НДС не облагаются на основании пп. 26, п. 2, ст. 149 Налогового кодекса РФ.
+</i></small>
+
+---
+
+## Дополнительные услуги
+
+* Внедрение системы, выполняется дистанционно — 90 000 рублей (ориентировочно).
+* Обучение пользователей (группа до 15 человек, 1 день) — 20 000 рублей.
+
+---
+
+## Сопровождение
+
+* Мы обеспечиваем различные варианты технического сопровождения пользователей и программного комплекса. Объём и стоимость поддержки обсуждаются индивидуально.
+
+<table class="table table-condensed table-bordered">
+  <colgroup>
+    <col width="20%" /><col width="" />
+    <col width="8%" /><col width="8%" /><col width="8%" /><col width="8%" />
+  </colgroup>
+  <thead>
+    <tr>
+      <th colspan="2"> </th>
+      <th>1 линия</th><th>2 линия</th><th>3 линия</th><th>4 линия</th>
+    </tr>
+  </thead>
+  <tr>
+    <td colspan="2">Установка обновлений*</td>
+    <td>+</td><td>+</td><td>+</td><td>+</td>
+  </tr>
+  <tr>
+    <td colspan="2">Технической обслуживание продукта</td>
+    <td>+</td><td>+</td><td>+</td><td>+</td>
+  </tr>
+  <tr>
+    <td rowspan="4">Поддержка пользователей</td>
+    <td>Обращение пользователей в Службу поддержки по выбранным каналам связи, фиксация обращений</td>
+    <td>+</td><td>+</td><td>+</td><td>+</td>
+  </tr>
+  <tr>
+    <td>Консультация пользователей по вопросам функционирования системы с возможностью удаленного подключения</td>
+    <td> </td><td>+</td><td>+</td><td>+</td>
+  </tr>
+  <tr>
+    <td>Обращение выделенных специалистов Заказчика, влекущее за собой изменения в конфигурации системы</td>
+    <td> </td><td> </td><td>+</td><td>+</td>
+  </tr>
+  <tr>
+    <td>Развитие системы (обследование, составление технического задания, разработка новых функций и процессов)</td>
+    <td> </td><td> </td><td> </td><td>+</td>
+  </tr>
+</table>
+
+* По действующему прайс-листу ООО «Смысловые машины». Стоимость годового пакета обновлений — 30% от стоимости лицензий на приложения. Стоимость пакета обновлений до текущей версии — 60% от стоимости лицензий.
+* Объём и стоимость сопровождения определяются индивидуально.
+  """@ru ;
+  site:content """
+<table class="table table-condensed table-bordered">
+  <colgroup>
+    <col width="5%" />
+    <col width="25%" />
+    <col width="" />
+    <col width="15%" />
+    <col width="15%" />
+  </colgroup>
+  <thead>
+    <tr>
+      <th style="vertical-align: middle;">#</th>
+      <th style="vertical-align: middle;">Application</th>
+      <th style="vertical-align: middle;">Module</th>
+      <th style="vertical-align: middle;">Standard version, rub.</th>
+      <th style="vertical-align: middle;">Advanced version, rub.</th>
+    </tr>
+  </thead>
+  <tr>
+    <td rowspan="11">1</td>
+    <td rowspan="11">Basic components</td>
+    <td>Working with tasks</td>
+    <td rowspan="7">50 000</td>
+    <td rowspan="11">96 000</td>
+  </tr>
+  <tr><td>Working with documents</td></tr>
+  <tr><td>Working with registries</td></tr>
+  <tr><td>E-mail notifications</td></tr>
+  <tr><td>Contractors' directory</td></tr>
+  <tr><td>IT service desk</td></tr>
+  <tr><td>Contact directory</td></tr>
+  <tr><td>Advanced contact directory</td><td>-</td></tr>
+  <tr><td>Fulltext search</td><td>-</td></tr>
+  <tr><td>Workflow administration</td><td>-</td></tr>
+  <tr><td>Report «Performers' discipline»</td><td>-</td></tr>
+  <tr>
+    <td rowspan="3">2</td>
+    <td rowspan="3">Contractors interaction management</td>
+    <td>Contractors dossier</td><td>80 000</td><td>160 000</td>
+  </tr>
+  <tr><td>Creditor approval request</td><td>80 000</td><td>160 000</td></tr>
+  <tr><td>Debitor approval request</td><td>80 000</td><td>160 000</td></tr>
+  <tr>
+    <td rowspan="7">3</td>
+    <td rowspan="7">Contracts management</td>
+    <td>Contract request</td><td>32 000</td><td>64 000</td>
+  </tr>
+  <tr><td>Contract</td><td>250 000</td><td>322 000</td></tr>
+  <tr><td>Additional agreement</td><td>32 000</td><td>64 000</td></tr>
+  <tr><td>Supplier selection</td><td>32 000</td><td>64 000</td></tr>
+  <tr><td>Contract passport</td><td>32 000</td><td>64 000</td></tr>
+  <tr><td>Tender</td><td>32 000</td><td>64 000</td></tr>
+  <tr><td>Contractor</td><td>32 000</td><td>64 000</td></tr>
+  <tr>
+    <td rowspan="3">4</td>
+    <td rowspan="3">Claims management</td>
+    <td>Claim</td><td>32 000</td><td>64 000</td>
+  </tr>
+  <tr><td>Court case</td><td>32 000</td><td>64 000</td></tr>
+  <tr><td>Claim event</td><td>20 000</td><td>32 000</td></tr>
+  <tr>
+    <td rowspan="2">5</td>
+    <td rowspan="2">Primary accounting documentation management</td>
+    <td>Primary accounting document</td><td>32 000</td><td>64 000</td>
+  </tr>
+  <tr><td>Internal accounting document</td><td>30 000</td><td>48 000</td></tr>
+  <tr>
+    <td rowspan="5">6</td>
+    <td rowspan="5">Office work</td>
+    <td>Correspondence — Incoming</td><td>30 000</td><td>48 000</td>
+  </tr>
+  <tr><td>Correspondence — Outgoing</td><td>30 000</td><td>48 000</td></tr>
+  <tr><td>Organizational and administrative documents</td><td>32 000</td><td>64 000</td></tr>
+  <tr><td>Local regulatory documentation + Versions</td><td>32 000</td><td>64 000</td></tr>
+  <tr><td>Internal document</td><td>32 000</td><td>64 000</td></tr>
+  <tr>
+    <td rowspan="3">7</td>
+    <td rowspan="3">Quality management</td>
+    <td>Quality audit</td><td>80 000</td><td>160 000</td>
+  </tr>
+  <tr><td>Internal audit</td><td>80 000</td><td>160 000</td></tr>
+  <tr><td>Audit 5S</td><td>48 000</td><td>96 000</td></tr>
+  <tr>
+    <td rowspan="2">8</td>
+    <td rowspan="2">Production safety</td>
+    <td>Safety audit</td><td>80 000</td><td>160 000</td>
+  </tr>
+  <tr><td>Accident investigation</td><td>80 000</td><td>160 000</td></tr>
+  <tr><td>9</td><td>Innovation management</td><td> </td><td>250 000</td><td>322 000</td></tr>
+  <tr><td>10</td><td>Meeting management</td><td> </td><td>80 000</td><td>160 000</td></tr>
+  <tr>
+    <td rowspan="13">11</td>
+    <td rowspan="13">Internal services management</td>
+    <td>Business trips</td><td>48 000</td><td>96 000</td>
+  </tr>
+  <tr><td>Power of attorney</td><td>32 000</td><td>64 000</td></tr>
+  <tr><td>Representation expenses</td><td>32 000</td><td>64 000</td></tr>
+  <tr><td>Service request</td><td>32 000</td><td>64 000</td></tr>
+  <tr><td>IT request</td><td>80 000</td><td>160 000</td></tr>
+  <tr><td>Transportation request</td><td>48 000</td><td>96 000</td></tr>
+  <tr><td>Goods and services purchase request</td><td>32 000</td><td>64 000</td></tr>
+  <tr><td>Goods and materials issuance request</td><td>32 000</td><td>64 000</td></tr>
+  <tr><td>Repair work request</td><td>32 000</td><td>64 000</td></tr>
+  <tr><td>Inspection of buildings request</td><td>48 000</td><td>96 000</td></tr>
+  <tr><td>Internal commission</td><td>32 000</td><td>64 000</td></tr>
+  <tr><td>Housing contract</td><td>32 000</td><td>64 000</td></tr>
+  <tr><td>Housing contract addendum</td><td>20 000</td><td>32 000</td></tr>
+  <tr>
+    <td rowspan="2">12</td>
+    <td rowspan="2">Internal security services</td>
+    <td>Pass</td><td>32 000</td><td>64 000</td>
+  </tr>
+  <tr><td>Violation act</td><td>32 000</td><td>64 000</td></tr>
+  <tr>
+    <td rowspan="4">13</td>
+    <td rowspan="4">Technical documents</td>
+    <td>Engineering request</td><td>80 000</td><td>160 000</td>
+  </tr>
+  <tr><td>Technical document</td><td>80 000</td><td>160 000</td></tr>
+  <tr><td>Request to the technical archive</td><td>32 000</td><td>64 000</td></tr>
+  <tr><td>Blueprint</td><td>32 000</td><td>64 000</td></tr>
+</table>
+<small><i>
+  Semantic Machines LLC reserves the right to change prices at any time.<br>
+  Prices are in Russian rubles, valid for settlements within the Russian Federation. VAT exempt under item 26, clause 2, article 149 of the Russian Tax Code.
+</i></small>
+
+---
+
+## Additional services
+
+* Implementation of the system, performed remotely — 90,000 rubles (approx).
+* User training (group up to 15 people, 1 day) — 20,000 rubles.
+
+---
+
+## Support
+
+* We provide various options for technical support for users and the system. The volume and cost of support are discussed individually.
+
+<table class="table table-condensed table-bordered">
+  <colgroup>
+    <col width="20%" /><col width="" />
+    <col width="8%" /><col width="8%" /><col width="8%" /><col width="8%" />
+  </colgroup>
+  <thead>
+    <tr>
+      <th colspan="2"> </th>
+      <th>1 level</th><th>2 level</th><th>3 level</th><th>4 level</th>
+    </tr>
+  </thead>
+  <tr>
+    <td colspan="2">Installation of updates*</td>
+    <td>+</td><td>+</td><td>+</td><td>+</td>
+  </tr>
+  <tr>
+    <td colspan="2">System maintenance</td>
+    <td>+</td><td>+</td><td>+</td><td>+</td>
+  </tr>
+  <tr>
+    <td rowspan="4">Users support</td>
+    <td>Requests from users to the Support Service via selected communication channels</td>
+    <td>+</td><td>+</td><td>+</td><td>+</td>
+  </tr>
+  <tr>
+    <td>Consultation of users on the functioning of the system using a remote connection</td>
+    <td> </td><td>+</td><td>+</td><td>+</td>
+  </tr>
+  <tr>
+    <td>Requests from dedicated specialists of the Customer, entailing changes in the system configuration</td>
+    <td> </td><td> </td><td>+</td><td>+</td>
+  </tr>
+  <tr>
+    <td>System development (survey, technical requirements, development of new functions and processes)</td>
+    <td> </td><td> </td><td> </td><td>+</td>
+  </tr>
+</table>
+
+* Annual updates subscription — 30% of license cost. Update to current version — 60% of license cost.
+* The volume and cost of support are determined individually.
+  """@en ;
+.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# BLOCKS — Контакты (contacts)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+site:BlockContactsContent
+  rdf:type site:Block ;
+  site:blockType "text" ;
+  v-s:order 10 ;
+  v-s:hasImage site:ContactsIcon ;
+  site:heading "Контакты"@ru ;
+  site:heading "Contacts"@en ;
+  site:summary """
+> **ООО «Смысловые машины»**
+> Аккредитованная российская ИТ-компания.
+> ОГРН 111112100210 / ИНН 1121001280
+> Юридический адрес: 167026, Республика Коми, Сыктывкар, проспект Бумажников, 35-133.
+> Фактический адрес: 167026, Республика Коми, Сыктывкар, проспект Бумажников, 2.
+> Телефон: +7 922 276 16 75
+> E-mail: [info@semantic-machines.com](mailto:info@semantic-machines.com)
+> Telegram: [https://t.me/semantic_machines](https://t.me/semantic_machines)
+> GitHub: [https://github.com/semantic-machines/veda](https://github.com/semantic-machines/veda)
+> Платформа Veda включена в [реестр российского ПО](https://reestr.digital.gov.ru/reestr/307394/).
+  """@ru ;
+  site:summary """
+> **Semantic machines, LLC**
+> Accredited Russian IT company.
+> Legal address: 167026, Syktyvkar, The Republic of Komi, Russia, Bumazhnikov ave, 35-133.
+> Office address: 167026, Syktyvkar, The Republic of Komi, Russia, Bumazhnikov ave, 2.
+> Tel: +7 922 276 16 75
+> E-mail: [info@semantic-machines.com](mailto:info@semantic-machines.com)
+> Telegram: [https://t.me/semantic_machines](https://t.me/semantic_machines)
+> GitHub: [https://github.com/semantic-machines/veda](https://github.com/semantic-machines/veda)
+> Veda is included in the [Russian software registry](https://reestr.digital.gov.ru/reestr/307394/).
+  """@en ;
+.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# BLOCKS — О компании (about), Скачать (download), Конфиденциальность (privacy)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+site:BlockAboutContent
+  rdf:type site:Block ;
+  site:blockType "text" ;
+  v-s:order 10 ;
+  site:heading "О компании"@ru ;
+  site:heading "About"@en ;
+  site:summary """
+> ООО «Смысловые машины» — российская IT-компания, разработчик платформы Veda.
+  """@ru ;
+  site:summary """
+> Semantic Machines LLC — a Russian IT company, developer of the Veda platform.
+  """@en ;
+  site:content """
+Основана в 2010 году. Основной вид деятельности — разработка программного обеспечения.
+
+Платформа Veda включена в [Реестр отечественного ПО](https://reestr.digital.gov.ru/reestr/307394/).
+
+[Аккредитованная ИТ-компания](https://www.gosuslugi.ru/itorgs).
+  """@ru ;
+  site:content """
+Founded in 2010. Main activity — software development.
+
+Veda platform is included in the [Russian software registry](https://reestr.digital.gov.ru/reestr/307394/).
+
+[Accredited IT company](https://www.gosuslugi.ru/itorgs).
+  """@en ;
+.
+
+site:BlockDownloadContent
+  rdf:type site:Block ;
+  site:blockType "text" ;
+  v-s:order 10 ;
+  site:heading "Скачать"@ru ;
+  site:heading "Download"@en ;
+  site:summary """
+> Платформа Veda распространяется с открытым исходным кодом.
+  """@ru ;
+  site:summary """
+> The Veda platform is distributed as open source.
+  """@en ;
+  site:content """
+### Исходный код
+
+[https://github.com/semantic-machines/veda](https://github.com/semantic-machines/veda)
+
+### Docker-образы
+
+Инструкции по установке и запуску доступны в [репозитории на GitHub](https://github.com/semantic-machines/veda).
+  """@ru ;
+  site:content """
+### Source code
+
+[https://github.com/semantic-machines/veda](https://github.com/semantic-machines/veda)
+
+### Docker images
+
+Installation and startup instructions are available in the [GitHub repository](https://github.com/semantic-machines/veda).
+  """@en ;
+.
+
+site:BlockPrivacyContent
+  rdf:type site:Block ;
+  site:blockType "text" ;
+  v-s:order 10 ;
+  site:heading "Политика конфиденциальности"@ru ;
+  site:heading "Privacy policy"@en ;
+  site:content """
+Политика в отношении обработки персональных данных
+==================================================
+
+### 1. Общие положения
+
+1.1. Настоящая Политика в отношении обработки персональных данных (далее – Политика) утверждена Решением Общего собрания участников Общества с ограниченной ответственностью «Смысловые машины» (ОГРН 1111121000210, ИНН 1121001280, адрес местонахождения: 167026, Республика Коми, г. Сыктывкар, пр-т Бумажников, д. 35, кв. 133) (далее – Администратор), определяет основные принципы, цели, порядок и условия обработки персональных данных Пользователей сайта ООО «Смысловые машины» https://semantic-machines.com/ (далее – Сайт), меры по обеспечению безопасности и защиты персональных данных.
+1.2. Настоящая Политика разработана в соответствии с требованиями Конституции Российской Федерации, законодательных и иных нормативных правовых актов Российской Федерации в области персональных данных и опубликована для неограниченного доступа на сайте ООО «Смысловые машины».
+1.3. Используемые в настоящей Политике понятия толкуются согласно их определению в Федеральном законе РФ «О персональных данных» № 152-ФЗ от 27 июля 2006 года.
+1.4. Администратор гарантирует соблюдение конфиденциальности в отношении полученных персональных данных с учетом положений настоящей Политики и обязуется использовать их только в целях, указанных в Политике.
+1.5. Использование Сайта возможно при условии предварительного ознакомления Пользователя с Политикой и согласия с ней. Пользователь, начавший использование Сайта, считается ознакомившимся и принявшим условия настоящей Политики без возражений.
+
+### 2. Основные понятия и состав персональных данных
+
+2.1. Перечень персональных данных, подлежащих защите Администратором, формируется в соответствии с Федеральным законом РФ «О персональных данных» № 152-ФЗ от 27 июля 2006 года.
+2.2. Администратор производит обработку и защиту персональных данных, которые предоставляются Пользователем путем заполнения формы Заявки на Сайте и включают в себя:
+- Фамилию, имя, отчество Пользователя;
+- Контактный телефон;
+- Адрес электронной почты;
+- Наименование компании Пользователя.
+
+2.3. Во время просмотра Сайта происходит автоматическая регистрация определенных данных о компьютере. Администратор собирает следующую информацию:
+- Дату и время посещения Сайта;
+- Число посещенных страниц, их названия, а также длительность просмотра;
+- IP-адрес, присвоенный устройству для выхода в Интернет;
+- Тип браузера и операционной системы;
+- Информация о cookies;
+- URL сайта, с которого был осуществлен переход.
+
+### 3. Цели обработки персональных данных
+
+3.1. Обработка персональных данных Посетителей Сайта осуществляется в целях:
+- Идентификации Пользователя, оставившего заявку для получения консультации;
+- Предоставления Пользователю доступа к персонализированным ресурсам Сайта;
+- Установления с Пользователем обратной связи, включая направление уведомлений и запросов;
+- Предоставления Пользователю технической поддержки;
+- Проведения статистических и иных исследований на основе обезличенных данных.
+
+### 4. Принципы и условия обработки персональных данных
+
+4.1. Обработка персональных данных Администратором основывается на принципах законности, ограничения конкретными целями и соответствия объема обрабатываемых данных заявленным целям.
+4.2. Администратор производит обработку персональных данных при наличии согласия субъекта персональных данных либо иных оснований, предусмотренных законодательством Российской Федерации.
+
+### 5. Права и обязанности Пользователя
+
+5.1. Пользователь имеет право:
+- Требовать уточнения, обновления, блокирования или уничтожения своих персональных данных;
+- Получать информацию о сроках и порядке обработки своих персональных данных;
+- Обжаловать неправомерные действия при обработке его персональных данных.
+
+5.2. Пользователи обязуются предоставлять только достоверные данные о себе.
+5.3. Согласие на обработку персональных данных может быть отозвано Пользователем путем направления письменного заявления по адресу: 167026, Республика Коми, г. Сыктывкар, пр-т Бумажников, д. 35, кв. 133, или на адрес электронной почты: info@semantic-machines.com
+
+### 6. Права и обязанности Администратора
+
+6.1. Администратор никогда не запрашивает у Пользователей сведения о расовой, национальной принадлежности, политических взглядах, религиозных убеждениях, состоянии здоровья, интимной жизни.
+6.2. Администратор не вправе передавать персональные данные Пользователей третьей стороне, за исключением уполномоченных государственных органов и иных случаев, предусмотренных законодательством РФ.
+
+### 7. Обеспечение защиты и безопасности персональных данных
+
+7.1. Администратор применяет технологические и организационные меры безопасности для защиты персональных данных от несанкционированного доступа, раскрытия или уничтожения.
+7.2. Доступ к персональным данным предоставляется только уполномоченным сотрудникам, принявшим обязательство сохранять их конфиденциальность.
+
+### 8. Хранение персональных данных
+
+8.1. Персональные данные хранятся в течение периода, необходимого для достижения целей, в которых они были предоставлены, или в течение периода, предусмотренного законодательством.
+8.2. По достижению целей персональные данные уничтожаются.
+
+### 9. Cookies и веб-технологии
+
+9.1. Сайт может использовать файлы cookies для обеспечения эффективного управления и настройки пользовательского интерфейса.
+9.2. Пользователь имеет возможность управлять cookie-файлами через настройки браузера.
+
+### 10. Заключительные положения
+
+10.1. Настоящая Политика подлежит изменению в случае внесения изменений в законодательство Российской Федерации о персональных данных, а также может быть изменена по усмотрению Администратора. Действующая редакция всегда доступна на Сайте.
+10.2. По вопросам обработки персональных данных: [info@semantic-machines.com](mailto:info@semantic-machines.com)
+
+**Дата последнего обновления Политики: 15 мая 2026 года.**
+  """@ru ;
+  site:content """
+Privacy Policy
+==============
+
+### 1. General Provisions
+
+1.1. This Privacy Policy (hereinafter — Policy) is approved by Semantic Machines LLC (OGRN 1111121000210, INN 1121001280, registered address: 167026, Syktyvkar, The Republic of Komi, Russia, Bumazhnikov ave, 35-133) (hereinafter — Administrator) and defines the main principles, purposes, procedures and conditions for processing personal data of users of the Semantic Machines LLC website https://semantic-machines.com/ (hereinafter — Site).
+1.2. This Policy is developed in accordance with the requirements of the Constitution of the Russian Federation and the Federal Law "On Personal Data" No. 152-FZ of July 27, 2006.
+1.4. The Administrator guarantees the confidentiality of received personal data and undertakes to use them only for the purposes specified in this Policy.
+1.5. By using the Site, the User agrees to the terms of this Policy.
+
+### 2. Personal Data Collected
+
+2.1. The Administrator processes personal data submitted by the User through the application form on the Site, including:
+- Full name;
+- Contact phone number;
+- Email address;
+- Company name.
+
+2.2. During Site browsing, the following technical data is automatically collected:
+- Date and time of visit;
+- Pages viewed and duration;
+- IP address;
+- Browser and operating system type;
+- Cookie data;
+- Referring URL.
+
+### 3. Purposes of Processing
+
+Personal data is processed for the purposes of:
+- Identifying Users who submit enquiries;
+- Providing Users with access to Site resources;
+- Establishing feedback including notifications and requests;
+- Providing technical support;
+- Conducting statistical research based on anonymized data.
+
+### 4. Principles and Conditions
+
+The Administrator processes personal data based on the principles of lawfulness, purpose limitation, and data minimization, subject to User consent or other grounds provided by Russian law.
+
+### 5. User Rights
+
+The User has the right to:
+- Request correction, blocking or deletion of personal data;
+- Obtain information about the processing of personal data;
+- Withdraw consent by written request to: 167026, Syktyvkar, The Republic of Komi, Russia, Bumazhnikov ave, 35-133, or via email: info@semantic-machines.com
+
+### 6. Administrator Obligations
+
+The Administrator shall not request data on racial or ethnic origin, political views, religious beliefs, health, or intimate life. The Administrator shall not transfer personal data to third parties except as required by Russian law.
+
+### 7. Security
+
+The Administrator applies technological and organizational security measures to protect personal data from unauthorized access, disclosure or destruction. Access is limited to authorized employees bound by confidentiality obligations.
+
+### 8. Retention
+
+Personal data is retained for the period necessary to achieve the purposes for which it was collected, or as required by law, after which it is destroyed.
+
+### 9. Cookies
+
+The Site may use cookies to ensure effective management and customization of the user interface. Users can manage cookies through their browser settings.
+
+### 10. Final Provisions
+
+10.1. This Policy may be amended in accordance with changes in Russian personal data legislation or at the Administrator's discretion. The current version is always available on the Site.
+10.2. For personal data enquiries: [info@semantic-machines.com](mailto:info@semantic-machines.com)
+
+**Last updated: May 15, 2026.**
+  """@en ;
+.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# BLOCKS — Veda онлайн (veda-online)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+site:BlockVedaOnlineContent
+  rdf:type site:Block ;
+  site:blockType "text" ;
+  v-s:order 10 ;
+  site:heading "Veda онлайн"@ru ;
+  site:heading "Veda online"@en ;
+  site:summary """
+> Попробуйте платформу Veda в действии — без установки и настройки.
+  """@ru ;
+  site:summary """
+> Try the Veda platform in action — no installation or configuration required.
+  """@en ;
+  site:content """
+Демонстрационная среда позволяет ознакомиться с возможностями платформы Veda: создание объектов, настройка шаблонов, управление деловыми процессами и правами доступа.
+
+Для доступа к демонстрационной среде свяжитесь с нами по адресу [info@semantic-machines.com](mailto:info@semantic-machines.com).
+  """@ru ;
+  site:content """
+The demonstration environment lets you explore the Veda platform capabilities: creating objects, configuring templates, managing workflows and access rights.
+
+To access the demonstration environment, contact us at [info@semantic-machines.com](mailto:info@semantic-machines.com).
+  """@en ;
+.
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# APPLICATIONS TABS — connect aspects to the block
+#
+# site:hasItem and v-s:order on each aspect are defined in aspect-*.ttl files.
+# ═══════════════════════════════════════════════════════════════════════════════
+
+site:BlockApplicationsTabs
+  site:hasItem
+    site:PurchasesSalesAspect ,
+    site:QualityManagementAspect ,
+    site:ProductionSafetyAspect ,
+    site:DocumentationAspect ,
+    site:HumanResourcesAspect ,
+    site:InformationTechnologyAspect ;
+.
+
+# ── Application ordering within tabs ─────────────────────────────────────────
+# Закупки и продажи
+site:ContractsManagementApplication   v-s:order 10 .
+site:ContractorsManagementApplication v-s:order 20 .
+site:AccountingDocApplication         v-s:order 30 .
+site:ClaimsManagementApplication      v-s:order 40 .
+
+# Управление качеством
+site:AuditQualityApplication          v-s:order 10 .
+site:AuditInternalApplication         v-s:order 20 .
+site:ICSApplication                   v-s:order 30 .
+site:Audit5SApplication               v-s:order 40 .
+
+# Промышленная безопасность
+site:AuditSafetyApplication           v-s:order 10 .
+site:ActFailureApplication            v-s:order 20 .
+site:PassRequestApplication           v-s:order 30 .
+site:ActOfViolationApplication        v-s:order 40 .
+
+# Документационное обеспечение
+site:BusinessTripApplication            v-s:order 10 .
+site:RepresentativeCostsApplication     v-s:order 20 .
+site:CorrespondenceApplication          v-s:order 30 .
+site:LocalRegulatoryDocumentApplication v-s:order 40 .
+site:MeetingsManagementApplication      v-s:order 50 .
+site:InternalAccountingDocApplication   v-s:order 60 .
+
+# Кадры
+site:PowerOfAttorneyApplication       v-s:order 10 .
+site:DelegationApplication            v-s:order 20 .
+
+# Информационные технологии
+site:ItServicesApplication            v-s:order 10 .

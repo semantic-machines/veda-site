@@ -1,5 +1,6 @@
 import { Component, html } from 'veda-client';
 import { initRoutes } from '../routes.js';
+import { getSiteConfig } from '../site-config.js';
 import NavBar from './NavBar.js';
 import Footer from './Footer.js';
 
@@ -9,7 +10,7 @@ customElements.define(Footer.tag, Footer);
 export default class SiteApp extends Component(HTMLElement) {
   static tag = 'site-app';
 
-  added () {
+  async added () {
     this._onError = (e) => {
       console.error('[veda-site] uncaught error:', e.error ?? e.message);
     };
@@ -18,6 +19,9 @@ export default class SiteApp extends Component(HTMLElement) {
     };
     window.addEventListener('error', this._onError);
     window.addEventListener('unhandledrejection', this._onRejection);
+
+    // Pre-load site config so NavBar and PageRenderer share the same cached object.
+    await getSiteConfig();
 
     initRoutes();
   }

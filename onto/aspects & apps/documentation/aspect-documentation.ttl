@@ -31,4 +31,12 @@ site:DocumentationAspect
   v-s:hasApplication site:LocalRegulatoryDocumentApplication ;
   v-s:hasApplication site:MeetingsManagementApplication ;
   v-s:hasApplication site:InternalAccountingDocApplication ;
+
+  site:hasItem site:BusinessTripApplication ;
+  site:hasItem site:RepresentativeCostsApplication ;
+  site:hasItem site:CorrespondenceApplication ;
+  site:hasItem site:LocalRegulatoryDocumentApplication ;
+  site:hasItem site:MeetingsManagementApplication ;
+  site:hasItem site:InternalAccountingDocApplication ;
+  v-s:order 40 ;
 .
