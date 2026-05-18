@@ -92,7 +92,8 @@ site:PagePlatform
   site:slug "platform" ;
   site:hasBlock
     site:BlockPlatformHero ,
-    site:BlockPlatformContent ;
+    site:BlockPlatformContent ,
+    site:BlockPlatformStack ;
 .
 
 site:PageDocumentation
@@ -410,6 +411,46 @@ site:BlockPlatformContent
 .
 
 # ═══════════════════════════════════════════════════════════════════════════════
+# BLOCKS — Платформа (platform) — стек технологий
+# ═══════════════════════════════════════════════════════════════════════════════
+
+site:BlockPlatformStack
+  rdf:type site:Block ;
+  site:blockType "text" ;
+  v-s:order 30 ;
+  site:heading "Технологии"@ru ;
+  site:heading "Technology"@en ;
+  site:content """
+| Слой | Технологии |
+|---|---|
+| **Сервер** | Rust |
+| **Хранение данных** | Tarantool (мастер-данные), Xapian (полнотекстовый поиск), ClickHouse (индексы, опционально), Oxygraph / SPARQL (опционально) |
+| **Скрипты** | JavaScript, движок V8 |
+| **Клиент** | Ванильный JavaScript, Web Components, HTML5/CSS3 |
+| **Транспорт** | HTTP REST API, WebSocket |
+| **Модель данных** | RDF/OWL, Turtle, RDFa |
+| **Развёртывание** | Docker, Linux, AppImage |
+| **Лицензия** | MIT (открытый исходный код) |
+
+[Подробнее о стеке в разделе Документация →](#/ru/documentation)
+  """@ru ;
+  site:content """
+| Layer | Technologies |
+|---|---|
+| **Server** | Rust |
+| **Data storage** | Tarantool (master data), Xapian (full-text search), ClickHouse (indexes, optional), Oxygraph / SPARQL (optional) |
+| **Scripting** | JavaScript, V8 engine |
+| **Client** | Vanilla JavaScript, Web Components, HTML5/CSS3 |
+| **Transport** | HTTP REST API, WebSocket |
+| **Data model** | RDF/OWL, Turtle, RDFa |
+| **Deployment** | Docker, Linux, AppImage |
+| **License** | MIT (open source) |
+
+[More details in the Documentation section →](#/en/documentation)
+  """@en ;
+.
+
+# ═══════════════════════════════════════════════════════════════════════════════
 # BLOCKS — Документация (documentation)
 # ═══════════════════════════════════════════════════════════════════════════════
 
@@ -429,7 +470,7 @@ site:BlockDocumentationTabs
   rdf:type site:Block ;
   site:blockType "doc-tabs" ;
   v-s:order 20 ;
-  site:hasItem site:DocTabDevDoc , site:DocTabWebApi ;
+  site:hasItem site:DocTabDevDoc , site:DocTabWebApi , site:DocTabStack ;
 .
 
 site:DocTabDevDoc
@@ -446,6 +487,14 @@ site:DocTabWebApi
   rdfs:label "Web API"@en ;
   v-s:order 20 ;
   site:fileUrl "doc/web-api.md" ;
+.
+
+site:DocTabStack
+  rdf:type site:BlockItem ;
+  rdfs:label "Стек технологий"@ru ;
+  rdfs:label "Technology Stack"@en ;
+  v-s:order 30 ;
+  site:fileUrl "doc/stack.md" ;
 .
 
 # ═══════════════════════════════════════════════════════════════════════════════
