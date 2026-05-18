@@ -802,7 +802,9 @@ site:BlockAboutContent
   site:imagePos "right" ;
   v-s:hasImage site:PlatformIcon ;
   site:heading "О компании"@ru ;
-  site:heading "About"@en ; — российская IT-компания, разработчик платформы Veda.
+  site:heading "About"@en ; 
+  site:summary """
+> ООО "Смысловые машины" — российская IT-компания, разработчик платформы Veda.
   """@ru ;
   site:summary """
 > Semantic Machines LLC — a Russian IT company, developer of the Veda platform.
@@ -1046,3 +1048,4 @@ To access the demonstration environment, contact us at [info@semantic-machines.c
 .
 
 # v-s:order for applications is declared directly in each application's TTL file.
+
