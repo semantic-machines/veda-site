@@ -24,7 +24,6 @@ site:PassRequestApplication
   v-s:shortLabel "Заявки на пропуск"@ru ;
   v-s:shortLabel "Security pass request"@en ;
   v-s:hasIcon site:PassRequestIcon ;
-  v-ui:hasTemplate site:ApplicationTemplate ;
   v-s:order 30 ;
 
   v-s:summary """

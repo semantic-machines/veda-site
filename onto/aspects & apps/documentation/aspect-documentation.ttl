@@ -23,14 +23,7 @@ site:DocumentationAspect
   rdfs:comment "Words & deeds!"@en ;
   v-s:shortLabel "Документы"@ru ;
   v-s:shortLabel "Documents"@en ;
-  v-ui:hasTemplate v-s:AspectTemplate ;
 
-  v-s:hasApplication site:BusinessTripApplication ;
-  v-s:hasApplication site:RepresentativeCostsApplication ;
-  v-s:hasApplication site:CorrespondenceApplication ;
-  v-s:hasApplication site:LocalRegulatoryDocumentApplication ;
-  v-s:hasApplication site:MeetingsManagementApplication ;
-  v-s:hasApplication site:InternalAccountingDocApplication ;
 
   site:hasItem site:BusinessTripApplication ;
   site:hasItem site:RepresentativeCostsApplication ;

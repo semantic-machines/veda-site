@@ -24,7 +24,6 @@ site:PowerOfAttorneyApplication
   v-s:shortLabel "Доверенности"@ru ;
   v-s:shortLabel "Power of attorney"@en ;
   v-s:hasIcon site:PowerOfAttorneyApplicationIcon ;
-  v-ui:hasTemplate site:ApplicationTemplate ;
   v-s:order 10 ;
 
   v-s:summary """

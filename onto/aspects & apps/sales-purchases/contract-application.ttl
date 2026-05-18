@@ -24,7 +24,6 @@ site:ContractsManagementApplication
   v-s:shortLabel "Контракты"@ru ;
   v-s:shortLabel "Contracts"@en ;
   v-s:hasIcon site:ContractsManagementIcon ;
-  v-ui:hasTemplate site:ApplicationTemplate ;
   v-s:order 10 ;
 
   v-s:summary """

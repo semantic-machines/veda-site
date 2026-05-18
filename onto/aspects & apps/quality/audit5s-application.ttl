@@ -24,7 +24,6 @@ site:Audit5SApplication
   v-s:shortLabel "Аудиты 5S"@ru ;
   v-s:shortLabel "5S audits"@en ;
   v-s:hasIcon site:Audit5SApplicationIcon ;
-  v-ui:hasTemplate site:ApplicationTemplate ;
   v-s:order 40 ;
 
   v-s:summary """

@@ -24,7 +24,6 @@ site:MeetingsManagementApplication
   v-s:shortLabel "Встречи"@ru ;
   v-s:shortLabel "Meetings"@en ;
   v-s:hasIcon site:MeetingsManagementApplicationIcon ;
-  v-ui:hasTemplate site:ApplicationTemplate ;
   v-s:order 50 ;
 
   v-s:summary """

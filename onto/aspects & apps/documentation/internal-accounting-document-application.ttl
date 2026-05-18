@@ -24,7 +24,6 @@ site:InternalAccountingDocApplication
   v-s:shortLabel "Внутренние бухгалтерские документы"@ru ;
   v-s:shortLabel "Internal accounting document"@en ;
   v-s:hasIcon site:AccountingDocIcon ;
-  v-ui:hasTemplate site:ApplicationTemplate ;
   v-s:order 60 ;
 
   v-s:summary """

@@ -24,7 +24,6 @@ site:AuditQualityApplication
   v-s:shortLabel "Аудиты качества"@ru ;
   v-s:shortLabel "Quality audits"@en ;
   v-s:hasIcon site:AuditQualityIcon ;
-  v-ui:hasTemplate site:ApplicationTemplate ;
   v-s:order 10 ;
 
   v-s:summary """

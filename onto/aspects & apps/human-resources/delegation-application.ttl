@@ -24,7 +24,6 @@ site:DelegationApplication
   v-s:shortLabel "Делегирование полномочий"@ru ;
   v-s:shortLabel "Delegation"@en ;
   v-s:hasIcon site:DelegationApplicationIcon ;
-  v-ui:hasTemplate site:ApplicationTemplate ;
   v-s:order 20 ;
 
   v-s:summary """

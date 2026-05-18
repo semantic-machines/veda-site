@@ -3,9 +3,6 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix v-s: <http://semantic-machines.com/veda/veda-schema/> .
-@prefix v-ui: <http://semantic-machines.com/veda/veda-ui/> .
-@prefix v-wf: <http://semantic-machines.com/veda/veda-workflow/> .
-@prefix cfg: <http://semantic-machines.com/veda/config/> .
 @prefix site: <http://semantic-machines.com/veda-site/> .
 
 <http://semantic-machines.com/veda/meta-aspect>
@@ -18,44 +15,10 @@
 site:MetaAspect
   rdf:type site:SiteAspect ;
   rdfs:label "Meta aspect" ;
-  v-ui:hasTemplate site:MetaAspectTemplate ;
   v-s:hasAspect site:PurchasesSalesAspect ;
   v-s:hasAspect site:QualityManagementAspect ;
   v-s:hasAspect site:ProductionSafetyAspect ;
   v-s:hasAspect site:DocumentationAspect ;
   v-s:hasAspect site:HumanResourcesAspect ;
   v-s:hasAspect site:InformationTechnologyAspect ;
-.
-site:MetaAspectTemplate
-  rdf:type v-ui:ClassTemplate ;
-  rdfs:label "Шаблон аспекта"@ru ;
-  rdfs:label "Aspect template"@en ;
-  v-ui:template "site_MetaAspectTemplate.js" ;
-.
-site:MetaAspectTemplate_Aspect
-  rdf:type v-ui:ClassTemplate ;
-  rdfs:label "Шаблон аспекта"@ru ;
-  rdfs:label "Aspect template"@en ;
-  v-ui:forClass v-s:Aspect ;
-  v-ui:template "site_MetaAspectTemplate_Aspect.js" ;
-.
-site:AspectTemplate
-  rdf:type v-ui:ClassTemplate ;
-  rdfs:label "Шаблон аспекта"@ru ;
-  rdfs:label "Aspect template"@en ;
-  v-ui:forClass v-s:Aspect ;
-  v-ui:template "site_AspectTemplate.js" ;
-.
-site:ApplicationSmallCardTemplate
-  rdf:type v-ui:ClassTemplate ;
-  rdfs:label "Шаблон для приложения"@ru ;
-  rdfs:label "Application small card template"@en ;
-  v-ui:template "site_ApplicationSmallCardTemplate.js" ;
-.
-site:ApplicationTemplate
-  rdf:type v-ui:ClassTemplate ;
-  rdfs:label "Шаблон для класса Приложение"@ru ;
-  rdfs:label "Template for Application class"@en ;
-  v-ui:forClass v-s:Application ;
-  v-ui:template "site_ApplicationTemplate.js" ;
 .

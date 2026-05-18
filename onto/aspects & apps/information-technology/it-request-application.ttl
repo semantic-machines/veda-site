@@ -24,7 +24,6 @@ site:ItServicesApplication
   v-s:shortLabel "ИТ услуги"@ru ;
   v-s:shortLabel "IT services"@en ;
   v-s:hasIcon site:ItServicesIcon ;
-  v-ui:hasTemplate site:ApplicationTemplate ;
   v-s:order 10 ;
 
   v-s:summary """

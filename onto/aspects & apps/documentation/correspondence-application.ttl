@@ -24,7 +24,6 @@ site:CorrespondenceApplication
   v-s:shortLabel "Корреспонденция"@ru ;
   v-s:shortLabel "Correspondence"@en ;
   v-s:hasIcon site:CorrespondenceApplicationIcon ;
-  v-ui:hasTemplate site:ApplicationTemplate ;
   v-s:order 30 ;
 
   v-s:summary """

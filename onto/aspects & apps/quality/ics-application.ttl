@@ -24,7 +24,6 @@ site:ICSApplication
   v-s:shortLabel "Внутренняя удовлетворенность"@ru ;
   v-s:shortLabel "Internal customer satisfaction"@en ;
   v-s:hasIcon site:ICSApplicationIcon ;
-  v-ui:hasTemplate site:ApplicationTemplate ;
   v-s:order 30 ;
 
   v-s:summary """

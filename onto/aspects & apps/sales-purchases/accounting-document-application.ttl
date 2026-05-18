@@ -23,7 +23,6 @@ site:AccountingDocApplication
   v-s:shortLabel "Первичные документы"@ru ;
   v-s:shortLabel "Accounting documents"@en ;
   v-s:hasIcon site:AccountingDocIcon ;
-  v-ui:hasTemplate site:ApplicationTemplate ;
   v-s:order 30 ;
 
   v-s:summary """

@@ -24,7 +24,6 @@ site:LocalRegulatoryDocumentApplication
   v-s:shortLabel "Нормативные документы"@ru ;
   v-s:shortLabel "Regulatory documents"@en ;
   v-s:hasIcon site:LocalRegulatoryDocumentApplicationIcon ;
-  v-ui:hasTemplate site:ApplicationTemplate ;
   v-s:order 40 ;
 
   v-s:summary """

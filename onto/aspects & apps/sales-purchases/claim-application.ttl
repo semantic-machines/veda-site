@@ -24,7 +24,6 @@ site:ClaimsManagementApplication
   v-s:shortLabel "Претензии"@ru ;
   v-s:shortLabel "Claims"@en ;
   v-s:hasIcon site:ClaimsManagementIcon ;
-  v-ui:hasTemplate site:ApplicationTemplate ;
   v-s:order 40 ;
 
   v-s:summary """

@@ -25,7 +25,6 @@ site:ActFailureApplication
   v-s:shortLabel "Failures analysis"@en ;
   v-s:hasImage site:ActFailureImage ;
   v-s:hasIcon site:ActFailureIcon ;
-  v-ui:hasTemplate site:ApplicationTemplate ;
   v-s:order 20 ;
 
   v-s:summary """
