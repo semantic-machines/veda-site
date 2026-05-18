@@ -67,6 +67,16 @@ export function initRoutes () {
     });
   });
 
+  // ── CMS ─────────────────────────────────────────────────────────────────────
+  router.add('#/cms', async () => {
+    setSiteChrome(false);
+    const module = await import('./cms/CmsApp.js');
+    if (!customElements.get(module.default.tag)) {
+      customElements.define(module.default.tag, module.default);
+    }
+    await mountComponent(module.default.tag);
+  });
+
   // ── Ontology graph viewer ───────────────────────────────────────────────────
   router.add('#/:l/graph/:uri', async (l, uri) => {
     setSiteChrome(true);

@@ -33,8 +33,9 @@ export default class Footer extends Component(HTMLElement) {
     this.effect(() => this._syncLabels());
 
     try {
-      const rights = await Backend.get_rights('site:Article');
-      this.state.isAdmin = rights?.canCreate === true;
+      const rights = await Backend.get_rights('site:Block');
+      const val = rights?.['v-s:canUpdate']?.[0] ?? rights?.['v-s:canCreate']?.[0];
+      this.state.isAdmin = val === true || val?.data === true;
     } catch {
       this.state.isAdmin = false;
     }

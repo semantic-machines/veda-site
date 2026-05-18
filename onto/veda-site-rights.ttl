@@ -53,8 +53,14 @@ site:SiteAdminPermission
   rdfs:label "Полномочия группы администраторов сайта"@ru ;
   rdfs:label "Site admin group permissions"@en ;
   v-s:permissionSubject site:SiteAdmin ;
-  v-s:permissionObject site:Page, site:Section, site:Article, site:Category, site:Comment ;
-  v-s:permissionObject site:Page_group, site:Section_group, site:Article_group, site:Category_group ;
+  v-s:permissionObject site:Site, site:Page, site:Block, site:BlockItem ;
+  v-s:permissionObject site:NavMenu, site:MenuItem, site:SiteFile ;
+  v-s:permissionObject site:SiteAspect, site:SiteApplication ;
+  v-s:permissionObject site:Article, site:Category, site:Comment ;
+  v-s:permissionObject site:Site_group, site:Page_group, site:Block_group, site:BlockItem_group ;
+  v-s:permissionObject site:NavMenu_group, site:MenuItem_group, site:SiteFile_group ;
+  v-s:permissionObject site:SiteAspect_group, site:SiteApplication_group ;
+  v-s:permissionObject site:Article_group, site:Category_group ;
   v-s:canCreate "true"^^xsd:boolean ;
   v-s:canRead "true"^^xsd:boolean ;
   v-s:canUpdate "true"^^xsd:boolean ;
