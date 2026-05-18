@@ -429,8 +429,7 @@ site:BlockPlatformStack
 | **Клиент** | Ванильный JavaScript, Web Components, HTML5/CSS3 |
 | **Транспорт** | HTTP REST API, WebSocket |
 | **Модель данных** | RDF/OWL, Turtle, RDFa |
-| **Развёртывание** | Docker, Linux, AppImage |
-| **Лицензия** | MIT (открытый исходный код) |
+| **Развёртывание** | Linux, AppImage |
 
 [Подробнее о стеке в разделе Документация →](#/ru/documentation)
   """@ru ;
@@ -443,8 +442,7 @@ site:BlockPlatformStack
 | **Client** | Vanilla JavaScript, Web Components, HTML5/CSS3 |
 | **Transport** | HTTP REST API, WebSocket |
 | **Data model** | RDF/OWL, Turtle, RDFa |
-| **Deployment** | Docker, Linux, AppImage |
-| **License** | MIT (open source) |
+| **Deployment** | Linux, AppImage |
 
 [More details in the Documentation section →](#/en/documentation)
   """@en ;
