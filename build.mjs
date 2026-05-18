@@ -28,7 +28,6 @@ fs.cpSync('src/doc', 'dist/doc', { recursive: true });
 await esbuild.build({
   ...options,
   minify: true,
-  sourcemap: true,
 });
 
 // Update ServiceWorker version for cache busting on deploy
