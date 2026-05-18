@@ -25,6 +25,7 @@ site:ContractsManagementApplication
   v-s:shortLabel "Contracts"@en ;
   v-s:hasIcon site:ContractsManagementIcon ;
   v-ui:hasTemplate site:ApplicationTemplate ;
+  v-s:order 10 ;
 
   v-s:summary """
 Приложение предназначено для обеспечения контроля договорных процессов, координации работ по контрактам и связанным документам.

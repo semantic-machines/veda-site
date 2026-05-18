@@ -25,6 +25,7 @@ site:ClaimsManagementApplication
   v-s:shortLabel "Claims"@en ;
   v-s:hasIcon site:ClaimsManagementIcon ;
   v-ui:hasTemplate site:ApplicationTemplate ;
+  v-s:order 40 ;
 
   v-s:summary """
 Приложение предназначено для работы с претензиями.

@@ -273,7 +273,6 @@ site:fileUrl
   rdf:type owl:DatatypeProperty ;
   rdfs:label "URL файла"@ru ;
   rdfs:label "File URL"@en ;
-  rdfs:domain site:Block ;
   rdfs:range xsd:string ;
 .
 
@@ -287,13 +286,11 @@ site:sharedBlock
   rdfs:label "Shared block"@en ;
 .
 
-# Ordered list of BlockItems inside a Block (cards, tabs, etc.).
-# Also used on BlockItem → BlockItem for two-level nesting (tab → cards).
+# Ordered list of items inside a Block, BlockItem, or SiteAspect.
 site:hasItem
   rdf:type owl:ObjectProperty ;
   rdfs:label "Элемент"@ru ;
   rdfs:label "Item"@en ;
-  rdfs:range site:BlockItem ;
 .
 
 # ═══════════════════════════════════════════════════════════

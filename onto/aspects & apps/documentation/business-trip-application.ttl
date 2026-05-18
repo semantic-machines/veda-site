@@ -25,6 +25,7 @@ site:BusinessTripApplication
   v-s:shortLabel "Business trips"@en ;
   v-s:hasIcon site:BusinessTripApplicationIcon ;
   v-ui:hasTemplate site:ApplicationTemplate ;
+  v-s:order 10 ;
 
   v-s:summary """
 Приложение предназначено для оформления комплекта командировочных документов.

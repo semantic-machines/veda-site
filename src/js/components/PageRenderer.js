@@ -14,6 +14,7 @@ const BLOCK_LOADERS = {
   'cta':           () => import('../blocks/BlockCta.js'),
   'query-list':    () => import('../blocks/BlockQueryList.js'),
   'markdown-file': () => import('../blocks/BlockMarkdownFile.js'),
+  'doc-tabs':      () => import('../blocks/BlockDocTabs.js'),
 };
 
 export { BLOCK_LOADERS };

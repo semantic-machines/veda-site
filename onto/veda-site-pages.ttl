@@ -48,9 +48,8 @@ site:PageDocumentation
   rdfs:label "Docs"@en ;
   site:slug "documentation" ;
   site:hasBlock
-    site:BlockDocumentationContent ,
-    site:BlockDevDoc ,
-    site:BlockWebApi ;
+    site:BlockDocumentationHero ,
+    site:BlockDocumentationTabs ;
 .
 
 site:PageApplications
@@ -60,6 +59,7 @@ site:PageApplications
   site:slug "applications" ;
   site:hasBlock
     site:BlockApplicationsHero ,
+    site:BlockApplicationsContent ,
     site:BlockApplicationsTabs ;
 .
 
@@ -69,6 +69,7 @@ site:PageServices
   rdfs:label "Services"@en ;
   site:slug "services" ;
   site:hasBlock
+    site:BlockServicesHero ,
     site:BlockServicesContent ;
 .
 
@@ -78,6 +79,7 @@ site:PagePrice
   rdfs:label "Price"@en ;
   site:slug "price" ;
   site:hasBlock
+    site:BlockPriceHero ,
     site:BlockPriceContent ;
 .
 
@@ -158,6 +160,7 @@ site:BlockMainPlatform
   v-s:order 20 ;
   site:bgVariant "alt" ;
   site:imagePos "right" ;
+  site:cssClass "block-text--large-img" ;
   v-s:hasImage site:ImageHydraContract ;
   site:heading "Платформа Veda"@ru ;
   site:heading "Platform Veda"@en ;
@@ -261,8 +264,9 @@ GitHub: [https://github.com/semantic-machines/veda](https://github.com/semantic-
 
 site:BlockPlatformHero
   rdf:type site:Block ;
-  site:blockType "hero" ;
+  site:blockType "text" ;
   v-s:order 10 ;
+  site:imagePos "right" ;
   v-s:hasImage site:PlatformIcon ;
   site:heading "Платформа Veda"@ru ;
   site:heading "Platform Veda"@en ;
@@ -284,7 +288,6 @@ site:BlockPlatformContent
   rdf:type site:Block ;
   site:blockType "text" ;
   v-s:order 20 ;
-  site:bgVariant "alt" ;
   site:content """
 ## Особенности
 - Используется методология Semantic Web. Онтологии предметных областей проектируются, а не программируются!
@@ -356,34 +359,38 @@ site:BlockPlatformContent
 # BLOCKS — Документация (documentation)
 # ═══════════════════════════════════════════════════════════════════════════════
 
-site:BlockDocumentationContent
+site:BlockDocumentationHero
   rdf:type site:Block ;
   site:blockType "text" ;
   v-s:order 10 ;
+  site:imagePos "right" ;
+  v-s:hasImage site:PlatformIcon ;
   site:heading "Документация"@ru ;
   site:heading "Documentation"@en ;
-  site:summary """
-> Руководство разработчика и справочник HTTP API платформы Veda.
-  """@ru ;
-  site:summary """
-> Developer guide and HTTP API reference for the Veda platform.
-  """@en ;
+  site:summary "> Руководство разработчика и справочник HTTP API платформы Veda."@ru ;
+  site:summary "> Developer guide and HTTP API reference for the Veda platform."@en ;
 .
 
-site:BlockDevDoc
+site:BlockDocumentationTabs
   rdf:type site:Block ;
-  site:blockType "markdown-file" ;
+  site:blockType "doc-tabs" ;
   v-s:order 20 ;
-  site:fileUrl "doc/dev-doc.md" ;
-  site:bgVariant "alt" ;
+  site:hasItem site:DocTabDevDoc , site:DocTabWebApi ;
 .
 
-site:BlockWebApi
-  rdf:type site:Block ;
-  site:blockType "markdown-file" ;
-  v-s:order 30 ;
-  site:heading "HTTP API"@ru ;
-  site:heading "HTTP API"@en ;
+site:DocTabDevDoc
+  rdf:type site:BlockItem ;
+  rdfs:label "Руководство разработчика"@ru ;
+  rdfs:label "Developer Guide"@en ;
+  v-s:order 10 ;
+  site:fileUrl "doc/dev-doc.md" ;
+.
+
+site:DocTabWebApi
+  rdf:type site:BlockItem ;
+  rdfs:label "Web API"@ru ;
+  rdfs:label "Web API"@en ;
+  v-s:order 20 ;
   site:fileUrl "doc/web-api.md" ;
 .
 
@@ -393,8 +400,9 @@ site:BlockWebApi
 
 site:BlockApplicationsHero
   rdf:type site:Block ;
-  site:blockType "hero" ;
+  site:blockType "text" ;
   v-s:order 10 ;
+  site:imagePos "right" ;
   v-s:hasImage site:ApplicationsIcon ;
   site:heading "Приложения"@ru ;
   site:heading "Applications"@en ;
@@ -404,6 +412,12 @@ site:BlockApplicationsHero
   site:summary """
 > Choose what you like, and we will make it fit!
   """@en ;
+.
+
+site:BlockApplicationsContent
+  rdf:type site:Block ;
+  site:blockType "text" ;
+  v-s:order 15 ;
   site:content """
 Мы разработали ряд готовых приложений для работы с востребованными деловыми процессами.
 Возможности приложений можно менять и расширять под нужды конкретного предприятия.
@@ -441,16 +455,24 @@ site:BlockApplicationsTabs
   site:blockType "tabs" ;
   v-s:order 20 ;
   site:bgVariant "alt" ;
+  site:hasItem
+    site:PurchasesSalesAspect ,
+    site:QualityManagementAspect ,
+    site:ProductionSafetyAspect ,
+    site:DocumentationAspect ,
+    site:HumanResourcesAspect ,
+    site:InformationTechnologyAspect ;
 .
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # BLOCKS — Услуги (services)
 # ═══════════════════════════════════════════════════════════════════════════════
 
-site:BlockServicesContent
+site:BlockServicesHero
   rdf:type site:Block ;
   site:blockType "text" ;
   v-s:order 10 ;
+  site:imagePos "right" ;
   v-s:hasImage site:ServicesIcon ;
   site:heading "Услуги"@ru ;
   site:heading "Services"@en ;
@@ -460,6 +482,12 @@ site:BlockServicesContent
   site:summary """
 > We survey, develop, implement and provide support for the information system so that you can focus on developing your business.
   """@en ;
+.
+
+site:BlockServicesContent
+  rdf:type site:Block ;
+  site:blockType "text" ;
+  v-s:order 20 ;
   site:content """
 ### 1. Консультируем
 
@@ -538,10 +566,11 @@ The key to success of any project is a complete understanding between the custom
 # BLOCKS — Цены (price)
 # ═══════════════════════════════════════════════════════════════════════════════
 
-site:BlockPriceContent
+site:BlockPriceHero
   rdf:type site:Block ;
   site:blockType "text" ;
   v-s:order 10 ;
+  site:imagePos "right" ;
   v-s:hasImage site:PriceIcon ;
   site:heading "Цены"@ru ;
   site:heading "Prices"@en ;
@@ -555,6 +584,12 @@ site:BlockPriceContent
 > * Customization of ready-made modules (extension of functionality) is performed on request.
 > * Individual development is agreed upon request.
   """@en ;
+.
+
+site:BlockPriceContent
+  rdf:type site:Block ;
+  site:blockType "text" ;
+  v-s:order 20 ;
   site:content """
 <table class="table table-condensed table-bordered">
   <colgroup>
@@ -927,6 +962,7 @@ site:BlockContactsContent
   rdf:type site:Block ;
   site:blockType "text" ;
   v-s:order 10 ;
+  site:imagePos "right" ;
   v-s:hasImage site:ContactsIcon ;
   site:heading "Контакты"@ru ;
   site:heading "Contacts"@en ;
@@ -963,10 +999,10 @@ site:BlockAboutContent
   rdf:type site:Block ;
   site:blockType "text" ;
   v-s:order 10 ;
+  site:imagePos "right" ;
+  v-s:hasImage site:PlatformIcon ;
   site:heading "О компании"@ru ;
-  site:heading "About"@en ;
-  site:summary """
-> ООО «Смысловые машины» — российская IT-компания, разработчик платформы Veda.
+  site:heading "About"@en ; — российская IT-компания, разработчик платформы Veda.
   """@ru ;
   site:summary """
 > Semantic Machines LLC — a Russian IT company, developer of the Veda platform.
@@ -991,6 +1027,8 @@ site:BlockDownloadContent
   rdf:type site:Block ;
   site:blockType "text" ;
   v-s:order 10 ;
+  site:imagePos "right" ;
+  v-s:hasImage site:DownloadIcon ;
   site:heading "Скачать"@ru ;
   site:heading "Download"@en ;
   site:summary """
@@ -1185,6 +1223,8 @@ site:BlockVedaOnlineContent
   rdf:type site:Block ;
   site:blockType "text" ;
   v-s:order 10 ;
+  site:imagePos "right" ;
+  v-s:hasImage site:PlatformIcon ;
   site:heading "Veda онлайн"@ru ;
   site:heading "Veda online"@en ;
   site:summary """
@@ -1205,52 +1245,4 @@ To access the demonstration environment, contact us at [info@semantic-machines.c
   """@en ;
 .
 
-# ═══════════════════════════════════════════════════════════════════════════════
-# APPLICATIONS TABS — connect aspects to the block
-#
-# site:hasItem and v-s:order on each aspect are defined in aspect-*.ttl files.
-# ═══════════════════════════════════════════════════════════════════════════════
-
-site:BlockApplicationsTabs
-  site:hasItem
-    site:PurchasesSalesAspect ,
-    site:QualityManagementAspect ,
-    site:ProductionSafetyAspect ,
-    site:DocumentationAspect ,
-    site:HumanResourcesAspect ,
-    site:InformationTechnologyAspect ;
-.
-
-# ── Application ordering within tabs ─────────────────────────────────────────
-# Закупки и продажи
-site:ContractsManagementApplication   v-s:order 10 .
-site:ContractorsManagementApplication v-s:order 20 .
-site:AccountingDocApplication         v-s:order 30 .
-site:ClaimsManagementApplication      v-s:order 40 .
-
-# Управление качеством
-site:AuditQualityApplication          v-s:order 10 .
-site:AuditInternalApplication         v-s:order 20 .
-site:ICSApplication                   v-s:order 30 .
-site:Audit5SApplication               v-s:order 40 .
-
-# Промышленная безопасность
-site:AuditSafetyApplication           v-s:order 10 .
-site:ActFailureApplication            v-s:order 20 .
-site:PassRequestApplication           v-s:order 30 .
-site:ActOfViolationApplication        v-s:order 40 .
-
-# Документационное обеспечение
-site:BusinessTripApplication            v-s:order 10 .
-site:RepresentativeCostsApplication     v-s:order 20 .
-site:CorrespondenceApplication          v-s:order 30 .
-site:LocalRegulatoryDocumentApplication v-s:order 40 .
-site:MeetingsManagementApplication      v-s:order 50 .
-site:InternalAccountingDocApplication   v-s:order 60 .
-
-# Кадры
-site:PowerOfAttorneyApplication       v-s:order 10 .
-site:DelegationApplication            v-s:order 20 .
-
-# Информационные технологии
-site:ItServicesApplication            v-s:order 10 .
+# v-s:order for applications is declared directly in each application's TTL file.

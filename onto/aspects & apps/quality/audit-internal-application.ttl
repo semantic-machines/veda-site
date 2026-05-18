@@ -25,6 +25,7 @@ site:AuditInternalApplication
   v-s:shortLabel "Internal audits"@en ;
   v-s:hasIcon site:AuditInternalIcon ;
   v-ui:hasTemplate site:ApplicationTemplate ;
+  v-s:order 20 ;
 
   v-s:summary """
 Приложение предназначено для выявления и устранения несоответствий в подразделениях предприятия внутренним требованиям и стандартам.

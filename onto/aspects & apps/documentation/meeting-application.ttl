@@ -25,6 +25,7 @@ site:MeetingsManagementApplication
   v-s:shortLabel "Meetings"@en ;
   v-s:hasIcon site:MeetingsManagementApplicationIcon ;
   v-ui:hasTemplate site:ApplicationTemplate ;
+  v-s:order 50 ;
 
   v-s:summary """
 Приложение предназначено для обеспечения совместной работы сотрудников в рамках рабочих встреч.

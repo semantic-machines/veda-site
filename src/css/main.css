@@ -23,7 +23,7 @@
 
   --container-max: 1140px;
   --container-pad: 24px;
-  --section-pad:   64px;
+  --section-pad:   40px;
 }
 
 *, *::before, *::after {
@@ -186,6 +186,10 @@ em { font-style: italic; }
   height: 300px;
 }
 
+.block-text--large-img .section-img {
+  height: 300px;
+}
+
 /* Page header (inner page title + optional image) */
 .page-header {
   margin-bottom: 2.5rem;
@@ -214,6 +218,12 @@ em { font-style: italic; }
   font-size: 2rem;
   color: var(--color-text);
   margin-bottom: 0;
+}
+
+.page-subheading {
+  margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
 }
 
 @media (max-width: 768px) {
@@ -583,6 +593,40 @@ em { font-style: italic; }
   display: none;
 }
 
+/* BlockDocTabs */
+.doc-tabs-nav {
+  display: flex;
+  gap: 0;
+  border-bottom: 2px solid var(--color-border, #dde1e7);
+  margin-bottom: 2rem;
+}
+
+.doc-tab {
+  background: none;
+  border: none;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -2px;
+  padding: 0.6rem 1.25rem;
+  font-size: 0.95rem;
+  color: var(--color-text-muted, #6c757d);
+  cursor: pointer;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.doc-tab:hover {
+  color: var(--color-primary);
+}
+
+.doc-tab--active {
+  color: var(--color-primary);
+  border-bottom-color: var(--color-primary);
+  font-weight: 500;
+}
+
+.doc-tabs-body {
+  min-height: 200px;
+}
+
 /* Images referenced with #center anchor in markdown */
 .markdown img[src*="#center"] {
   display: block;
@@ -632,7 +676,7 @@ em { font-style: italic; }
 /* Responsive */
 @media (max-width: 768px) {
   :root {
-    --section-pad: 40px;
+    --section-pad: 24px;
   }
 
   h1 { font-size: 1.75rem; }

@@ -25,6 +25,7 @@ site:RepresentativeCostsApplication
   v-s:shortLabel "Representative costs"@en ;
   v-s:hasIcon site:RepresentativeCostsApplicationIcon ;
   v-ui:hasTemplate site:ApplicationTemplate ;
+  v-s:order 20 ;
 
   v-s:summary """
 Приложение предназначено для ведения формализованного учета затрат на проведение различных мероприятий (представительские расходы).

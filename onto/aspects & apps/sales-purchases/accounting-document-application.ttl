@@ -24,6 +24,7 @@ site:AccountingDocApplication
   v-s:shortLabel "Accounting documents"@en ;
   v-s:hasIcon site:AccountingDocIcon ;
   v-ui:hasTemplate site:ApplicationTemplate ;
+  v-s:order 30 ;
 
   v-s:summary """
 Приложение предназначено для обеспечения оперативной обработки и хранения первичной бухгалтерской документации.

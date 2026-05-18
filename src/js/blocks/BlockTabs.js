@@ -105,13 +105,12 @@ export default class BlockTabs extends Component(HTMLElement) {
   }
 
   closeItem () {
-    const blockId = encodeURIComponent(this.getAttribute('data-block-id'));
-    window.location.hash = `#/${lang.current}/b/${blockId}`;
     if (_savedScroll > 0) {
       const y = _savedScroll;
       _savedScroll = 0;
       requestAnimationFrame(() => window.scrollTo({ top: y, behavior: 'instant' }));
     }
+    window.history.back();
   }
 
   render () {
@@ -125,7 +124,7 @@ export default class BlockTabs extends Component(HTMLElement) {
     if (detailItem) {
       const back = l === 'ru' ? '← Назад' : '← Back';
       return `
-        <section class="page-section${altBg} ${cssClass}">
+        <section class="page-section ${cssClass}">
           <div class="container">
             <div class="app-detail__header">
               ${detailItem.iconUrl ? `<img src="${detailItem.iconUrl}" alt="" class="app-detail__icon">` : ''}
