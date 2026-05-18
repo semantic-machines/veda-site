@@ -444,7 +444,7 @@ site:BlockPlatformStack
 | **Data model** | RDF/OWL, Turtle, RDFa |
 | **Deployment** | Linux, AppImage |
 
-[More details in the Documentation section →](#/en/documentation)
+[More details in the Documentation section →](#/en/p/documentation)
   """@en ;
 .
 
