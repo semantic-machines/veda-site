@@ -5,7 +5,6 @@ const API = `api-${VERSION}`;
 const FILES_TO_CACHE = [
   'index.html',
   'index.js',
-  'index.js.map',
   'css/main.css',
   'css/layout.css',
 ];
