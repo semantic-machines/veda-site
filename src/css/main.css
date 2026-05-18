@@ -326,6 +326,25 @@ em { font-style: italic; }
   font-weight: 600;
 }
 
+.section--contacts .markdown table {
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 640px;
+}
+
+.section--contacts .markdown td {
+  padding: 0.5em 1em 0.5em 0;
+  border: none;
+  border-bottom: 1px solid var(--color-border);
+  vertical-align: top;
+}
+
+.section--contacts .markdown td:first-child {
+  white-space: nowrap;
+  color: var(--color-text-muted, #6c757d);
+  width: 220px;
+}
+
 .markdown tr:nth-child(even) td {
   background: #fafbfc;
 }
