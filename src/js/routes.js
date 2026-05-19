@@ -1,5 +1,6 @@
 import { Router } from 'veda-client';
 import lang from './lang.js';
+import { swapOutlet } from './utils/swapOutlet.js';
 
 function getOutlet () {
   return document.querySelector('site-app main')
@@ -17,13 +18,26 @@ function setSiteChrome (visible) {
   if (app) app.classList.toggle('cms-mode', !visible);
 }
 
-async function mountComponent (tag, setupFn) {
+/** CMS: immediate replace, no transition spinner. */
+async function mountCmsView (tag, setupFn) {
   const outlet = getOutlet();
   if (!outlet) return;
-  const el = document.createElement(tag);
-  if (setupFn) setupFn(el);
-  outlet.replaceChildren(el);
+  const view = document.createElement(tag);
+  if (setupFn) setupFn(view);
+  outlet.replaceChildren(view);
   window.scrollTo({ top: 0, behavior: 'instant' });
+}
+
+/** Public routes: pre-render off-screen, swap when rendered (spinner over current view). */
+async function mountPublicView (tag, setupFn) {
+  const outlet = getOutlet();
+  if (!outlet) return;
+
+  await swapOutlet(outlet, () => {
+    const view = document.createElement(tag);
+    if (setupFn) setupFn(view);
+    return view;
+  });
 }
 
 export function initRoutes (homeUri) {
@@ -37,7 +51,9 @@ export function initRoutes (homeUri) {
     if (!customElements.get(module.default.tag)) {
       customElements.define(module.default.tag, module.default);
     }
-    await mountComponent(module.default.tag, (el) => el.setAttribute('about', decodeURIComponent(pageUri)));
+    await mountPublicView(module.default.tag, (view) => {
+      view.setAttribute('about', decodeURIComponent(pageUri));
+    });
   });
 
   // ── Tabs block: #/ru/b/:blockId  (list view) ───────────────────────────────
@@ -48,8 +64,8 @@ export function initRoutes (homeUri) {
     if (!customElements.get(module.default.tag)) {
       customElements.define(module.default.tag, module.default);
     }
-    await mountComponent(module.default.tag, (el) => {
-      el.setAttribute('about', decodeURIComponent(blockId));
+    await mountPublicView(module.default.tag, (view) => {
+      view.setAttribute('about', decodeURIComponent(blockId));
     });
   });
 
@@ -61,9 +77,9 @@ export function initRoutes (homeUri) {
     if (!customElements.get(module.default.tag)) {
       customElements.define(module.default.tag, module.default);
     }
-    await mountComponent(module.default.tag, (el) => {
-      el.setAttribute('about',            decodeURIComponent(blockId));
-      el.setAttribute('data-initial-item', decodeURIComponent(itemId));
+    await mountPublicView(module.default.tag, (view) => {
+      view.setAttribute('about',            decodeURIComponent(blockId));
+      view.setAttribute('data-initial-item', decodeURIComponent(itemId));
     });
   });
 
@@ -74,7 +90,7 @@ export function initRoutes (homeUri) {
     if (!customElements.get(module.default.tag)) {
       customElements.define(module.default.tag, module.default);
     }
-    await mountComponent(module.default.tag);
+    await mountCmsView(module.default.tag);
   });
 
   // ── Ontology graph viewer ───────────────────────────────────────────────────
@@ -85,7 +101,9 @@ export function initRoutes (homeUri) {
     if (!customElements.get(module.default.tag)) {
       customElements.define(module.default.tag, module.default);
     }
-    await mountComponent(module.default.tag, (el) => el.setAttribute('data-root-uri', decodeURIComponent(uri)));
+    await mountPublicView(module.default.tag, (view) => {
+      view.setAttribute('data-root-uri', decodeURIComponent(uri));
+    });
   });
 
   // ── Fallback: any unmatched #/lang/xxx → home page ──────────────────────────
