@@ -1,10 +1,6 @@
 import { Component, Model } from 'veda-client';
-import { getSiteConfig, getPageUri } from '../site-config.js';
-import { blockCache } from '../utils/blockCache.js';
 import { getOrder } from '../utils/blockData.js';
 
-// Maps blockType → lazy module loader.
-// Add new block types here without touching anything else.
 const BLOCK_LOADERS = {
   'hero':          () => import('../blocks/BlockHero.js'),
   'text':          () => import('../blocks/BlockText.js'),
@@ -24,24 +20,15 @@ export default class PageRenderer extends Component(HTMLElement) {
 
   constructor () {
     super();
-    this.state.loading = true;
-    this.state.error   = null;
-    // Each entry: { id, type } — enough to build the tag name in render().
-    // Full model lives in blockCache keyed by id.
     this.state.blocks = [];
+    this.state.error  = null;
   }
 
   async added () {
     try {
-      // Ensure site tokens are injected before first paint.
-      await getSiteConfig();
-
-      const slug    = this.getAttribute('data-slug');
-      const pageUri = getPageUri(slug);
-      if (!pageUri) throw new Error(`Page not found: "${slug}"`);
-
-      const page = new Model(pageUri);
-      await page.load();
+      const page = this.state.model;
+      if (!page) throw new Error('No page model');
+      if (!page.isLoaded?.()) await page.load();
 
       const blockRefs = page['site:hasBlock'] ?? [];
       const models = await Promise.all(
@@ -54,17 +41,17 @@ export default class PageRenderer extends Component(HTMLElement) {
 
       models.sort((a, b) => getOrder(a) - getOrder(b));
 
-      // Pre-register each block's custom element before render() is called.
+      // Pre-register custom elements and warm Model.cache with loaded models.
+      // Block components receive already-loaded instances via Model.cache when
+      // populate() calls new Model(uri) — no duplicate network requests.
       for (const model of models) {
-        const type = model['site:blockType']?.[0];
+        const type   = model['site:blockType']?.[0];
         const loader = type && BLOCK_LOADERS[type];
         if (!loader) continue;
         const mod = await loader();
         if (!customElements.get(mod.default.tag)) {
           customElements.define(mod.default.tag, mod.default);
         }
-        // Cache the loaded model so block components don't re-fetch.
-        blockCache.set(model.id, model);
       }
 
       this.state.blocks = models.map((m) => ({
@@ -73,22 +60,19 @@ export default class PageRenderer extends Component(HTMLElement) {
       }));
     } catch (e) {
       this.state.error = e.message;
-    } finally {
-      this.state.loading = false;
     }
   }
 
   render () {
-    if (this.state.loading) return `<div class="loading">...</div>`;
     if (this.state.error) {
       return `<div class="container page-section">
-        <p class="text-muted">${this.state.error}</p>
+        <p class="text-muted">{state.error}</p>
       </div>`;
     }
 
     return this.state.blocks
       .filter((b) => b.type && BLOCK_LOADERS[b.type])
-      .map((b) => `<block-${b.type} data-block-id="${b.id}"></block-${b.type}>`)
+      .map((b) => `<block-${b.type} about="${b.id}"></block-${b.type}>`)
       .join('') || '';
   }
 }

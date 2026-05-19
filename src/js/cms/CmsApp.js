@@ -25,16 +25,27 @@ export default class CmsApp extends Component(HTMLElement) {
 
   constructor () {
     super();
-    this.state.checking = true;
-    this.state.allowed = false;
-    this.state.section = 'blocks';
-    this.state.login = '';
-    this.state.password = '';
+    this.state.checking  = true;
+    this.state.allowed   = false;
+    this.state.section   = 'blocks';
+    this.state.homeHref  = '#/';
+    this.state.login     = '';
+    this.state.password  = '';
     this.state.loginError = null;
     this.state.loggingIn = false;
   }
 
   async added () {
+    try {
+      const { Model } = await import('veda-client');
+      const site = new Model('site:VedaSite');
+      await site.load();
+      const homeRef = site['site:homePage']?.[0] ?? site['site:hasPage']?.[0];
+      if (homeRef?.id) {
+        this.state.homeHref = `#/ru/p/${homeRef.id}`;
+      }
+    } catch { /* offline */ }
+
     await this._checkAccess();
   }
 
@@ -109,7 +120,7 @@ export default class CmsApp extends Component(HTMLElement) {
                 <button class="btn btn-primary" type="submit" ${this.state.loggingIn ? 'disabled' : ''}>
                   ${this.state.loggingIn ? 'Вход...' : 'Войти'}
                 </button>
-                <a class="btn btn-outline" href="#/ru/p/main">← На сайт</a>
+                <a class="btn btn-outline" href="{state.homeHref}">← На сайт</a>
               </div>
             </form>
           </div>
@@ -139,7 +150,7 @@ export default class CmsApp extends Component(HTMLElement) {
       <div class="cms-app">
         <header class="cms-header">
           <h1>Управление сайтом</h1>
-          <a class="cms-header__back" href="#/ru/p/main">← На сайт</a>
+          <a class="cms-header__back" href="{state.homeHref}">← На сайт</a>
         </header>
         <nav class="cms-sidebar">${navItems}</nav>
         <main class="cms-content">${content}</main>

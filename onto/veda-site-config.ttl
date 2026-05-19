@@ -27,6 +27,9 @@ site:VedaSite
   # Logo: reuses v-s:hasImage (file uploaded to /files/site:SemanticMachinesLogoLong)
   v-s:hasImage site:SemanticMachinesLogoLong ;
 
+  # Home page
+  site:homePage site:PageMain ;
+
   # Navigation menus
   site:hasNavMenu site:MainNavMenu ;
   site:hasNavMenu site:FooterNavMenu ;

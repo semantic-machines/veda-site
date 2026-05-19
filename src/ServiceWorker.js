@@ -1,6 +1,6 @@
 const VERSION = 1;
 const FILES = `files-${VERSION}`;
-const API = `api-${VERSION}`;
+const API = 'api';
 
 const FILES_TO_CACHE = [
   'index.html',

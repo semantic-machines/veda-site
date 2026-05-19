@@ -140,9 +140,7 @@ em { font-style: italic; }
 
 /* Section layout with optional image */
 .section-inner {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
+  display: block;
 }
 
 .section-inner--media {
@@ -153,9 +151,7 @@ em { font-style: italic; }
 }
 
 .section-text {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+  display: block;
 }
 
 .section-heading {

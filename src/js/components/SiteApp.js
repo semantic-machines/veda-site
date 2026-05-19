@@ -1,14 +1,20 @@
-import { Component, html } from 'veda-client';
+import { Model, Component, html } from 'veda-client';
 import { initRoutes } from '../routes.js';
-import { getSiteConfig } from '../site-config.js';
 import NavBar from './NavBar.js';
 import Footer from './Footer.js';
+import SiteMarkdown from './SiteMarkdown.js';
 
 customElements.define(NavBar.tag, NavBar);
 customElements.define(Footer.tag, Footer);
+customElements.define(SiteMarkdown.tag, SiteMarkdown);
 
 export default class SiteApp extends Component(HTMLElement) {
   static tag = 'site-app';
+
+  constructor () {
+    super();
+    this.state.model = new Model('site:VedaSite');
+  }
 
   async added () {
     this._onError = (e) => {
@@ -20,10 +26,14 @@ export default class SiteApp extends Component(HTMLElement) {
     window.addEventListener('error', this._onError);
     window.addEventListener('unhandledrejection', this._onRejection);
 
-    // Pre-load site config so NavBar and PageRenderer share the same cached object.
-    await getSiteConfig();
+    // Load site model to discover the home page URI for fallback routing.
+    const site = this.state.model;
+    try { await site.load(); } catch { /* offline / dev */ }
+    const homeUri = site['site:homePage']?.[0]?.id
+      ?? site['site:hasPage']?.[0]?.id
+      ?? null;
 
-    initRoutes();
+    initRoutes(homeUri);
   }
 
   removed () {
@@ -33,9 +43,9 @@ export default class SiteApp extends Component(HTMLElement) {
 
   render () {
     return html`
-      <site-navbar></site-navbar>
+      <site-navbar about="{this.state.model.id}"></site-navbar>
       <main id="outlet" class="main-outlet"></main>
-      <site-footer></site-footer>
+      <site-footer about="{this.state.model.id}"></site-footer>
     `;
   }
 }

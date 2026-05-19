@@ -1,6 +1,71 @@
-import { Component } from 'veda-client';
+import { Component, Model } from 'veda-client';
 import lang from '../lang.js';
-import { getSiteConfig, getCachedConfig } from '../site-config.js';
+import { parseMLString } from '../utils/mlValue.js';
+
+const CSS_TOKENS = [
+  ['colorPrimary',      '--color-primary'],
+  ['colorPrimaryHover', '--color-primary-hover'],
+  ['colorPrimaryLight', '--color-primary-light'],
+  ['colorText',         '--color-text'],
+  ['colorTextMuted',    '--color-text-muted'],
+  ['colorBg',           '--color-bg'],
+  ['colorBgAlt',        '--color-bg-alt'],
+  ['fontSans',          '--font-sans'],
+];
+
+function injectTokens (site) {
+  if (document.getElementById('site-tokens')) return;
+  const vars = CSS_TOKENS
+    .map(([prop, css]) => {
+      const val = site[`site:${prop}`]?.[0];
+      return val ? `  ${css}: ${val};` : null;
+    })
+    .filter(Boolean)
+    .join('\n');
+  if (vars) {
+    const el = document.createElement('style');
+    el.id = 'site-tokens';
+    el.textContent = `:root {\n${vars}\n}`;
+    document.head.prepend(el);
+  }
+  const customCss = site['site:customCss']?.[0];
+  if (customCss && !document.getElementById('site-custom-css')) {
+    const el = document.createElement('style');
+    el.id = 'site-custom-css';
+    el.textContent = customCss;
+    document.head.appendChild(el);
+  }
+}
+
+function getBiLingual (model, prop) {
+  const result = { ru: '', en: '' };
+  for (const v of model[prop] ?? []) {
+    const { text, lang: l } = parseMLString(String(v));
+    if (l === 'RU')      result.ru = result.ru || text;
+    else if (l === 'EN') result.en = result.en || text;
+    else { result.ru = result.ru || text; result.en = result.en || text; }
+  }
+  return result;
+}
+
+async function loadMenuItems (refs) {
+  const items = await Promise.all(
+    refs.map(async (ref) => {
+      const item = new Model(ref.id);
+      await item.load();
+      return {
+        id:      item.id,
+        labelBi: getBiLingual(item, 'rdfs:label'),
+        order:   item['v-s:order']?.[0] ?? 0,
+        hidden:  !!item['v-s:deleted']?.[0],
+        pageUri: item['site:targetPage']?.[0]?.id ?? null,
+      };
+    })
+  );
+  return items
+    .filter((i) => !i.hidden && i.pageUri)
+    .sort((a, b) => a.order - b.order);
+}
 
 export default class NavBar extends Component(HTMLElement) {
   static tag = 'site-navbar';
@@ -8,6 +73,7 @@ export default class NavBar extends Component(HTMLElement) {
   constructor () {
     super();
     this.state.navItems  = [];
+    this.state.homeUri   = '';
     this.state.logoUrl   = null;
     this.state.lang      = lang.current;
     this.state.page      = lang.page;
@@ -15,19 +81,35 @@ export default class NavBar extends Component(HTMLElement) {
   }
 
   async added () {
-    // If config is already cached (SiteApp called getSiteConfig first), use it
-    // synchronously; otherwise wait for the load.
-    const config = getCachedConfig() ?? await getSiteConfig();
+    const site = this.state.model;
 
-    this.state.logoUrl  = config.logoUrl;
-    this.state.navItems = config.mainMenu.items.map((item) => ({
-      id:      item.slug ?? item.id,
-      slug:    item.slug,
+    injectTokens(site);
+
+    this.state.logoUrl = site?.['v-s:hasImage']?.[0]?.id
+      ? `/files/${site['v-s:hasImage'][0].id}`
+      : null;
+
+    const menus = await Promise.all(
+      (site?.['site:hasNavMenu'] ?? []).map(async (ref) => {
+        const menu = new Model(ref.id);
+        await menu.load();
+        const items = await loadMenuItems(menu['site:hasMenuItem'] ?? []);
+        return { position: menu['site:navPosition']?.[0] ?? 'main', items };
+      })
+    );
+
+    const mainMenu = menus.find((m) => m.position === 'main') ?? { items: [] };
+    this.state.navItems = mainMenu.items.map((item) => ({
+      id:      item.pageUri,
+      pageUri: item.pageUri,
       labelRu: item.labelBi.ru,
       labelEn: item.labelBi.en,
     }));
 
-    // Mirror reactive lang changes into local state
+    this.state.homeUri = site?.['site:homePage']?.[0]?.id
+      ?? mainMenu.items[0]?.pageUri
+      ?? '';
+
     this.effect(() => {
       this.state.lang = lang.current;
       this.state.page = lang.page;
@@ -42,10 +124,7 @@ export default class NavBar extends Component(HTMLElement) {
   switchLang (e) {
     const btn = e.target.closest('[data-lang]');
     if (!btn) return;
-    // For new pages (p/ prefix) preserve the slug; legacy pages use their id directly
-    const currentPage = this.state.page;
-    const hash = `#/${btn.dataset.lang}/p/${currentPage}`;
-    location.hash = hash;
+    location.hash = `#/${btn.dataset.lang}/p/${this.state.page}`;
   }
 
   render () {
@@ -59,12 +138,12 @@ export default class NavBar extends Component(HTMLElement) {
       <nav class="navbar">
         <div class="container navbar__inner">
 
-          <a class="navbar__brand" href="#/{state.lang}/p/main">${logoHtml}</a>
+          <a class="navbar__brand" href="#/{state.lang}/p/{state.homeUri}">${logoHtml}</a>
 
           <ul class="navbar__nav" items="{state.navItems}" as="p" key="id">
             <li class="navbar__nav-item">
-              <a href="#/{state.lang}/p/{p.slug}"
-                 class="{state.page === p.slug ? 'active' : ''}">
+              <a href="#/{state.lang}/p/{p.pageUri}"
+                 class="{state.page === p.pageUri ? 'active' : ''}">
                 {state.lang === 'en' ? p.labelEn || p.labelRu : p.labelRu}
               </a>
             </li>

@@ -76,7 +76,6 @@ site:PageMain
   rdf:type site:Page ;
   rdfs:label "Главная"@ru ;
   rdfs:label "Home"@en ;
-  site:slug "main" ;
   site:hasBlock
     site:BlockMainAbout ,
     site:BlockMainPlatform ,
@@ -89,7 +88,6 @@ site:PagePlatform
   rdf:type site:Page ;
   rdfs:label "Платформа"@ru ;
   rdfs:label "Platform"@en ;
-  site:slug "platform" ;
   site:hasBlock
     site:BlockPlatformHero ,
     site:BlockPlatformContent ,
@@ -100,7 +98,6 @@ site:PageDocumentation
   rdf:type site:Page ;
   rdfs:label "Документация"@ru ;
   rdfs:label "Docs"@en ;
-  site:slug "documentation" ;
   site:hasBlock
     site:BlockDocumentationHero ,
     site:BlockDocumentationTabs ;
@@ -110,7 +107,6 @@ site:PageApplications
   rdf:type site:Page ;
   rdfs:label "Приложения"@ru ;
   rdfs:label "Applications"@en ;
-  site:slug "applications" ;
   site:hasBlock
     site:BlockApplicationsHero ,
     site:BlockApplicationsContent ,
@@ -121,7 +117,6 @@ site:PageServices
   rdf:type site:Page ;
   rdfs:label "Услуги"@ru ;
   rdfs:label "Services"@en ;
-  site:slug "services" ;
   site:hasBlock
     site:BlockServicesHero ,
     site:BlockServicesContent ;
@@ -131,7 +126,6 @@ site:PagePrice
   rdf:type site:Page ;
   rdfs:label "Цены"@ru ;
   rdfs:label "Price"@en ;
-  site:slug "price" ;
   site:hasBlock
     site:BlockPriceHero ,
     site:BlockPriceContent ;
@@ -141,7 +135,6 @@ site:PageContacts
   rdf:type site:Page ;
   rdfs:label "Контакты"@ru ;
   rdfs:label "Contacts"@en ;
-  site:slug "contacts" ;
   site:hasBlock
     site:BlockContactsHero ,
     site:BlockContactsContent ;
@@ -151,7 +144,6 @@ site:PageAbout
   rdf:type site:Page ;
   rdfs:label "О компании"@ru ;
   rdfs:label "About"@en ;
-  site:slug "about" ;
   site:hasBlock
     site:BlockAboutContent ;
 .
@@ -160,7 +152,6 @@ site:PageDownload
   rdf:type site:Page ;
   rdfs:label "Скачать"@ru ;
   rdfs:label "Download"@en ;
-  site:slug "download" ;
   site:hasBlock
     site:BlockDownloadContent ;
 .
@@ -169,7 +160,6 @@ site:PageVedaOnline
   rdf:type site:Page ;
   rdfs:label "Veda онлайн"@ru ;
   rdfs:label "Veda online"@en ;
-  site:slug "veda-online" ;
   site:hasBlock
     site:BlockVedaOnlineContent ;
 .
@@ -178,7 +168,6 @@ site:PagePrivacy
   rdf:type site:Page ;
   rdfs:label "Политика конфиденциальности"@ru ;
   rdfs:label "Privacy policy"@en ;
-  site:slug "privacy" ;
   site:hasBlock
     site:BlockPrivacyContent ;
 .
@@ -194,16 +183,16 @@ site:BlockMainAbout
   site:heading "Быстро разрабатываем приложения для вашего бизнеса!"@ru ;
   site:heading "Quickly develop applications for your business!"@en ;
   site:summary """
-Для разработки мы используем [интегрированную платформу Veda](#/ru/p/platform).
+Для разработки мы используем [интегрированную платформу Veda](#/ru/p/site:PagePlatform).
 
-На платформе уже разработан [ряд готовых приложений](#/ru/p/applications).
+На платформе уже разработан [ряд готовых приложений](#/ru/p/site:PageApplications).
 
 Наши клиенты успешно используют их с 2010 года.
   """@ru ;
   site:summary """
-For development we use [the integrated platform Veda](#/en/p/platform).
+For development we use [the integrated platform Veda](#/en/p/site:PagePlatform).
 
-We have already developed [a number of ready-made applications](#/en/p/applications).
+We have already developed [a number of ready-made applications](#/en/p/site:PageApplications).
 
 Our customers have been using them successfully since 2010.
   """@en ;
@@ -330,14 +319,14 @@ site:BlockPlatformHero
 > Предназначена для быстрой разработки приложений автоматизации деловых процессов предприятия.
 > Сделана в [России](https://reestr.digital.gov.ru/reestr/307394/).
 >
-> _Кстати, этот сайт тоже является приложением на платформе Veda. [Посмотреть модель данных](#/ru/graph/site%3AVedaSite)_
+> _Кстати, этот сайт тоже является приложением на платформе Veda. [Посмотреть модель данных](#/ru/graph/site:VedaSite)_
   """@ru ;
   site:summary """
 > A modern open-source semantic platform.
 > Designed for the rapid development of business-processes automation applications.
 > Made in [Russia](https://reestr.digital.gov.ru/reestr/307394/).
 >
-> _By the way, this site is also an application on the Veda platform. [View data model](#/en/graph/site%3AVedaSite)_
+> _By the way, this site is also an application on the Veda platform. [View data model](#/en/graph/site:VedaSite)_
   """@en ;
 .
 
@@ -433,7 +422,7 @@ site:BlockPlatformStack
 | **Модель данных** | RDF/OWL, Turtle, RDFa |
 | **Развёртывание** | Linux, AppImage |
 
-[Подробнее о стеке в разделе Документация →](#/ru/p/documentation)
+[Подробнее о стеке в разделе Документация →](#/ru/p/site:PageDocumentation)
   """@ru ;
   site:content """
 | Layer | Technologies |
@@ -446,7 +435,7 @@ site:BlockPlatformStack
 | **Data model** | RDF/OWL, Turtle, RDFa |
 | **Deployment** | Linux, AppImage |
 
-[More details in the Documentation section →](#/en/p/documentation)
+[More details in the Documentation section →](#/en/p/site:PageDocumentation)
   """@en ;
 .
 

@@ -1,6 +1,7 @@
 import { Component, Model } from 'veda-client';
-import { SITE_URI } from '../site-config.js';
 import { escapeHtml, getStringProp, setStringProp, saveModel } from './cmsUtils.js';
+
+const SITE_URI = 'site:VedaSite';
 
 const TOKEN_FIELDS = [
   ['site:colorPrimary',       'Основной цвет'],

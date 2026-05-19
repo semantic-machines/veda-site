@@ -1,5 +1,4 @@
 import { Component, Model } from 'veda-client';
-import { blockCache } from '../utils/blockCache.js';
 import { getText, getMarkdown, getFileUrl, getString, getOrder } from '../utils/blockData.js';
 import lang from '../lang.js';
 
@@ -9,25 +8,17 @@ let _savedScroll = 0;
 export default class BlockTabs extends Component(HTMLElement) {
   static tag = 'block-tabs';
 
-  constructor () {
-    super();
-    this.state.heading    = '';
-    this.state.tabs       = [];
-    this.state.activeIdx  = 0;
-    this.state.activeItems = [];
-    this.state.detailItem = null;
-    this.state.bgVariant  = 'default';
-    this.state.cssClass   = '';
-    this.state.loaded     = false;
-  }
-
   async added () {
-    const model = blockCache.get(this.getAttribute('data-block-id'));
-    if (!model) return;
+    const m = this.state.model;
+    if (!m?.isLoaded()) return;
+
+    this.state.heading   = getText(m, 'site:heading');
+    this.state.bgVariant = getString(m, 'site:bgVariant') || 'default';
+    this.state.cssClass  = getString(m, 'site:cssClass') || '';
 
     const initialItemId = this.getAttribute('data-initial-item');
 
-    const tabRefs = model['site:hasItem'] ?? [];
+    const tabRefs = m['site:hasItem'] ?? [];
     const tabs = await Promise.all(
       tabRefs.map(async (ref) => {
         const tab = new Model(ref.id);
@@ -60,10 +51,7 @@ export default class BlockTabs extends Component(HTMLElement) {
     );
     tabs.sort((a, b) => a.order - b.order);
 
-    this.state.heading   = getText(model, 'site:heading');
-    this.state.bgVariant = getString(model, 'site:bgVariant') || 'default';
-    this.state.cssClass  = getString(model, 'site:cssClass');
-    this.state.tabs      = tabs;
+    this.state.tabs = tabs;
 
     if (initialItemId) {
       for (const tab of tabs) {
@@ -80,8 +68,6 @@ export default class BlockTabs extends Component(HTMLElement) {
       this.state.activeIdx   = _lastTabIdx;
       this.state.activeItems = tabs[_lastTabIdx]?.items ?? tabs[0]?.items ?? [];
     }
-
-    this.state.loaded = true;
   }
 
   selectTab (e) {
@@ -99,7 +85,7 @@ export default class BlockTabs extends Component(HTMLElement) {
     const card = e.target.closest('[data-item-id]');
     if (!card) return;
     _savedScroll = window.scrollY;
-    const blockId = encodeURIComponent(this.getAttribute('data-block-id'));
+    const blockId = encodeURIComponent(this.getAttribute('about'));
     const itemId  = encodeURIComponent(card.dataset.itemId);
     window.location.hash = `#/${lang.current}/b/${blockId}/${itemId}`;
   }
@@ -114,17 +100,18 @@ export default class BlockTabs extends Component(HTMLElement) {
   }
 
   render () {
-    if (!this.state.loaded) return '';
-    const { heading, tabs, activeIdx, activeItems, detailItem, bgVariant, cssClass } = this.state;
+    const tabs        = this.state.tabs ?? [];
+    const activeIdx   = this.state.activeIdx ?? 0;
+    const activeItems = this.state.activeItems ?? [];
+    const detailItem  = this.state.detailItem;
+    const bg          = this.state.bgVariant || 'default';
+    const altBg       = bg === 'alt' ? ' page-section--alt' : '';
+    const l           = lang.current;
 
-    const altBg = bgVariant === 'alt' ? ' page-section--alt' : '';
-    const l     = lang.current;
-
-    // ── Detail view ───────────────────────────────────────────────────────────
     if (detailItem) {
       const back = l === 'ru' ? '← Назад' : '← Back';
       return `
-        <section class="page-section ${cssClass}">
+        <section class="page-section {state.cssClass}">
           <div class="container">
             <div class="app-detail__header">
               ${detailItem.iconUrl ? `<img src="${detailItem.iconUrl}" alt="" class="app-detail__icon">` : ''}
@@ -141,7 +128,6 @@ export default class BlockTabs extends Component(HTMLElement) {
       `;
     }
 
-    // ── List view ─────────────────────────────────────────────────────────────
     const tabsHtml = tabs.map((tab, i) => `
       <button class="aspect-tab${i === activeIdx ? ' active' : ''}"
               data-idx="${i}" onclick="{selectTab}">${tab.shortLabel}</button>
@@ -156,8 +142,8 @@ export default class BlockTabs extends Component(HTMLElement) {
     `).join('');
 
     return `
-      <div class="${cssClass}">
-        ${heading ? `<div class="container page-section"><h2 class="section-heading">${heading}</h2></div>` : ''}
+      <div class="{state.cssClass}">
+        ${this.state.heading ? '<div class="container page-section"><h2 class="section-heading">{state.heading}</h2></div>' : ''}
         <div class="aspects-section${altBg}">
           <div class="container">
             <div class="aspects-tabs">${tabsHtml}</div>

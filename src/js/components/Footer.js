@@ -1,36 +1,65 @@
-import { Component, Backend } from 'veda-client';
+import { Component, Model, Backend } from 'veda-client';
 import lang from '../lang.js';
+import { parseMLString } from '../utils/mlValue.js';
 
-const LABELS = {
-  privacy:   { ru: 'Политика конфиденциальности', en: 'Privacy Policy' },
-  poweredBy: { ru: 'Работает на',                 en: 'Powered by' },
-  cmsLink:   { ru: 'Управление сайтом',           en: 'Site management' },
-};
+function getBiLingual (model, prop) {
+  const result = { ru: '', en: '' };
+  for (const v of model[prop] ?? []) {
+    const { text, lang: l } = parseMLString(String(v));
+    if (l === 'RU')      result.ru = result.ru || text;
+    else if (l === 'EN') result.en = result.en || text;
+    else { result.ru = result.ru || text; result.en = result.en || text; }
+  }
+  return result;
+}
 
 export default class Footer extends Component(HTMLElement) {
   static tag = 'site-footer';
 
   constructor () {
     super();
-    this.state.isAdmin    = false;
-    this.state.poweredBy  = '';
-    this.state.privacyTxt = '';
-    this.state.privacyHref = '#/';
-    this.state.cmsLinkTxt = '';
-    this._syncLabels();
-  }
-
-  _syncLabels () {
-    const l = lang.current;
-    this.state.poweredBy   = LABELS.poweredBy[l];
-    this.state.privacyTxt  = LABELS.privacy[l];
-    this.state.privacyHref = `#/${l}/p/privacy`;
-    this.state.cmsLinkTxt  = LABELS.cmsLink[l];
+    this.state.isAdmin     = false;
+    this.state.footerLinks = [];
+    this.state.lang        = lang.current;
   }
 
   async added () {
-    // Re-sync labels whenever lang changes — reads lang.current so it's tracked
-    this.effect(() => this._syncLabels());
+    this.effect(() => { this.state.lang = lang.current; });
+
+    const site = this.state.model;
+
+    // Load footer menu links from the site model
+    const menus = await Promise.all(
+      (site?.['site:hasNavMenu'] ?? []).map(async (ref) => {
+        const menu = new Model(ref.id);
+        await menu.load();
+        return menu;
+      })
+    );
+    const footerMenu = menus.find((m) => m['site:navPosition']?.[0] === 'footer');
+    if (footerMenu) {
+      const items = await Promise.all(
+        (footerMenu['site:hasMenuItem'] ?? []).map(async (ref) => {
+          const item = new Model(ref.id);
+          await item.load();
+          const pageUri = item['site:targetPage']?.[0]?.id ?? null;
+          const extUrl  = item['site:url']?.[0] ?? null;
+          return {
+            id:      item.id,
+            labelBi: getBiLingual(item, 'rdfs:label'),
+            order:   item['v-s:order']?.[0] ?? 0,
+            hidden:  !!item['v-s:deleted']?.[0],
+            href:    pageUri
+              ? `#/{lang}/p/${pageUri}`
+              : (extUrl ?? null),
+            external: !pageUri && !!extUrl,
+          };
+        })
+      );
+      this.state.footerLinks = items
+        .filter((i) => !i.hidden && i.href)
+        .sort((a, b) => a.order - b.order);
+    }
 
     try {
       const rights = await Backend.get_rights('site:Block');
@@ -42,8 +71,6 @@ export default class Footer extends Component(HTMLElement) {
   }
 
   post () {
-    // Set rel="noopener noreferrer" after every render — can't use rel= in template
-    // because veda-client treats rel as an RDF relation attribute
     this.querySelectorAll('a[target="_blank"]').forEach((a) => {
       a.setAttribute('rel', 'noopener noreferrer');
     });
@@ -51,6 +78,21 @@ export default class Footer extends Component(HTMLElement) {
 
   render () {
     const year = new Date().getFullYear();
+    const lang = this.state.lang;
+
+    const linkItems = this.state.footerLinks
+      .map((l) => {
+        const label = lang === 'en' ? (l.labelBi.en || l.labelBi.ru) : l.labelBi.ru;
+        const href  = l.href.replace('{lang}', this.state.lang);
+        const ext   = l.external ? ' target="_blank"' : '';
+        return `<li><a href="${href}"${ext}>${label}</a></li>`;
+      })
+      .join('');
+
+    const adminLink = this.state.isAdmin
+      ? `<li><a href="#/cms">${lang === 'en' ? 'Site management' : 'Управление сайтом'}</a></li>`
+      : '';
+
     return `
       <footer class="footer">
         <div class="container footer__inner">
@@ -63,13 +105,13 @@ export default class Footer extends Component(HTMLElement) {
           </div>
           <div class="footer__copyright text-muted">
             &copy; ${year} Semantic Machines.
-            {state.poweredBy}
+            ${lang === 'en' ? 'Powered by' : 'Работает на'}
             <a href="https://github.com/semantic-machines/veda" target="_blank">Veda</a>.
           </div>
           <ul class="footer__links">
-            <li><a href="{state.privacyHref}">{state.privacyTxt}</a></li>
+            ${linkItems}
             <li><a href="https://semantic-machines.com" target="_blank">semantic-machines.com</a></li>
-            ${this.state.isAdmin ? `<li><a href="#/cms">{state.cmsLinkTxt}</a></li>` : ''}
+            ${adminLink}
           </ul>
         </div>
       </footer>

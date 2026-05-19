@@ -26,18 +26,18 @@ async function mountComponent (tag, setupFn) {
   window.scrollTo({ top: 0, behavior: 'instant' });
 }
 
-export function initRoutes () {
+export function initRoutes (homeUri) {
   const router = new Router();
 
   // ── Universal page route ────────────────────────────────────────────────────
-  router.add('#/:l/p/:slug', async (l, slug) => {
+  router.add('#/:l/p/:pageUri', async (l, pageUri) => {
     setSiteChrome(true);
-    setLang(l, slug);
+    setLang(l, pageUri);
     const module = await import('./components/PageRenderer.js');
     if (!customElements.get(module.default.tag)) {
       customElements.define(module.default.tag, module.default);
     }
-    await mountComponent(module.default.tag, (el) => el.setAttribute('data-slug', slug));
+    await mountComponent(module.default.tag, (el) => el.setAttribute('about', decodeURIComponent(pageUri)));
   });
 
   // ── Tabs block: #/ru/b/:blockId  (list view) ───────────────────────────────
@@ -49,7 +49,7 @@ export function initRoutes () {
       customElements.define(module.default.tag, module.default);
     }
     await mountComponent(module.default.tag, (el) => {
-      el.setAttribute('data-block-id', decodeURIComponent(blockId));
+      el.setAttribute('about', decodeURIComponent(blockId));
     });
   });
 
@@ -62,7 +62,7 @@ export function initRoutes () {
       customElements.define(module.default.tag, module.default);
     }
     await mountComponent(module.default.tag, (el) => {
-      el.setAttribute('data-block-id',     decodeURIComponent(blockId));
+      el.setAttribute('about',            decodeURIComponent(blockId));
       el.setAttribute('data-initial-item', decodeURIComponent(itemId));
     });
   });
@@ -88,10 +88,12 @@ export function initRoutes () {
     await mountComponent(module.default.tag, (el) => el.setAttribute('data-root-uri', decodeURIComponent(uri)));
   });
 
-  // ── Fallback: any unmatched #/lang/xxx → main page ──────────────────────────
-  router.add('#/:l/:page', (l) => {
-    router.go(`#/${l}/p/main`);
-  });
+  // ── Fallback: any unmatched #/lang/xxx → home page ──────────────────────────
+  if (homeUri) {
+    router.add('#/:l/:page', (l) => { router.go(`#/${l}/p/${homeUri}`); });
+  }
 
-  router.go(location.hash || `#/${lang.current}/p/main`);
+  const initialHash = location.hash
+    || (homeUri ? `#/${lang.current}/p/${homeUri}` : '');
+  if (initialHash) router.go(initialHash);
 }

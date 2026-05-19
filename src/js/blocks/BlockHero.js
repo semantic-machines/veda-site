@@ -1,66 +1,32 @@
 import { Component } from 'veda-client';
-import { blockCache } from '../utils/blockCache.js';
-import { getText, getMarkdown, getFileUrl, getString } from '../utils/blockData.js';
 
 export default class BlockHero extends Component(HTMLElement) {
   static tag = 'block-hero';
 
-  constructor () {
-    super();
-    this.state.heading     = '';
-    this.state.summaryHtml = '';
-    this.state.contentHtml = '';
-    this.state.imageUrl    = null;
-    this.state.ctaLabel    = '';
-    this.state.ctaUrl      = '';
-    this.state.bgVariant   = 'default';
-    this.state.cssClass    = '';
-    this.state.loaded      = false;
-  }
-
-  async added () {
-    const model = blockCache.get(this.getAttribute('data-block-id'));
-    if (!model) return;
-
-    this.state.heading     = getText(model, 'site:heading');
-    this.state.summaryHtml = getMarkdown(model, 'site:summary');
-    this.state.contentHtml = getMarkdown(model, 'site:content');
-    this.state.imageUrl    = getFileUrl(model, 'v-s:hasImage');
-    this.state.ctaLabel    = getText(model, 'site:ctaLabel');
-    this.state.ctaUrl      = getString(model, 'site:url');
-    this.state.bgVariant   = getString(model, 'site:bgVariant') || 'default';
-    this.state.cssClass    = getString(model, 'site:cssClass');
-    this.state.loaded      = true;
-  }
-
   render () {
-    if (!this.state.loaded) return '';
-    const { heading, summaryHtml, contentHtml, imageUrl, ctaLabel, ctaUrl, bgVariant, cssClass } = this.state;
-
-    const altBg    = bgVariant === 'alt' ? ' page-section--alt' : bgVariant === 'dark' ? ' page-section--dark' : '';
-    const hasMedia = !!imageUrl;
-
-    const imageHtml = imageUrl
-      ? `<div class="block-hero__image">
-           <img src="${imageUrl}" alt="" class="section-img section-img--large" loading="lazy">
-         </div>`
-      : '';
-
-    const ctaHtml = ctaLabel && ctaUrl
-      ? `<a href="${ctaUrl}" class="btn btn-primary block-hero__cta">${ctaLabel}</a>`
-      : '';
-
     return `
-      <section class="page-section block-hero${altBg} ${cssClass}" data-bg="${bgVariant}">
+      <section class="page-section block-hero
+                       {state.model['site:bgVariant']?.[0] === 'dark' ? 'page-section--dark' : state.model['site:bgVariant']?.[0] === 'alt' ? 'page-section--alt' : ''}
+                       {state.model['site:cssClass']?.[0] || ''}"
+               data-bg="{state.model['site:bgVariant']?.[0] || 'default'}">
         <div class="container">
-          <div class="section-inner${hasMedia ? ' section-inner--media' : ''}">
+          <div class="section-inner {state.model['v-s:hasImage']?.[0]?.id ? 'section-inner--media' : ''}">
             <div class="section-text">
-              ${heading     ? `<h1 class="page-heading">${heading}</h1>` : ''}
-              ${summaryHtml ? `<div class="markdown lead">${summaryHtml}</div>` : ''}
-              ${contentHtml ? `<div class="markdown">${contentHtml}</div>` : ''}
-              ${ctaHtml}
+              <h1 class="page-heading" property="site:heading"></h1>
+              <site-markdown :model="{state.model}" prop="site:summary" class="markdown lead"></site-markdown>
+              <site-markdown :model="{state.model}" prop="site:content" class="markdown"></site-markdown>
+              <veda-if condition="{state.model['site:ctaLabel']?.[0]}">
+                <a href="{state.model['site:url']?.[0]}" class="btn btn-primary block-hero__cta">
+                  <span property="site:ctaLabel"></span>
+                </a>
+              </veda-if>
             </div>
-            ${imageHtml}
+            <veda-if condition="{state.model['v-s:hasImage']?.[0]?.id}">
+              <div class="block-hero__image">
+                <img src="/files/{state.model['v-s:hasImage']?.[0]?.id}" alt=""
+                     class="section-img section-img--large" loading="lazy">
+              </div>
+            </veda-if>
           </div>
         </div>
       </section>

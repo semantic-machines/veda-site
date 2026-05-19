@@ -1,6 +1,5 @@
 import { Component, Model } from 'veda-client';
 import { marked } from 'marked';
-import { getSiteConfig } from '../site-config.js';
 import { getOrder } from '../utils/blockData.js';
 import {
   escapeHtml, getBiLingual, setBiLingual,
@@ -55,13 +54,14 @@ export default class BlockEditor extends Component(HTMLElement) {
 
   async added () {
     try {
-      const config = await getSiteConfig();
+      const site = new Model('site:VedaSite');
+      await site.load();
       const pages = await Promise.all(
-        Object.entries(config.slugToUri).map(async ([slug, uri]) => {
-          const page = new Model(uri);
+        (site['site:hasPage'] ?? []).map(async (ref) => {
+          const page = new Model(ref.id);
           await page.load();
           const label = getBiLingual(page, 'rdfs:label');
-          return { slug, uri, labelRu: label.ru, labelEn: label.en };
+          return { uri: page.id, labelRu: label.ru, labelEn: label.en };
         })
       );
       pages.sort((a, b) => a.labelRu.localeCompare(b.labelRu, 'ru'));
@@ -74,16 +74,16 @@ export default class BlockEditor extends Component(HTMLElement) {
   }
 
   async selectPage (e) {
-    const el = e.target.closest('[data-slug]');
+    const el = e.target.closest('[data-uri]');
     if (!el) return;
-    const slug = el.dataset.slug;
-    const page = this.state.pages.find((p) => p.slug === slug);
+    const uri = el.dataset.uri;
+    const page = this.state.pages.find((p) => p.uri === uri);
     if (!page) return;
 
     this.state.message = null;
     this.state.selectedBlock = null;
     this.state.model = null;
-    this.state.selectedPage = slug;
+    this.state.selectedPage = uri;
 
     try {
       const m = new Model(page.uri);
@@ -263,10 +263,10 @@ export default class BlockEditor extends Component(HTMLElement) {
       <div class="article-card">
         <span class="article-card__title">
           ${escapeHtml(p.labelRu)}
-          <span class="text-muted" style="font-weight:400"> /${escapeHtml(p.slug)}</span>
+          <span class="text-muted" style="font-weight:400"> ${escapeHtml(p.uri)}</span>
         </span>
         <div class="article-card__actions">
-          <button class="btn btn-outline" data-slug="${escapeHtml(p.slug)}" onclick="{selectPage}">
+          <button class="btn btn-outline" data-uri="${escapeHtml(p.uri)}" onclick="{selectPage}">
             Блоки
           </button>
         </div>
@@ -284,7 +284,7 @@ export default class BlockEditor extends Component(HTMLElement) {
   }
 
   renderBlockList () {
-    const page = this.state.pages.find((p) => p.slug === this.state.selectedPage);
+    const page = this.state.pages.find((p) => p.uri === this.state.selectedPage);
     const msgHtml = this.state.message
       ? `<div class="alert alert-${this.state.message.type}">${escapeHtml(this.state.message.text)}</div>`
       : '';

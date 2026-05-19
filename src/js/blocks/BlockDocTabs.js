@@ -1,41 +1,31 @@
 import { Component, Model } from 'veda-client';
 import { marked } from 'marked';
-import { blockCache } from '../utils/blockCache.js';
 import { getText, getString, getOrder } from '../utils/blockData.js';
 
 export default class BlockDocTabs extends Component(HTMLElement) {
   static tag = 'block-doc-tabs';
 
-  constructor () {
-    super();
-    this.state.tabs      = [];
-    this.state.activeIdx = 0;
-    this.state.html      = '';
-    this.state.loading   = true;
-    this.state.error     = false;
-  }
-
   async added () {
-    const model = blockCache.get(this.getAttribute('data-block-id'));
-    if (!model) return;
+    const m = this.state.model;
+    if (!m?.isLoaded()) return;
 
-    const itemRefs = model['site:hasItem'] ?? [];
+    const itemRefs = m['site:hasItem'] ?? [];
     const items = await Promise.all(
       itemRefs.map(async (ref) => {
-        const m = new Model(ref.id);
-        await m.load();
-        return m;
+        const item = new Model(ref.id);
+        await item.load();
+        return item;
       })
     );
     items.sort((a, b) => getOrder(a) - getOrder(b));
 
-    this.state.tabs = items.map((m) => ({
-      id:      m.id,
-      label:   getText(m, 'rdfs:label'),
-      fileUrl: getString(m, 'site:fileUrl'),
+    this.state.tabs      = items.map((item) => ({
+      id:      item.id,
+      label:   getText(item, 'rdfs:label'),
+      fileUrl: getString(item, 'site:fileUrl'),
     }));
-
-    this.state.loading = false;
+    this.state.activeIdx = 0;
+    this.state.loading   = false;
     this.update();
 
     if (this.state.tabs.length > 0) {
@@ -89,7 +79,9 @@ export default class BlockDocTabs extends Component(HTMLElement) {
   }
 
   render () {
-    const { tabs, activeIdx, loading } = this.state;
+    const tabs      = this.state.tabs ?? [];
+    const activeIdx = this.state.activeIdx ?? 0;
+    const loading   = this.state.loading ?? true;
 
     if (!tabs.length && loading) return '<div class="loading">...</div>';
 

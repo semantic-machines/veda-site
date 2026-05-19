@@ -1,6 +1,5 @@
 import { Component, Model } from 'veda-client';
-import { getSiteConfig } from '../site-config.js';
-import { escapeHtml, saveModel } from './cmsUtils.js';
+import { escapeHtml, getBiLingual, saveModel } from './cmsUtils.js';
 
 export default class PageManager extends Component(HTMLElement) {
   static tag = 'cms-page-manager';
@@ -14,18 +13,39 @@ export default class PageManager extends Component(HTMLElement) {
 
   async added () {
     try {
-      const config = await getSiteConfig();
+      const site = new Model('site:VedaSite');
+      await site.load();
+
+      const mainMenuRef = (site['site:hasNavMenu'] ?? []).find(async (ref) => {
+        const m = new Model(ref.id);
+        await m.load();
+        return (m['site:navPosition']?.[0] ?? 'main') === 'main';
+      });
+      const mainMenu = mainMenuRef ? new Model(mainMenuRef.id) : null;
+      if (mainMenu) await mainMenu.load();
+
+      const menuItemRefs = mainMenu?.['site:hasMenuItem'] ?? [];
       const items = await Promise.all(
-        config.mainMenu.items.map(async (item) => {
-          const m = new Model(item.id);
+        menuItemRefs.map(async (ref) => {
+          const m = new Model(ref.id);
           await m.load();
+          const label = getBiLingual(m, 'rdfs:label');
+
+          let slug = null;
+          const pageRef = m['site:targetPage']?.[0];
+          if (pageRef) {
+            const page = new Model(pageRef.id);
+            await page.load();
+            slug = page['site:slug']?.[0] ?? null;
+          }
+
           return {
-            id:       item.id,
-            labelRu:  item.labelBi.ru || item.slug,
-            labelEn:  item.labelBi.en || item.slug,
-            slug:     item.slug,
-            enabled:  !m['v-s:deleted']?.[0],
-            model:    m,
+            id:      m.id,
+            labelRu: label.ru || slug,
+            labelEn: label.en || slug,
+            slug,
+            enabled: !m['v-s:deleted']?.[0],
+            model:   m,
           };
         })
       );
