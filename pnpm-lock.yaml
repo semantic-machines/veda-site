@@ -16,7 +16,7 @@ importers:
         version: 17.0.6
       veda-client:
         specifier: github:semantic-machines/veda-client
-        version: https://codeload.github.com/semantic-machines/veda-client/tar.gz/6a02c345a6d99ff9b05a2ec37055fa930c36f617
+        version: https://codeload.github.com/semantic-machines/veda-client/tar.gz/8fe48da0254f80361c3013067e7da0fb5b2c52cf
     devDependencies:
       esbuild:
         specifier: ^0.24.2
@@ -200,12 +200,12 @@ packages:
     engines: {node: '>= 20'}
     hasBin: true
 
-  veda-client@https://codeload.github.com/semantic-machines/veda-client/tar.gz/6a02c345a6d99ff9b05a2ec37055fa930c36f617:
-    resolution: {tarball: https://codeload.github.com/semantic-machines/veda-client/tar.gz/6a02c345a6d99ff9b05a2ec37055fa930c36f617}
+  veda-client@https://codeload.github.com/semantic-machines/veda-client/tar.gz/8fe48da0254f80361c3013067e7da0fb5b2c52cf:
+    resolution: {gitHosted: true, tarball: https://codeload.github.com/semantic-machines/veda-client/tar.gz/8fe48da0254f80361c3013067e7da0fb5b2c52cf}
     version: 3.0.0
 
-  ws@8.20.0:
-    resolution: {integrity: sha512-sAt8BhgNbzCtgGbt2OxmpuryO63ZoDk/sqaB/znQm94T4fCEsy/yV+7CdC1kJhOU9lboAEU7R3kquuycDoibVA==}
+  ws@8.20.1:
+    resolution: {integrity: sha512-It4dO0K5v//JtTXuPkfEOaI3uUN87iYPnqo/ZzqCoG3g8uhA66QUMs/SrM0YK7/NAu+r4LMh/9dq2A7k+rHs+w==}
     engines: {node: '>=10.0.0'}
     peerDependencies:
       bufferutil: ^4.0.1
@@ -335,11 +335,11 @@ snapshots:
 
   marked@17.0.6: {}
 
-  veda-client@https://codeload.github.com/semantic-machines/veda-client/tar.gz/6a02c345a6d99ff9b05a2ec37055fa930c36f617:
+  veda-client@https://codeload.github.com/semantic-machines/veda-client/tar.gz/8fe48da0254f80361c3013067e7da0fb5b2c52cf:
     dependencies:
-      ws: 8.20.0
+      ws: 8.20.1
     transitivePeerDependencies:
       - bufferutil
       - utf-8-validate
 
-  ws@8.20.0: {}
+  ws@8.20.1: {}
