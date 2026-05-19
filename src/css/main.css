@@ -4,7 +4,7 @@
   --color-primary-hover: #155a96;
   --color-primary-light: #e8f0fa;
   --color-text:          #1a1a2e;
-  --color-text-muted:    #6b7280;
+  --color-text-muted:    #5d6068;
   --color-bg:            #ffffff;
   --color-bg-alt:        #f5f7fa;
   --color-border:        #e2e8f0;
@@ -161,7 +161,7 @@ em { font-style: italic; }
 
 .section-summary {
   color: var(--color-text-muted);
-  font-size: 1.05rem;
+  font-size: 1.2rem;
 }
 
 .section-media {

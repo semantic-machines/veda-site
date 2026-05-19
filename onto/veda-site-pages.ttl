@@ -279,7 +279,7 @@ site:BlockMainContacts
   site:heading "Контакты"@ru ;
   site:heading "Contacts"@en ;
   site:summary """
-167026, Республика Коми, Сыктывкар, проспект Бумажников, 2.
+167026, Республика Коми, Сыктывкар, проспект Бумажников, 35-133.
 
 Телефон: +7 922 276 16 75
 
@@ -290,7 +290,7 @@ Telegram: [https://t.me/semantic_machines](https://t.me/semantic_machines)
 GitHub: [https://github.com/semantic-machines/veda](https://github.com/semantic-machines/veda)
   """@ru ;
   site:summary """
-Russian Federation, The Republic of Komi, 167026, Syktyvkar, Bumazhnikov ave, 2.
+Russian Federation, The Republic of Komi, 167026, Syktyvkar, Bumazhnikov ave, 35-133.
 
 Tel: +7 922 276 16 75
 
@@ -797,7 +797,9 @@ site:BlockAboutContent
   site:imagePos "right" ;
   v-s:hasImage site:PlatformIcon ;
   site:heading "О компании"@ru ;
-  site:heading "About"@en ; — российская IT-компания, разработчик платформы Veda.
+  site:heading "About"@en ;
+  site:summary """
+> ООО "Смысловые машины" — российская IT-компания, разработчик платформы Veda.
   """@ru ;
   site:summary """
 > Semantic Machines LLC — a Russian IT company, developer of the Veda platform.
@@ -859,9 +861,6 @@ site:BlockPrivacyContent
   site:heading "Политика конфиденциальности"@ru ;
   site:heading "Privacy policy"@en ;
   site:content """
-Политика в отношении обработки персональных данных
-==================================================
-
 ### 1. Общие положения
 
 1.1. Настоящая Политика в отношении обработки персональных данных (далее – Политика) утверждена Решением Общего собрания участников Общества с ограниченной ответственностью «Смысловые машины» (ОГРН 1111121000210, ИНН 1121001280, адрес местонахождения: 167026, Республика Коми, г. Сыктывкар, пр-т Бумажников, д. 35, кв. 133) (далее – Администратор), определяет основные принципы, цели, порядок и условия обработки персональных данных Пользователей сайта ООО «Смысловые машины» https://semantic-machines.com/ (далее – Сайт), меры по обеспечению безопасности и защиты персональных данных.
@@ -939,9 +938,6 @@ site:BlockPrivacyContent
 **Дата последнего обновления Политики: 15 мая 2026 года.**
   """@ru ;
   site:content """
-Privacy Policy
-==============
-
 ### 1. General Provisions
 
 1.1. This Privacy Policy (hereinafter — Policy) is approved by Semantic Machines LLC (OGRN 1111121000210, INN 1121001280, registered address: 167026, Syktyvkar, The Republic of Komi, Russia, Bumazhnikov ave, 35-133) (hereinafter — Administrator) and defines the main principles, purposes, procedures and conditions for processing personal data of users of the Semantic Machines LLC website https://semantic-machines.com/ (hereinafter — Site).
