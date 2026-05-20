@@ -183,7 +183,7 @@ site:BlockMainAbout
   site:heading "Быстро разрабатываем приложения для вашего бизнеса!"@ru ;
   site:heading "Quickly develop applications for your business!"@en ;
   site:summary """
-Для разработки мы используем [интегрированную платформу Veda](#/ru/p/site:PagePlatform).
+Для разработки мы используем [интегрированную платформу Veda (Веда)](#/ru/p/site:PagePlatform).
 
 На платформе уже разработан [ряд готовых приложений](#/ru/p/site:PageApplications).
 
@@ -206,7 +206,7 @@ site:BlockMainPlatform
   site:imagePos "right" ;
   site:cssClass "block-text--large-img" ;
   v-s:hasImage site:ImageHydraContract ;
-  site:heading "Платформа Veda"@ru ;
+  site:heading "Платформа Veda (Веда)"@ru ;
   site:heading "Platform Veda"@en ;
   site:summary """
 Современная семантическая платформа с [открытым исходным текстом](https://github.com/semantic-machines/veda).
@@ -232,7 +232,7 @@ site:BlockMainApplications
   site:heading "Приложения"@ru ;
   site:heading "Applications"@en ;
   site:summary """
-Готовые приложения на платформе Veda включают в себя набор востребованных объектов и процессов, что сокращает трудоемкость и сроки внедрения информационной системы.
+Готовые приложения на платформе Veda (Веда) включают в себя набор востребованных объектов и процессов, что сокращает трудоемкость и сроки внедрения информационной системы.
 
 Некоторые приложения мы предлагаем в нескольких вариантах с различной степенью детализации предметной области, с учетом реальных потребностей вашего предприятия.
 
@@ -256,7 +256,7 @@ site:BlockMainServices
   site:heading "Услуги"@ru ;
   site:heading "Services"@en ;
   site:summary """
-Мы оказываем услуги по разработке, адаптации и внедрению приложений на платформе Veda.
+Мы оказываем услуги по разработке, адаптации и внедрению приложений на платформе Veda (Веда).
 
 Развиваем приложения в соответствии с потребностями Заказчика.
 
@@ -312,14 +312,14 @@ site:BlockPlatformHero
   v-s:order 10 ;
   site:imagePos "right" ;
   v-s:hasImage site:PlatformIcon ;
-  site:heading "Платформа Veda"@ru ;
+  site:heading "Платформа Veda (Веда)"@ru ;
   site:heading "Platform Veda"@en ;
   site:summary """
 > Современная семантическая платформа с [открытым исходным текстом](https://github.com/semantic-machines/veda).
 > Предназначена для быстрой разработки приложений автоматизации деловых процессов предприятия.
 > Сделана в [России](https://reestr.digital.gov.ru/reestr/307394/).
 >
-> _Кстати, этот сайт тоже является приложением на платформе Veda. [Посмотреть модель данных](#/ru/graph/site:VedaSite)_
+> _Кстати, этот сайт тоже является приложением на платформе Veda (Веда). [Посмотреть модель данных](#/ru/graph/site:VedaSite)_
   """@ru ;
   site:summary """
 > A modern open-source semantic platform.
@@ -451,7 +451,7 @@ site:BlockDocumentationHero
   v-s:hasImage site:PlatformIcon ;
   site:heading "Документация"@ru ;
   site:heading "Documentation"@en ;
-  site:summary "> Руководство разработчика и справочник HTTP API платформы Veda."@ru ;
+  site:summary "> Руководство разработчика и справочник HTTP API платформы Veda (Веда)."@ru ;
   site:summary "> Developer guide and HTTP API reference for the Veda platform."@en ;
 .
 
@@ -685,7 +685,7 @@ site:BlockPriceContent
 
 | Лицензия | Стоимость, руб./год |
 |---|---|
-| Серверная лицензия на Платформу Veda | 3 000 000 |
+| Серверная лицензия на Платформу Veda (Веда) | 3 000 000 |
 | Подключение до 100 конкурентных пользователей | 1 000 000 |
 | Подключение до 1 000 конкурентных пользователей | 10 000 000 |
 | Подключение до 10 000 конкурентных пользователей | 50 000 000 |
@@ -742,7 +742,7 @@ site:BlockContactsHero
   site:heading "Contacts"@en ;
   site:summary """
 > **ООО «Смысловые машины»**
-> Аккредитованная российская ИТ-компания, разработчик платформы Veda.
+> Аккредитованная российская ИТ-компания, разработчик платформы Veda (Веда).
   """@ru ;
   site:summary """
 > **Semantic Machines, LLC**
@@ -799,7 +799,7 @@ site:BlockAboutContent
   site:heading "О компании"@ru ;
   site:heading "About"@en ;
   site:summary """
-> ООО "Смысловые машины" — российская IT-компания, разработчик платформы Veda.
+> ООО "Смысловые машины" — российская IT-компания, разработчик платформы Veda (Веда).
   """@ru ;
   site:summary """
 > Semantic Machines LLC — a Russian IT company, developer of the Veda platform.
@@ -807,7 +807,7 @@ site:BlockAboutContent
   site:content """
 Основана в 2010 году. Основной вид деятельности — разработка программного обеспечения.
 
-Платформа Veda включена в [Реестр отечественного ПО](https://reestr.digital.gov.ru/reestr/307394/).
+Платформа Veda (Веда) включена в [Реестр отечественного ПО](https://reestr.digital.gov.ru/reestr/307394/).
 
 [Аккредитованная ИТ-компания](https://www.gosuslugi.ru/itorgs).
   """@ru ;
@@ -829,7 +829,7 @@ site:BlockDownloadContent
   site:heading "Скачать"@ru ;
   site:heading "Download"@en ;
   site:summary """
-> Платформа Veda распространяется с открытым исходным кодом.
+> Платформа Veda (Веда) распространяется с открытым исходным кодом.
   """@ru ;
   site:summary """
 > The Veda platform is distributed as open source.
@@ -1019,13 +1019,13 @@ site:BlockVedaOnlineContent
   site:heading "Veda онлайн"@ru ;
   site:heading "Veda online"@en ;
   site:summary """
-> Попробуйте платформу Veda в действии — без установки и настройки.
+> Попробуйте платформу Veda (Веда) в действии — без установки и настройки.
   """@ru ;
   site:summary """
 > Try the Veda platform in action — no installation or configuration required.
   """@en ;
   site:content """
-Демонстрационная среда позволяет ознакомиться с возможностями платформы Veda: создание объектов, настройка шаблонов, управление деловыми процессами и правами доступа.
+Демонстрационная среда позволяет ознакомиться с возможностями платформы Veda (Веда): создание объектов, настройка шаблонов, управление деловыми процессами и правами доступа.
 
 Для доступа к демонстрационной среде свяжитесь с нами по адресу [info@semantic-machines.com](mailto:info@semantic-machines.com).
   """@ru ;
