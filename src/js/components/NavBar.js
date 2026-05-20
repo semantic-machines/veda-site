@@ -114,11 +114,34 @@ export default class NavBar extends Component(HTMLElement) {
       this.state.lang = lang.current;
       this.state.page = lang.page;
     });
+
+    this.watch(
+      () => `${lang.current}/${lang.page}`,
+      () => this.closeMenu()
+    );
   }
 
-  toggleMenu () {
-    this.state.menuOpen = !this.state.menuOpen;
-    this.querySelector('.navbar__nav')?.classList.toggle('open', this.state.menuOpen);
+  removed () {
+    document.body.classList.remove('navbar-menu-open');
+  }
+
+  setMenuOpen (open) {
+    this.state.menuOpen = open;
+    document.body.classList.toggle('navbar-menu-open', open);
+  }
+
+  closeMenu () {
+    if (this.state.menuOpen) this.setMenuOpen(false);
+  }
+
+  toggleMenu (e) {
+    e?.preventDefault?.();
+    e?.stopPropagation?.();
+    this.setMenuOpen(!this.state.menuOpen);
+  }
+
+  onNavClick () {
+    this.closeMenu();
   }
 
   switchLang (e) {
@@ -140,14 +163,18 @@ export default class NavBar extends Component(HTMLElement) {
 
           <a class="navbar__brand" href="#/{state.lang}/p/{state.homeUri}">${logoHtml}</a>
 
-          <ul class="navbar__nav" items="{state.navItems}" as="p" key="id">
-            <li class="navbar__nav-item">
-              <a href="#/{state.lang}/p/{p.pageUri}"
-                 class="{state.page === p.pageUri ? 'active' : ''}">
-                {state.lang === 'en' ? p.labelEn || p.labelRu : p.labelRu}
-              </a>
-            </li>
-          </ul>
+          <div class="navbar__menu {state.menuOpen ? 'is-open' : ''}">
+            <ul id="site-nav-menu" class="navbar__nav"
+                items="{state.navItems}" as="p" key="id">
+              <li class="navbar__nav-item">
+                <a href="#/{state.lang}/p/{p.pageUri}"
+                   class="{state.page === p.pageUri ? 'active' : ''}"
+                   onclick="{onNavClick}">
+                  {state.lang === 'en' ? p.labelEn || p.labelRu : p.labelRu}
+                </a>
+              </li>
+            </ul>
+          </div>
 
           <div class="navbar__lang">
             <button class="navbar__lang-btn {state.lang === 'ru' ? 'active' : ''}"
@@ -156,7 +183,8 @@ export default class NavBar extends Component(HTMLElement) {
                     data-lang="en" onclick="{switchLang}">EN</button>
           </div>
 
-          <button class="navbar__toggle" onclick="{toggleMenu}" aria-label="Menu">
+          <button type="button" class="navbar__toggle" onclick="{toggleMenu}"
+                  aria-label="Menu" aria-expanded="{state.menuOpen}" aria-controls="site-nav-menu">
             <span class="navbar__toggle-bar"></span>
             <span class="navbar__toggle-bar"></span>
             <span class="navbar__toggle-bar"></span>

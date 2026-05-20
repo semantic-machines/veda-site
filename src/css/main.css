@@ -78,6 +78,8 @@ em { font-style: italic; }
   max-width: var(--container-max);
   margin-inline: auto;
   padding-inline: var(--container-pad);
+  padding-inline: max(var(--container-pad), env(safe-area-inset-left, 0px))
+    max(var(--container-pad), env(safe-area-inset-right, 0px));
 }
 
 /* Utilities */
@@ -692,13 +694,29 @@ em { font-style: italic; }
 @media (max-width: 768px) {
   :root {
     --section-pad: 24px;
+    --container-pad: 16px;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
   }
 
   h1 { font-size: 1.75rem; }
   h2 { font-size: 1.4rem; }
+  h3 { font-size: 1.2rem; }
+
+  .section-heading {
+    font-size: 1.5rem;
+  }
+
+  .page-heading {
+    font-size: 1.65rem;
+  }
 
   .section-inner--media {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 
   .section-media {
@@ -709,12 +727,95 @@ em { font-style: italic; }
     height: 120px;
   }
 
-  .section-img--large {
+  .section-img--large,
+  .block-text--large-img .section-img {
     height: 180px;
   }
 
   .contacts-layout {
     grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .section--contacts .markdown td:first-child {
+    white-space: normal;
+    width: auto;
+    min-width: 0;
+  }
+
+  .markdown table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    font-size: 0.85rem;
+  }
+
+  .markdown th,
+  .markdown td {
+    padding: 0.45em 0.55em;
+  }
+
+  .aspects-tabs {
+    justify-content: flex-start;
+    gap: 0.75rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    flex-wrap: nowrap;
+    scrollbar-width: none;
+    margin-inline: calc(-1 * var(--container-pad));
+    padding-inline: var(--container-pad);
+    margin-bottom: 1.5rem;
+  }
+
+  .aspects-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .aspect-tab {
+    flex-shrink: 0;
+    font-size: 0.85rem;
+    padding-inline: 0.25rem;
+  }
+
+  .doc-tabs,
+  .doc-tabs-nav {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    flex-wrap: nowrap;
+    scrollbar-width: none;
+    margin-inline: calc(-1 * var(--container-pad));
+    padding-inline: var(--container-pad);
+  }
+
+  .doc-tabs::-webkit-scrollbar,
+  .doc-tabs-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .doc-tab {
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+
+  .app-detail__header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .onto-graph-wrap {
+    height: calc(100dvh - 56px - 72px);
+    min-height: 360px;
+  }
+
+  .onto-graph-toolbar {
+    padding: 0.6rem var(--container-pad);
+    gap: 0.75rem;
+  }
+
+  .onto-graph-hint {
+    flex: 1 1 100%;
+    order: 3;
   }
 }
 
