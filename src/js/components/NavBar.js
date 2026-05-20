@@ -78,12 +78,26 @@ export default class NavBar extends Component(HTMLElement) {
     this.state.lang      = lang.current;
     this.state.page      = lang.page;
     this.state.menuOpen  = false;
+    this._backdrop       = null;
+  }
+
+  _ensureBackdrop () {
+    if (this._backdrop) return;
+    const el = document.createElement('button');
+    el.type = 'button';
+    el.className = 'navbar__backdrop';
+    el.setAttribute('aria-label', 'Close menu');
+    el.setAttribute('aria-hidden', 'true');
+    el.addEventListener('click', () => this.closeMenu());
+    document.body.appendChild(el);
+    this._backdrop = el;
   }
 
   async added () {
     const site = this.state.model;
 
     injectTokens(site);
+    this._ensureBackdrop();
 
     this.state.logoUrl = site?.['v-s:hasImage']?.[0]?.id
       ? `/files/${site['v-s:hasImage'][0].id}`
@@ -122,12 +136,17 @@ export default class NavBar extends Component(HTMLElement) {
   }
 
   removed () {
+    this._backdrop?.remove();
+    this._backdrop = null;
     document.body.classList.remove('navbar-menu-open');
   }
 
   setMenuOpen (open) {
     this.state.menuOpen = open;
+    this._ensureBackdrop();
     document.body.classList.toggle('navbar-menu-open', open);
+    this._backdrop.classList.toggle('is-visible', open);
+    this._backdrop.setAttribute('aria-hidden', open ? 'false' : 'true');
   }
 
   closeMenu () {
