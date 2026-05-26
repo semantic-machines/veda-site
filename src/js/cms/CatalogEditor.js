@@ -3,6 +3,7 @@ import { marked } from 'marked';
 import {
   escapeHtml, getBiLingual, setBiLingual, saveModel,
 } from './cmsUtils.js';
+import { loadModelsOrdered } from '../utils/loadModels.js';
 
 const ASPECT_URI = 'site:BlockApplicationsTabs';
 
@@ -39,22 +40,18 @@ export default class CatalogEditor extends Component(HTMLElement) {
     try {
       const tabsBlock = new Model(ASPECT_URI);
       await tabsBlock.load();
-      const aspectRefs = tabsBlock['site:hasItem'] ?? [];
-      const aspects = await Promise.all(
-        aspectRefs.map(async (ref) => {
-          const m = new Model(ref.id);
-          await m.load();
-          const label = getBiLingual(m, 'rdfs:label');
-          const appCount = (m['site:hasItem'] ?? []).length;
-          return {
-            id:       m.id,
-            labelRu:  label.ru,
-            labelEn:  label.en,
-            appCount,
-            model:    m,
-          };
-        })
-      );
+      const aspectModels = await loadModelsOrdered(tabsBlock['site:hasItem'] ?? []);
+      const aspects = aspectModels.map((m) => {
+        const label = getBiLingual(m, 'rdfs:label');
+        const appCount = (m['site:hasItem'] ?? []).length;
+        return {
+          id:       m.id,
+          labelRu:  label.ru,
+          labelEn:  label.en,
+          appCount,
+          model:    m,
+        };
+      });
       this.state.aspects = aspects;
     } catch (e) {
       this.state.message = { type: 'error', text: e.message };
@@ -78,15 +75,11 @@ export default class CatalogEditor extends Component(HTMLElement) {
 
     try {
       const m = aspect.model;
-      const appRefs = m['site:hasItem'] ?? [];
-      const apps = await Promise.all(
-        appRefs.map(async (ref) => {
-          const app = new Model(ref.id);
-          await app.load();
-          const label = getBiLingual(app, 'rdfs:label');
-          return { id: app.id, labelRu: label.ru, labelEn: label.en, model: app };
-        })
-      );
+      const appModels = await loadModelsOrdered(m['site:hasItem'] ?? []);
+      const apps = appModels.map((app) => {
+        const label = getBiLingual(app, 'rdfs:label');
+        return { id: app.id, labelRu: label.ru, labelEn: label.en, model: app };
+      });
       this.state.apps = apps;
     } catch (err) {
       this.state.message = { type: 'error', text: err.message };

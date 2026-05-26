@@ -1,5 +1,6 @@
-import { Component, Model } from 'veda-client';
+import { Component } from 'veda-client';
 import { getOrder } from '../utils/blockData.js';
+import { loadModelsOrdered } from '../utils/loadModels.js';
 import { BLOCK_LOADERS as loaders } from '../components/PageRenderer.js';
 
 export default class BlockLayout extends Component(HTMLElement) {
@@ -10,9 +11,7 @@ export default class BlockLayout extends Component(HTMLElement) {
     if (!m?.isLoaded()) return;
 
     const childRefs = m['site:hasBlock'] ?? [];
-    const children  = await Promise.all(
-      childRefs.map((ref) => new Model(ref.id).load())
-    );
+    const children  = await loadModelsOrdered(childRefs);
     children.sort((a, b) => getOrder(a) - getOrder(b));
 
     for (const child of children) {

@@ -1,6 +1,7 @@
-import { Component, Model } from 'veda-client';
+import { Component } from 'veda-client';
 import { marked } from 'marked';
 import { getText, getString, getOrder } from '../utils/blockData.js';
+import { loadModelsOrdered } from '../utils/loadModels.js';
 
 export default class BlockDocTabs extends Component(HTMLElement) {
   static tag = 'block-doc-tabs';
@@ -10,13 +11,7 @@ export default class BlockDocTabs extends Component(HTMLElement) {
     if (!m?.isLoaded()) return;
 
     const itemRefs = m['site:hasItem'] ?? [];
-    const items = await Promise.all(
-      itemRefs.map(async (ref) => {
-        const item = new Model(ref.id);
-        await item.load();
-        return item;
-      })
-    );
+    const items = await loadModelsOrdered(itemRefs);
     items.sort((a, b) => getOrder(a) - getOrder(b));
 
     this.state.tabs      = items.map((item) => ({

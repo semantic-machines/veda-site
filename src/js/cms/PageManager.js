@@ -1,5 +1,6 @@
 import { Component, Model } from 'veda-client';
 import { escapeHtml, getBiLingual, saveModel } from './cmsUtils.js';
+import { loadModels, loadModelsOrdered } from '../utils/loadModels.js';
 
 export default class PageManager extends Component(HTMLElement) {
   static tag = 'cms-page-manager';
@@ -16,39 +17,31 @@ export default class PageManager extends Component(HTMLElement) {
       const site = new Model('site:VedaSite');
       await site.load();
 
-      const mainMenuRef = (site['site:hasNavMenu'] ?? []).find(async (ref) => {
-        const m = new Model(ref.id);
-        await m.load();
-        return (m['site:navPosition']?.[0] ?? 'main') === 'main';
-      });
-      const mainMenu = mainMenuRef ? new Model(mainMenuRef.id) : null;
-      if (mainMenu) await mainMenu.load();
+      const menus = await loadModelsOrdered(site['site:hasNavMenu'] ?? []);
+      const mainMenu = menus.find((m) => (m['site:navPosition']?.[0] ?? 'main') === 'main');
 
       const menuItemRefs = mainMenu?.['site:hasMenuItem'] ?? [];
-      const items = await Promise.all(
-        menuItemRefs.map(async (ref) => {
-          const m = new Model(ref.id);
-          await m.load();
-          const label = getBiLingual(m, 'rdfs:label');
+      const menuItems = await loadModelsOrdered(menuItemRefs);
+      const pageRefs = menuItems
+        .map((m) => m['site:targetPage']?.[0])
+        .filter(Boolean);
+      const pageMap = await loadModels(pageRefs);
 
-          let slug = null;
-          const pageRef = m['site:targetPage']?.[0];
-          if (pageRef) {
-            const page = new Model(pageRef.id);
-            await page.load();
-            slug = page['site:slug']?.[0] ?? null;
-          }
+      const items = menuItems.map((m) => {
+        const label = getBiLingual(m, 'rdfs:label');
+        const pageRef = m['site:targetPage']?.[0];
+        const page = pageRef ? pageMap.get(pageRef.id) : null;
+        const slug = page?.['site:slug']?.[0] ?? null;
 
-          return {
-            id:      m.id,
-            labelRu: label.ru || slug,
-            labelEn: label.en || slug,
-            slug,
-            enabled: !m['v-s:deleted']?.[0],
-            model:   m,
-          };
-        })
-      );
+        return {
+          id:      m.id,
+          labelRu: label.ru || slug,
+          labelEn: label.en || slug,
+          slug,
+          enabled: !m['v-s:deleted']?.[0],
+          model:   m,
+        };
+      });
       this.state.items = items;
     } catch (e) {
       this.state.message = { type: 'error', text: e.message };

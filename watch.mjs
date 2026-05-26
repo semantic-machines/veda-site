@@ -60,8 +60,8 @@ const server = http.createServer((req, res) => {
   const urlPath = req.url?.split('?')[0] ?? '/';
 
   // Proxy API and file requests to the Veda backend
-  const proxyPrefixes = ['/files/', '/get_individual', '/put_individual', '/authenticate',
-                         '/logout', '/query', '/get_rights', '/get_individual'];
+  const proxyPrefixes = ['/files/', '/get_individual', '/get_individuals', '/put_individual', '/authenticate',
+                         '/logout', '/query', '/get_rights'];
   if (proxyPrefixes.some((p) => urlPath.startsWith(p))) {
     const options = {
       hostname: BACKEND_HOST,

@@ -1,5 +1,6 @@
-import { Component, Model } from 'veda-client';
+import { Component } from 'veda-client';
 import { getOrder } from '../utils/blockData.js';
+import { loadModelsOrdered } from '../utils/loadModels.js';
 
 export default class BlockCards extends Component(HTMLElement) {
   static tag = 'block-cards';
@@ -10,7 +11,7 @@ export default class BlockCards extends Component(HTMLElement) {
     const m = this.state.model;
     if (!m?.isLoaded()) return;
     const refs  = m['site:hasItem'] ?? [];
-    const items = await Promise.all(refs.map((ref) => new Model(ref.id).load()));
+    const items = await loadModelsOrdered(refs);
     items.sort((a, b) => getOrder(a) - getOrder(b));
     this.state.sortedItems = items;
   }

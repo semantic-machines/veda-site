@@ -1,6 +1,7 @@
 import { Component, Model } from 'veda-client';
 import { marked } from 'marked';
 import { getOrder } from '../utils/blockData.js';
+import { loadModels, loadModelsOrdered } from '../utils/loadModels.js';
 import {
   escapeHtml, getBiLingual, setBiLingual,
   getStringProp, setStringProp, saveModel,
@@ -56,14 +57,11 @@ export default class BlockEditor extends Component(HTMLElement) {
     try {
       const site = new Model('site:VedaSite');
       await site.load();
-      const pages = await Promise.all(
-        (site['site:hasPage'] ?? []).map(async (ref) => {
-          const page = new Model(ref.id);
-          await page.load();
-          const label = getBiLingual(page, 'rdfs:label');
-          return { uri: page.id, labelRu: label.ru, labelEn: label.en };
-        })
-      );
+      const pageModels = await loadModelsOrdered(site['site:hasPage'] ?? []);
+      const pages = pageModels.map((page) => {
+        const label = getBiLingual(page, 'rdfs:label');
+        return { uri: page.id, labelRu: label.ru, labelEn: label.en };
+      });
       pages.sort((a, b) => a.labelRu.localeCompare(b.labelRu, 'ru'));
       this.state.pages = pages;
     } catch (e) {
@@ -88,23 +86,19 @@ export default class BlockEditor extends Component(HTMLElement) {
     try {
       const m = new Model(page.uri);
       await m.load();
-      const blockRefs = m['site:hasBlock'] ?? [];
-      const blocks = await Promise.all(
-        blockRefs.map(async (ref) => {
-          const block = new Model(ref.id);
-          await block.load();
-          const type = block['site:blockType']?.[0] ?? '';
-          const label = getBiLingual(block, 'site:heading');
-          return {
-            id:      block.id,
-            type,
-            typeLabel: BLOCK_TYPE_LABELS[type] || type,
-            label:   label.ru || label.en || block.id,
-            order:   getOrder(block),
-            editable: !!(ML_FIELDS[type] || type === 'doc-tabs'),
-          };
-        })
-      );
+      const blockModels = await loadModelsOrdered(m['site:hasBlock'] ?? []);
+      const blocks = blockModels.map((block) => {
+        const type = block['site:blockType']?.[0] ?? '';
+        const label = getBiLingual(block, 'site:heading');
+        return {
+          id:      block.id,
+          type,
+          typeLabel: BLOCK_TYPE_LABELS[type] || type,
+          label:   label.ru || label.en || block.id,
+          order:   getOrder(block),
+          editable: !!(ML_FIELDS[type] || type === 'doc-tabs'),
+        };
+      });
       blocks.sort((a, b) => a.order - b.order);
       this.state.blocks = blocks;
     } catch (err) {
@@ -143,21 +137,18 @@ export default class BlockEditor extends Component(HTMLElement) {
       this.state.strFields = strFields;
 
       if (type === 'doc-tabs') {
-        const items = await Promise.all(
-          (model['site:hasItem'] ?? []).map(async (ref) => {
-            const item = new Model(ref.id);
-            await item.load();
-            const label = getBiLingual(item, 'rdfs:label');
-            return {
-              id:      item.id,
-              labelRu: label.ru,
-              labelEn: label.en,
-              fileUrl: getStringProp(item, 'site:fileUrl'),
-              order:   getOrder(item),
-              model:   item,
-            };
-          })
-        );
+        const itemModels = await loadModelsOrdered(model['site:hasItem'] ?? []);
+        const items = itemModels.map((item) => {
+          const label = getBiLingual(item, 'rdfs:label');
+          return {
+            id:      item.id,
+            labelRu: label.ru,
+            labelEn: label.en,
+            fileUrl: getStringProp(item, 'site:fileUrl'),
+            order:   getOrder(item),
+            model:   item,
+          };
+        });
         items.sort((a, b) => a.order - b.order);
         this.state.docItems = items;
       } else {

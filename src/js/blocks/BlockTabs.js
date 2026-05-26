@@ -1,5 +1,6 @@
-import { Component, Model } from 'veda-client';
+import { Component } from 'veda-client';
 import { getText, getMarkdown, getFileUrl, getString, getOrder } from '../utils/blockData.js';
+import { loadModels, loadModelsOrdered } from '../utils/loadModels.js';
 import lang from '../lang.js';
 
 let _lastTabIdx  = 0;
@@ -19,36 +20,32 @@ export default class BlockTabs extends Component(HTMLElement) {
     const initialItemId = this.getAttribute('data-initial-item');
 
     const tabRefs = m['site:hasItem'] ?? [];
-    const tabs = await Promise.all(
-      tabRefs.map(async (ref) => {
-        const tab = new Model(ref.id);
-        await tab.load();
-        const cardRefs = tab['site:hasItem'] ?? [];
-        const items = await Promise.all(
-          cardRefs.map(async (cRef) => {
-            const card = new Model(cRef.id);
-            await card.load();
-            return {
-              id:          card.id,
-              label:       getText(card, 'rdfs:label'),
-              comment:     getText(card, 'rdfs:comment'),
-              iconUrl:     getFileUrl(card, 'v-s:hasIcon'),
-              summaryHtml: getMarkdown(card, 'v-s:summary'),
-              descHtml:    getMarkdown(card, 'v-s:description'),
-              order:       getOrder(card),
-            };
-          })
-        );
-        items.sort((a, b) => a.order - b.order);
-        return {
-          id:         tab.id,
-          label:      getText(tab, 'rdfs:label'),
-          shortLabel: getText(tab, 'v-s:shortLabel') || getText(tab, 'rdfs:label'),
-          order:      getOrder(tab),
-          items,
-        };
-      })
-    );
+    const tabModels = await loadModelsOrdered(tabRefs);
+    const cardRefs = tabModels.flatMap((tab) => tab['site:hasItem'] ?? []);
+    const cardMap = await loadModels(cardRefs);
+
+    const tabs = tabModels.map((tab) => {
+      const items = (tab['site:hasItem'] ?? [])
+        .map((cRef) => cardMap.get(cRef.id))
+        .filter(Boolean)
+        .map((card) => ({
+          id:          card.id,
+          label:       getText(card, 'rdfs:label'),
+          comment:     getText(card, 'rdfs:comment'),
+          iconUrl:     getFileUrl(card, 'v-s:hasIcon'),
+          summaryHtml: getMarkdown(card, 'v-s:summary'),
+          descHtml:    getMarkdown(card, 'v-s:description'),
+          order:       getOrder(card),
+        }));
+      items.sort((a, b) => a.order - b.order);
+      return {
+        id:         tab.id,
+        label:      getText(tab, 'rdfs:label'),
+        shortLabel: getText(tab, 'v-s:shortLabel') || getText(tab, 'rdfs:label'),
+        order:      getOrder(tab),
+        items,
+      };
+    });
     tabs.sort((a, b) => a.order - b.order);
 
     this.state.tabs = tabs;

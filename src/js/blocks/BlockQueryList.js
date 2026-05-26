@@ -1,5 +1,6 @@
-import { Component, Model, Backend } from 'veda-client';
+import { Component, Backend } from 'veda-client';
 import { getString } from '../utils/blockData.js';
+import { loadModelsOrdered } from '../utils/loadModels.js';
 
 export default class BlockQueryList extends Component(HTMLElement) {
   static tag = 'block-query-list';
@@ -22,7 +23,7 @@ export default class BlockQueryList extends Component(HTMLElement) {
       ].filter(Boolean).join(' ');
 
       const uris  = await Backend.query({ sql: query, limit, sort: order });
-      const items = await Promise.all((uris ?? []).map((uri) => new Model(uri).load()));
+      const items = await loadModelsOrdered(uris ?? []);
       this.state.items = items;
     } catch (e) {
       this.state.error = e.message;

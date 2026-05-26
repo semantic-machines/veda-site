@@ -1,6 +1,7 @@
-import { Component, Model, Backend } from 'veda-client';
+import { Component, Backend } from 'veda-client';
 import lang from '../lang.js';
 import { parseMLString } from '../utils/mlValue.js';
+import { loadModels, loadModelsOrdered } from '../utils/loadModels.js';
 
 function getBiLingual (model, prop) {
   const result = { ru: '', en: '' };
@@ -31,20 +32,14 @@ export default class Footer extends Component(HTMLElement) {
   async _loadFooterData () {
     const site = this.state.model;
 
-    // Load footer menu links from the site model
-    const menus = await Promise.all(
-      (site?.['site:hasNavMenu'] ?? []).map(async (ref) => {
-        const menu = new Model(ref.id);
-        await menu.load();
-        return menu;
-      })
-    );
+    const menus = await loadModelsOrdered(site?.['site:hasNavMenu'] ?? []);
     const footerMenu = menus.find((m) => m['site:navPosition']?.[0] === 'footer');
     if (footerMenu) {
-      const items = await Promise.all(
-        (footerMenu['site:hasMenuItem'] ?? []).map(async (ref) => {
-          const item = new Model(ref.id);
-          await item.load();
+      const itemMap = await loadModels(footerMenu['site:hasMenuItem'] ?? []);
+      const items = (footerMenu['site:hasMenuItem'] ?? [])
+        .map((ref) => {
+          const item = itemMap.get(ref.id);
+          if (!item) return null;
           const pageUri = item['site:targetPage']?.[0]?.id ?? null;
           const extUrl  = item['site:url']?.[0] ?? null;
           return {
@@ -58,7 +53,7 @@ export default class Footer extends Component(HTMLElement) {
             external: !pageUri && !!extUrl,
           };
         })
-      );
+        .filter(Boolean);
       this.state.footerLinks = items
         .filter((i) => !i.hidden && i.href)
         .sort((a, b) => a.order - b.order);

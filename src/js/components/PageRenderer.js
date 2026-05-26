@@ -1,5 +1,6 @@
-import { Component, Model } from 'veda-client';
+import { Component } from 'veda-client';
 import { getOrder } from '../utils/blockData.js';
+import { loadModelsOrdered } from '../utils/loadModels.js';
 
 const BLOCK_LOADERS = {
   'hero':          () => import('../blocks/BlockHero.js'),
@@ -30,15 +31,7 @@ export default class PageRenderer extends Component(HTMLElement) {
       if (!page) throw new Error('No page model');
       if (!page.isLoaded?.()) await page.load();
 
-      const blockRefs = page['site:hasBlock'] ?? [];
-      const models = await Promise.all(
-        blockRefs.map(async (ref) => {
-          const block = new Model(ref.id);
-          await block.load();
-          return block;
-        })
-      );
-
+      const models = await loadModelsOrdered(page['site:hasBlock'] ?? []);
       models.sort((a, b) => getOrder(a) - getOrder(b));
 
       // Pre-register custom elements and warm Model.cache with loaded models.

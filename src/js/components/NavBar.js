@@ -1,6 +1,7 @@
-import { Component, Model } from 'veda-client';
+import { Component } from 'veda-client';
 import lang from '../lang.js';
 import { parseMLString } from '../utils/mlValue.js';
+import { loadModels, loadModelsOrdered } from '../utils/loadModels.js';
 
 const CSS_TOKENS = [
   ['colorPrimary',      '--color-primary'],
@@ -48,11 +49,11 @@ function getBiLingual (model, prop) {
   return result;
 }
 
-async function loadMenuItems (refs) {
-  const items = await Promise.all(
-    refs.map(async (ref) => {
-      const item = new Model(ref.id);
-      await item.load();
+function mapMenuItems (refs, itemMap) {
+  return (refs ?? [])
+    .map((ref) => {
+      const item = itemMap.get(ref.id);
+      if (!item) return null;
       return {
         id:      item.id,
         labelBi: getBiLingual(item, 'rdfs:label'),
@@ -61,8 +62,7 @@ async function loadMenuItems (refs) {
         pageUri: item['site:targetPage']?.[0]?.id ?? null,
       };
     })
-  );
-  return items
+    .filter(Boolean)
     .filter((i) => !i.hidden && i.pageUri)
     .sort((a, b) => a.order - b.order);
 }
@@ -105,16 +105,16 @@ export default class NavBar extends Component(HTMLElement) {
       : null;
 
     try {
-      const menus = await Promise.all(
-        (site?.['site:hasNavMenu'] ?? []).map(async (ref) => {
-          const menu = new Model(ref.id);
-          await menu.load();
-          const items = await loadMenuItems(menu['site:hasMenuItem'] ?? []);
-          return { position: menu['site:navPosition']?.[0] ?? 'main', items };
-        })
-      );
+      const menuRefs = site?.['site:hasNavMenu'] ?? [];
+      const menus = await loadModelsOrdered(menuRefs);
+      const itemRefs = menus.flatMap((menu) => menu['site:hasMenuItem'] ?? []);
+      const itemMap = await loadModels(itemRefs);
+      const menusWithItems = menus.map((menu) => ({
+        position: menu['site:navPosition']?.[0] ?? 'main',
+        items: mapMenuItems(menu['site:hasMenuItem'], itemMap),
+      }));
 
-      const mainMenu = menus.find((m) => m.position === 'main') ?? { items: [] };
+      const mainMenu = menusWithItems.find((m) => m.position === 'main') ?? { items: [] };
       this.state.navItems = mainMenu.items.map((item) => ({
         id:      item.pageUri,
         pageUri: item.pageUri,
