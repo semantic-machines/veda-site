@@ -1,4 +1,4 @@
-import { Component, Model } from 'veda-client';
+import { Component, Model, html, raw } from 'veda-client';
 import { marked } from 'marked';
 import {
   escapeHtml, getBiLingual, setBiLingual, saveModel,
@@ -231,7 +231,7 @@ export default class CatalogEditor extends Component(HTMLElement) {
   }
 
   render () {
-    if (this.state.loading) return '<div class="loading">Загрузка...</div>';
+    if (this.state.loading) return html`<div class="loading">Загрузка...</div>`;
     if (this.state.view === 'edit') return this.renderEditor();
     if (this.state.view === 'apps') return this.renderAppList();
     return this.renderAspectList();
@@ -255,12 +255,12 @@ export default class CatalogEditor extends Component(HTMLElement) {
       </div>
     `).join('');
 
-    return `
+    return html`
       <div>
         <h2>Каталог приложений</h2>
         <p class="text-muted" style="margin:.5rem 0 1rem">Аспекты и приложения со страницы «Приложения».</p>
-        ${msgHtml}
-        <div class="article-list">${items}</div>
+        ${raw(msgHtml)}
+        <div class="article-list">${raw(items)}</div>
       </div>
     `;
   }
@@ -280,12 +280,12 @@ export default class CatalogEditor extends Component(HTMLElement) {
       </div>
     `).join('');
 
-    return `
+    return html`
       <div>
         <button class="btn btn-outline btn-sm" onclick="{backToAspects}" style="margin-bottom:1rem">← Аспекты</button>
         <h2>${escapeHtml(aspect?.labelRu ?? '')}</h2>
-        ${msgHtml}
-        <div class="article-list">${items}</div>
+        ${raw(msgHtml)}
+        <div class="article-list">${raw(items)}</div>
       </div>
     `;
   }
@@ -302,7 +302,7 @@ export default class CatalogEditor extends Component(HTMLElement) {
 
     const fields = this._renderFields();
 
-    return `
+    return html`
       <div class="article-editor">
         <div class="editor-toolbar">
           <h2 class="editor-title">${escapeHtml(meta?.labelRu ?? this.state.selectedApp)}</h2>
@@ -318,8 +318,8 @@ export default class CatalogEditor extends Component(HTMLElement) {
             </button>
           </div>
         </div>
-        ${msgHtml}
-        ${fields}
+        ${raw(msgHtml)}
+        ${raw(fields)}
       </div>
     `;
   }

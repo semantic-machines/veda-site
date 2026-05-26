@@ -1,4 +1,4 @@
-import { Component } from 'veda-client';
+import { Component, raw } from 'veda-client';
 import { getMarkdown } from '../utils/blockData.js';
 
 /**
@@ -22,10 +22,10 @@ export default class SiteMarkdown extends Component(HTMLElement) {
     });
   }
 
-  post () {
+  render () {
     const prop = this.getAttribute('prop');
-    this.innerHTML = getMarkdown(this.state.model, prop) || '';
+    const md   = getMarkdown(this.state.model, prop) || '';
+    if (!md) return '';
+    return raw`${md}`;
   }
-
-  render () { return ''; }
 }

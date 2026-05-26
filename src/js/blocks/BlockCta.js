@@ -1,10 +1,10 @@
-import { Component } from 'veda-client';
+import { Component, html } from 'veda-client';
 
 export default class BlockCta extends Component(HTMLElement) {
   static tag = 'block-cta';
 
   render () {
-    return `
+    return html`
       <section class="page-section block-cta
                        {state.model['site:bgVariant']?.[0] === 'primary' ? 'page-section--primary' : state.model['site:bgVariant']?.[0] === 'dark' ? 'page-section--dark' : state.model['site:bgVariant']?.[0] === 'alt' ? 'page-section--alt' : ''}
                        {state.model['site:cssClass']?.[0] || ''}"

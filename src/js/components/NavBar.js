@@ -1,4 +1,4 @@
-import { Component } from 'veda-client';
+import { Component, html } from 'veda-client';
 import lang from '../lang.js';
 import { parseMLString } from '../utils/mlValue.js';
 import { loadModels, loadModelsOrdered } from '../utils/loadModels.js';
@@ -115,12 +115,13 @@ export default class NavBar extends Component(HTMLElement) {
       }));
 
       const mainMenu = menusWithItems.find((m) => m.position === 'main') ?? { items: [] };
-      this.state.navItems = mainMenu.items.map((item) => ({
+      this._navItemsBase = mainMenu.items.map((item) => ({
         id:      item.pageUri,
         pageUri: item.pageUri,
         labelRu: item.labelBi.ru,
         labelEn: item.labelBi.en,
       }));
+      this._syncNavItems();
 
       this.state.homeUri = site?.['site:homePage']?.[0]?.id
         ?? mainMenu.items[0]?.pageUri
@@ -132,6 +133,7 @@ export default class NavBar extends Component(HTMLElement) {
     this.effect(() => {
       this.state.lang = lang.current;
       this.state.page = lang.page;
+      this._syncNavItems();
     });
 
     this.watch(
@@ -174,46 +176,70 @@ export default class NavBar extends Component(HTMLElement) {
     location.hash = `#/${btn.dataset.lang}/p/${this.state.page}`;
   }
 
+  _syncNavItems () {
+    if (!this._navItemsBase) return;
+    const l    = lang.current;
+    const page = lang.page;
+    this.state.navItems = this._navItemsBase.map((item) => ({
+      ...item,
+      label:     l === 'en' ? (item.labelEn || item.labelRu) : item.labelRu,
+      linkClass: page === item.pageUri ? 'active' : '',
+    }));
+  }
+
+  get menuClass () {
+    return this.state.menuOpen ? 'navbar__menu is-open' : 'navbar__menu';
+  }
+
+  get ruLangClass () {
+    return this.state.lang === 'ru' ? 'navbar__lang-btn active' : 'navbar__lang-btn';
+  }
+
+  get enLangClass () {
+    return this.state.lang === 'en' ? 'navbar__lang-btn active' : 'navbar__lang-btn';
+  }
+
   render () {
-    const logoHtml = this.state.logoUrl
-      ? `<img src="${this.state.logoUrl}" alt="Смысловые машины" class="navbar__logo"
-              onerror="this.style.display='none';this.nextElementSibling.style.display='inline'">
-         <span class="navbar__logo-text" style="display:none">Смысловые машины</span>`
-      : `<span class="navbar__logo-text">Смысловые машины</span>`;
-
-    const navMenuHtml = this.state.navItems.length
-      ? `<ul id="site-nav-menu" class="navbar__nav"
-              items="{state.navItems}" as="p" key="id">
-           <li class="navbar__nav-item">
-             <a href="#/{state.lang}/p/{p.pageUri}"
-                class="{state.page === p.pageUri ? 'active' : ''}"
-                onclick="{onNavClick}">
-               {state.lang === 'en' ? p.labelEn || p.labelRu : p.labelRu}
-             </a>
-           </li>
-         </ul>`
-      : `<ul class="navbar__nav navbar__nav--skeleton" aria-hidden="true">
-           <li class="navbar__nav-item"><span></span></li>
-           <li class="navbar__nav-item"><span></span></li>
-           <li class="navbar__nav-item"><span></span></li>
-           <li class="navbar__nav-item"><span></span></li>
-         </ul>`;
-
-    return `
+    return html`
       <nav class="navbar">
         <div class="container navbar__inner">
 
-          <a class="navbar__brand" href="#/{state.lang}/p/{state.homeUri}">${logoHtml}</a>
+          <a class="navbar__brand" href="#/{state.lang}/p/{state.homeUri}">
+            <veda-if condition="{state.logoUrl}">
+              <img src="{state.logoUrl}" alt="Смысловые машины" class="navbar__logo"
+                   onerror="this.style.display='none';this.nextElementSibling.style.display='inline'">
+              <span class="navbar__logo-text" style="display:none">Смысловые машины</span>
+            </veda-if>
+            <veda-if condition="{!state.logoUrl}">
+              <span class="navbar__logo-text">Смысловые машины</span>
+            </veda-if>
+          </a>
 
-          <div class="navbar__menu {state.menuOpen ? 'is-open' : ''}">
-            ${navMenuHtml}
+          <div class="{menuClass}">
+            <veda-if condition="{state.navItems.length}">
+              <ul id="site-nav-menu" class="navbar__nav">
+                <veda-loop items="{state.navItems}" as="p" key="id">
+                  <li class="navbar__nav-item">
+                    <a href="#/{state.lang}/p/{p.pageUri}"
+                       class="{p.linkClass}"
+                       onclick="{onNavClick}">{p.label}</a>
+                  </li>
+                </veda-loop>
+              </ul>
+            </veda-if>
+            <veda-if condition="{!state.navItems.length}">
+              <ul class="navbar__nav navbar__nav--skeleton" aria-hidden="true">
+                <li class="navbar__nav-item"><span></span></li>
+                <li class="navbar__nav-item"><span></span></li>
+                <li class="navbar__nav-item"><span></span></li>
+                <li class="navbar__nav-item"><span></span></li>
+              </ul>
+            </veda-if>
           </div>
 
           <div class="navbar__lang">
-            <button class="navbar__lang-btn {state.lang === 'ru' ? 'active' : ''}"
-                    data-lang="ru" onclick="{switchLang}">RU</button>
-            <button class="navbar__lang-btn {state.lang === 'en' ? 'active' : ''}"
-                    data-lang="en" onclick="{switchLang}">EN</button>
+            <button class="{ruLangClass}" data-lang="ru" onclick="{switchLang}">RU</button>
+            <button class="{enLangClass}" data-lang="en" onclick="{switchLang}">EN</button>
           </div>
 
           <button type="button" class="navbar__toggle" onclick="{toggleMenu}"

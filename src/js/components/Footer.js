@@ -1,4 +1,4 @@
-import { Component, Backend } from 'veda-client';
+import { Component, Backend, html } from 'veda-client';
 import lang from '../lang.js';
 import { parseMLString } from '../utils/mlValue.js';
 import { loadModels, loadModelsOrdered } from '../utils/loadModels.js';
@@ -24,9 +24,33 @@ export default class Footer extends Component(HTMLElement) {
     this.state.lang        = lang.current;
   }
 
+  get year () {
+    return new Date().getFullYear();
+  }
+
+  get poweredByText () {
+    return this.state.lang === 'en' ? 'Powered by' : 'Работает на';
+  }
+
+  get adminLinkText () {
+    return this.state.lang === 'en' ? 'Site management' : 'Управление сайтом';
+  }
+
   added () {
-    this.effect(() => { this.state.lang = lang.current; });
+    this.effect(() => {
+      this.state.lang = lang.current;
+      this._syncFooterLinks();
+    });
     void this._loadFooterData();
+  }
+
+  _syncFooterLinks () {
+    if (!this._footerLinksBase) return;
+    const l = this.state.lang;
+    this.state.footerLinks = this._footerLinksBase.map((item) => ({
+      ...item,
+      label: l === 'en' ? (item.labelBi.en || item.labelBi.ru) : item.labelBi.ru,
+    }));
   }
 
   async _loadFooterData () {
@@ -47,16 +71,16 @@ export default class Footer extends Component(HTMLElement) {
             labelBi: getBiLingual(item, 'rdfs:label'),
             order:   item['v-s:order']?.[0] ?? 0,
             hidden:  !!item['v-s:deleted']?.[0],
-            href:    pageUri
-              ? `#/{lang}/p/${pageUri}`
-              : (extUrl ?? null),
+            pageUri,
+            href:    extUrl ?? null,
             external: !pageUri && !!extUrl,
           };
         })
         .filter(Boolean);
-      this.state.footerLinks = items
-        .filter((i) => !i.hidden && i.href)
+      this._footerLinksBase = items
+        .filter((i) => !i.hidden && (i.pageUri || i.href))
         .sort((a, b) => a.order - b.order);
+      this._syncFooterLinks();
     }
 
     try {
@@ -75,23 +99,7 @@ export default class Footer extends Component(HTMLElement) {
   }
 
   render () {
-    const year = new Date().getFullYear();
-    const lang = this.state.lang;
-
-    const linkItems = this.state.footerLinks
-      .map((l) => {
-        const label = lang === 'en' ? (l.labelBi.en || l.labelBi.ru) : l.labelBi.ru;
-        const href  = l.href.replace('{lang}', this.state.lang);
-        const ext   = l.external ? ' target="_blank"' : '';
-        return `<li><a href="${href}"${ext}>${label}</a></li>`;
-      })
-      .join('');
-
-    const adminLink = this.state.isAdmin
-      ? `<li><a href="#/cms">${lang === 'en' ? 'Site management' : 'Управление сайтом'}</a></li>`
-      : '';
-
-    return `
+    return html`
       <footer class="footer">
         <div class="container footer__inner">
           <div class="footer__brand">
@@ -103,14 +111,25 @@ export default class Footer extends Component(HTMLElement) {
             <span class="footer__logo-text" style="display:none">Смысловые машины</span>
           </div>
           <div class="footer__copyright text-muted">
-            &copy; ${year} Semantic Machines.
-            ${lang === 'en' ? 'Powered by' : 'Работает на'}
+            &copy; {year} Semantic Machines.
+            {poweredByText}
             <a href="https://github.com/semantic-machines/veda" target="_blank">Veda</a>.
           </div>
           <ul class="footer__links">
-            ${linkItems}
+            <veda-loop items="{state.footerLinks}" as="l" key="id">
+              <li>
+                <veda-if condition="{l.pageUri}">
+                  <a href="#/{state.lang}/p/{l.pageUri}">{l.label}</a>
+                </veda-if>
+                <veda-if condition="{l.external}">
+                  <a href="{l.href}" target="_blank">{l.label}</a>
+                </veda-if>
+              </li>
+            </veda-loop>
             <li><a href="https://semantic-machines.com" target="_blank">semantic-machines.com</a></li>
-            ${adminLink}
+            <veda-if condition="{state.isAdmin}">
+              <li><a href="#/cms">{adminLinkText}</a></li>
+            </veda-if>
           </ul>
         </div>
       </footer>

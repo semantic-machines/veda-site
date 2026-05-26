@@ -1,5 +1,4 @@
-import { Component } from 'veda-client';
-import { escapeHtml } from './cmsUtils.js';
+import { Component, html } from 'veda-client';
 
 export default class MediaUploader extends Component(HTMLElement) {
   static tag = 'cms-media-uploader';
@@ -56,7 +55,12 @@ export default class MediaUploader extends Component(HTMLElement) {
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const data = await res.json();
         const uri = data.uri ?? data.id;
-        results.push({ name: file.name, uri, url: `/files/${uri}` });
+        results.push({
+          name: file.name,
+          uri,
+          url: `/files/${uri}`,
+          isImage: /\.(jpg|jpeg|png|webp|svg|gif)$/i.test(file.name),
+        });
       } catch (e) {
         results.push({ name: file.name, error: e.message });
       }
@@ -82,39 +86,38 @@ export default class MediaUploader extends Component(HTMLElement) {
   }
 
   render () {
-    const s = this.state;
-    const msgHtml = s.message
-      ? `<div class="alert alert-${s.message.type}">${escapeHtml(s.message.text)}</div>`
-      : '';
-
-    const fileItems = s.files.map((f) => {
-      const isImage = /\.(jpg|jpeg|png|webp|svg|gif)$/i.test(f.url || '');
-      return `
-      <div class="media-item" data-uri="${escapeHtml(f.uri)}" onclick="{copyUri}"
-           title="Нажмите чтобы скопировать URI">
-        ${isImage
-          ? `<img src="${escapeHtml(f.url)}" alt="${escapeHtml(f.name)}">`
-          : '<div style="height:80px;display:flex;align-items:center;justify-content:center;font-size:2rem">📄</div>'
-        }
-        <div class="media-item__name">${escapeHtml(f.name)}</div>
-      </div>`;
-    }).join('');
-
-    return `
+    return html`
       <div>
         <h2>Медиафайлы</h2>
         <p class="text-muted" style="margin:.5rem 0 1.5rem">
           Загружайте файлы и копируйте URI для вставки в контент.
         </p>
-        ${msgHtml}
+        <veda-if condition="{state.message}">
+          <div class="alert alert-{state.message.type}">{state.message.text}</div>
+        </veda-if>
         <div class="media-uploader" onclick="{openFilePicker}">
           <div class="media-uploader__icon">📁</div>
-          ${s.uploading
-            ? '<p>Загружаю...</p>'
-            : '<p>Перетащите файлы сюда или нажмите для выбора</p>'
-          }
+          <veda-if condition="{state.uploading}"><p>Загружаю...</p></veda-if>
+          <veda-if condition="{!state.uploading}">
+            <p>Перетащите файлы сюда или нажмите для выбора</p>
+          </veda-if>
         </div>
-        ${fileItems ? `<div class="media-list">${fileItems}</div>` : ''}
+        <veda-if condition="{state.files.length}">
+          <div class="media-list">
+            <veda-loop items="{state.files}" as="f" key="uri">
+              <div class="media-item" data-uri="{f.uri}" onclick="{copyUri}"
+                   title="Нажмите чтобы скопировать URI">
+                <veda-if condition="{f.isImage}">
+                  <img src="{f.url}" alt="{f.name}">
+                </veda-if>
+                <veda-if condition="{!f.isImage}">
+                  <div style="height:80px;display:flex;align-items:center;justify-content:center;font-size:2rem">📄</div>
+                </veda-if>
+                <div class="media-item__name">{f.name}</div>
+              </div>
+            </veda-loop>
+          </div>
+        </veda-if>
       </div>
     `;
   }

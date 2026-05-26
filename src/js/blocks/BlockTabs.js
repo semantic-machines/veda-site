@@ -1,4 +1,4 @@
-import { Component } from 'veda-client';
+import { Component, html, raw } from 'veda-client';
 import { getText, getMarkdown, getFileUrl, getString, getOrder } from '../utils/blockData.js';
 import { loadModels, loadModelsOrdered } from '../utils/loadModels.js';
 import lang from '../lang.js';
@@ -47,14 +47,13 @@ export default class BlockTabs extends Component(HTMLElement) {
       };
     });
     tabs.sort((a, b) => a.order - b.order);
-
-    this.state.tabs = tabs;
+    this.state.tabs = tabs.map((tab, idx) => ({ ...tab, idx }));
 
     if (initialItemId) {
-      for (const tab of tabs) {
+      for (const tab of this.state.tabs) {
         const found = tab.items.find((i) => i.id === initialItemId);
         if (found) {
-          _lastTabIdx            = tabs.indexOf(tab);
+          _lastTabIdx            = tab.idx;
           this.state.detailItem  = found;
           this.state.activeIdx   = _lastTabIdx;
           this.state.activeItems = tab.items;
@@ -63,8 +62,22 @@ export default class BlockTabs extends Component(HTMLElement) {
       }
     } else {
       this.state.activeIdx   = _lastTabIdx;
-      this.state.activeItems = tabs[_lastTabIdx]?.items ?? tabs[0]?.items ?? [];
+      this.state.activeItems = this.state.tabs[_lastTabIdx]?.items ?? this.state.tabs[0]?.items ?? [];
     }
+  }
+
+  get backLabel () {
+    return lang.current === 'ru' ? '← Назад' : '← Back';
+  }
+
+  get sectionAltClass () {
+    return (this.state.bgVariant || 'default') === 'alt' ? ' page-section--alt' : '';
+  }
+
+  get activeTabLabel () {
+    const tabs = this.state.tabs ?? [];
+    const idx  = this.state.activeIdx ?? 0;
+    return tabs[idx]?.label ?? '';
   }
 
   selectTab (e) {
@@ -97,55 +110,62 @@ export default class BlockTabs extends Component(HTMLElement) {
   }
 
   render () {
-    const tabs        = this.state.tabs ?? [];
-    const activeIdx   = this.state.activeIdx ?? 0;
-    const activeItems = this.state.activeItems ?? [];
-    const detailItem  = this.state.detailItem;
-    const bg          = this.state.bgVariant || 'default';
-    const altBg       = bg === 'alt' ? ' page-section--alt' : '';
-    const l           = lang.current;
-
-    if (detailItem) {
-      const back = l === 'ru' ? '← Назад' : '← Back';
-      return `
+    if (this.state.detailItem) {
+      return html`
         <section class="page-section {state.cssClass}">
           <div class="container">
             <div class="app-detail__header">
-              ${detailItem.iconUrl ? `<img src="${detailItem.iconUrl}" alt="" class="app-detail__icon">` : ''}
+              <veda-if condition="{state.detailItem.iconUrl}">
+                <img src="{state.detailItem.iconUrl}" alt="" class="app-detail__icon">
+              </veda-if>
               <div>
-                <h1 class="page-heading">${detailItem.label}</h1>
-                ${detailItem.comment ? `<p class="lead text-muted">${detailItem.comment}</p>` : ''}
+                <h1 class="page-heading">{state.detailItem.label}</h1>
+                <veda-if condition="{state.detailItem.comment}">
+                  <p class="lead text-muted">{state.detailItem.comment}</p>
+                </veda-if>
               </div>
             </div>
-            ${detailItem.summaryHtml ? `<div class="markdown app-detail__summary">${detailItem.summaryHtml}</div>` : ''}
-            ${detailItem.descHtml    ? `<div class="markdown app-detail__desc">${detailItem.descHtml}</div>` : ''}
-            <button class="btn btn-outline app-detail__back" onclick="{closeItem}">${back}</button>
+            <veda-if condition="{state.detailItem.summaryHtml}">
+              <div class="markdown app-detail__summary">${raw(this.state.detailItem.summaryHtml)}</div>
+            </veda-if>
+            <veda-if condition="{state.detailItem.descHtml}">
+              <div class="markdown app-detail__desc">${raw(this.state.detailItem.descHtml)}</div>
+            </veda-if>
+            <button class="btn btn-outline app-detail__back" onclick="{closeItem}">{backLabel}</button>
           </div>
         </section>
       `;
     }
 
-    const tabsHtml = tabs.map((tab, i) => `
-      <button class="aspect-tab${i === activeIdx ? ' active' : ''}"
-              data-idx="${i}" onclick="{selectTab}">${tab.shortLabel}</button>
-    `).join('');
-
-    const cardsHtml = activeItems.map((item) => `
-      <div class="app-card" data-item-id="${item.id}" onclick="{openItem}">
-        ${item.iconUrl ? `<img src="${item.iconUrl}" alt="" class="app-card__icon" loading="lazy">` : ''}
-        <div class="app-card__title">${item.label}</div>
-        ${item.comment ? `<div class="app-card__desc">${item.comment}</div>` : ''}
-      </div>
-    `).join('');
-
-    return `
+    return html`
       <div class="{state.cssClass}">
-        ${this.state.heading ? '<div class="container page-section"><h2 class="section-heading">{state.heading}</h2></div>' : ''}
-        <div class="aspects-section${altBg}">
+        <veda-if condition="{state.heading}">
+          <div class="container page-section">
+            <h2 class="section-heading">{state.heading}</h2>
+          </div>
+        </veda-if>
+        <div class="aspects-section{sectionAltClass}">
           <div class="container">
-            <div class="aspects-tabs">${tabsHtml}</div>
-            <h2 class="aspect-title">${tabs[activeIdx]?.label ?? ''}</h2>
-            <div class="app-grid">${cardsHtml}</div>
+            <div class="aspects-tabs">
+              <veda-loop items="{state.tabs}" as="tab" key="id">
+                <button class="aspect-tab !{ tab.idx === state.activeIdx ? ' active' : ''}"
+                        data-idx="{tab.idx}" onclick="{selectTab}">{tab.shortLabel}</button>
+              </veda-loop>
+            </div>
+            <h2 class="aspect-title">{activeTabLabel}</h2>
+            <div class="app-grid">
+              <veda-loop items="{state.activeItems}" as="item" key="id">
+                <div class="app-card" data-item-id="{item.id}" onclick="{openItem}">
+                  <veda-if condition="{item.iconUrl}">
+                    <img src="{item.iconUrl}" alt="" class="app-card__icon" loading="lazy">
+                  </veda-if>
+                  <div class="app-card__title">{item.label}</div>
+                  <veda-if condition="{item.comment}">
+                    <div class="app-card__desc">{item.comment}</div>
+                  </veda-if>
+                </div>
+              </veda-loop>
+            </div>
           </div>
         </div>
       </div>

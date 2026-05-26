@@ -1,6 +1,12 @@
 /* ======================  NAVBAR  ====================== */
 /* Horizontal nav from 1024px; hamburger below (6+ menu items) */
 
+/* veda-if / veda-loop stay in DOM but do not break flex/grid (children participate in parent layout) */
+veda-if,
+veda-loop {
+  display: contents;
+}
+
 site-navbar {
   display: block;
   position: relative;

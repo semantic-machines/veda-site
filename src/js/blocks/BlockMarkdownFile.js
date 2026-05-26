@@ -1,4 +1,4 @@
-import { Component } from 'veda-client';
+import { Component, html, raw } from 'veda-client';
 import { marked } from 'marked';
 import { getText, getString } from '../utils/blockData.js';
 
@@ -31,14 +31,9 @@ export default class BlockMarkdownFile extends Component(HTMLElement) {
     }
   }
 
-  post () {
-    const slot = this.querySelector('[data-md-slot]');
-    if (slot && this.state.html) slot.innerHTML = this.state.html;
-  }
-
   render () {
     if (this.state.error) {
-      return `
+      return html`
         <section class="page-section {state.cssClass}">
           <div class="container">
             <p class="text-muted">Не удалось загрузить документ.</p>
@@ -46,11 +41,13 @@ export default class BlockMarkdownFile extends Component(HTMLElement) {
         </section>`;
     }
 
-    return `
+    return html`
       <section class="page-section {state.cssClass}">
         <div class="container">
-          ${this.state.heading ? '<h1 class="page-heading">{state.heading}</h1>' : ''}
-          <div class="markdown doc-content" data-md-slot></div>
+          <veda-if condition="{state.heading}">
+            <h1 class="page-heading">{state.heading}</h1>
+          </veda-if>
+          <div class="markdown doc-content">${raw(this.state.html || '')}</div>
         </div>
       </section>`;
   }

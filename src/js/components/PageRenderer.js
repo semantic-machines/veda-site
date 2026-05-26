@@ -1,4 +1,4 @@
-import { Component } from 'veda-client';
+import { Component, html, raw } from 'veda-client';
 import { getOrder } from '../utils/blockData.js';
 import { loadModelsOrdered } from '../utils/loadModels.js';
 
@@ -47,10 +47,12 @@ export default class PageRenderer extends Component(HTMLElement) {
         }
       }
 
-      this.state.blocks = models.map((m) => ({
-        id:   m.id,
-        type: m['site:blockType']?.[0] ?? '',
-      }));
+      this.state.blocks = models
+        .map((m) => ({
+          id:   m.id,
+          type: m['site:blockType']?.[0] ?? '',
+        }))
+        .filter((b) => b.type && BLOCK_LOADERS[b.type]);
     } catch (e) {
       this.state.error = e.message;
     }
@@ -58,14 +60,17 @@ export default class PageRenderer extends Component(HTMLElement) {
 
   render () {
     if (this.state.error) {
-      return `<div class="container page-section">
-        <p class="text-muted">{state.error}</p>
-      </div>`;
+      return html`
+        <div class="container page-section">
+          <p class="text-muted">{state.error}</p>
+        </div>
+      `;
     }
 
-    return this.state.blocks
-      .filter((b) => b.type && BLOCK_LOADERS[b.type])
+    const blocksHtml = this.state.blocks
       .map((b) => `<block-${b.type} about="${b.id}"></block-${b.type}>`)
-      .join('') || '';
+      .join('');
+
+    return html`${raw(blocksHtml)}`;
   }
 }

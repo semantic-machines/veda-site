@@ -1,10 +1,10 @@
-import { Component } from 'veda-client';
+import { Component, html } from 'veda-client';
 
 export default class BlockHero extends Component(HTMLElement) {
   static tag = 'block-hero';
 
   render () {
-    return `
+    return html`
       <section class="page-section block-hero
                        {state.model['site:bgVariant']?.[0] === 'dark' ? 'page-section--dark' : state.model['site:bgVariant']?.[0] === 'alt' ? 'page-section--alt' : ''}
                        {state.model['site:cssClass']?.[0] || ''}"

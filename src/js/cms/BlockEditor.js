@@ -1,4 +1,4 @@
-import { Component, Model } from 'veda-client';
+import { Component, Model, html, raw } from 'veda-client';
 import { marked } from 'marked';
 import { getOrder } from '../utils/blockData.js';
 import { loadModels, loadModelsOrdered } from '../utils/loadModels.js';
@@ -239,7 +239,7 @@ export default class BlockEditor extends Component(HTMLElement) {
   }
 
   render () {
-    if (this.state.loading) return '<div class="loading">Загрузка...</div>';
+    if (this.state.loading) return html`<div class="loading">Загрузка...</div>`;
     if (this.state.selectedBlock) return this.renderBlockEditor();
     if (this.state.selectedPage) return this.renderBlockList();
     return this.renderPageList();
@@ -264,12 +264,12 @@ export default class BlockEditor extends Component(HTMLElement) {
       </div>
     `).join('');
 
-    return `
+    return html`
       <div>
         <h2>Контент страниц</h2>
         <p class="text-muted" style="margin:.5rem 0 1rem">Выберите страницу для редактирования блоков.</p>
-        ${msgHtml}
-        <div class="article-list">${items}</div>
+        ${raw(msgHtml)}
+        <div class="article-list">${raw(items)}</div>
       </div>
     `;
   }
@@ -295,15 +295,15 @@ export default class BlockEditor extends Component(HTMLElement) {
       </div>
     `).join('');
 
-    return `
+    return html`
       <div>
         <div style="margin-bottom:1rem">
           <button class="btn btn-outline btn-sm" onclick="{backToPages}">← Страницы</button>
         </div>
         <h2>${escapeHtml(page?.labelRu ?? this.state.selectedPage)}</h2>
         <p class="text-muted" style="margin:.5rem 0 1rem">Блоки страницы (по порядку отображения).</p>
-        ${msgHtml}
-        <div class="article-list">${items}</div>
+        ${raw(msgHtml)}
+        <div class="article-list">${raw(items)}</div>
       </div>
     `;
   }
@@ -390,31 +390,30 @@ export default class BlockEditor extends Component(HTMLElement) {
 
     const unsupported = !ML_FIELDS[type] && type !== 'doc-tabs';
 
-    return `
+    return html`
       <div class="article-editor">
         <div class="editor-toolbar">
           <h2 class="editor-title">${escapeHtml(meta?.label ?? this.state.selectedBlock)}</h2>
           <div class="editor-toolbar__actions">
-            ${!unsupported ? `
+            ${raw(!unsupported ? `
               <button class="btn btn-outline btn-sm" onclick="{togglePreview}">
                 ${this.state.preview ? '✏️ Редактор' : '👁 Предпросмотр'}
               </button>
               <button class="btn btn-primary btn-sm" onclick="{save}" ${this.state.saving ? 'disabled' : ''}>
                 ${this.state.saving ? 'Сохраняю...' : '💾 Сохранить'}
               </button>
-            ` : ''}
+            ` : '')}
             <button class="btn btn-outline btn-sm" onclick="{backToBlocks}">← Блоки</button>
           </div>
         </div>
-        ${msgHtml}
-        ${unsupported
+        ${raw(msgHtml)}
+        ${raw(unsupported
           ? `<p class="text-muted">Блок типа «${escapeHtml(type)}» редактируется в онтологии или в разделе «Каталог».</p>`
           : `
             ${mlFields}
             ${strFields}
             ${type === 'doc-tabs' ? `<h3 style="margin-top:1.5rem;font-size:.95rem">Вкладки документации</h3>${docItems}` : ''}
-          `
-        }
+          `)}
       </div>
     `;
   }

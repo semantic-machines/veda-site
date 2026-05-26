@@ -1,4 +1,4 @@
-import { Component, Backend } from 'veda-client';
+import { Component, Backend, html } from 'veda-client';
 import { getString } from '../utils/blockData.js';
 import { loadModelsOrdered } from '../utils/loadModels.js';
 
@@ -37,7 +37,7 @@ export default class BlockQueryList extends Component(HTMLElement) {
   }
 
   render () {
-    return `
+    return html`
       <section class="page-section
                        {state.model['site:bgVariant']?.[0] === 'alt' ? 'page-section--alt' : ''}
                        {state.model['site:cssClass']?.[0] || ''}"
@@ -58,7 +58,7 @@ export default class BlockQueryList extends Component(HTMLElement) {
                    about="{item.id}">
                 <div class="app-card__title" property="rdfs:label"></div>
                 <div class="app-card__desc" property="rdfs:comment"></div>
-                <site-markdown :model="{state.model}" prop="site:summary" class="markdown"></site-markdown>
+                <site-markdown :model="{item}" prop="site:summary" class="markdown"></site-markdown>
               </div>
             </veda-loop>
           </div>

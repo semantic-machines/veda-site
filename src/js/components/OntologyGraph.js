@@ -1,4 +1,4 @@
-import { Component, Backend } from 'veda-client';
+import { Component, Backend, html } from 'veda-client';
 import { forceSimulation, forceManyBody, forceLink, forceCenter, forceCollide } from 'd3-force';
 import lang from '../lang.js';
 
@@ -77,6 +77,18 @@ export default class OntologyGraph extends Component(HTMLElement) {
     this.state.ready   = false;
     this.state.error   = null;
     this.state.loading = true;
+    this.state.legend  = LEGEND;
+    this.state.lang    = lang.current;
+  }
+
+  get graphHint () {
+    return this.state.lang === 'ru'
+      ? 'Двойной клик — раскрыть соседей. Колёсико — масштаб. Тяните узлы.'
+      : 'Double-click to expand. Scroll to zoom. Drag nodes.';
+  }
+
+  get resetLabel () {
+    return this.state.lang === 'ru' ? '⌂ Сброс' : '⌂ Reset';
   }
 
   get _rootUri () {
@@ -84,6 +96,8 @@ export default class OntologyGraph extends Component(HTMLElement) {
   }
 
   async added () {
+    this.effect(() => { this.state.lang = lang.current; });
+
     try {
       await this._expand(this._rootUri);
     } catch (e) {
@@ -96,20 +110,26 @@ export default class OntologyGraph extends Component(HTMLElement) {
 
   render () {
     if (this.state.error) {
-      return `<div class="container page-section"><p class="text-muted">{state.error}</p></div>`;
+      return html`
+        <div class="container page-section">
+          <p class="text-muted">{state.error}</p>
+        </div>
+      `;
     }
-    const l = lang.current;
-    const legendHtml = LEGEND.map(
-      (item) => `<span class="onto-legend-item"><span class="onto-legend-dot" style="background:${item.color}"></span>${item.label[l] || item.label.ru}</span>`
-    ).join('');
-    const hint = l === 'ru' ? 'Двойной клик — раскрыть соседей. Колёсико — масштаб. Тяните узлы.' : 'Double-click to expand. Scroll to zoom. Drag nodes.';
-    const reset = l === 'ru' ? '⌂ Сброс' : '⌂ Reset';
-    return `
+
+    return html`
       <div class="onto-graph-wrap">
         <div class="onto-graph-toolbar">
-          <button class="btn btn-outline onto-graph-btn" onclick="{_resetView}">${reset}</button>
-          <span class="onto-graph-hint">${hint}</span>
-          <div class="onto-legend">${legendHtml}</div>
+          <button class="btn btn-outline onto-graph-btn" onclick="{_resetView}">{resetLabel}</button>
+          <span class="onto-graph-hint">{graphHint}</span>
+          <div class="onto-legend">
+            <veda-loop items="{state.legend}" as="item" key="color">
+              <span class="onto-legend-item">
+                <span class="onto-legend-dot" style="!{ 'background:' + item.color }"></span>
+                !{ item.label[state.lang] || item.label.ru }
+              </span>
+            </veda-loop>
+          </div>
         </div>
         <svg class="onto-graph-svg"></svg>
       </div>

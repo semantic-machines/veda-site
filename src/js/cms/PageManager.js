@@ -1,5 +1,5 @@
-import { Component, Model } from 'veda-client';
-import { escapeHtml, getBiLingual, saveModel } from './cmsUtils.js';
+import { Component, Model, html } from 'veda-client';
+import { getBiLingual, saveModel } from './cmsUtils.js';
 import { loadModels, loadModelsOrdered } from '../utils/loadModels.js';
 
 export default class PageManager extends Component(HTMLElement) {
@@ -77,37 +77,35 @@ export default class PageManager extends Component(HTMLElement) {
   }
 
   render () {
-    if (this.state.loading) return '<div class="loading">Загрузка...</div>';
+    if (this.state.loading) return html`<div class="loading">Загрузка...</div>`;
 
-    const msgHtml = this.state.message
-      ? `<div class="alert alert-${this.state.message.type}">${escapeHtml(this.state.message.text)}</div>`
-      : '';
-
-    const items = this.state.items.map((p) => `
-      <div class="page-item" data-id="${escapeHtml(p.id)}">
-        <span class="page-item__label">
-          ${escapeHtml(p.labelRu)} / ${escapeHtml(p.labelEn)}
-          <span class="text-muted" style="font-weight:400"> — /${escapeHtml(p.slug || '')}</span>
-        </span>
-        <label class="page-item__toggle">
-          <label class="toggle">
-            <input type="checkbox" ${p.enabled ? 'checked' : ''}
-              data-id="${escapeHtml(p.id)}" onchange="{togglePage}">
-            <span class="toggle__slider"></span>
-          </label>
-          ${p.enabled ? 'В меню' : 'Скрыта'}
-        </label>
-      </div>
-    `).join('');
-
-    return `
+    return html`
       <div>
         <h2>Навигация</h2>
         <p class="text-muted" style="margin:.5rem 0 1.5rem">
           Видимость пунктов главного меню. Скрытая страница остаётся доступной по прямой ссылке.
         </p>
-        ${msgHtml}
-        <div class="page-list">${items}</div>
+        <veda-if condition="{state.message}">
+          <div class="alert alert-{state.message.type}">{state.message.text}</div>
+        </veda-if>
+        <div class="page-list">
+          <veda-loop items="{state.items}" as="p" key="id">
+            <div class="page-item" data-id="{p.id}">
+              <span class="page-item__label">
+                {p.labelRu} / {p.labelEn}
+                <span class="text-muted" style="font-weight:400"> — /{p.slug}</span>
+              </span>
+              <label class="page-item__toggle">
+                <label class="toggle">
+                  <input type="checkbox" checked="{p.enabled}"
+                    data-id="{p.id}" onchange="{togglePage}">
+                  <span class="toggle__slider"></span>
+                </label>
+                !{ p.enabled ? 'В меню' : 'Скрыта' }
+              </label>
+            </div>
+          </veda-loop>
+        </div>
       </div>
     `;
   }

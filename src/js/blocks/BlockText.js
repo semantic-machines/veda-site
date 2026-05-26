@@ -1,10 +1,10 @@
-import { Component } from 'veda-client';
+import { Component, html } from 'veda-client';
 
 export default class BlockText extends Component(HTMLElement) {
   static tag = 'block-text';
 
   render () {
-    return `
+    return html`
       <section class="page-section
                        {state.model['site:bgVariant']?.[0] === 'alt' ? 'page-section--alt' : ''}
                        {state.model['site:cssClass']?.[0] || ''}"

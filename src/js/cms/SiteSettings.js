@@ -1,5 +1,5 @@
-import { Component, Model } from 'veda-client';
-import { escapeHtml, getStringProp, setStringProp, saveModel } from './cmsUtils.js';
+import { Component, Model, html } from 'veda-client';
+import { getStringProp, setStringProp, saveModel } from './cmsUtils.js';
 
 const SITE_URI = 'site:VedaSite';
 
@@ -25,6 +25,11 @@ export default class SiteSettings extends Component(HTMLElement) {
     this.state.saving = false;
     this.state.loading = true;
     this.state.message = null;
+    this.state.tokenFieldDefs = TOKEN_FIELDS.map(([prop, label]) => ({ prop, label }));
+  }
+
+  get saveButtonText () {
+    return this.state.saving ? 'Сохраняю...' : '💾 Сохранить';
   }
 
   async added () {
@@ -84,39 +89,34 @@ export default class SiteSettings extends Component(HTMLElement) {
   }
 
   render () {
-    if (this.state.loading) return '<div class="loading">Загрузка...</div>';
+    if (this.state.loading) return html`<div class="loading">Загрузка...</div>`;
 
-    const msgHtml = this.state.message
-      ? `<div class="alert alert-${this.state.message.type}">${escapeHtml(this.state.message.text)}</div>`
-      : '';
-
-    const tokenFields = TOKEN_FIELDS.map(([prop, label]) => `
-      <div class="form-group">
-        <label class="form-label">${label}</label>
-        <input class="form-input" type="text"
-          data-prop="${prop}" value="${escapeHtml(this.state.tokens[prop])}"
-          oninput="{handleToken}">
-      </div>
-    `).join('');
-
-    return `
+    return html`
       <div>
         <h2>Настройки сайта</h2>
         <p class="text-muted" style="margin:.5rem 0 1.5rem">
           Дизайн-токены и пользовательский CSS для <code>${SITE_URI}</code>.
         </p>
-        ${msgHtml}
+        <veda-if condition="{state.message}">
+          <div class="alert alert-{state.message.type}">{state.message.text}</div>
+        </veda-if>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.5rem">
-          ${tokenFields}
+          <veda-loop items="{state.tokenFieldDefs}" as="item" key="prop">
+            <div class="form-group">
+              <label class="form-label">{item.label}</label>
+              <input class="form-input" type="text"
+                data-prop="{item.prop}" value="!{ state.tokens[item.prop] }"
+                oninput="{handleToken}">
+            </div>
+          </veda-loop>
         </div>
         <div class="form-group">
           <label class="form-label">Пользовательский CSS</label>
           <textarea class="form-textarea" rows="12" oninput="{handleCss}"
-            style="font-family:var(--font-mono,monospace)">${escapeHtml(this.state.customCss)}</textarea>
+            style="font-family:var(--font-mono,monospace)">{state.customCss}</textarea>
         </div>
-        <button class="btn btn-primary" onclick="{save}" ${this.state.saving ? 'disabled' : ''}>
-          ${this.state.saving ? 'Сохраняю...' : '💾 Сохранить'}
-        </button>
+        <button class="btn btn-primary" onclick="{save}"
+          !{ state.saving ? 'disabled' : '' }>{saveButtonText}</button>
       </div>
     `;
   }

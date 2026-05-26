@@ -1,4 +1,4 @@
-import { Component } from 'veda-client';
+import { Component, html, raw } from 'veda-client';
 import { marked } from 'marked';
 import { getText, getString, getOrder } from '../utils/blockData.js';
 import { loadModelsOrdered } from '../utils/loadModels.js';
@@ -14,7 +14,8 @@ export default class BlockDocTabs extends Component(HTMLElement) {
     const items = await loadModelsOrdered(itemRefs);
     items.sort((a, b) => getOrder(a) - getOrder(b));
 
-    this.state.tabs      = items.map((item) => ({
+    this.state.tabs      = items.map((item, idx) => ({
+      idx,
       id:      item.id,
       label:   getText(item, 'rdfs:label'),
       fileUrl: getString(item, 'site:fileUrl'),
@@ -60,11 +61,6 @@ export default class BlockDocTabs extends Component(HTMLElement) {
     this.update();
   }
 
-  post () {
-    const slot = this.querySelector('[data-md-slot]');
-    if (slot && this.state.html) slot.innerHTML = this.state.html;
-  }
-
   selectTab (e) {
     const btn = e.target.closest('[data-idx]');
     if (!btn) return;
@@ -75,30 +71,34 @@ export default class BlockDocTabs extends Component(HTMLElement) {
 
   render () {
     const tabs      = this.state.tabs ?? [];
-    const activeIdx = this.state.activeIdx ?? 0;
     const loading   = this.state.loading ?? true;
 
-    if (!tabs.length && loading) return '<div class="loading">...</div>';
-
-    const tabsHtml = tabs.map((t, i) => `
-      <button class="doc-tab${i === activeIdx ? ' doc-tab--active' : ''}"
-              data-idx="${i}" onclick="{selectTab}">${t.label || t.id}</button>`
-    ).join('');
-
-    let bodyHtml;
-    if (loading) {
-      bodyHtml = '<div class="loading">...</div>';
-    } else if (this.state.error) {
-      bodyHtml = '<p class="text-muted">Не удалось загрузить документ.</p>';
-    } else {
-      bodyHtml = '<div class="markdown doc-content" data-md-slot></div>';
+    if (!tabs.length && loading) {
+      return html`<div class="loading">...</div>`;
     }
 
-    return `
+    return html`
       <section class="page-section">
         <div class="container">
-          <nav class="doc-tabs-nav">${tabsHtml}</nav>
-          <div class="doc-tabs-body">${bodyHtml}</div>
+          <nav class="doc-tabs-nav">
+            <veda-loop items="{state.tabs}" as="tab" key="id">
+              <button class="doc-tab !{ tab.idx === state.activeIdx ? ' doc-tab--active' : ''}"
+                      data-idx="{tab.idx}" onclick="{selectTab}">
+                {tab.label || tab.id}
+              </button>
+            </veda-loop>
+          </nav>
+          <div class="doc-tabs-body">
+            <veda-if condition="{state.loading}">
+              <div class="loading">...</div>
+            </veda-if>
+            <veda-if condition="{!state.loading && state.error}">
+              <p class="text-muted">Не удалось загрузить документ.</p>
+            </veda-if>
+            <veda-if condition="{!state.loading && !state.error && state.html}">
+              <div class="markdown doc-content">${raw(this.state.html)}</div>
+            </veda-if>
+          </div>
         </div>
       </section>`;
   }

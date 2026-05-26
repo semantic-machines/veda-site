@@ -1,4 +1,4 @@
-import { Component } from 'veda-client';
+import { Component, html } from 'veda-client';
 import { getOrder } from '../utils/blockData.js';
 import { loadModelsOrdered } from '../utils/loadModels.js';
 
@@ -23,7 +23,7 @@ export default class BlockCards extends Component(HTMLElement) {
   }
 
   render () {
-    return `
+    return html`
       <section class="page-section
                        {state.model['site:bgVariant']?.[0] === 'alt' ? 'page-section--alt' : ''}
                        {state.model['site:cssClass']?.[0] || ''}"
@@ -39,8 +39,8 @@ export default class BlockCards extends Component(HTMLElement) {
                    data-url="{item['site:url']?.[0]}"
                    onclick="{navigateTo}"
                    about="{item.id}">
-                <veda-if condition="{state.model['v-s:hasIcon']?.[0]?.id}">
-                  <img src="/files/{state.model['v-s:hasIcon']?.[0]?.id}" alt=""
+                <veda-if condition="{item['v-s:hasIcon']?.[0]?.id}">
+                  <img src="/files/{item['v-s:hasIcon']?.[0]?.id}" alt=""
                        class="app-card__icon" loading="lazy">
                 </veda-if>
                 <div class="app-card__title" property="rdfs:label"></div>

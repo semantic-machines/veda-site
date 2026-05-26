@@ -1,4 +1,4 @@
-import { Component, Backend } from 'veda-client';
+import { Component, Backend, html } from 'veda-client';
 import { checkCmsAccess } from './cmsUtils.js';
 import BlockEditor from './BlockEditor.js';
 import PageManager from './PageManager.js';
@@ -33,6 +33,11 @@ export default class CmsApp extends Component(HTMLElement) {
     this.state.password  = '';
     this.state.loginError = null;
     this.state.loggingIn = false;
+    this.state.sections  = SECTIONS;
+  }
+
+  get loginButtonText () {
+    return this.state.loggingIn ? 'Вход...' : 'Войти';
   }
 
   async added () {
@@ -92,34 +97,32 @@ export default class CmsApp extends Component(HTMLElement) {
 
   render () {
     if (this.state.checking) {
-      return '<div class="loading">Проверка доступа...</div>';
+      return html`<div class="loading">Проверка доступа...</div>`;
     }
 
     if (!this.state.allowed) {
-      const errHtml = this.state.loginError
-        ? `<div class="alert alert-error">${this.state.loginError}</div>`
-        : '';
-      return `
+      return html`
         <div class="cms-login">
           <div class="cms-login__card">
             <div class="cms-login__title">Вход в CMS</div>
             <div class="cms-login__sub">Управление контентом сайта</div>
-            ${errHtml}
+            <veda-if condition="{state.loginError}">
+              <div class="alert alert-error">{state.loginError}</div>
+            </veda-if>
             <form onsubmit="{submitLogin}">
               <div class="form-group" style="margin-bottom:.75rem">
                 <label class="form-label">Логин</label>
                 <input class="form-input" type="text" autocomplete="username"
-                  value="${this.state.login}" oninput="{handleLogin}">
+                  value="{state.login}" oninput="{handleLogin}">
               </div>
               <div class="form-group">
                 <label class="form-label">Пароль</label>
                 <input class="form-input" type="password" autocomplete="current-password"
-                  value="${this.state.password}" oninput="{handlePassword}">
+                  value="{state.password}" oninput="{handlePassword}">
               </div>
               <div class="cms-login__actions">
-                <button class="btn btn-primary" type="submit" ${this.state.loggingIn ? 'disabled' : ''}>
-                  ${this.state.loggingIn ? 'Вход...' : 'Войти'}
-                </button>
+                <button class="btn btn-primary" type="submit"
+                  !{ state.loggingIn ? 'disabled' : '' }>{loginButtonText}</button>
                 <a class="btn btn-outline" href="{state.homeHref}">← На сайт</a>
               </div>
             </form>
@@ -128,32 +131,29 @@ export default class CmsApp extends Component(HTMLElement) {
       `;
     }
 
-    const section = this.state.section;
-    const navItems = SECTIONS.map((s) => `
-      <a class="cms-nav__item${section === s.id ? ' cms-nav__item--active' : ''}"
-         href="#"
-         data-section="${s.id}"
-         onclick="{selectSection}">
-        <span>${s.icon}</span> ${s.label}
-      </a>
-    `).join('');
-
-    const content = {
-      blocks:   '<cms-block-editor></cms-block-editor>',
-      pages:    '<cms-page-manager></cms-page-manager>',
-      catalog:  '<cms-catalog-editor></cms-catalog-editor>',
-      media:    '<cms-media-uploader></cms-media-uploader>',
-      settings: '<cms-site-settings></cms-site-settings>',
-    }[section] ?? '';
-
-    return `
+    return html`
       <div class="cms-app">
         <header class="cms-header">
           <h1>Управление сайтом</h1>
           <a class="cms-header__back" href="{state.homeHref}">← На сайт</a>
         </header>
-        <nav class="cms-sidebar">${navItems}</nav>
-        <main class="cms-content">${content}</main>
+        <nav class="cms-sidebar">
+          <veda-loop items="{state.sections}" as="s" key="id">
+            <a class="cms-nav__item !{ state.section === s.id ? ' cms-nav__item--active' : '' }"
+               href="#"
+               data-section="{s.id}"
+               onclick="{selectSection}">
+              <span>{s.icon}</span> {s.label}
+            </a>
+          </veda-loop>
+        </nav>
+        <main class="cms-content">
+          <veda-if condition="{state.section === 'blocks'}"><cms-block-editor></cms-block-editor></veda-if>
+          <veda-if condition="{state.section === 'pages'}"><cms-page-manager></cms-page-manager></veda-if>
+          <veda-if condition="{state.section === 'catalog'}"><cms-catalog-editor></cms-catalog-editor></veda-if>
+          <veda-if condition="{state.section === 'media'}"><cms-media-uploader></cms-media-uploader></veda-if>
+          <veda-if condition="{state.section === 'settings'}"><cms-site-settings></cms-site-settings></veda-if>
+        </main>
       </div>
     `;
   }
