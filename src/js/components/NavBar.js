@@ -217,14 +217,13 @@ export default class NavBar extends Component(HTMLElement) {
 
           <div class="{menuClass}">
             <veda-if condition="{state.navItems.length}">
-              <ul id="site-nav-menu" class="navbar__nav">
-                <veda-loop items="{state.navItems}" as="p" key="id">
-                  <li class="navbar__nav-item">
-                    <a href="#/{state.lang}/p/{p.pageUri}"
-                       class="{p.linkClass}"
-                       onclick="{onNavClick}">{p.label}</a>
-                  </li>
-                </veda-loop>
+              <ul id="site-nav-menu" class="navbar__nav"
+                  items="{state.navItems}" as="p" key="id">
+                <li class="navbar__nav-item">
+                  <a href="#/{state.lang}/p/{p.pageUri}"
+                     class="{p.linkClass}"
+                     onclick="{onNavClick}">{p.label}</a>
+                </li>
               </ul>
             </veda-if>
             <veda-if condition="{!state.navItems.length}">

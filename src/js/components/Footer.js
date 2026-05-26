@@ -116,20 +116,22 @@ export default class Footer extends Component(HTMLElement) {
             <a href="https://github.com/semantic-machines/veda" target="_blank">Veda</a>.
           </div>
           <ul class="footer__links">
-            <veda-loop items="{state.footerLinks}" as="l" key="id">
-              <li>
+            <li><a href="https://semantic-machines.com" target="_blank">semantic-machines.com</a></li>
+            <li>
+              <veda-if condition="{state.isAdmin}">
+                <a href="#/cms">{adminLinkText}</a>
+              </veda-if>
+            </li>
+            <li items="{state.footerLinks}" as="l" key="id">
+              <span>
                 <veda-if condition="{l.pageUri}">
                   <a href="#/{state.lang}/p/{l.pageUri}">{l.label}</a>
                 </veda-if>
                 <veda-if condition="{l.external}">
                   <a href="{l.href}" target="_blank">{l.label}</a>
                 </veda-if>
-              </li>
-            </veda-loop>
-            <li><a href="https://semantic-machines.com" target="_blank">semantic-machines.com</a></li>
-            <veda-if condition="{state.isAdmin}">
-              <li><a href="#/cms">{adminLinkText}</a></li>
-            </veda-if>
+              </span>
+            </li>
           </ul>
         </div>
       </footer>
