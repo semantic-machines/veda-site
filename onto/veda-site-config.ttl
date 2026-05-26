@@ -21,7 +21,6 @@ site:VedaSite
   rdf:type site:Site ;
   rdfs:label "Смысловые машины"@ru ;
   rdfs:label "Semantic Machines"@en ;
-  site:slug "veda-site" ;
   site:defaultLang "ru" ;
 
   # Logo: reuses v-s:hasImage (file uploaded to /files/site:SemanticMachinesLogoLong)
@@ -34,7 +33,7 @@ site:VedaSite
   site:hasNavMenu site:MainNavMenu ;
   site:hasNavMenu site:FooterNavMenu ;
 
-  # All pages (including those not in nav menus — used for slug resolution)
+  # All pages (including those not in nav menus)
   site:hasPage  site:PageMain ,
                 site:PagePlatform ,
                 site:PageDocumentation ,

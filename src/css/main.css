@@ -623,6 +623,19 @@ em { font-style: italic; }
   display: none;
 }
 
+.doc-tabs-loading,
+.doc-tabs-error {
+  display: none;
+}
+
+.doc-tabs-body:has(.doc-tabs-loading) .doc-tabs-loading {
+  display: block;
+}
+
+.doc-tabs-body:has(.doc-tabs-error) .doc-tabs-error {
+  display: block;
+}
+
 /* BlockDocTabs */
 .doc-tabs-nav {
   display: flex;

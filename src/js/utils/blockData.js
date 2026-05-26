@@ -1,6 +1,6 @@
-import { marked } from 'marked';
 import lang from '../lang.js';
 import { parseMLString } from './mlValue.js';
+import { parseMarkdown } from './parseMarkdown.js';
 
 function getBiLingual (model, prop) {
   const result = { ru: '', en: '' };
@@ -26,7 +26,7 @@ export function getText (model, prop) {
 export function getMarkdown (model, prop) {
   const text = getText(model, prop);
   if (!text) return '';
-  return marked.parse(text).replace(/(href|src)="files\//g, '$1="/files/');
+  return parseMarkdown(text);
 }
 
 /** Return absolute URL for the first image attached via an object-property. */

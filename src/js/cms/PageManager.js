@@ -1,6 +1,6 @@
 import { Component, Model, html } from 'veda-client';
 import { getBiLingual, saveModel } from './cmsUtils.js';
-import { loadModels, loadModelsOrdered } from '../utils/loadModels.js';
+import { loadModelsOrdered } from '../utils/loadModels.js';
 
 export default class PageManager extends Component(HTMLElement) {
   static tag = 'cms-page-manager';
@@ -22,22 +22,15 @@ export default class PageManager extends Component(HTMLElement) {
 
       const menuItemRefs = mainMenu?.['site:hasMenuItem'] ?? [];
       const menuItems = await loadModelsOrdered(menuItemRefs);
-      const pageRefs = menuItems
-        .map((m) => m['site:targetPage']?.[0])
-        .filter(Boolean);
-      const pageMap = await loadModels(pageRefs);
-
       const items = menuItems.map((m) => {
         const label = getBiLingual(m, 'rdfs:label');
-        const pageRef = m['site:targetPage']?.[0];
-        const page = pageRef ? pageMap.get(pageRef.id) : null;
-        const slug = page?.['site:slug']?.[0] ?? null;
+        const pageUri = m['site:targetPage']?.[0]?.id ?? null;
 
         return {
           id:      m.id,
-          labelRu: label.ru || slug,
-          labelEn: label.en || slug,
-          slug,
+          labelRu: label.ru || pageUri,
+          labelEn: label.en || pageUri,
+          pageUri,
           enabled: !m['v-s:deleted']?.[0],
           model:   m,
         };
@@ -93,7 +86,7 @@ export default class PageManager extends Component(HTMLElement) {
             <div class="page-item" data-id="{p.id}">
               <span class="page-item__label">
                 {p.labelRu} / {p.labelEn}
-                <span class="text-muted" style="font-weight:400"> — /{p.slug}</span>
+                <span class="text-muted" style="font-weight:400"> — {p.pageUri}</span>
               </span>
               <label class="page-item__toggle">
                 <label class="toggle">

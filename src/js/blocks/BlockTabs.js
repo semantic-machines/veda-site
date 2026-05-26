@@ -1,13 +1,49 @@
 import { Component, html, raw } from 'veda-client';
 import { getText, getMarkdown, getFileUrl, getString, getOrder } from '../utils/blockData.js';
 import { loadModels, loadModelsOrdered } from '../utils/loadModels.js';
+import { buildRoute, nav, APP_PAGE } from '../utils/pageNav.js';
 import lang from '../lang.js';
 
-let _lastTabIdx  = 0;
 let _savedScroll = 0;
 
 export default class BlockTabs extends Component(HTMLElement) {
   static tag = 'block-tabs';
+
+  get _detailMode () {
+    return !!this.getAttribute('data-apps-item');
+  }
+
+  _appsFromAttrs () {
+    const aspect = this.getAttribute('data-apps-aspect') || undefined;
+    const item   = this.getAttribute('data-apps-item') || undefined;
+    return aspect || item ? { aspect, item } : undefined;
+  }
+
+  _findItem (itemId) {
+    for (const tab of this.state.tabs ?? []) {
+      const item = tab.items?.find((i) => i.id === itemId);
+      if (item) return item;
+    }
+    return null;
+  }
+
+  _applyApps (apps) {
+    let idx = 0;
+    if (apps?.aspect) {
+      const found = this.state.tabs.findIndex((t) => t.id === apps.aspect);
+      if (found >= 0) idx = found;
+    }
+    this.state.activeIdx   = idx;
+    this.state.activeItems = this.state.tabs[idx]?.items ?? [];
+
+    if (this._detailMode && apps?.item) {
+      this.state.detailItem = this.state.activeItems.find((i) => i.id === apps.item)
+        ?? this._findItem(apps.item)
+        ?? null;
+    } else {
+      this.state.detailItem = null;
+    }
+  }
 
   async added () {
     const m = this.state.model;
@@ -16,8 +52,6 @@ export default class BlockTabs extends Component(HTMLElement) {
     this.state.heading   = getText(m, 'site:heading');
     this.state.bgVariant = getString(m, 'site:bgVariant') || 'default';
     this.state.cssClass  = getString(m, 'site:cssClass') || '';
-
-    const initialItemId = this.getAttribute('data-initial-item');
 
     const tabRefs = m['site:hasItem'] ?? [];
     const tabModels = await loadModelsOrdered(tabRefs);
@@ -49,20 +83,20 @@ export default class BlockTabs extends Component(HTMLElement) {
     tabs.sort((a, b) => a.order - b.order);
     this.state.tabs = tabs.map((tab, idx) => ({ ...tab, idx }));
 
-    if (initialItemId) {
-      for (const tab of this.state.tabs) {
-        const found = tab.items.find((i) => i.id === initialItemId);
-        if (found) {
-          _lastTabIdx            = tab.idx;
-          this.state.detailItem  = found;
-          this.state.activeIdx   = _lastTabIdx;
-          this.state.activeItems = tab.items;
-          break;
-        }
-      }
-    } else {
-      this.state.activeIdx   = _lastTabIdx;
-      this.state.activeItems = this.state.tabs[_lastTabIdx]?.items ?? this.state.tabs[0]?.items ?? [];
+    this._applyApps(this._appsFromAttrs());
+    await this.update();
+    if (this._detailMode) window.scrollTo({ top: 0, behavior: 'instant' });
+  }
+
+  /** @param {{ aspect?: string, item?: string } | undefined} apps */
+  async applyAppsRoute (apps) {
+    if (!this.state.tabs?.length) return;
+    this._applyApps(apps);
+    await this.update();
+    if (!this._detailMode && _savedScroll > 0) {
+      const y = _savedScroll;
+      _savedScroll = 0;
+      requestAnimationFrame(() => window.scrollTo({ top: y, behavior: 'instant' }));
     }
   }
 
@@ -82,59 +116,64 @@ export default class BlockTabs extends Component(HTMLElement) {
 
   selectTab (e) {
     const btn = e.target.closest('[data-idx]');
-    if (!btn) return;
+    if (!btn || !lang.current || lang.page !== APP_PAGE) return;
     const idx = parseInt(btn.dataset.idx, 10);
     if (isNaN(idx) || idx === this.state.activeIdx) return;
-    _lastTabIdx            = idx;
-    this.state.activeIdx   = idx;
-    this.state.activeItems = this.state.tabs[idx]?.items ?? [];
-    this.update();
+    const aspect = this.state.tabs[idx];
+    if (!aspect) return;
+    nav(buildRoute(lang.current, lang.page, { apps: { aspect: aspect.id } }));
   }
 
   openItem (e) {
     const card = e.target.closest('[data-item-id]');
-    if (!card) return;
+    if (!card || !lang.current || lang.page !== APP_PAGE) return;
     _savedScroll = window.scrollY;
-    const blockId = encodeURIComponent(this.getAttribute('about'));
-    const itemId  = encodeURIComponent(card.dataset.itemId);
-    window.location.hash = `#/${lang.current}/b/${blockId}/${itemId}`;
+    const aspect = this.state.tabs[this.state.activeIdx];
+    if (!aspect) return;
+    nav(buildRoute(lang.current, lang.page, {
+      apps: { aspect: aspect.id, item: card.dataset.itemId },
+    }));
   }
 
   closeItem () {
-    if (_savedScroll > 0) {
-      const y = _savedScroll;
-      _savedScroll = 0;
-      requestAnimationFrame(() => window.scrollTo({ top: y, behavior: 'instant' }));
+    const aspect = this.state.tabs[this.state.activeIdx];
+    if (!aspect || !lang.current) return;
+    // Prefer returning via browser history (works for hash-navigation).
+    if (history.length > 1) {
+      history.back();
+      return;
     }
-    window.history.back();
+    // Fallback for direct deep-link to detail.
+    nav(buildRoute(lang.current, lang.page, { apps: { aspect: aspect.id } }));
   }
 
   render () {
-    if (this.state.detailItem) {
+    if (this._detailMode) {
+      if (!this.state.detailItem) return html`<div class="loading">...</div>`;
+      const item = this.state.detailItem;
       return html`
         <section class="page-section {state.cssClass}">
           <div class="container">
             <div class="app-detail__header">
-              <veda-if condition="{state.detailItem.iconUrl}">
-                <img src="{state.detailItem.iconUrl}" alt="" class="app-detail__icon">
+              <veda-if condition="{state.detailItem?.iconUrl}">
+                <img src="{state.detailItem?.iconUrl}" alt="" class="app-detail__icon">
               </veda-if>
               <div>
-                <h1 class="page-heading">{state.detailItem.label}</h1>
-                <veda-if condition="{state.detailItem.comment}">
-                  <p class="lead text-muted">{state.detailItem.comment}</p>
+                <h1 class="page-heading">{state.detailItem?.label}</h1>
+                <veda-if condition="{state.detailItem?.comment}">
+                  <p class="lead text-muted">{state.detailItem?.comment}</p>
                 </veda-if>
               </div>
             </div>
-            <veda-if condition="{state.detailItem.summaryHtml}">
-              <div class="markdown app-detail__summary">${raw(this.state.detailItem.summaryHtml)}</div>
+            <veda-if condition="{state.detailItem?.summaryHtml}">
+              <div class="markdown app-detail__summary">${raw(item.summaryHtml)}</div>
             </veda-if>
-            <veda-if condition="{state.detailItem.descHtml}">
-              <div class="markdown app-detail__desc">${raw(this.state.detailItem.descHtml)}</div>
+            <veda-if condition="{state.detailItem?.descHtml}">
+              <div class="markdown app-detail__desc">${raw(item.descHtml)}</div>
             </veda-if>
             <button class="btn btn-outline app-detail__back" onclick="{closeItem}">{backLabel}</button>
           </div>
-        </section>
-      `;
+        </section>`;
     }
 
     return html`
@@ -168,7 +207,6 @@ export default class BlockTabs extends Component(HTMLElement) {
             </div>
           </div>
         </div>
-      </div>
-    `;
+      </div>`;
   }
 }

@@ -3,6 +3,7 @@ import lang from './lang.js';
 import { swapOutlet } from './utils/swapOutlet.js';
 import { ensureCmsCss } from './utils/cmsCss.js';
 import { markAppReady } from './utils/appSkeleton.js';
+import { initTocLinks, initPageNav, parseRoute } from './utils/pageNav.js';
 
 function getOutlet () {
   return document.querySelector('site-app main')
@@ -20,7 +21,6 @@ function setSiteChrome (visible) {
   if (app) app.classList.toggle('cms-mode', !visible);
 }
 
-/** CMS: immediate replace, no transition spinner. */
 async function mountCmsView (tag, setupFn) {
   const outlet = getOutlet();
   if (!outlet) return;
@@ -32,89 +32,91 @@ async function mountCmsView (tag, setupFn) {
   window.scrollTo({ top: 0, behavior: 'instant' });
 }
 
-/** Public routes: pre-render off-screen, swap when rendered (spinner over current view). */
 async function mountPublicView (tag, setupFn) {
   const outlet = getOutlet();
-  if (!outlet) return;
-
+  if (!outlet) return null;
+  let view = null;
   await swapOutlet(outlet, () => {
-    const view = document.createElement(tag);
+    view = document.createElement(tag);
     if (setupFn) setupFn(view);
     return view;
   });
+  return view;
 }
 
+/** @type {{ page: string, lang: string, view: import('./components/SiteView.js').default } | null} */
+let mounted = null;
+
+let routesReady = false;
+
 export function initRoutes (homeUri) {
+  if (routesReady) return;
+  routesReady = true;
+
   const router = new Router();
+  router.clear();
+  initPageNav((hash) => router.go(hash));
+  initTocLinks();
 
-  // ── Universal page route ────────────────────────────────────────────────────
-  router.add('#/:l/p/:pageUri', async (l, pageUri) => {
+  async function syncPage () {
+    const route = parseRoute();
+    if (!route) return;
+
     setSiteChrome(true);
-    setLang(l, pageUri);
-    const module = await import('./components/PageRenderer.js');
-    if (!customElements.get(module.default.tag)) {
-      customElements.define(module.default.tag, module.default);
-    }
-    await mountPublicView(module.default.tag, (view) => {
-      view.setAttribute('about', decodeURIComponent(pageUri));
-    });
-  });
+    setLang(route.l, route.page);
 
-  // ── Tabs block: #/ru/b/:blockId  (list view) ───────────────────────────────
-  router.add('#/:l/b/:blockId', async (l, blockId) => {
-    setSiteChrome(true);
-    setLang(l, 'tabs');
-    const module = await import('./blocks/BlockTabs.js');
-    if (!customElements.get(module.default.tag)) {
-      customElements.define(module.default.tag, module.default);
-    }
-    await mountPublicView(module.default.tag, (view) => {
-      view.setAttribute('about', decodeURIComponent(blockId));
-    });
-  });
+    const needMount = !mounted
+      || mounted.page !== route.page
+      || mounted.lang !== route.l;
 
-  // ── Tabs block deep-link: #/ru/b/:blockId/:itemId  (detail view) ───────────
-  router.add('#/:l/b/:blockId/:itemId', async (l, blockId, itemId) => {
-    setSiteChrome(true);
-    setLang(l, 'tabs');
-    const module = await import('./blocks/BlockTabs.js');
-    if (!customElements.get(module.default.tag)) {
-      customElements.define(module.default.tag, module.default);
+    if (needMount) {
+      mounted = null;
+      const mod = await import('./components/SiteView.js');
+      if (!customElements.get(mod.default.tag)) {
+        customElements.define(mod.default.tag, mod.default);
+      }
+      const view = await mountPublicView(mod.default.tag);
+      if (view) {
+        mounted = { page: route.page, lang: route.l, view };
+        await view.rendered;
+      }
+      return;
     }
-    await mountPublicView(module.default.tag, (view) => {
-      view.setAttribute('about',            decodeURIComponent(blockId));
-      view.setAttribute('data-initial-item', decodeURIComponent(itemId));
-    });
-  });
 
-  // ── CMS ─────────────────────────────────────────────────────────────────────
+    mounted.view.refresh();
+  }
+
+  const pageRoute = () => { void syncPage(); };
+
+  router.add('#/:l/p/:pageUri/doc/:tab/:section', pageRoute);
+  router.add('#/:l/p/:pageUri/doc/:tab', pageRoute);
+  router.add('#/:l/p/:pageUri/apps/:aspect/:item', pageRoute);
+  router.add('#/:l/p/:pageUri/apps/:aspect', pageRoute);
+  router.add('#/:l/p/:pageUri', pageRoute);
+
   router.add('#/cms', async () => {
+    mounted = null;
     setSiteChrome(false);
     ensureCmsCss();
-    const module = await import('./cms/CmsApp.js');
-    if (!customElements.get(module.default.tag)) {
-      customElements.define(module.default.tag, module.default);
+    const mod = await import('./cms/CmsApp.js');
+    if (!customElements.get(mod.default.tag)) {
+      customElements.define(mod.default.tag, mod.default);
     }
-    await mountCmsView(module.default.tag);
+    await mountCmsView(mod.default.tag);
   });
 
-  // ── Ontology graph viewer ───────────────────────────────────────────────────
   router.add('#/:l/graph/:uri', async (l, uri) => {
+    mounted = null;
     setSiteChrome(true);
     setLang(l, 'platform');
-    const module = await import('./components/OntologyGraph.js');
-    if (!customElements.get(module.default.tag)) {
-      customElements.define(module.default.tag, module.default);
+    const mod = await import('./components/OntologyGraph.js');
+    if (!customElements.get(mod.default.tag)) {
+      customElements.define(mod.default.tag, mod.default);
     }
-    await mountPublicView(module.default.tag, (view) => {
+    await mountPublicView(mod.default.tag, (view) => {
       view.setAttribute('data-root-uri', decodeURIComponent(uri));
     });
   });
-
-  // ── Fallback: any unmatched #/lang/xxx → home page ──────────────────────────
-  if (homeUri) {
-    router.add('#/:l/:page', (l) => { router.go(`#/${l}/p/${homeUri}`); });
-  }
 
   const initialHash = location.hash
     || (homeUri ? `#/${lang.current}/p/${homeUri}` : '');

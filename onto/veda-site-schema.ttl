@@ -132,15 +132,6 @@ site:SiteApplication
 # PROPERTIES — Site
 # ═══════════════════════════════════════════════════════════
 
-# URL segment for a Page, e.g. "platform" → #/ru/platform
-# Also used as a site identifier slug.
-site:slug
-  rdf:type owl:DatatypeProperty ;
-  rdfs:label "URL-слаг"@ru ;
-  rdfs:label "URL slug"@en ;
-  rdfs:range xsd:string ;
-.
-
 site:defaultLang
   rdf:type owl:DatatypeProperty ;
   rdfs:domain site:Site ;
