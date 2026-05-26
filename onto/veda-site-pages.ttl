@@ -26,6 +26,13 @@ site:PlatformIcon
   v-s:filePath "/site" ;
 .
 
+site:DocumentationIcon
+  rdf:type v-s:File, site:SiteFile ;
+  v-s:fileUri "documentation.svg" ;
+  v-s:fileName "documentation.svg" ;
+  v-s:filePath "/site" ;
+.
+
 site:PriceIcon
   rdf:type v-s:File, site:SiteFile ;
   v-s:fileUri "price.svg" ;
@@ -448,7 +455,7 @@ site:BlockDocumentationHero
   site:blockType "text" ;
   v-s:order 10 ;
   site:imagePos "right" ;
-  v-s:hasImage site:PlatformIcon ;
+  v-s:hasImage site:DocumentationIcon ;
   site:heading "Документация"@ru ;
   site:heading "Documentation"@en ;
   site:summary "> Руководство разработчика и справочник HTTP API платформы Veda (Веда)."@ru ;

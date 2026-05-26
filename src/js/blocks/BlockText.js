@@ -18,7 +18,7 @@ export default class BlockText extends Component(HTMLElement) {
             </div>
             <veda-if condition="{state.model.hasValue('v-s:hasImage')}">
               <div class="section-media">
-                <img :src="/files/{state.model['v-s:hasImage']?.[0]?.id}" alt="" class="section-img" loading="lazy">
+                <img :src="/files/{state.model['v-s:hasImage']?.[0]?.id}" alt="" class="section-img">
               </div>
             </veda-if>
           </div>

@@ -7,6 +7,8 @@ const FILES_TO_CACHE = [
   'index.js',
   'css/main.css',
   'css/layout.css',
+  'css/outlet.css',
+  'css/skeleton.css',
 ];
 
 const API_FNS = [

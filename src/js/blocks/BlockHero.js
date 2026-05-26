@@ -24,7 +24,7 @@ export default class BlockHero extends Component(HTMLElement) {
             <veda-if condition="{state.model['v-s:hasImage']?.[0]?.id}">
               <div class="block-hero__image">
                 <img src="/files/{state.model['v-s:hasImage']?.[0]?.id}" alt=""
-                     class="section-img section-img--large" loading="lazy">
+                     class="section-img section-img--large">
               </div>
             </veda-if>
           </div>

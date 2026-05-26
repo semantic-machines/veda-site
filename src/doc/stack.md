@@ -62,5 +62,4 @@
 ## Исходный код
 
 Платформа Veda распространяется с открытым исходным кодом:
-
-**[https://github.com/semantic-machines/veda](https://github.com/semantic-machines/veda)**
+[https://github.com/semantic-machines/veda](https://github.com/semantic-machines/veda)

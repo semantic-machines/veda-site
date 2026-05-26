@@ -78,6 +78,7 @@ export default class NavBar extends Component(HTMLElement) {
     this.state.lang      = lang.current;
     this.state.page      = lang.page;
     this.state.menuOpen  = false;
+    this.state.menuLoading = true;
     this._backdrop       = null;
   }
 
@@ -103,26 +104,30 @@ export default class NavBar extends Component(HTMLElement) {
       ? `/files/${site['v-s:hasImage'][0].id}`
       : null;
 
-    const menus = await Promise.all(
-      (site?.['site:hasNavMenu'] ?? []).map(async (ref) => {
-        const menu = new Model(ref.id);
-        await menu.load();
-        const items = await loadMenuItems(menu['site:hasMenuItem'] ?? []);
-        return { position: menu['site:navPosition']?.[0] ?? 'main', items };
-      })
-    );
+    try {
+      const menus = await Promise.all(
+        (site?.['site:hasNavMenu'] ?? []).map(async (ref) => {
+          const menu = new Model(ref.id);
+          await menu.load();
+          const items = await loadMenuItems(menu['site:hasMenuItem'] ?? []);
+          return { position: menu['site:navPosition']?.[0] ?? 'main', items };
+        })
+      );
 
-    const mainMenu = menus.find((m) => m.position === 'main') ?? { items: [] };
-    this.state.navItems = mainMenu.items.map((item) => ({
-      id:      item.pageUri,
-      pageUri: item.pageUri,
-      labelRu: item.labelBi.ru,
-      labelEn: item.labelBi.en,
-    }));
+      const mainMenu = menus.find((m) => m.position === 'main') ?? { items: [] };
+      this.state.navItems = mainMenu.items.map((item) => ({
+        id:      item.pageUri,
+        pageUri: item.pageUri,
+        labelRu: item.labelBi.ru,
+        labelEn: item.labelBi.en,
+      }));
 
-    this.state.homeUri = site?.['site:homePage']?.[0]?.id
-      ?? mainMenu.items[0]?.pageUri
-      ?? '';
+      this.state.homeUri = site?.['site:homePage']?.[0]?.id
+        ?? mainMenu.items[0]?.pageUri
+        ?? '';
+    } finally {
+      this.state.menuLoading = false;
+    }
 
     this.effect(() => {
       this.state.lang = lang.current;
@@ -176,6 +181,24 @@ export default class NavBar extends Component(HTMLElement) {
          <span class="navbar__logo-text" style="display:none">Смысловые машины</span>`
       : `<span class="navbar__logo-text">Смысловые машины</span>`;
 
+    const navMenuHtml = this.state.navItems.length
+      ? `<ul id="site-nav-menu" class="navbar__nav"
+              items="{state.navItems}" as="p" key="id">
+           <li class="navbar__nav-item">
+             <a href="#/{state.lang}/p/{p.pageUri}"
+                class="{state.page === p.pageUri ? 'active' : ''}"
+                onclick="{onNavClick}">
+               {state.lang === 'en' ? p.labelEn || p.labelRu : p.labelRu}
+             </a>
+           </li>
+         </ul>`
+      : `<ul class="navbar__nav navbar__nav--skeleton" aria-hidden="true">
+           <li class="navbar__nav-item"><span></span></li>
+           <li class="navbar__nav-item"><span></span></li>
+           <li class="navbar__nav-item"><span></span></li>
+           <li class="navbar__nav-item"><span></span></li>
+         </ul>`;
+
     return `
       <nav class="navbar">
         <div class="container navbar__inner">
@@ -183,16 +206,7 @@ export default class NavBar extends Component(HTMLElement) {
           <a class="navbar__brand" href="#/{state.lang}/p/{state.homeUri}">${logoHtml}</a>
 
           <div class="navbar__menu {state.menuOpen ? 'is-open' : ''}">
-            <ul id="site-nav-menu" class="navbar__nav"
-                items="{state.navItems}" as="p" key="id">
-              <li class="navbar__nav-item">
-                <a href="#/{state.lang}/p/{p.pageUri}"
-                   class="{state.page === p.pageUri ? 'active' : ''}"
-                   onclick="{onNavClick}">
-                  {state.lang === 'en' ? p.labelEn || p.labelRu : p.labelRu}
-                </a>
-              </li>
-            </ul>
+            ${navMenuHtml}
           </div>
 
           <div class="navbar__lang">

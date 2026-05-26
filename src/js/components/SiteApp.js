@@ -16,7 +16,7 @@ export default class SiteApp extends Component(HTMLElement) {
     this.state.model = new Model('site:VedaSite');
   }
 
-  async added () {
+  added () {
     this._onError = (e) => {
       console.error('[veda-site] uncaught error:', e.error ?? e.message);
     };
@@ -26,14 +26,23 @@ export default class SiteApp extends Component(HTMLElement) {
     window.addEventListener('error', this._onError);
     window.addEventListener('unhandledrejection', this._onRejection);
 
-    // Load site model to discover the home page URI for fallback routing.
     const site = this.state.model;
-    try { await site.load(); } catch { /* offline / dev */ }
-    const homeUri = site['site:homePage']?.[0]?.id
-      ?? site['site:hasPage']?.[0]?.id
-      ?? null;
+    const hasHash = !!location.hash;
 
-    initRoutes(homeUri);
+    if (hasHash) {
+      initRoutes(null);
+      void site.load().catch(() => {});
+      return;
+    }
+
+    void site.load()
+      .catch(() => {})
+      .finally(() => {
+        const homeUri = site['site:homePage']?.[0]?.id
+          ?? site['site:hasPage']?.[0]?.id
+          ?? null;
+        initRoutes(homeUri);
+      });
   }
 
   removed () {

@@ -1,6 +1,8 @@
 import { Router } from 'veda-client';
 import lang from './lang.js';
 import { swapOutlet } from './utils/swapOutlet.js';
+import { ensureCmsCss } from './utils/cmsCss.js';
+import { markAppReady } from './utils/appSkeleton.js';
 
 function getOutlet () {
   return document.querySelector('site-app main')
@@ -25,6 +27,8 @@ async function mountCmsView (tag, setupFn) {
   const view = document.createElement(tag);
   if (setupFn) setupFn(view);
   outlet.replaceChildren(view);
+  await view.rendered;
+  markAppReady();
   window.scrollTo({ top: 0, behavior: 'instant' });
 }
 
@@ -86,6 +90,7 @@ export function initRoutes (homeUri) {
   // ── CMS ─────────────────────────────────────────────────────────────────────
   router.add('#/cms', async () => {
     setSiteChrome(false);
+    ensureCmsCss();
     const module = await import('./cms/CmsApp.js');
     if (!customElements.get(module.default.tag)) {
       customElements.define(module.default.tag, module.default);

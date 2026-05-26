@@ -23,9 +23,12 @@ export default class Footer extends Component(HTMLElement) {
     this.state.lang        = lang.current;
   }
 
-  async added () {
+  added () {
     this.effect(() => { this.state.lang = lang.current; });
+    void this._loadFooterData();
+  }
 
+  async _loadFooterData () {
     const site = this.state.model;
 
     // Load footer menu links from the site model
@@ -100,6 +103,7 @@ export default class Footer extends Component(HTMLElement) {
             <img src="/files/site:SemanticMachinesLogoLong"
                  alt="Смысловые машины"
                  class="footer__logo"
+                 width="200" height="28"
                  onerror="this.style.display='none';this.nextElementSibling.style.display='inline'">
             <span class="footer__logo-text" style="display:none">Смысловые машины</span>
           </div>

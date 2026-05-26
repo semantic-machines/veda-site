@@ -1,3 +1,5 @@
+import { markAppReady } from './appSkeleton.js';
+
 const SPINNER_DELAY_MS = 200;
 
 let swapGeneration = 0;
@@ -30,6 +32,7 @@ export async function swapOutlet (outlet, createView) {
     if (generation !== swapGeneration) return;
     prerenderRoot = null;
     outlet.replaceChildren(view);
+    markAppReady();
     window.scrollTo({ top: 0, behavior: 'instant' });
   } finally {
     if (prerender.isConnected) prerender.remove();

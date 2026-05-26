@@ -1,0 +1,188 @@
+/* Static shell shown before JS hydrates the app */
+
+.app-skeleton {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: var(--color-bg);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  transition: opacity 0.15s ease;
+}
+
+.app-skeleton--out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.app-skeleton__nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #fff;
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+}
+
+.app-skeleton__nav-inner {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding-block: 0.6rem;
+}
+
+.app-skeleton__logo {
+  width: 160px;
+  height: 28px;
+  border-radius: var(--radius-sm);
+}
+
+.app-skeleton__nav-links {
+  flex: 1;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.app-skeleton__nav-link {
+  width: 72px;
+  height: 16px;
+  border-radius: var(--radius-sm);
+}
+
+.app-skeleton__lang {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.app-skeleton__lang-btn {
+  width: 32px;
+  height: 28px;
+  border-radius: var(--radius-sm);
+}
+
+.app-skeleton__main {
+  flex: 1;
+  padding-block: var(--section-pad);
+}
+
+.app-skeleton__hero {
+  max-width: 640px;
+  margin-bottom: 3rem;
+}
+
+.app-skeleton__line {
+  height: 1em;
+  border-radius: var(--radius-sm);
+  margin-bottom: 0.75rem;
+}
+
+.app-skeleton__line--title {
+  height: 2.25rem;
+  width: 70%;
+  margin-bottom: 1.25rem;
+}
+
+.app-skeleton__line--short {
+  width: 55%;
+}
+
+.app-skeleton__cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.app-skeleton__card {
+  height: 140px;
+  border-radius: var(--radius-md);
+}
+
+/* Shimmer */
+
+.sk-shimmer,
+.app-skeleton__logo,
+.app-skeleton__nav-link,
+.app-skeleton__lang-btn,
+.app-skeleton__line,
+.app-skeleton__card,
+.navbar__nav--skeleton .navbar__nav-item span {
+  background: linear-gradient(
+    90deg,
+    var(--color-bg-alt) 0%,
+    #eef1f6 40%,
+    var(--color-bg-alt) 80%
+  );
+  background-size: 200% 100%;
+  animation: sk-shimmer 1.4s ease-in-out infinite;
+}
+
+@keyframes sk-shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* In-app page skeleton (inside main-outlet before first route) */
+
+.page-skeleton {
+  padding-block: var(--section-pad);
+}
+
+.page-skeleton__hero {
+  max-width: 640px;
+  margin-bottom: 3rem;
+}
+
+.page-skeleton__line {
+  height: 1em;
+  border-radius: var(--radius-sm);
+  margin-bottom: 0.75rem;
+}
+
+.page-skeleton__line--title {
+  height: 2.25rem;
+  width: 70%;
+  margin-bottom: 1.25rem;
+}
+
+.page-skeleton__line--short {
+  width: 55%;
+}
+
+.page-skeleton__cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.page-skeleton__card {
+  height: 140px;
+  border-radius: var(--radius-md);
+}
+
+.page-skeleton__line,
+.page-skeleton__card {
+  background: linear-gradient(
+    90deg,
+    var(--color-bg-alt) 0%,
+    #eef1f6 40%,
+    var(--color-bg-alt) 80%
+  );
+  background-size: 200% 100%;
+  animation: sk-shimmer 1.4s ease-in-out infinite;
+}
+
+/* Navbar placeholder links while menu loads */
+
+.navbar__nav--skeleton {
+  list-style: none;
+  pointer-events: none;
+}
+
+.navbar__nav--skeleton .navbar__nav-item span {
+  display: block;
+  width: 72px;
+  height: 16px;
+  border-radius: var(--radius-sm);
+}
