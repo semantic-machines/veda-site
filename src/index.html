@@ -98,10 +98,10 @@
     }
   </style>
   <!-- Preload app CSS without blocking first paint (stylesheets are after #app-skeleton). -->
-  <link rel="preload" href="css/main.css" as="style">
-  <link rel="preload" href="css/layout.css" as="style">
-  <link rel="preload" href="css/outlet.css" as="style">
-  <link rel="preload" href="css/skeleton.css" as="style">
+  <link rel="preload" href="css/main.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="css/layout.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="css/outlet.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="css/skeleton.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 </head>
 <body>
   <div id="app-skeleton" class="app-skeleton" aria-hidden="true">
@@ -136,11 +136,7 @@
       </div>
     </main>
   </div>
-  <link rel="stylesheet" href="css/main.css">
-  <link rel="stylesheet" href="css/layout.css">
-  <link rel="stylesheet" href="css/outlet.css">
-  <link rel="stylesheet" href="css/skeleton.css">
   <site-app></site-app>
-  <script type="module" src="index.js"></script>
+  <script type="module" src="index.js" defer></script>
 </body>
 </html>
