@@ -1,5 +1,6 @@
 import * as esbuild from 'esbuild';
 import * as fs from 'fs';
+import { buildCss } from './cssBuild.mjs';
 import options from './options.mjs';
 
 // Clean dist
@@ -11,7 +12,7 @@ fs.mkdirSync('dist');
 // Copy static files
 fs.copyFileSync('src/index.html', 'dist/index.html');
 fs.copyFileSync('src/ServiceWorker.js', 'dist/ServiceWorker.js');
-fs.cpSync('src/css', 'dist/css', { recursive: true });
+await buildCss({ minify: true });
 
 // Copy favicon from site files
 const faviconDst = 'dist/css/img';

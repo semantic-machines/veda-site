@@ -75,6 +75,13 @@ site:ImageHydraContract
   v-s:filePath "/site" ;
 .
 
+site:ImageHydraContractW
+  rdf:type v-s:File, site:SiteFile ;
+  v-s:fileUri "hydra-contract.webp" ;
+  v-s:fileName "hydra-contract.webp" ;
+  v-s:filePath "/site" ;
+.
+
 # ═══════════════════════════════════════════════════════════════════════════════
 # PAGES
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -212,7 +219,7 @@ site:BlockMainPlatform
   site:bgVariant "alt" ;
   site:imagePos "right" ;
   site:cssClass "block-text--large-img" ;
-  v-s:hasImage site:ImageHydraContract ;
+  v-s:hasImage site:ImageHydraContractW ;
   site:heading "Платформа Veda (Веда)"@ru ;
   site:heading "Platform Veda"@en ;
   site:summary """
@@ -422,7 +429,7 @@ site:BlockPlatformStack
 | Слой | Технологии |
 |---|---|
 | **Сервер** | Rust |
-| **Хранение данных** | Tarantool (мастер-данные), Xapian (полнотекстовый поиск), ClickHouse (индексы, опционально), Oxygraph / SPARQL (опционально) |
+| **Хранение данных** | Tarantool (мастер-данные), Xapian (полнотекстовый поиск), ClickHouse (индексы, опционально), Oxigraph / SPARQL (опционально) |
 | **Скрипты** | JavaScript, движок V8 |
 | **Клиент** | Ванильный JavaScript, Web Components, HTML5/CSS3 |
 | **Транспорт** | HTTP REST API, WebSocket |
@@ -435,7 +442,7 @@ site:BlockPlatformStack
 | Layer | Technologies |
 |---|---|
 | **Server** | Rust |
-| **Data storage** | Tarantool (master data), Xapian (full-text search), ClickHouse (indexes, optional), Oxygraph / SPARQL (optional) |
+| **Data storage** | Tarantool (master data), Xapian (full-text search), ClickHouse (indexes, optional), Oxigraph / SPARQL (optional) |
 | **Scripting** | JavaScript, V8 engine |
 | **Client** | Vanilla JavaScript, Web Components, HTML5/CSS3 |
 | **Transport** | HTTP REST API, WebSocket |

@@ -1,6 +1,7 @@
 import * as esbuild from 'esbuild';
 import * as fs from 'fs';
 import * as http from 'http';
+import { buildCss } from './cssBuild.mjs';
 import options from './options.mjs';
 
 const BACKEND_HOST = process.env.BACKEND_HOST || 'localhost';
@@ -15,7 +16,7 @@ fs.mkdirSync('dist');
 // Copy static files
 fs.copyFileSync('src/index.html', 'dist/index.html');
 fs.copyFileSync('src/ServiceWorker.js', 'dist/ServiceWorker.js');
-fs.cpSync('src/css', 'dist/css', { recursive: true });
+await buildCss({ minify: false });
 
 // Copy favicon
 const faviconDst = 'dist/css/img';
@@ -38,8 +39,7 @@ fs.watch('src', { recursive: true }, (eventType, filename) => {
     console.log('Copied ServiceWorker.js');
   }
   if (filename?.endsWith('.css')) {
-    fs.cpSync('src/css', 'dist/css', { recursive: true });
-    console.log('Copied CSS');
+    void buildCss({ minify: false }).then(() => console.log('Built CSS'));
   }
   if (filename?.startsWith('doc/')) {
     fs.cpSync('src/doc', 'dist/doc', { recursive: true });
