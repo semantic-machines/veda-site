@@ -2,14 +2,8 @@ const VERSION = 1;
 const FILES = `files-${VERSION}`;
 const API = 'api';
 
-const FILES_TO_CACHE = [
-  'index.html',
-  'index.js',
-  'css/main.css',
-  'css/layout.css',
-  'css/outlet.css',
-  'css/skeleton.css',
-];
+// Filled at build from dist/ contents (see swBuild.mjs)
+const FILES_TO_CACHE = [];
 
 const API_FNS = [
   '/authenticate',

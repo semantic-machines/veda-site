@@ -2,6 +2,7 @@ import * as esbuild from 'esbuild';
 import * as fs from 'fs';
 import { buildCss } from './cssBuild.mjs';
 import options from './options.mjs';
+import { buildServiceWorker } from './swBuild.mjs';
 
 // Clean dist
 if (fs.existsSync('dist')) {
@@ -11,7 +12,6 @@ fs.mkdirSync('dist');
 
 // Copy static files
 fs.copyFileSync('src/index.html', 'dist/index.html');
-fs.copyFileSync('src/ServiceWorker.js', 'dist/ServiceWorker.js');
 await buildCss({ minify: true });
 
 // Copy favicon from site files
@@ -31,10 +31,7 @@ await esbuild.build({
   minify: true,
 });
 
-// Update ServiceWorker version for cache busting on deploy
-let swContent = fs.readFileSync('dist/ServiceWorker.js', 'utf8');
-swContent = swContent.replace(/const VERSION = \d+/, `const VERSION = ${Date.now()}`);
-fs.writeFileSync('dist/ServiceWorker.js', swContent);
+buildServiceWorker({ bustCache: true });
 
 console.log('Build complete!');
 console.log('Run "node deploy.mjs" to copy dist/ to public/site/');

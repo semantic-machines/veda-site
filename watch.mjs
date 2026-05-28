@@ -3,6 +3,7 @@ import * as fs from 'fs';
 import * as http from 'http';
 import { buildCss } from './cssBuild.mjs';
 import options from './options.mjs';
+import { buildServiceWorker } from './swBuild.mjs';
 
 const BACKEND_HOST = process.env.BACKEND_HOST || 'localhost';
 const BACKEND_PORT = parseInt(process.env.BACKEND_PORT || '8080', 10);
@@ -15,7 +16,6 @@ fs.mkdirSync('dist');
 
 // Copy static files
 fs.copyFileSync('src/index.html', 'dist/index.html');
-fs.copyFileSync('src/ServiceWorker.js', 'dist/ServiceWorker.js');
 await buildCss({ minify: false });
 
 // Copy favicon
@@ -35,14 +35,18 @@ fs.watch('src', { recursive: true }, (eventType, filename) => {
     console.log('Copied index.html');
   }
   if (filename === 'ServiceWorker.js') {
-    fs.copyFileSync('src/ServiceWorker.js', 'dist/ServiceWorker.js');
-    console.log('Copied ServiceWorker.js');
+    buildServiceWorker();
+    console.log('Built ServiceWorker.js');
   }
   if (filename?.endsWith('.css')) {
-    void buildCss({ minify: false }).then(() => console.log('Built CSS'));
+    void buildCss({ minify: false }).then(() => {
+      buildServiceWorker();
+      console.log('Built CSS');
+    });
   }
   if (filename?.startsWith('doc/')) {
     fs.cpSync('src/doc', 'dist/doc', { recursive: true });
+    buildServiceWorker();
     console.log('Copied doc assets');
   }
 });
@@ -51,6 +55,12 @@ fs.watch('src', { recursive: true }, (eventType, filename) => {
 const ctx = await esbuild.context({
   ...options,
   sourcemap: true,
+  plugins: [{
+    name: 'sw-build',
+    setup (build) {
+      build.onEnd(() => buildServiceWorker());
+    },
+  }],
 });
 
 await ctx.watch();
