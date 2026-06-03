@@ -649,7 +649,7 @@ cs:OrderTemplate
 - **veda-search-index-tt**
   * Индексация обьектов в базу данных ClickHouse.
 - **veda-sparql-indexer**
-  * Индексация обьектов в базу данных  Oxygraph.
+  * Индексация обьектов в базу данных  Oxigraph.
 
 
 
